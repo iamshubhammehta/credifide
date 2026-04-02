@@ -1695,7 +1695,7 @@ export default function App() {
              </Link>
           </div>
 
-          <footer className="bg-brand-deep py-12 text-white relative overflow-hidden">
+          <footer className="bg-[#0B302B] py-16 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
             
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -1704,16 +1704,16 @@ export default function App() {
                 <div className="mb-10">
                    <Link to="/" className="flex items-center">
                      <img
-                       src={ASSETS.brand.logoImage as string}
+                       src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png"
                        alt="Credifide"
-                       className="h-9 sm:h-10 w-auto object-contain brightness-0 invert"
+                       className="h-10 sm:h-12 w-auto object-contain"
                        loading="lazy"
                      />
                    </Link>
                 </div>
 
                 {/* Primary Links */}
-                <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 text-base font-bold text-brand-100/70">
+                <nav className="flex flex-wrap justify-center gap-x-10 gap-y-6 mb-12 text-lg font-bold text-brand-100/90">
                    <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
                    <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
                    <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
@@ -1722,20 +1722,20 @@ export default function App() {
                 </nav>
 
                 {/* Info Bar */}
-                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 py-8 border-t border-white/5">
-                   <a href="tel:+13215240606" className="text-brand-100 font-bold hover:text-brand-accent transition-colors">
+                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 py-10 border-t border-white/10">
+                   <a href="tel:+13215240606" className="text-brand-100 text-xl font-bold hover:text-brand-accent transition-colors">
                       +1-321-524-0606
                    </a>
 
-                   <div className="flex gap-6">
+                   <div className="flex gap-8">
                       {[ASSETS.social.facebook, ASSETS.social.instagram, ASSETS.social.twitter, ASSETS.social.linkedin].map((social, idx) => (
-                        <div key={idx} className="text-brand-100/40 hover:text-brand-accent transition-colors cursor-pointer">
-                          <IconRenderer icon={social} size={22} />
+                        <div key={idx} className="text-brand-100/60 hover:text-brand-accent transition-colors cursor-pointer">
+                          <IconRenderer icon={social} size={24} />
                         </div>
                       ))}
                    </div>
 
-                   <a href="mailto:connect@credifide.com" className="text-brand-100 font-bold hover:text-brand-accent transition-colors">
+                   <a href="mailto:connect@credifide.com" className="text-brand-100 text-xl font-bold hover:text-brand-accent transition-colors">
                       connect@credifide.com
                    </a>
                 </div>
@@ -1743,9 +1743,9 @@ export default function App() {
             </div>
 
             {/* Copyright Bar */}
-            <div className="bg-brand-accent py-4 text-center">
-               <p className="text-[10px] uppercase font-black tracking-[0.2em] text-brand-deep">
-                  © 2026 <span className="font-black">Credifide</span>, All Rights Reserved
+            <div className="bg-[#0D3B35] py-5 text-center">
+               <p className="text-xs uppercase font-black tracking-[0.2em] text-brand-accent/80">
+                  © 2026 <span className="text-white">Credifide</span>, All Rights Reserved
                </p>
             </div>
           </footer>
