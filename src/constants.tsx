@@ -41,6 +41,8 @@ import {
   TrendingUp,
   Search,
   AlertCircle,
+  Mail,
+  ChevronDown,
   LucideIcon
 } from 'lucide-react';
 
@@ -70,6 +72,7 @@ export const ASSETS = {
     arrowLeft: ArrowLeft,
     chevronLeft: ChevronLeft,
     chevronRight: ChevronRight,
+    mail: Mail,
   },
 
   // Social Icons
@@ -122,6 +125,7 @@ export const ASSETS = {
     target: Target,
     clipboard: ClipboardCheck,
     activity: Activity,
+    chevronDown: ChevronDown,
   }
 };
 

@@ -18,17 +18,17 @@ const ServicesHub: React.FC = () => {
       desc: "End-to-end revenue cycle management focused on claim recovery, denial reduction, and cashflow stability.",
       link: "/services/medical-billing",
       icon: ASSETS.ui.dollar,
-      color: "bg-brand-blue",
+      color: "bg-brand-accent",
       badge: "Revenue"
     }
   ];
 
   return (
-    <div className="bg-[#fcfcfd] min-h-screen pt-32 pb-24 overflow-hidden">
+    <div className="bg-white min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
-         <div className="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-blue/5" />
+         <div className="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-accent/5" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -63,16 +63,16 @@ const ServicesHub: React.FC = () => {
               className="group"
             >
               <Link to={service.link} className="block relative">
-                 <div className="bg-white rounded-[44px] p-10 lg:p-14 border border-slate-100 shadow-2xl shadow-slate-200/50 transition-all duration-500 hover:border-slate-200 hover:shadow-emerald-500/10 h-full relative overflow-hidden">
-                    {/* Hover Glow */}
-                    <div className={`absolute -top-20 -right-20 w-40 h-40 ${service.color}/10 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity`} />
-                    
-                    <div className="mb-10 flex justify-between items-start">
-                       <div className={`w-16 h-16 ${service.color} text-white rounded-2xl flex items-center justify-center shadow-2xl`}>
-                          <IconRenderer icon={service.icon} size={32} />
-                       </div>
-                       <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 border border-slate-100 px-3 py-1 rounded-full">{service.badge}</span>
-                    </div>
+                  <div className="bg-white rounded-[44px] p-10 lg:p-14 border border-brand-light shadow-2xl shadow-brand-deep/5 transition-all duration-500 hover:border-brand-accent hover:shadow-brand-deep/10 h-full relative overflow-hidden">
+                     {/* Hover Glow */}
+                     <div className={`absolute -top-20 -right-20 w-40 h-40 ${service.color}/10 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity`} />
+                     
+                     <div className="mb-10 flex justify-between items-start">
+                        <div className={`w-16 h-16 ${service.color} text-white rounded-2xl flex items-center justify-center shadow-2xl`}>
+                           <IconRenderer icon={service.icon} size={32} />
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 border border-brand-light px-3 py-1 rounded-full">{service.badge}</span>
+                     </div>
                     
                     <h2 className="text-3xl lg:text-4xl font-display font-bold text-slate-950 mb-6 group-hover:text-brand-deep transition-colors">
                        {service.title}

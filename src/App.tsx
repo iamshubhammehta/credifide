@@ -7,6 +7,12 @@ import About from './pages/About';
 import Services from './pages/Services';
 import InsuranceCredentialing from './pages/InsuranceCredentialing';
 import MedicalBilling from './pages/MedicalBilling';
+import Contact from './pages/Contact';
+import Resources from './pages/Resources';
+import Blog from './pages/Blog';
+import WhitePapers from './pages/WhitePapers';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -238,9 +244,9 @@ const Background = React.memo(() => {
       {/* Very subtle brand glow that fades on scroll */}
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] rounded-full blur-[140px] will-change-transform"
-        style={{ background: 'radial-gradient(ellipse, rgba(127,191,127,0.06) 0%, transparent 70%)', opacity }}
+        style={{ background: 'radial-gradient(ellipse, rgba(11, 107, 87, 0.04) 0%, transparent 70%)', opacity }}
       />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%)' }} />
+      <div className="absolute inset-0" style={{ background: '#FFFFFF' }} />
     </div>
   );
 });
@@ -264,18 +270,19 @@ const Navbar = React.memo(() => {
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 py-4">
-      <nav className="max-w-7xl mx-auto rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-500 glass">
+      <nav className="max-w-7xl mx-auto rounded-2xl px-4 sm:px-6 py-3 flex justify-between items-center transition-all duration-500 glass">
         <Link to="/" className="flex items-center gap-2">
           <img
             src={ASSETS.brand.logoImage as string}
             alt="Credifide"
-            className="h-9 w-auto object-contain"
+            className="h-8 sm:h-9 w-auto object-contain"
             loading="eager"
           />
         </Link>
 
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8 font-medium transition-colors duration-500 text-slate-600">
-          <Link to="/" className={`hover:text-brand-500 transition-colors ${location.pathname === '/' ? 'text-brand-500' : ''}`}>Home</Link>
+          <Link to="/" className={`hover:text-brand-deep transition-colors ${location.pathname === '/' ? 'text-brand-deep font-bold' : ''}`}>Home</Link>
           <Link to="/about" className={`underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname === '/about' ? 'text-brand-deep font-bold' : ''}`}>About Us</Link>
           
           <div className="relative group/nav">
@@ -297,11 +304,11 @@ const Navbar = React.memo(() => {
                      </div>
                   </Link>
                   <Link to="/services/medical-billing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
-                     <div className="w-10 h-10 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
                         <IconRenderer icon={ASSETS.ui.dollar} size={20} />
                      </div>
                      <div>
-                        <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-blue">Medical Billing</div>
+                        <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Medical Billing</div>
                         <p className="text-[11px] text-slate-500 leading-tight">Optimized RCM and revenue recovery.</p>
                      </div>
                   </Link>
@@ -315,27 +322,56 @@ const Navbar = React.memo(() => {
             </div>
           </div>
           
-          <button onClick={() => scrollToSection('reviews')} className="hover:text-brand-500 transition-colors cursor-pointer">Resources</button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-brand-500 transition-colors cursor-pointer">Contact</button>
+          <div className="relative group/res">
+            <Link to="/resources" className={`flex items-center gap-1 underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname.startsWith('/resources') ? 'text-brand-deep font-bold' : ''}`}>
+              Resources
+              <IconRenderer icon={ASSETS.nav.chevronRight} size={14} className="rotate-90 group-hover/res:translate-y-0.5 transition-transform" />
+            </Link>
+            
+            {/* Dropdown */}
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/res:opacity-100 group-hover/res:visible transition-all duration-300">
+               <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-4 w-64 backdrop-blur-xl">
+                  <Link to="/resources/blog" className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
+                        <IconRenderer icon={ASSETS.ui.fileText} size={20} />
+                     </div>
+                     <div className="font-bold text-slate-900 text-sm group-hover/item:text-brand-deep">Blog</div>
+                  </Link>
+                  <Link to="/resources/white-papers" className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
+                        <IconRenderer icon={ASSETS.features.shield} size={20} />
+                     </div>
+                     <div className="font-bold text-slate-900 text-sm group-hover/item:text-brand-deep">White Papers</div>
+                  </Link>
+               </div>
+            </div>
+          </div>
+          
+          <Link to="/contact" className={`hover:text-brand-deep transition-colors ${location.pathname === '/contact' ? 'text-brand-deep font-bold' : ''}`}>Contact</Link>
         </div>
 
         <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-2 font-medium transition-colors duration-500 text-slate-600">
-            <IconRenderer icon={ASSETS.nav.phone} size={18} className="text-brand-500" />
+          <div className="flex items-center gap-2 font-medium transition-colors duration-500 text-slate-600 text-sm xl:text-base">
+            <IconRenderer icon={ASSETS.nav.phone} size={18} className="text-brand-deep" />
             <span>(321) 524-0606</span>
           </div>
-          <button onClick={() => scrollToSection('contact')} className="bg-brand-500 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-brand-600 transition-all shadow-lg shadow-brand-500/20 flex items-center gap-2 group">
+          <Link to="/contact" className="bg-brand-deep text-white px-6 py-2.5 rounded-xl font-bold hover:bg-brand-600 transition-all shadow-lg shadow-brand-deep/20 flex items-center gap-2 group text-sm xl:text-base">
             Book a Consultation
             <IconRenderer icon={ASSETS.nav.arrowRight} size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
         </div>
 
+        {/* Mobile Menu Toggle */}
         <div className="lg:hidden flex items-center gap-4">
-          <IconRenderer icon={ASSETS.nav.menu} size={24} className="text-slate-900" />
+           {/* Simple mobile menu logic could be added here, but preserving existing UI for now */}
+           <button className="p-2 text-slate-900" aria-label="Menu">
+             <IconRenderer icon={ASSETS.nav.menu} size={24} />
+           </button>
         </div>
       </nav>
     </header>
   );
+
 });
 
 const Hero = React.memo(() => {
@@ -400,39 +436,39 @@ const Hero = React.memo(() => {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div animate={{ x: [0, 50, 0], y: [0, 30, 0] }} transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
           className="absolute top-[-10%] left-[-5%] w-[55%] h-[55%] rounded-full blur-[130px] will-change-transform"
-          style={{ background: 'rgba(127,191,127,0.07)' }} />
+          style={{ background: 'rgba(11, 107, 87, 0.05)' }} />
         <motion.div animate={{ x: [0, -35, 0], y: [0, 50, 0] }} transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
           className="absolute bottom-[-10%] right-[-5%] w-[55%] h-[55%] rounded-full blur-[150px] will-change-transform"
-          style={{ background: 'rgba(56,189,248,0.05)' }} />
+          style={{ background: 'rgba(127, 191, 127, 0.05)' }} />
       </div>
       {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(127,191,127,1) 1px,transparent 1px),linear-gradient(90deg,rgba(127,191,127,1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
-      {/* Bottom fade to slightly darker grey for contrast against next sections */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #f8fafc)' }} />
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(11, 107, 87, 1) 1px,transparent 1px),linear-gradient(90deg,rgba(11, 107, 87, 1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-36 lg:py-48">
         <PhysicsBody id="hero-badge" className="inline-block mb-8">
           <motion.span
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-sm font-semibold backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light text-brand-deep text-sm font-bold backdrop-blur-sm shadow-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
             Trusted by 500+ Healthcare Providers
           </motion.span>
         </PhysicsBody>
 
         <PhysicsBody id="hero-title" className="mb-8">
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-extrabold tracking-tight leading-[1.05] text-slate-900">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-display font-black tracking-tight leading-[1.05] text-slate-900">
             <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }} className="block">
               Get Credentialed
             </motion.span>
             <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.12, ease: [0.16, 1, 0.3, 1] }} className="block relative">
-              <span className="text-brand-400">Faster.</span>{' '}
+              <span className="text-brand-deep">Faster.</span>{' '}
               Get Paid{' '}
               <span className="relative inline-block">
                 Sooner.
                 <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1, duration: 1.2, ease: 'circOut' }}
-                  className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-400 to-transparent origin-left" />
+                  className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-accent to-transparent origin-left" />
               </span>
             </motion.span>
           </h1>
@@ -448,12 +484,12 @@ const Hero = React.memo(() => {
         <PhysicsBody id="hero-cta-primary">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <motion.button whileHover={{ scale: 1.04, boxShadow: '0 0 40px rgba(127,191,127,0.35)' }} whileTap={{ scale: 0.97 }}
-              className="px-10 py-5 bg-brand-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-500/20 hover:bg-brand-600 transition-colors flex items-center gap-2 group">
+            <Link to="/contact"
+              className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-deep/20 hover:bg-brand-600 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center">
               Request a Consultation Call
               <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-            <span className="text-slate-500 text-sm">(321) 524-0606</span>
+            </Link>
+            <span className="text-slate-500 font-bold">(321) 524-0606</span>
           </motion.div>
         </PhysicsBody>
       </div>
@@ -480,14 +516,14 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-48 h-64 bg-white rounded-xl shadow-2xl border border-slate-200 relative p-6 overflow-hidden will-change-transform"
+          className="w-48 h-64 bg-white rounded-xl shadow-2xl border border-brand-light relative p-6 overflow-hidden will-change-transform"
         >
           <div className="space-y-4">
-            <div className="h-4 bg-slate-100 rounded w-3/4" />
-            <div className="h-4 bg-slate-100 rounded w-full" />
-            <div className="h-4 bg-slate-100 rounded w-5/6" />
-            <div className="h-4 bg-slate-100 rounded w-2/3" />
-            <div className="h-4 bg-slate-100 rounded w-full" />
+            <div className="h-4 bg-brand-light/50 rounded w-3/4" />
+            <div className="h-4 bg-brand-light/50 rounded w-full" />
+            <div className="h-4 bg-brand-light/50 rounded w-5/6" />
+            <div className="h-4 bg-brand-light/50 rounded w-2/3" />
+            <div className="h-4 bg-brand-light/50 rounded w-full" />
           </div>
 
           {/* Animated Checkmark */}
@@ -496,7 +532,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-            className="absolute bottom-6 right-6 w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-emerald-500/30 will-change-transform"
+            className="absolute bottom-6 right-6 w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center text-brand-deep shadow-lg shadow-brand-accent/30 style={{ transform: 'translateZ(20px)' }} will-change-transform"
           >
             <IconRenderer icon={ASSETS.ui.check} size={32} className="stroke-[3px]" />
           </motion.div>
@@ -509,7 +545,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
             rotate: [-5, 5, -5]
           }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-10 -right-10 w-32 h-32 bg-brand-500 rounded-3xl flex items-center justify-center text-white shadow-2xl shadow-brand-500/40 z-20 will-change-transform"
+          className="absolute -top-10 -right-10 w-32 h-32 bg-brand-deep rounded-3xl flex items-center justify-center text-white shadow-2xl shadow-brand-deep/40 z-20 will-change-transform"
         >
           <IconRenderer icon={ASSETS.features.shield} size={64} />
         </motion.div>
@@ -518,9 +554,9 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
         <motion.div
           animate={{ x: [-10, 10, -10] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-5 -left-10 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 z-20 will-change-transform"
+          className="absolute -bottom-5 -left-10 bg-white p-4 rounded-2xl shadow-xl border border-brand-light flex items-center gap-3 z-20 will-change-transform"
         >
-          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white">
+          <div className="w-8 h-8 bg-brand-accent/20 rounded-lg flex items-center justify-center text-brand-deep">
             <IconRenderer icon={ASSETS.ui.fileText} size={18} />
           </div>
           <div className="text-left">
@@ -539,7 +575,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-64 h-48 bg-white rounded-2xl shadow-2xl border border-slate-200 relative p-6 flex items-end gap-3 will-change-transform"
+          className="w-64 h-48 bg-white rounded-2xl shadow-2xl border border-brand-light relative p-6 flex items-end gap-3 will-change-transform"
         >
           {[40, 70, 55, 90, 100].map((height, i) => (
             <motion.div
@@ -548,10 +584,10 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
               whileInView={{ height: `${height}%` }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 + i * 0.1, duration: 1, ease: "easeOut" }}
-              className="flex-1 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t-lg relative group will-change-[height]"
+              className="flex-1 bg-gradient-to-t from-brand-deep to-brand-accent rounded-t-lg relative group will-change-[height]"
             >
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                ${height}k
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-brand-deep text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                +${height}% Recovery
               </div>
             </motion.div>
           ))}
@@ -573,7 +609,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
               delay: i * 1,
               ease: "easeOut"
             }}
-            className="absolute text-emerald-500 z-20 will-change-transform"
+            className="absolute text-brand-deep z-20 will-change-transform"
             style={{ bottom: '20%', left: '45%' }}
           >
             <IconRenderer icon={ASSETS.ui.dollar} size={32} />
@@ -587,10 +623,10 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
             rotate: [0, 2, 0]
           }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="absolute -top-10 -right-5 bg-brand-500 p-6 rounded-3xl shadow-2xl text-white z-20 will-change-transform"
+          className="absolute -top-10 -right-5 bg-brand-deep p-6 rounded-3xl shadow-2xl text-white z-20 will-change-transform"
         >
           <IconRenderer icon={ASSETS.ui.trendingUp} size={48} />
-          <div className="mt-2 text-xs font-bold uppercase tracking-widest">Growth</div>
+          <div className="mt-2 text-xs font-bold uppercase tracking-widest text-brand-accent">Recovery</div>
         </motion.div>
       </div>
     );
@@ -603,11 +639,11 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-64 h-64 bg-slate-900 rounded-3xl shadow-2xl relative p-8 overflow-hidden border border-slate-800 will-change-transform"
+          className="w-64 h-64 bg-brand-light rounded-3xl shadow-2xl relative p-8 overflow-hidden border border-brand-accent/20 will-change-transform"
         >
           <div className="grid grid-cols-2 gap-4">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-16 bg-slate-800 rounded-xl animate-pulse" />
+              <div key={i} className="h-16 bg-white/50 rounded-xl animate-pulse" />
             ))}
           </div>
 
@@ -615,7 +651,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
           <motion.div
             animate={{ y: [0, 200, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-x-0 h-1 bg-brand-500 shadow-[0_0_15px_rgba(127,191,127,0.8)] z-10 will-change-transform"
+            className="absolute inset-x-0 h-1 bg-brand-deep shadow-[0_0_15px_rgba(11,107,87,0.4)] z-10 will-change-transform"
           />
         </motion.div>
 
@@ -627,7 +663,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
             rotate: [0, 10, 0]
           }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute z-20 text-brand-400 will-change-transform"
+          className="absolute z-20 text-brand-deep will-change-transform"
         >
           <IconRenderer icon={ASSETS.ui.search} size={120} className="stroke-[1.5px]" />
         </motion.div>
@@ -644,7 +680,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-          className="absolute bottom-5 -right-5 w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center text-white shadow-xl z-30 will-change-transform"
+          className="absolute bottom-5 -right-5 w-20 h-20 bg-brand-deep rounded-full flex items-center justify-center text-white shadow-xl z-30 will-change-transform"
         >
           <IconRenderer icon={ASSETS.features.clock} size={40} />
         </motion.div>
@@ -652,7 +688,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
     );
   }
 
-  return <IconRenderer icon={Icon} size={140} className="text-brand-500 opacity-50" />;
+  return <IconRenderer icon={Icon} size={140} className="text-brand-deep opacity-10" />;
 });
 
 interface ServiceSectionProps {
@@ -684,7 +720,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-16 h-16 lg:w-20 lg:h-20 bg-brand-500/10 rounded-2xl lg:rounded-3xl flex items-center justify-center text-brand-500 shadow-inner"
+              className="w-16 h-16 lg:w-20 lg:h-20 bg-brand-light rounded-2xl lg:rounded-3xl flex items-center justify-center text-brand-deep shadow-inner"
             >
               <IconRenderer icon={Icon} size={32} className="lg:size-10" />
             </motion.div>
@@ -715,16 +751,13 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
           </div>
 
           <div>
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-2 text-brand-600 font-bold text-base lg:text-lg hover:gap-4 transition-all group will-change-transform"
+            <Link
+              to="/contact"
+              className="flex items-center gap-2 text-brand-deep font-bold text-base lg:text-lg hover:gap-4 transition-all group will-change-transform"
             >
               Learn more about this service
               <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover:translate-x-2 transition-transform" />
-            </motion.button>
+            </Link>
           </div>
         </div>
 
@@ -740,9 +773,9 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
               <div className="relative h-full w-full group/card">
                 {/* Main Card with Green Shadow */}
                 <motion.div
-                  className="saas-card p-8 lg:p-12 flex flex-col items-center justify-center text-center h-full relative shadow-2xl shadow-emerald-500/10 overflow-hidden group-hover/card:shadow-emerald-500/25 transition-all duration-500 bg-white border-slate-200"
+                   className="saas-card p-8 lg:p-12 flex flex-col items-center justify-center text-center h-full relative shadow-2xl shadow-brand-deep/10 overflow-hidden group-hover/card:shadow-brand-deep/25 transition-all duration-500 bg-white border-brand-light"
                 >
-                  <div className="absolute inset-0 opacity-100 transition-colors duration-1000 bg-gradient-to-br from-white via-slate-50 to-brand-50/30" />
+                  <div className="absolute inset-0 opacity-100 transition-colors duration-1000 bg-gradient-to-br from-white via-brand-light/20 to-brand-light/40" />
                   <div className="saas-card-glow" />
 
                   {/* Illustration Container */}
@@ -750,9 +783,9 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
                     <ServiceIllustration id={id} icon={Icon} />
                   </div>
 
-                  {/* Extra decorative blobs for more color */}
-                  <div className="absolute top-1/4 -left-10 w-40 h-40 bg-brand-400/20 rounded-full blur-3xl animate-pulse" />
-                  <div className="absolute bottom-1/4 -right-10 w-44 h-44 bg-emerald-400/20 rounded-full blur-3xl animate-pulse" />
+                   {/* Extra decorative blobs for more color */}
+                  <div className="absolute top-1/4 -left-10 w-40 h-40 bg-brand-accent/20 rounded-full blur-3xl animate-pulse" />
+                  <div className="absolute bottom-1/4 -right-10 w-44 h-44 bg-brand-light rounded-full blur-3xl animate-pulse" />
                 </motion.div>
               </div>
             </motion.div>
@@ -791,7 +824,7 @@ const ApproachCard = React.memo(({ card, index, scrollYProgress }: { card: any, 
           <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60 transition-opacity duration-500 group-hover/approach:opacity-90`} />
 
           <div className="relative z-10 flex flex-col h-full">
-            <div className="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mb-6 shadow-inner group-hover/approach:scale-110 transition-transform duration-500 will-change-transform">
+            <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner group-hover/approach:scale-110 transition-transform duration-500 will-change-transform">
               <IconRenderer icon={card.icon} size={32} />
             </div>
 
@@ -854,12 +887,12 @@ const OurApproach = React.memo(() => {
       {/* Sticky container with more top offset to avoid header (Navbar is h-20) */}
       <div className="sticky top-24 h-[calc(100vh-96px)] flex flex-col items-center justify-start overflow-hidden px-6 pt-6">
         {/* Background Gradient */}
-        <div className="absolute inset-0 pointer-events-none transition-colors duration-1000 bg-gradient-to-b from-white via-emerald-50 to-white" />
+        <div className="absolute inset-0 pointer-events-none transition-colors duration-1000 bg-gradient-to-b from-white via-brand-light to-white" />
 
         <div className="w-full max-w-7xl relative z-10">
           <div className="text-center mb-10">
             <PhysicsBody id="approach-badge" className="inline-block mb-3">
-              <span className="text-brand-600 font-bold tracking-wider uppercase text-xs">Our Methodology</span>
+              <span className="text-brand-deep font-bold tracking-wider uppercase text-xs">Our Methodology</span>
             </PhysicsBody>
             <PhysicsBody id="approach-title" className="mb-3">
               <h2 className="text-3xl lg:text-5xl font-display font-bold transition-colors duration-1000 text-slate-900">
@@ -905,14 +938,14 @@ const Features = React.memo(() => {
       icon: ASSETS.ui.activity,
       title: "Revenue Cycle Management",
       desc: "Maximize your revenue with our AI-driven RCM solutions. We identify gaps, reduce denials, and accelerate your reimbursement cycles.",
-      color: "bg-blue-50"
+      color: "bg-brand-light/20"
     },
     {
       id: "feat-3",
       icon: ASSETS.features.clock,
       title: "Billing Assessments",
       desc: "Stay compliant and secure with focused billing assessments. We uncover hidden risks and provide actionable insights for financial stability.",
-      color: "bg-brand-50"
+      color: "bg-white"
     }
   ];
 
@@ -922,13 +955,13 @@ const Features = React.memo(() => {
       <section className="py-24 bg-white border-b transition-colors duration-1000 border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <PhysicsBody id="features-badge" className="inline-block mb-4">
-            <span className="font-bold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full border transition-colors duration-1000 bg-brand-50 border-brand-100 text-brand-600">
+            <span className="font-bold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full border transition-colors duration-1000 bg-brand-light border-brand-deep/10 text-brand-deep">
               Our Expertise
             </span>
           </PhysicsBody>
           <PhysicsBody id="features-title" className="mb-6">
             <h2 className="text-4xl lg:text-6xl font-display font-bold tracking-tight transition-colors duration-1000 text-slate-900">
-              Solutions for <span className="text-brand-500">Modern Healthcare</span>
+              Solutions for <span className="text-brand-deep">Modern Healthcare</span>
             </h2>
           </PhysicsBody>
           <PhysicsBody id="features-subtitle">
@@ -1259,8 +1292,8 @@ const ContactSection = React.memo(() => {
       {/* Futuristic Background */}
       <div className="absolute inset-0 transition-colors duration-1000 bg-white" />
       <div className="absolute inset-0 transition-opacity duration-1000 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 via-emerald-500/10 to-transparent animate-gradient-move" />
-        <div className="absolute inset-0 bg-grid-slate-100/[0.05] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-deep/20 via-brand-accent/10 to-transparent animate-gradient-move" />
+        <div className="absolute inset-0 bg-grid-brand-100/[0.05] bg-[size:40px_40px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1275,15 +1308,15 @@ const ContactSection = React.memo(() => {
             {/* Left Side: Content */}
             <div className="p-8 lg:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r transition-colors duration-1000 border-slate-100">
               <PhysicsBody id="contact-badge" className="inline-block mb-6">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-1000 bg-brand-50 border-brand-100 text-brand-600 w-fit">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-1000 bg-brand-light border-brand-deep/10 text-brand-deep w-fit font-bold">
                   <IconRenderer icon={ASSETS.ui.sparkles} size={14} />
-                  <span className="text-xs font-bold tracking-wider uppercase">Get Started</span>
+                  <span className="text-xs tracking-wider uppercase">Get Started</span>
                 </div>
               </PhysicsBody>
 
               <PhysicsBody id="contact-title" className="mb-6">
                 <h2 className="text-4xl lg:text-6xl font-display font-bold leading-tight transition-colors duration-1000 text-slate-900">
-                  Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-emerald-500">Credentialing</span> Journey Today
+                  Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-deep to-brand-accent">Credentialing</span> Journey Today
                 </h2>
               </PhysicsBody>
 
@@ -1307,10 +1340,10 @@ const ContactSection = React.memo(() => {
                     transition={{ delay: i * 0.1 }}
                     className="flex items-center gap-4 group"
                   >
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 bg-slate-100 text-slate-600 group-hover:bg-brand-500 group-hover:text-white">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 bg-brand-light text-brand-deep group-hover:bg-brand-deep group-hover:text-white">
                       <IconRenderer icon={item.icon} size={20} />
                     </div>
-                    <span className="font-medium transition-colors duration-1000 text-slate-700">{item.text}</span>
+                    <span className="font-bold transition-colors duration-1000 text-slate-700">{item.text}</span>
                   </motion.div>
                 ))}
               </div>
@@ -1324,7 +1357,7 @@ const ContactSection = React.memo(() => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="h-full flex flex-col items-center justify-center text-center py-12"
                 >
-                  <div className="w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center text-white mb-8 shadow-lg shadow-brand-500/20">
+                  <div className="w-20 h-20 bg-brand-deep rounded-full flex items-center justify-center text-white mb-8 shadow-lg shadow-brand-deep/20">
                     <IconRenderer icon={ASSETS.features.check} size={40} />
                   </div>
                   <h3 className="text-3xl font-bold mb-4 transition-colors duration-1000 text-slate-900">Request Received!</h3>
@@ -1333,7 +1366,7 @@ const ContactSection = React.memo(() => {
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-brand-500 hover:text-brand-600 font-medium flex items-center gap-2 transition-colors"
+                    className="text-brand-deep hover:text-brand-accent font-bold flex items-center gap-2 transition-colors"
                   >
                     Send another request <IconRenderer icon={ASSETS.nav.arrowRight} size={16} />
                   </button>
@@ -1342,9 +1375,9 @@ const ContactSection = React.memo(() => {
                 <div className="h-full flex flex-col">
                   {/* Progress Indicator */}
                   <div className="flex items-center justify-between mb-12 relative">
-                    <div className="absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2 transition-colors duration-1000 bg-slate-200" />
+                    <div className="absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2 transition-colors duration-1000 bg-brand-light" />
                     <div
-                      className="absolute top-1/2 left-0 h-0.5 bg-brand-500 -translate-y-1/2 transition-all duration-500"
+                      className="absolute top-1/2 left-0 h-0.5 bg-brand-accent -translate-y-1/2 transition-all duration-500"
                       style={{ width: `${((step - 1) / (steps.length - 1)) * 100}%` }}
                     />
 
@@ -1353,13 +1386,13 @@ const ContactSection = React.memo(() => {
                       const isCompleted = step > i + 1;
                       return (
                         <div key={i} className="relative z-10 flex flex-col items-center">
-                          <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${isActive ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/20 scale-110' :
-                            isCompleted ? 'bg-brand-500 text-white' :
-                              'bg-slate-200 text-slate-400'
+                          <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${isActive ? 'bg-brand-deep text-white shadow-lg shadow-brand-deep/20 scale-110' :
+                            isCompleted ? 'bg-brand-accent text-brand-deep' :
+                              'bg-brand-light text-brand-deep/40'
                             }`}>
                             {isCompleted ? <IconRenderer icon={ASSETS.features.check} size={18} /> : <IconRenderer icon={s.icon} size={18} />}
                           </div>
-                          <span className={`absolute top-12 text-[10px] uppercase font-bold tracking-widest whitespace-nowrap transition-colors duration-500 ${isActive ? 'text-brand-500' : 'text-slate-400'
+                          <span className={`absolute top-12 text-[10px] uppercase font-bold tracking-widest whitespace-nowrap transition-colors duration-500 ${isActive ? 'text-brand-deep' : 'text-slate-400'
                             }`}>
                             {s.title}
                           </span>
@@ -1389,17 +1422,17 @@ const ContactSection = React.memo(() => {
                                   handleNext();
                                 }}
                                 className={`p-4 rounded-2xl border text-left transition-all duration-300 group ${formData.providerType === type
-                                  ? 'bg-brand-500/10 border-brand-500 text-brand-600 dark:text-white'
-                                  : 'bg-white border-slate-200 text-slate-500 hover:border-brand-200 hover:bg-brand-50/30'
+                                  ? 'bg-brand-deep/10 border-brand-deep text-brand-deep'
+                                  : 'bg-white border-brand-light text-slate-500 hover:border-brand-accent hover:bg-brand-light/30'
                                   }`}
                               >
                                 <div className={`w-8 h-8 rounded-lg mb-3 flex items-center justify-center transition-colors ${formData.providerType === type
-                                  ? 'bg-brand-500 text-white'
-                                  : 'bg-slate-100 text-slate-400 group-hover:bg-brand-100 group-hover:text-brand-500'
+                                  ? 'bg-brand-deep text-white'
+                                  : 'bg-brand-light text-brand-deep/50 group-hover:bg-brand-accent group-hover:text-brand-deep'
                                   }`}>
                                   <IconRenderer icon={ASSETS.ui.users} size={16} />
                                 </div>
-                                <span className="font-medium text-sm">{type}</span>
+                                <span className="font-bold text-sm tracking-tight">{type}</span>
                               </button>
                             ))}
                           </div>
@@ -1425,20 +1458,20 @@ const ContactSection = React.memo(() => {
                                   handleNext();
                                 }}
                                 className={`w-full p-5 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between group ${formData.serviceNeeded === service
-                                  ? 'bg-brand-500/10 border-brand-500 text-brand-600 dark:text-white'
-                                  : 'bg-white border-slate-200 text-slate-500 hover:border-brand-200 hover:bg-brand-50/30'
+                                  ? 'bg-brand-deep/10 border-brand-deep text-brand-deep font-bold'
+                                  : 'bg-white border-brand-light text-slate-500 hover:border-brand-accent hover:bg-brand-light/30'
                                   }`}
                               >
                                 <div className="flex items-center gap-4">
                                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${formData.serviceNeeded === service
-                                    ? 'bg-brand-500 text-white'
-                                    : 'bg-slate-100 text-slate-400 group-hover:bg-brand-100 group-hover:text-brand-500'
+                                    ? 'bg-brand-deep text-white'
+                                    : 'bg-brand-light text-brand-deep/50 group-hover:bg-brand-accent group-hover:text-brand-deep'
                                     }`}>
                                     <IconRenderer icon={ASSETS.features.zap} size={18} />
                                   </div>
-                                  <span className="font-medium">{service}</span>
+                                  <span className="font-bold tracking-tight">{service}</span>
                                 </div>
-                                <IconRenderer icon={ASSETS.ui.chevronRight} size={18} className={formData.serviceNeeded === service ? 'text-brand-500' : 'text-slate-600'} />
+                                <IconRenderer icon={ASSETS.ui.chevronRight} size={18} className={formData.serviceNeeded === service ? 'text-brand-deep' : 'text-slate-400'} />
                               </button>
                             ))}
                           </div>
@@ -1508,7 +1541,7 @@ const ContactSection = React.memo(() => {
                             <button
                               type="submit"
                               disabled={isSubmitting}
-                              className="flex-grow bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-brand-500/20 transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
+                              className="flex-grow bg-brand-deep hover:bg-brand-accent hover:text-brand-deep text-white font-bold py-4 rounded-2xl shadow-lg shadow-brand-deep/20 transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
                             >
                               {isSubmitting ? (
                                 <IconRenderer icon={ASSETS.ui.loader} className="animate-spin" size={20} />
@@ -1646,62 +1679,101 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/services/insurance-credentialing" element={<InsuranceCredentialing />} />
             <Route path="/services/medical-billing" element={<MedicalBilling />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/blog" element={<Blog />} />
+            <Route path="/resources/white-papers" element={<WhitePapers />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<Home />} />
           </Routes>
 
-          <footer className="py-20 bg-slate-900 text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid md:grid-cols-4 gap-12 mb-16">
-                <div className="col-span-2">
-                  {/* Logo on dark background — white pill so the green logo reads clearly */}
-                  <div className="inline-block bg-white rounded-xl px-4 py-2 mb-6 shadow-sm">
+          {/* Sticky Mobile CTA */}
+          <div className="md:hidden fixed bottom-6 left-6 right-6 z-[60]">
+             <Link to="/contact" className="w-full bg-brand-deep text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-2xl shadow-brand-deep/40 active:scale-95 transition-transform">
+                Book Free Consultation
+                <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />
+             </Link>
+          </div>
+
+          <footer className="relative bg-brand-deep pt-24 pb-12 overflow-hidden selection:bg-brand-accent selection:text-brand-deep">
+            {/* Background Texture & Gradients */}
+            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-[120px]" />
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+                <div className="lg:col-span-1">
+                  <div className="inline-block bg-white rounded-2xl px-5 py-3 mb-8 shadow-xl shadow-black/10">
                     <img
                       src={ASSETS.brand.logoImage as string}
                       alt="Credifide"
-                      className="h-9 w-auto object-contain"
+                      className="h-10 w-auto object-contain"
                       loading="lazy"
                     />
                   </div>
-                  <p className="text-slate-400 max-w-md leading-relaxed">
-                    Simplifying Healthcare Credentialing & Revenue Cycle Management. We empower providers to focus on what matters most: patient care.
+                  <p className="text-brand-100/70 max-w-xs leading-relaxed text-lg mb-8">
+                    Empowering healthcare providers with world-class RCM and credentialing solutions.
                   </p>
+                  <div className="flex gap-4">
+                    {[ASSETS.social.linkedin, ASSETS.social.twitter, ASSETS.social.github].map((social, idx) => (
+                      <div key={idx} className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-brand-accent hover:text-brand-deep hover:border-brand-accent transition-all duration-300 cursor-pointer group">
+                        <IconRenderer icon={social} size={20} className="group-hover:scale-110 transition-transform" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div>
-                  <h4 className="font-bold mb-6">Quick Links</h4>
-                  <ul className="space-y-4 text-slate-400">
-                    <li><Link to="/about" className="hover:text-brand-500 transition-colors">About Us</Link></li>
-                    <li><Link to="/" className="hover:text-brand-500 transition-colors">Services</Link></li>
-                    <li><Link to="/" className="hover:text-brand-500 transition-colors">Resources</Link></li>
-                    <li><Link to="/" className="hover:text-brand-500 transition-colors">Contact</Link></li>
+                  <h4 className="text-white font-bold text-xl mb-8">Services</h4>
+                  <ul className="space-y-4 text-brand-100/60 font-medium">
+                    <li><Link to="/services/insurance-credentialing" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Insurance Credentialing</Link></li>
+                    <li><Link to="/services/medical-billing" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Medical Billing</Link></li>
+                    <li><Link to="/services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Revenue Management</Link></li>
+                    <li><Link to="/services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> View All Services</Link></li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-bold mb-6">Follow Us</h4>
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-500 hover:text-white transition-all cursor-pointer">
-                      <IconRenderer icon={ASSETS.social.twitter} size={18} />
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-500 hover:text-white transition-all cursor-pointer">
-                      <IconRenderer icon={ASSETS.social.github} size={18} />
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-500 hover:text-white transition-all cursor-pointer">
-                      <IconRenderer icon={ASSETS.social.linkedin} size={18} />
-                    </div>
+                  <h4 className="text-white font-bold text-xl mb-8">Resources</h4>
+                  <ul className="space-y-4 text-brand-100/60 font-medium">
+                    <li><Link to="/resources/blog" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Blog & Insights</Link></li>
+                    <li><Link to="/resources/white-papers" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> White Papers</Link></li>
+                    <li><Link to="/about" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Case Studies</Link></li>
+                    <li><Link to="/contact" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Request Support</Link></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-bold text-xl mb-8">Contact</h4>
+                  <div className="space-y-6">
+                    <a href="mailto:connect@credifide.com" className="flex items-center gap-4 text-brand-100/60 hover:text-white transition-colors group">
+                       <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-deep transition-all">
+                          <IconRenderer icon={ASSETS.nav.mail} size={18} />
+                       </div>
+                       connect@credifide.com
+                    </a>
+                    <a href="tel:+13215240606" className="flex items-center gap-4 text-brand-100/60 hover:text-white transition-colors group">
+                       <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-deep transition-all">
+                          <IconRenderer icon={ASSETS.nav.phone} size={18} />
+                       </div>
+                       +1-321-524-0606
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-slate-800 flex flex-col md:row justify-between items-center gap-4 text-slate-500 text-sm">
-                <p>© 2026 Credifide. All rights reserved.</p>
+              <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-brand-100/40 text-sm font-medium">
+                <p>© 2026 Credifide. Engineered for Excellence.</p>
                 <div className="flex gap-8">
-                  <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-                  <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
+                  <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
+                  <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms of Service</Link>
                 </div>
               </div>
             </div>
           </footer>
+
         </div>
       </PhysicsWorld>
     </div>

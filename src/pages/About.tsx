@@ -129,17 +129,17 @@ const HeroSection: React.FC = () => {
         <motion.div
           animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-[-10%] left-[-5%] w-[55%] h-[55%] rounded-full bg-brand-500/8 blur-[130px] will-change-transform"
+          className="absolute top-[-10%] left-[-5%] w-[55%] h-[55%] rounded-full bg-brand-deep/5 blur-[130px] will-change-transform"
         />
         <motion.div
           animate={{ x: [0, -40, 0], y: [0, 60, 0] }}
           transition={{ duration: 27, repeat: Infinity, ease: 'linear' }}
-          className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full bg-sky-400/6 blur-[150px] will-change-transform"
+          className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full bg-brand-accent/5 blur-[150px] will-change-transform"
         />
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[30%] left-[40%] w-[30%] h-[30%] rounded-full bg-emerald-400/5 blur-[100px] will-change-transform"
+          className="absolute top-[30%] left-[40%] w-[30%] h-[30%] rounded-full bg-brand-light blur-[100px] will-change-transform"
         />
       </div>
 
@@ -200,20 +200,19 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
-          <motion.button
-            whileHover={{ scale: 1.04, boxShadow: '0 0 40px rgba(127,191,127,0.35)' }}
-            whileTap={{ scale: 0.97 }}
-            className="px-9 py-4 bg-brand-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-500/20 hover:bg-brand-600 transition-colors"
+          <Link
+            to="/contact"
+            className="px-9 py-4 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-deep/20 hover:bg-brand-600 transition-all w-full sm:w-auto"
           >
             Book a Consultation
-          </motion.button>
-          <motion.div
-            whileHover={{ x: 4 }}
-            className="flex items-center gap-2 text-slate-500 hover:text-brand-500 transition-colors cursor-pointer font-semibold"
+          </Link>
+          <Link
+            to="/services"
+            className="flex items-center gap-2 text-slate-500 hover:text-brand-deep transition-colors cursor-pointer font-semibold"
           >
             Learn how it works
             <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />
-          </motion.div>
+          </Link>
         </motion.div>
 
         {/* Floating dashboard preview */}
@@ -389,7 +388,7 @@ const HeroSection: React.FC = () => {
                           transition={{ delay: 2.5, duration: 0.5 }}
                         />
                         {/* Data points */}
-                        {[[0,50],[28,42],[56,38],[84,30],[112,34],[140,18],[168,22],[196,10],[220,8]].map(([x, y], i) => (
+                        {[[0, 50], [28, 42], [56, 38], [84, 30], [112, 34], [140, 18], [168, 22], [196, 10], [220, 8]].map(([x, y], i) => (
                           <motion.circle
                             key={i}
                             cx={x} cy={y} r="2.5"
@@ -403,7 +402,7 @@ const HeroSection: React.FC = () => {
                         ))}
                       </svg>
                       <div className="flex justify-between mt-1">
-                        {['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'].map(m => (
+                        {['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'].map(m => (
                           <span key={m} className="text-[7px] text-slate-300">{m}</span>
                         ))}
                       </div>
@@ -615,11 +614,11 @@ const StorySection: React.FC = () => {
                   <p className="text-lg text-slate-500 leading-relaxed max-w-lg">{s.body}</p>
                 </div>
                 <div className={`relative ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <motion.div
-                    animate={{ y: [0, -12, 0] }}
-                    transition={{ duration: 5 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                    className="w-full aspect-[5/3] rounded-3xl bg-slate-950 border border-slate-800 flex items-center justify-center relative overflow-hidden will-change-transform shadow-2xl"
-                  >
+                    <motion.div
+                      animate={{ y: [0, -12, 0] }}
+                      transition={{ duration: 5 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+                      className="w-full aspect-[5/3] rounded-3xl bg-white border border-brand-light flex items-center justify-center relative overflow-hidden will-change-transform shadow-2xl"
+                    >
                     {/* Abstract animated visual */}
                     <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 240">
                       {[...Array(5)].map((_, j) => (
@@ -636,20 +635,20 @@ const StorySection: React.FC = () => {
                         />
                       ))}
                     </svg>
-                    <div className="relative z-10 text-center px-8">
-                      <motion.div
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="w-16 h-16 bg-brand-500/20 rounded-2xl mx-auto mb-4 flex items-center justify-center border border-brand-500/30"
-                      >
-                        <IconRenderer
-                          icon={i === 0 ? ASSETS.features.shield : i === 1 ? ASSETS.ui.activity : ASSETS.features.zap}
-                          size={28}
-                          className="text-brand-400"
-                        />
-                      </motion.div>
-                      <p className="text-white/50 text-sm font-mono">{`0${i + 1} / 03`}</p>
-                    </div>
+                      <div className="relative z-10 text-center px-8">
+                        <motion.div
+                          animate={{ scale: [1, 1.05, 1] }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                          className="w-16 h-16 bg-brand-light rounded-2xl mx-auto mb-4 flex items-center justify-center border border-brand-accent/30"
+                        >
+                          <IconRenderer
+                            icon={i === 0 ? ASSETS.features.shield : i === 1 ? ASSETS.ui.activity : ASSETS.features.zap}
+                            size={28}
+                            className="text-brand-deep"
+                          />
+                        </motion.div>
+                        <p className="text-slate-400 text-sm font-mono">{`0${i + 1} / 03`}</p>
+                      </div>
                     {/* Corner glow */}
                     <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl" />
                   </motion.div>
@@ -697,19 +696,18 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-slate-950 relative overflow-hidden">
+    <section className="py-32 bg-brand-light/30 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(127,191,127,1) 1px, transparent 1px),linear-gradient(90deg, rgba(127,191,127,1) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(11,107,87,1) 1px, transparent 1px),linear-gradient(90deg, rgba(11,107,87,1) 1px, transparent 1px)',
         backgroundSize: '48px 48px',
       }} />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-slate-950 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-brand-light to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative">
-        <FadeUp className="text-center mb-20">
-          <span className="text-brand-400 font-bold tracking-widest uppercase text-sm">The Reality</span>
-          <h2 className="text-4xl lg:text-6xl font-display font-bold text-white mt-3 leading-tight">
-            Where the system{' '}
-            <span className="text-red-400">breaks down</span>.
+        <FadeUp className="text-center mb-20 text-slate-950">
+          <span className="text-brand-deep/60 font-bold tracking-widest uppercase text-sm">The Reality</span>
+          <h2 className="text-4xl lg:text-6xl font-display font-bold mt-3 leading-tight">
+            Where the system <span className="text-brand-accent">breaks down</span>.
           </h2>
           <p className="text-slate-400 text-lg mt-5 max-w-2xl mx-auto">
             The healthcare credentialing and billing ecosystem is one of the most broken administrative systems in any industry.
@@ -720,26 +718,26 @@ const ProblemSection: React.FC = () => {
           {problems.map((p, i) => (
             <FadeUp key={i} delay={i * 0.1}>
               <motion.div
-                whileHover={{ scale: 1.02, borderColor: 'rgba(127,191,127,0.3)' }}
-                className="group bg-slate-900/80 border border-slate-800 rounded-3xl p-8 relative overflow-hidden backdrop-blur-sm will-change-transform transition-colors duration-300"
+                whileHover={{ scale: 1.02, borderColor: 'rgba(11,107,87,0.3)' }}
+                className="group bg-white border border-brand-light rounded-3xl p-8 relative overflow-hidden backdrop-blur-sm will-change-transform shadow-xl shadow-brand-deep/5 transition-colors duration-300"
               >
                 {/* Glow on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(circle at 50% 0%, rgba(127,191,127,0.06), transparent 70%)' }} />
+                  style={{ background: 'radial-gradient(circle at 50% 0%, rgba(11,107,87,0.06), transparent 70%)' }} />
 
                 <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-light border border-brand-deep/10 flex items-center justify-center text-brand-deep shrink-0 shadow-inner">
                     <IconRenderer icon={p.icon} size={22} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-bold text-xl mb-2">{p.title}</h3>
-                    <p className="text-slate-400 leading-relaxed text-sm">{p.desc}</p>
+                    <h3 className="text-slate-900 font-bold text-xl mb-2">{p.title}</h3>
+                    <p className="text-slate-500 leading-relaxed text-sm">{p.desc}</p>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-slate-800 flex items-center gap-3">
-                  <span className="text-2xl font-display font-bold text-red-400">{p.stat}</span>
-                  <span className="text-slate-500 text-sm">{p.statLabel}</span>
+                <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-3">
+                  <span className="text-2xl font-display font-bold text-brand-deep">{p.stat}</span>
+                  <span className="text-slate-400 text-sm">{p.statLabel}</span>
                 </div>
               </motion.div>
             </FadeUp>
@@ -843,7 +841,7 @@ const TransformationSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className={`rounded-3xl p-8 ${active === 'old' ? 'bg-red-950 border border-red-900/50' : 'bg-slate-950 border border-brand-800/30'} relative overflow-hidden`}
+            className={`rounded-3xl p-8 ${active === 'old' ? 'bg-red-50 border border-red-100' : 'bg-brand-deep border border-brand-accent/30'} relative overflow-hidden shadow-2xl`}
           >
             <div className="space-y-5">
               {[...Array(4)].map((_, i) => (
@@ -854,9 +852,9 @@ const TransformationSection: React.FC = () => {
                   transition={{ delay: i * 0.12, duration: 0.6, ease: 'easeOut' }}
                   className="relative origin-left"
                 >
-                  <div className={`h-8 rounded-lg ${active === 'old' ? 'bg-red-900/60' : 'bg-slate-800'} flex items-center px-4 gap-3`}>
-                    <div className={`w-2 h-2 rounded-full ${active === 'old' ? 'bg-red-400' : 'bg-brand-400'} animate-pulse`} />
-                    <div className={`h-2 rounded ${active === 'old' ? 'bg-red-800' : 'bg-slate-700'}`} style={{ width: `${40 + i * 15}%` }} />
+                  <div className={`h-8 rounded-lg ${active === 'old' ? 'bg-white' : 'bg-white/10'} flex items-center px-4 gap-3 border ${active === 'old' ? 'border-red-100' : 'border-white/5'}`}>
+                    <div className={`w-2 h-2 rounded-full ${active === 'old' ? 'bg-red-400' : 'bg-brand-accent'} animate-pulse`} />
+                    <div className={`h-2 rounded ${active === 'old' ? 'bg-red-100' : 'bg-white/20'}`} style={{ width: `${40 + i * 15}%` }} />
                   </div>
                 </motion.div>
               ))}
@@ -864,15 +862,15 @@ const TransformationSection: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className={`mt-6 p-5 rounded-2xl ${active === 'old' ? 'bg-red-900/40 border border-red-800/50' : 'bg-brand-500/10 border border-brand-500/20'}`}
+                className={`mt-6 p-5 rounded-2xl ${active === 'old' ? 'bg-white border border-red-100 shadow-sm' : 'bg-white/10 border border-white/20'}`}
               >
-                <p className={`font-bold text-3xl ${active === 'old' ? 'text-red-400' : 'text-brand-400'}`}>
+                <p className={`font-bold text-3xl ${active === 'old' ? 'text-red-500' : 'text-white'}`}>
                   {active === 'old' ? '120 days' : '35 days'}
                 </p>
-                <p className={`text-sm mt-1 ${active === 'old' ? 'text-red-300/60' : 'text-slate-400'}`}>Average credentialing cycle</p>
+                <p className={`text-sm mt-1 ${active === 'old' ? 'text-red-400/60' : 'text-brand-light/60'}`}>Average credentialing cycle</p>
               </motion.div>
             </div>
-            <div className={`absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-2xl ${active === 'old' ? 'bg-red-500/20' : 'bg-brand-500/20'}`} />
+            <div className={`absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-2xl ${active === 'old' ? 'bg-red-400/10' : 'bg-white/10'}`} />
           </motion.div>
         </div>
       </div>
@@ -963,16 +961,16 @@ const VisualBlock: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section className="py-32 bg-slate-950 overflow-hidden relative">
+    <section className="py-32 bg-brand-light/30 overflow-hidden relative">
       <motion.div style={{ y }} className="absolute inset-0 will-change-transform">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/8 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-sky-400/6 rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-deep/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-accent/5 rounded-full blur-[100px]" />
       </motion.div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <FadeUp className="text-center mb-16">
-          <span className="text-brand-400 font-bold tracking-widest uppercase text-sm">The Platform</span>
-          <h2 className="text-4xl lg:text-6xl font-display font-bold text-white mt-3 leading-tight">
+          <span className="text-brand-deep/60 font-bold tracking-widest uppercase text-sm">The Platform</span>
+          <h2 className="text-4xl lg:text-6xl font-display font-bold text-slate-900 mt-3 leading-tight">
             Everything in one place.
           </h2>
         </FadeUp>
@@ -980,65 +978,65 @@ const VisualBlock: React.FC = () => {
         <FadeUp>
           <div className="relative mx-auto max-w-4xl">
             {/* Outer glow */}
-            <div className="absolute -inset-6 rounded-[40px] bg-brand-500/8 blur-3xl" />
+            <div className="absolute -inset-6 rounded-[40px] bg-brand-deep/5 blur-3xl" />
 
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative bg-slate-900 border border-slate-700/60 rounded-[28px] overflow-hidden shadow-2xl will-change-transform"
+              className="relative bg-white border border-brand-light rounded-[28px] overflow-hidden shadow-2xl shadow-brand-deep/10 will-change-transform"
             >
               {/* Header */}
-              <div className="border-b border-slate-800 p-5 flex items-center gap-4">
+              <div className="border-b border-brand-light p-5 flex items-center gap-4 bg-white/50 backdrop-blur-sm">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-brand-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                  <div className="w-3 h-3 rounded-full bg-brand-accent/50" />
                 </div>
                 <div className="flex-1 flex gap-3">
                   {['Dashboard', 'Applications', 'Revenue', 'Reports'].map((tab, i) => (
-                    <button key={tab} className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${i === 0 ? 'bg-brand-500/20 text-brand-400' : 'text-slate-500 hover:text-slate-300'}`}>
+                    <button key={tab} className={`text-[10px] sm:text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${i === 0 ? 'bg-brand-deep text-white' : 'text-slate-400 hover:text-brand-deep'}`}>
                       {tab}
                     </button>
                   ))}
                 </div>
-                <div className="w-7 h-7 rounded-full bg-brand-500 flex items-center justify-center text-white text-xs font-bold">C</div>
+                <div className="w-7 h-7 rounded-full bg-brand-deep flex items-center justify-center text-white text-[10px] font-bold">JD</div>
               </div>
 
               {/* Body */}
               <div className="grid grid-cols-3 gap-0">
                 {/* Sidebar */}
-                <div className="col-span-1 border-r border-slate-800 p-5 space-y-3">
+                <div className="col-span-1 border-r border-brand-light p-4 sm:p-5 space-y-3 bg-brand-light/20">
                   {['Overview', 'Credentialing', 'Enrollment', 'Billing', 'Analytics', 'Settings'].map((item, i) => (
-                    <div key={item} className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium ${i === 0 ? 'bg-brand-500/15 text-brand-400' : 'text-slate-500'}`}>
-                      <div className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-brand-400' : 'bg-slate-700'}`} />
-                      {item}
+                    <div key={item} className={`flex items-center gap-3 px-3 py-2 rounded-xl text-[10px] sm:text-xs font-medium ${i === 0 ? 'bg-brand-deep/5 text-brand-deep' : 'text-slate-400'}`}>
+                      <div className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-brand-deep' : 'bg-brand-deep/10'}`} />
+                      <span className="truncate">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Main */}
-                <div className="col-span-2 p-6 space-y-5">
-                  <div className="grid grid-cols-3 gap-3">
+                <div className="col-span-2 p-4 sm:p-6 space-y-5">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
                     {[
-                      { l: 'Active Apps', v: '48', c: 'text-white' },
-                      { l: 'Approved', v: '94%', c: 'text-brand-400' },
-                      { l: 'Pending Rev.', v: '$84k', c: 'text-sky-400' },
+                      { l: 'Active Apps', v: '48', c: 'text-slate-900' },
+                      { l: 'Approved', v: '94%', c: 'text-brand-deep' },
+                      { l: 'Pending Rev.', v: '$84k', c: 'text-brand-deep' },
                     ].map((card) => (
-                      <div key={card.l} className="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
-                        <p className="text-xs text-slate-500 mb-1">{card.l}</p>
-                        <p className={`text-2xl font-bold ${card.c}`}>{card.v}</p>
+                      <div key={card.l} className="bg-brand-light/10 rounded-xl p-3 sm:p-4 border border-brand-light/50">
+                        <p className="text-[10px] text-slate-400 mb-1 truncate">{card.l}</p>
+                        <p className={`text-base sm:text-2xl font-bold ${card.c}`}>{card.v}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* Mini chart */}
-                  <div className="bg-slate-800/40 rounded-xl p-4 border border-slate-700/30">
-                    <p className="text-xs text-slate-500 mb-3 font-semibold uppercase tracking-wider">Revenue Cycle</p>
-                    <div className="flex items-end gap-2 h-20">
+                  <div className="bg-brand-light/5 rounded-xl p-4 border border-brand-light/30">
+                    <p className="text-[10px] text-slate-400 mb-3 font-semibold uppercase tracking-wider">Revenue Cycle</p>
+                    <div className="flex items-end gap-1.5 sm:gap-2 h-20">
                       {[55, 80, 65, 90, 75, 95, 88].map((h, i) => (
                         <motion.div
                           key={i}
-                          className="flex-1 rounded-t bg-gradient-to-t from-brand-500/80 to-brand-400/40"
+                          className="flex-1 rounded-t bg-gradient-to-t from-brand-deep to-brand-accent/40"
                           initial={{ height: 0 }}
                           whileInView={{ height: `${h}%` }}
                           viewport={{ once: true }}
@@ -1055,11 +1053,11 @@ const VisualBlock: React.FC = () => {
                       { name: 'Dr. James Carter', status: 'In Review', color: 'yellow' },
                       { name: 'Dr. Priya Sharma', status: 'Submitted', color: 'sky' },
                     ].map((row) => (
-                      <div key={row.name} className="flex items-center justify-between py-2 px-3 rounded-lg bg-slate-800/30">
-                        <span className="text-xs text-slate-400">{row.name}</span>
-                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${row.color === 'brand' ? 'bg-brand-500/15 text-brand-400' :
-                            row.color === 'yellow' ? 'bg-yellow-500/15 text-yellow-400' :
-                              'bg-sky-500/15 text-sky-400'
+                      <div key={row.name} className="flex items-center justify-between py-2 px-3 rounded-lg bg-brand-light/20">
+                        <span className="text-[10px] sm:text-xs text-slate-500 truncate mr-2">{row.name}</span>
+                        <span className={`text-[9px] sm:text-xs font-semibold px-2 py-0.5 rounded-full ${row.color === 'brand' ? 'bg-brand-deep/10 text-brand-deep' :
+                          row.color === 'yellow' ? 'bg-amber-100 text-amber-700' :
+                            'bg-brand-light text-brand-deep'
                           }`}>{row.status}</span>
                       </div>
                     ))}
@@ -1069,9 +1067,9 @@ const VisualBlock: React.FC = () => {
 
               {/* Scan line */}
               <motion.div
-                animate={{ y: [-2, 300, -2] }}
+                animate={{ y: [-2, 400, -2] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                className="absolute inset-x-0 h-px bg-brand-400/30 shadow-[0_0_12px_rgba(127,191,127,0.4)] pointer-events-none will-change-transform"
+                className="absolute inset-x-0 h-px bg-brand-deep/10 shadow-[0_0_12px_rgba(11,107,87,0.2)] pointer-events-none will-change-transform"
               />
             </motion.div>
           </div>
@@ -1146,19 +1144,19 @@ const WhoWeWorkWith: React.FC = () => {
       name: 'Group Practices',
       desc: 'Manage your entire provider roster in a single, streamlined system.',
       icon: ASSETS.specialties.general,
-      gradient: 'from-sky-400/20 to-blue-500/10',
+      gradient: 'from-brand-light to-brand-deep/5',
     },
     {
       name: 'Telehealth Platforms',
       desc: 'Multi-state credentialing and billing for virtual-first practices.',
       icon: ASSETS.specialties.telehealth,
-      gradient: 'from-purple-400/20 to-pink-400/10',
+      gradient: 'from-brand-accent/20 to-brand-deep/5',
     },
     {
       name: 'Health Startups',
       desc: 'Build the right infrastructure from day one without the overhead.',
       icon: ASSETS.features.zap,
-      gradient: 'from-amber-400/20 to-orange-400/10',
+      gradient: 'from-brand-light to-brand-accent/10',
     },
   ];
 
@@ -1208,7 +1206,7 @@ const FinalCTA: React.FC = () => {
               transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(135deg, #020617, #0f2c14, #020617, #0a1929)',
+                background: 'linear-gradient(135deg, #0B6B57, #095646, #074235, #0B6B57)',
                 backgroundSize: '300% 300%',
               }}
             />
@@ -1217,17 +1215,17 @@ const FinalCTA: React.FC = () => {
             <motion.div
               animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
               transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
-              className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-brand-500/20 rounded-full blur-[100px] will-change-transform"
+              className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-[100px] will-change-transform"
             />
             <motion.div
               animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
               transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-              className="absolute bottom-[-20%] right-[-10%] w-80 h-80 bg-sky-400/15 rounded-full blur-[80px] will-change-transform"
+              className="absolute bottom-[-20%] right-[-10%] w-80 h-80 bg-brand-accent/20 rounded-full blur-[80px] will-change-transform"
             />
 
             {/* Grid */}
             <div className="absolute inset-0 opacity-[0.04]" style={{
-              backgroundImage: 'linear-gradient(rgba(127,191,127,1) 1px, transparent 1px),linear-gradient(90deg, rgba(127,191,127,1) 1px, transparent 1px)',
+              backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
               backgroundSize: '48px 48px',
             }} />
 
@@ -1275,24 +1273,15 @@ const FinalCTA: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-5"
               >
-                <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 0 50px rgba(127,191,127,0.45)',
-                  }}
-                  whileTap={{ scale: 0.97 }}
-                  className="px-10 py-5 bg-brand-500 text-white rounded-2xl font-bold text-lg shadow-2xl shadow-brand-500/20 hover:bg-brand-600 transition-colors flex items-center gap-3 group"
+                <Link
+                  to="/contact"
+                  className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold text-lg shadow-2xl shadow-black/10 hover:scale-105 transition-all flex items-center gap-3 w-full sm:w-auto justify-center"
                 >
                   Book a Free Consultation
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <IconRenderer icon={ASSETS.nav.arrowRight} size={20} />
-                  </motion.span>
-                </motion.button>
-                <div className="text-slate-500 text-sm flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full border border-slate-600 flex items-center justify-center text-xs">✓</span>
+                  <IconRenderer icon={ASSETS.nav.arrowRight} size={20} />
+                </Link>
+                <div className="text-brand-light/60 text-sm flex items-center gap-2">
+                  <span className="w-4 h-4 rounded-full border border-brand-light/30 flex items-center justify-center text-[10px]">✓</span>
                   No commitment required
                 </div>
               </motion.div>
