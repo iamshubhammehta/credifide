@@ -45,7 +45,9 @@ const ServicesHub: React.FC = () => {
              transition={{ duration: 0.8 }}
              className="text-5xl lg:text-8xl font-display font-extrabold text-slate-950 tracking-tight leading-[1.05] mb-8"
            >
-             A Specialized Core For <span className="text-brand-deep">Clinical Success</span>
+             A Specialized <br />
+             Core For <br />
+             <span className="text-brand-deep whitespace-nowrap">Clinical Success</span>
            </motion.h1>
            <motion.p 
              initial={{ opacity: 0, y: 20 }}
