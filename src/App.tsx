@@ -1706,7 +1706,7 @@ export default function App() {
             </div>
           )}
 
-          <footer className="bg-[#11332E] pt-12 pb-0 text-white relative overflow-hidden">
+          <footer className="bg-[#0f3d3a] pt-12 pb-0 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
               
               <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
@@ -1772,7 +1772,7 @@ export default function App() {
 
             {/* Copyright Bar: Exact Color & Height */}
             <div className="bg-[#A3BD6A] py-2 text-center">
-              <p className="text-[12px] font-bold text-[#11332E]">
+              <p className="text-[12px] font-bold text-[#0f3d3a]">
                 © 2026 <span className="font-extrabold uppercase tracking-widest">Credifide</span>, All Rights Reserved
               </p>
             </div>
