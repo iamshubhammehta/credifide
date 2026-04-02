@@ -5,6 +5,8 @@ import { ASSETS, IconRenderer } from './constants';
 import { PhysicsWorld, PhysicsBody } from './components/PhysicsEngine';
 import About from './pages/About';
 import Services from './pages/Services';
+import InsuranceCredentialing from './pages/InsuranceCredentialing';
+import MedicalBilling from './pages/MedicalBilling';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -274,8 +276,45 @@ const Navbar = React.memo(() => {
 
         <div className="hidden lg:flex items-center gap-8 font-medium transition-colors duration-500 text-slate-600">
           <Link to="/" className={`hover:text-brand-500 transition-colors ${location.pathname === '/' ? 'text-brand-500' : ''}`}>Home</Link>
-          <Link to="/about" className={`hover:text-brand-500 transition-colors ${location.pathname === '/about' ? 'text-brand-500' : ''}`}>About Us</Link>
-          <Link to="/services" className={`hover:text-brand-500 transition-colors ${location.pathname === '/services' ? 'text-brand-500' : ''}`}>Services</Link>
+          <Link to="/about" className={`underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname === '/about' ? 'text-brand-deep font-bold' : ''}`}>About Us</Link>
+          
+          <div className="relative group/nav">
+            <Link to="/services" className={`flex items-center gap-1 underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname.startsWith('/services') ? 'text-brand-deep font-bold' : ''}`}>
+              Services
+              <IconRenderer icon={ASSETS.nav.chevronRight} size={14} className="rotate-90 group-hover/nav:translate-y-0.5 transition-transform" />
+            </Link>
+            
+            {/* Dropdown */}
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
+               <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-4 w-72 backdrop-blur-xl">
+                  <Link to="/services/insurance-credentialing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                     <div className="w-10 h-10 rounded-lg bg-brand-deep/10 text-brand-deep flex items-center justify-center shrink-0">
+                        <IconRenderer icon={ASSETS.features.shield} size={20} />
+                     </div>
+                     <div>
+                        <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Credentialing</div>
+                        <p className="text-[11px] text-slate-500 leading-tight">Fast-tracked payer enrollment & compliance.</p>
+                     </div>
+                  </Link>
+                  <Link to="/services/medical-billing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                     <div className="w-10 h-10 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                        <IconRenderer icon={ASSETS.ui.dollar} size={20} />
+                     </div>
+                     <div>
+                        <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-blue">Medical Billing</div>
+                        <p className="text-[11px] text-slate-500 leading-tight">Optimized RCM and revenue recovery.</p>
+                     </div>
+                  </Link>
+                  <div className="mt-2 pt-2 border-t border-slate-50 px-4">
+                     <Link to="/services" className="text-[11px] font-bold text-slate-400 hover:text-brand-deep transition-colors flex items-center gap-1">
+                        View All Services
+                        <IconRenderer icon={ASSETS.nav.arrowRight} size={10} />
+                     </Link>
+                  </div>
+               </div>
+            </div>
+          </div>
+          
           <button onClick={() => scrollToSection('reviews')} className="hover:text-brand-500 transition-colors cursor-pointer">Resources</button>
           <button onClick={() => scrollToSection('contact')} className="hover:text-brand-500 transition-colors cursor-pointer">Contact</button>
         </div>
@@ -1605,6 +1644,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/insurance-credentialing" element={<InsuranceCredentialing />} />
+            <Route path="/services/medical-billing" element={<MedicalBilling />} />
             <Route path="*" element={<Home />} />
           </Routes>
 

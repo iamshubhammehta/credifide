@@ -10,6 +10,8 @@
   --color-brand-500: #7FBF7F;
   --color-brand-600: #6aa86a;
   --color-brand-700: #568f56;
+  --color-brand-deep: #0B6B57;
+  --color-brand-blue: #1E90FF;
 
   --animate-pulse-soft: pulse-soft 6s ease-in-out infinite;
   --animate-float: float 6s ease-in-out infinite;
