@@ -24,7 +24,7 @@ const ServicesHub: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen pt-32 pb-24 overflow-hidden">
+    <div className="bg-white min-h-screen pt-12 pb-20 overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
@@ -32,7 +32,7 @@ const ServicesHub: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-24 max-w-3xl mx-auto">
+        <div className="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
            <motion.h1 
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
@@ -93,9 +93,9 @@ const ServicesHub: React.FC = () => {
         </div>
 
         {/* Minimal Bottom CTA placeholder */}
-        <div className="mt-32 pt-24 border-t border-slate-100 flex flex-col md:row items-center justify-between gap-8 opacity-60">
+        <div className="mt-24 pt-16 lg:mt-32 lg:pt-20 border-t border-slate-100 flex flex-col md:row items-center justify-between gap-8 opacity-60">
            <div className="text-slate-400 font-medium">Looking for something else?</div>
-           <div className="flex gap-12 text-slate-500 font-bold text-sm">
+           <div className="flex gap-8 lg:gap-12 text-slate-500 font-bold text-sm">
               <span className="hover:text-brand-deep cursor-pointer transition-colors">Case Studies</span>
               <span className="hover:text-brand-deep cursor-pointer transition-colors">Provider Portal</span>
               <span className="hover:text-brand-deep cursor-pointer transition-colors">Strategic Advisory</span>

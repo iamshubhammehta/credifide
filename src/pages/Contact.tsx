@@ -4,7 +4,7 @@ import { ASSETS, IconRenderer } from '../constants';
 
 const Contact = () => {
   return (
-    <div className="pt-20 pb-32 bg-white relative overflow-hidden">
+    <div className="pt-0 pb-20 lg:pb-24 bg-white relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
@@ -12,7 +12,7 @@ const Contact = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden z-10">
+      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ const Contact = () => {
       </section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Info Cards */}
           <div className="lg:col-span-1 space-y-6">
@@ -144,8 +144,8 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-48 mb-24">
-        <div className="bg-brand-deep rounded-[48px] p-12 md:p-24 text-center overflow-hidden relative shadow-2xl shadow-brand-deep/20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-16">
+        <div className="bg-brand-deep rounded-[48px] p-12 md:p-20 text-center overflow-hidden relative shadow-2xl shadow-brand-deep/20">
           <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-light/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />

@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const MedicalBilling: React.FC = () => {
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-20">
+    <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-0">
       {/* ─── HERO SECTION ─── */}
-      <section className="relative min-h-[85vh] flex items-center justify-center py-20 overflow-hidden">
+      <section className="relative min-h-[70vh] flex flex-col justify-start pt-20 pb-16 lg:pt-24 lg:pb-24 overflow-hidden">
         {/* Animated Background Gradients & Shapes */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
            <motion.div 
@@ -90,7 +90,7 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── PAIN POINTS SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-brand-light/30">
+      <section className="py-20 lg:py-24 bg-brand-light/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mb-16 sm:mb-24">
              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-8 leading-tight">
@@ -103,16 +103,17 @@ const MedicalBilling: React.FC = () => {
           
           <div className="grid lg:grid-cols-2 gap-8">
              <div className="bg-white p-8 sm:p-12 rounded-[40px] border border-brand-light shadow-xl shadow-brand-deep/5 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-red-400/5 rounded-full blur-[80px]" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-deep/5 rounded-full blur-[80px]" />
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-slate-950 mb-6">Revenue Leakage</h3>
                 <p className="text-slate-500 mb-10 leading-relaxed text-base sm:text-lg">
                   Uncollected patient balances, ignored denials, and inefficient follow-up can drain up to 15% of your clinical revenue.
                 </p>
-                <div className="flex gap-4 items-center text-red-500 font-bold bg-red-50 px-6 py-4 rounded-2xl w-fit text-sm sm:text-base">
-                   <div className="w-12 h-1 bg-red-200 rounded-full overflow-hidden shrink-0">
-                      <motion.div animate={{ x: ['-100%', '100%'] }} transition={{ duration: 2, repeat: Infinity }} className="h-full bg-red-500" />
-                   </div>
-                   Average 12% Revenue Loss
+                <div className="flex gap-4 items-center text-brand-deep font-bold bg-brand-light px-6 py-4 rounded-2xl w-fit text-sm sm:text-base">
+                  <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
+                  9.8% Average Loss to Billing Errors
+                  <div className="w-24 h-1.5 bg-brand-deep/20 rounded-full overflow-hidden ml-2 hidden sm:block">
+                      <motion.div animate={{ x: ['-100%', '100%'] }} transition={{ duration: 2, repeat: Infinity }} className="h-full bg-brand-deep" />
+                  </div>
                 </div>
              </div>
              <div className="bg-white p-8 sm:p-12 rounded-[40px] border border-brand-light shadow-xl shadow-brand-deep/5 relative overflow-hidden group">
@@ -131,7 +132,7 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── SERVICES BREAKDOWN ─── */}
-      <section className="py-24 sm:py-32 overflow-hidden bg-white">
+      <section className="py-20 lg:py-24 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 sm:mb-20 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-6">Built for Accuracy</h2>
@@ -168,7 +169,7 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── VISUAL FLOW SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-brand-deep relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-brand-deep relative overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-[0.03]" />
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-white">
@@ -207,7 +208,7 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── REVENUE IMPACT SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-white">
+      <section className="py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
              <div>
@@ -268,7 +269,7 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── CTA SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-white">
+      <section className="py-20 lg:py-24 bg-white">
          <div className="max-w-5xl mx-auto px-6">
             <div className="bg-brand-deep rounded-[48px] sm:rounded-[56px] p-10 sm:p-16 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl shadow-brand-deep/20">
                <div className="absolute inset-0 bg-noise opacity-[0.03]" />

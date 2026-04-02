@@ -429,7 +429,7 @@ const Hero = React.memo(() => {
   }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-white" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <section id="hero" className="relative overflow-hidden bg-white" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       {/* Mesh gradients */}
@@ -446,7 +446,7 @@ const Hero = React.memo(() => {
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-36 lg:py-48">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-16 lg:pt-16 lg:pb-24">
         <PhysicsBody id="hero-badge" className="inline-block mb-8">
           <motion.span
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
@@ -671,7 +671,7 @@ const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationP
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute top-0 -left-5 w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center text-white shadow-xl z-30 will-change-transform"
+          className="absolute top-0 -left-5 w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center text-brand-deep shadow-xl z-30 will-change-transform"
         >
           <IconRenderer icon={ASSETS.ui.alert} size={32} />
         </motion.div>
@@ -951,7 +951,7 @@ const Features = React.memo(() => {
   return (
     <div id="features" className="relative">
       {/* Intro section for services */}
-      <section className="py-24 bg-white border-b transition-colors duration-1000 border-slate-100">
+      <section className="py-20 lg:py-24 bg-white border-b transition-colors duration-1000 border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <PhysicsBody id="features-badge" className="inline-block mb-4">
             <span className="font-bold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full border transition-colors duration-1000 bg-brand-light border-brand-deep/10 text-brand-deep">
@@ -1144,7 +1144,7 @@ const ReviewsSection = React.memo(() => {
   }, [reviews, isLoading]);
 
   return (
-    <section id="reviews" className="bg-slate-50/30 py-32 relative overflow-hidden">
+    <section id="reviews" className="bg-slate-50/30 py-20 lg:py-24 relative overflow-hidden">
       {/* SaaS Background Pattern */}
       <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] opacity-40" />
 
@@ -1287,7 +1287,7 @@ const ContactSection = React.memo(() => {
   const services = ["Credentialing", "RCM", "Both"];
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden bg-white">
+    <section id="contact" className="relative py-20 lg:py-24 overflow-hidden bg-white">
       {/* Futuristic Background */}
       <div className="absolute inset-0 transition-colors duration-1000 bg-white" />
       <div className="absolute inset-0 transition-opacity duration-1000 opacity-5">
@@ -1591,7 +1591,7 @@ const Specialties = React.memo(() => {
   ];
 
   return (
-    <section id="specialties" className="py-24 bg-white overflow-hidden relative mt-20">
+    <section id="specialties" className="py-16 lg:py-20 bg-white overflow-hidden relative">
       {/* Edge Fades */}
       <div className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none transition-colors duration-1000 bg-gradient-to-r from-slate-50 to-transparent" />
       <div className="absolute inset-y-0 right-0 w-32 z-10 pointer-events-none transition-colors duration-1000 bg-gradient-to-l from-slate-50 to-transparent" />
@@ -1695,33 +1695,30 @@ export default function App() {
              </Link>
           </div>
 
-          <footer className="bg-brand-deep py-20 text-white relative overflow-hidden">
+          <footer className="bg-brand-deep py-12 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
             
             <div className="max-w-7xl mx-auto px-6 relative z-10">
               <div className="flex flex-col items-center">
                 {/* Logo Section */}
-                <div className="mb-12">
-                   <div className="flex items-center text-3xl font-display font-black tracking-tighter">
-                      <span>Credi</span>
-                      <span className="bg-brand-accent text-brand-deep px-2 ml-0.5 rounded-lg">fide</span>
-                      <span>.</span>
-                   </div>
+                <div className="mb-10">
+                   <Link to="/" className="flex items-center">
+                     <img
+                       src={ASSETS.brand.logoImage as string}
+                       alt="Credifide"
+                       className="h-9 sm:h-10 w-auto object-contain brightness-0 invert"
+                       loading="lazy"
+                     />
+                   </Link>
                 </div>
 
                 {/* Primary Links */}
-                <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12 text-sm font-bold text-brand-100/70">
+                <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 text-base font-bold text-brand-100/70">
                    <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
-                   <span className="text-brand-accent/20 hidden md:block">—</span>
                    <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
-                   <span className="text-brand-accent/20 hidden md:block">—</span>
                    <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
-                   <span className="text-brand-accent/20 hidden md:block">—</span>
                    <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>
-                   <span className="text-brand-accent/20 hidden md:block">—</span>
                    <Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Us</Link>
-                   <span className="text-brand-accent/20 hidden md:block">—</span>
-                   <Link to="/unsubscribe" className="hover:text-brand-accent transition-colors">Unsubscribe</Link>
                 </nav>
 
                 {/* Info Bar */}
@@ -1731,9 +1728,9 @@ export default function App() {
                    </a>
 
                    <div className="flex gap-6">
-                      {[ASSETS.social.linkedin, ASSETS.social.twitter, ASSETS.social.github].map((social, idx) => (
+                      {[ASSETS.social.facebook, ASSETS.social.instagram, ASSETS.social.twitter, ASSETS.social.linkedin].map((social, idx) => (
                         <div key={idx} className="text-brand-100/40 hover:text-brand-accent transition-colors cursor-pointer">
-                          <IconRenderer icon={social} size={20} />
+                          <IconRenderer icon={social} size={22} />
                         </div>
                       ))}
                    </div>

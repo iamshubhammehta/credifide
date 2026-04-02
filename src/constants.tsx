@@ -12,6 +12,8 @@ import {
   Zap,
   Clock,
   CheckCircle2,
+  Facebook,
+  Instagram,
   Stethoscope,
   HeartPulse,
   Activity,
@@ -80,6 +82,8 @@ export const ASSETS = {
     twitter: Twitter,
     github: Github,
     linkedin: Linkedin,
+    facebook: Facebook,
+    instagram: Instagram,
   },
 
   // Feature Icons

@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 const Privacy = () => {
   return (
-    <div className="pt-32 pb-48 px-4 sm:px-6 lg:px-8 bg-white selection:bg-brand-light selection:text-brand-deep relative overflow-hidden">
+    <div className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 bg-white selection:bg-brand-light selection:text-brand-deep relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
@@ -17,10 +17,10 @@ const Privacy = () => {
            transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">Privacy Policy</h1>
-          <p className="text-slate-500 mb-16 font-medium">Last Updated: May 20, 2024</p>
+          <p className="text-slate-500 mb-12 font-medium">Last Updated: May 20, 2024</p>
           
-          <div className="space-y-12 text-slate-600 leading-relaxed text-lg">
-             <section className="space-y-6">
+          <div className="space-y-10 text-slate-600 leading-relaxed text-lg">
+             <section className="space-y-4">
                 <h2 className="text-2xl font-bold text-brand-deep">1. Introduction</h2>
                 <p>
                    At Credifide, we are committed to protecting the privacy and security of the information you share with us. This Privacy Policy describes how we collect, use, and share your personal information when you visit our website or use our services.

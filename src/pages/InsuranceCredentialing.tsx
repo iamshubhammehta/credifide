@@ -7,9 +7,9 @@ const InsuranceCredentialing: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-20">
+    <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-0">
       {/* ─── HERO SECTION ─── */}
-      <section className="relative min-h-[80vh] flex items-center justify-center py-20 overflow-hidden">
+      <section className="relative min-h-[70vh] flex flex-col justify-start pt-20 pb-16 lg:pt-24 lg:pb-24 overflow-hidden">
         {/* Animated Background Gradients */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
            <motion.div 
@@ -83,7 +83,7 @@ const InsuranceCredentialing: React.FC = () => {
       </section>
 
       {/* ─── PROBLEM SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-brand-light/30">
+      <section className="py-20 lg:py-24 bg-brand-light/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 sm:mb-20">
              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-6 leading-tight">Credentialing is Broken.</h2>
@@ -121,7 +121,7 @@ const InsuranceCredentialing: React.FC = () => {
       </section>
 
       {/* ─── SOLUTION SECTION ─── */}
-      <section className="py-24 sm:py-32 overflow-hidden">
+      <section className="py-20 lg:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             <div>
@@ -196,7 +196,7 @@ const InsuranceCredentialing: React.FC = () => {
       </section>
 
       {/* ─── SERVICES BREAKDOWN ─── */}
-      <section className="py-24 sm:py-32 bg-brand-light/20 relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-brand-light/20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-6 text-slate-900 leading-tight">End-to-End Coverage</h2>
@@ -251,7 +251,7 @@ const InsuranceCredentialing: React.FC = () => {
       </section>
 
       {/* ─── CTA SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-white flex items-center justify-center text-center">
+      <section className="py-20 lg:py-24 bg-white flex items-center justify-center text-center">
         <div className="max-w-5xl mx-auto px-6">
           <div className="p-10 sm:p-16 lg:p-24 bg-brand-deep rounded-[48px] sm:rounded-[64px] relative overflow-hidden shadow-2xl shadow-brand-deep/20">
              {/* Decorative blobs */}

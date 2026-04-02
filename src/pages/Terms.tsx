@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 const Terms = () => {
   return (
-    <div className="pt-32 pb-48 px-4 sm:px-6 lg:px-8 bg-white selection:bg-brand-light selection:text-brand-deep relative overflow-hidden">
+    <div className="pt-8 pb-32 px-4 sm:px-6 lg:px-8 bg-white selection:bg-brand-light selection:text-brand-deep relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />

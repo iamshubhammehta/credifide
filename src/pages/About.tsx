@@ -120,7 +120,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex flex-col justify-start overflow-hidden bg-white">
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
@@ -154,7 +154,7 @@ const HeroSection: React.FC = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-32 pb-20">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20 pb-16 lg:pt-24 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ const HeroSection: React.FC = () => {
               {/* Title bar */}
               <div className="bg-white border-b border-slate-100 px-4 py-3 flex items-center gap-3">
                 <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 </div>
@@ -308,7 +308,7 @@ const HeroSection: React.FC = () => {
                         className="w-5 h-5 bg-brand-50 rounded-md flex items-center justify-center relative"
                       >
                         <svg className="w-3 h-3 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                        <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-400 rounded-full border border-white" />
+                        <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-brand-500 rounded-full border border-white" />
                       </motion.div>
                     </div>
                   </div>
@@ -563,7 +563,7 @@ const HeroSection: React.FC = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600 will-change-transform"
+        className="absolute top-0 -left-5 w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center text-brand-deep shadow-xl z-30 will-change-transform"
       >
         <div className="w-px h-10 bg-gradient-to-b from-transparent via-slate-600 to-transparent" />
       </motion.div>
@@ -592,7 +592,7 @@ const StorySection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-50/60 to-transparent pointer-events-none" />
 
@@ -696,7 +696,7 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-brand-light/30 relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-brand-light/30 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(rgba(11,107,87,1) 1px, transparent 1px),linear-gradient(90deg, rgba(11,107,87,1) 1px, transparent 1px)',
         backgroundSize: '48px 48px',
@@ -774,7 +774,7 @@ const TransformationSection: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-brand-50/50 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
@@ -792,7 +792,7 @@ const TransformationSection: React.FC = () => {
               layoutId="toggle-pill"
               className="absolute inset-y-1.5 w-[calc(50%-3px)] rounded-xl"
               style={{
-                background: active === 'old' ? 'linear-gradient(135deg, #f87171, #ef4444)' : 'linear-gradient(135deg, #7FBF7F, #6aa86a)',
+                background: active === 'old' ? 'linear-gradient(135deg, #cbd5e1, #94a3b8)' : 'linear-gradient(135deg, #7FBF7F, #6aa86a)',
                 left: active === 'old' ? '6px' : 'calc(50% + 3px)',
               }}
               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -825,12 +825,12 @@ const TransformationSection: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.4 }}
-                className={`flex items-start gap-4 p-5 rounded-2xl border ${active === 'old' ? 'border-red-100 bg-red-50' : 'border-brand-100 bg-brand-50'}`}
+                className={`flex items-start gap-4 p-5 rounded-2xl border ${active === 'old' ? 'border-slate-200 bg-slate-50' : 'border-brand-100 bg-brand-50'}`}
               >
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${active === 'old' ? 'bg-red-100 text-red-500' : 'bg-brand-100 text-brand-600'}`}>
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${active === 'old' ? 'bg-slate-200 text-slate-500' : 'bg-brand-100 text-brand-600'}`}>
                   {active === 'old' ? '✕' : '✓'}
                 </div>
-                <span className={`font-medium text-sm leading-relaxed ${active === 'old' ? 'text-red-700' : 'text-brand-700'}`}>{item}</span>
+                <span className={`font-medium text-sm leading-relaxed ${active === 'old' ? 'text-slate-700' : 'text-brand-700'}`}>{item}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -841,7 +841,7 @@ const TransformationSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className={`rounded-3xl p-8 ${active === 'old' ? 'bg-red-50 border border-red-100' : 'bg-brand-deep border border-brand-accent/30'} relative overflow-hidden shadow-2xl`}
+            className={`rounded-3xl p-8 ${active === 'old' ? 'bg-slate-50 border border-slate-200' : 'bg-brand-deep border border-brand-accent/30'} relative overflow-hidden shadow-2xl`}
           >
             <div className="space-y-5">
               {[...Array(4)].map((_, i) => (
@@ -852,9 +852,9 @@ const TransformationSection: React.FC = () => {
                   transition={{ delay: i * 0.12, duration: 0.6, ease: 'easeOut' }}
                   className="relative origin-left"
                 >
-                  <div className={`h-8 rounded-lg ${active === 'old' ? 'bg-white' : 'bg-white/10'} flex items-center px-4 gap-3 border ${active === 'old' ? 'border-red-100' : 'border-white/5'}`}>
-                    <div className={`w-2 h-2 rounded-full ${active === 'old' ? 'bg-red-400' : 'bg-brand-accent'} animate-pulse`} />
-                    <div className={`h-2 rounded ${active === 'old' ? 'bg-red-100' : 'bg-white/20'}`} style={{ width: `${40 + i * 15}%` }} />
+                  <div className={`h-8 rounded-lg ${active === 'old' ? 'bg-white' : 'bg-white/10'} flex items-center px-4 gap-3 border ${active === 'old' ? 'border-slate-200' : 'border-white/5'}`}>
+                    <div className={`w-2 h-2 rounded-full ${active === 'old' ? 'bg-slate-300' : 'bg-brand-accent'} animate-pulse`} />
+                    <div className={`h-2 rounded ${active === 'old' ? 'bg-slate-100' : 'bg-white/20'}`} style={{ width: `${40 + i * 15}%` }} />
                   </div>
                 </motion.div>
               ))}
@@ -862,15 +862,15 @@ const TransformationSection: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className={`mt-6 p-5 rounded-2xl ${active === 'old' ? 'bg-white border border-red-100 shadow-sm' : 'bg-white/10 border border-white/20'}`}
+                className={`mt-6 p-5 rounded-2xl ${active === 'old' ? 'bg-white border border-slate-200 shadow-sm' : 'bg-white/10 border border-white/20'}`}
               >
-                <p className={`font-bold text-3xl ${active === 'old' ? 'text-red-500' : 'text-white'}`}>
+                <p className={`font-bold text-3xl ${active === 'old' ? 'text-slate-400' : 'text-white'}`}>
                   {active === 'old' ? '120 days' : '35 days'}
                 </p>
-                <p className={`text-sm mt-1 ${active === 'old' ? 'text-red-400/60' : 'text-brand-light/60'}`}>Average credentialing cycle</p>
+                <p className={`text-sm mt-1 ${active === 'old' ? 'text-slate-400/60' : 'text-brand-light/60'}`}>Average credentialing cycle</p>
               </motion.div>
             </div>
-            <div className={`absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-2xl ${active === 'old' ? 'bg-red-400/10' : 'bg-white/10'}`} />
+            <div className={`absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-2xl ${active === 'old' ? 'bg-slate-400/10' : 'bg-white/10'}`} />
           </motion.div>
         </div>
       </div>
@@ -889,7 +889,7 @@ const OperationSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <FadeUp className="text-center mb-20">
           <span className="text-brand-600 font-bold tracking-widest uppercase text-sm">How It Works</span>
@@ -961,7 +961,7 @@ const VisualBlock: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section className="py-32 bg-brand-light/30 overflow-hidden relative">
+    <section className="py-20 lg:py-24 bg-brand-light/30 overflow-hidden relative">
       <motion.div style={{ y }} className="absolute inset-0 will-change-transform">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-deep/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-accent/5 rounded-full blur-[100px]" />
@@ -1091,7 +1091,7 @@ const PrinciplesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-brand-50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative">
@@ -1161,7 +1161,7 @@ const WhoWeWorkWith: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <FadeUp className="text-center mb-16">
           <span className="text-brand-600 font-bold tracking-widest uppercase text-sm">Who We Serve</span>
@@ -1194,7 +1194,7 @@ const WhoWeWorkWith: React.FC = () => {
 // ─── 9. FINAL CTA ─────────────────────────────────────────────────────────────
 const FinalCTA: React.FC = () => {
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         <FadeUp>
           <div className="relative rounded-[48px] overflow-hidden">

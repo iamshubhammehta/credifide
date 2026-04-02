@@ -51,13 +51,13 @@ const Blog = () => {
   );
 
   return (
-    <div className="pt-32 pb-48 px-4 sm:px-6 lg:px-8">
+    <div className="pt-12 pb-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.6 }}
-           className="text-center mb-16"
+           className="text-center mb-12 lg:mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">Credifide Blog</h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">Insights, updates, and expert advice for healthcare professionals.</p>
