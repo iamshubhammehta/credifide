@@ -1703,7 +1703,7 @@ export default function App() {
               <div className="mb-8">
                 <Link to="/" className="flex items-center">
                   <img
-                    src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png"
+                    src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/658195174_122237338544126491_687030811474472989_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=3_eKyk5SMU8Q7kNvwEe0JXc&_nc_oc=Adr_E4PSx1RXbUKdHG-M8d5iZVya8Vg2o7xIdOBL-JuMtMDv2ZlrH6LY8tMqqTkm3Mc&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=vlTWwwstsL9d2XiAlNsGNA&_nc_ss=7a3a8&oh=00_Af1GzEhV7xTe4rpdwRNEcd4l_aASPiCyKEGP_axFajVMAA&oe=69D44A1E"
                     alt="Credifide"
                     className="h-10 sm:h-12 w-auto object-contain"
                     loading="lazy"
