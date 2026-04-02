@@ -45,15 +45,14 @@ const Contact = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="saas-card p-10 bg-brand-deep text-white shadow-2xl shadow-brand-deep/20 border-none relative overflow-hidden group"
+              className="saas-card p-10 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-8 border border-white/10 group-hover:bg-brand-accent group-hover:text-brand-deep transition-all duration-500">
+              <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center mb-8 text-brand-deep border border-brand-accent/20 group-hover:bg-brand-accent transition-all duration-500">
                 <IconRenderer icon={ASSETS.nav.phone} size={28} />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-white">Call Us</h3>
-              <p className="text-white/80 mb-6 font-medium">Monday - Friday, 9am - 6pm EST</p>
-              <a href="tel:+13215240606" className="text-2xl font-black text-[#A3BD6A] hover:text-white transition-colors block">
+              <h3 className="text-2xl font-bold mb-3 text-slate-900">Call Us</h3>
+              <p className="text-slate-500 mb-6 font-medium">Monday - Friday, 9am - 6pm EST</p>
+              <a href="tel:+13215240606" className="text-lg font-bold text-brand-deep hover:text-brand-accent transition-colors block">
                 +1-321-524-0606
               </a>
             </motion.div>
