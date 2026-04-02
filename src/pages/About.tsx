@@ -120,7 +120,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
@@ -145,11 +145,11 @@ const HeroSection: React.FC = () => {
 
       {/* Grid */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
             'linear-gradient(rgba(127,191,127,1) 1px, transparent 1px),linear-gradient(90deg, rgba(127,191,127,1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
+          backgroundSize: '64px 64px',
         }}
       />
 
@@ -169,7 +169,7 @@ const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.05] tracking-tight mb-8"
+          className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold text-slate-900 leading-[1.05] tracking-tight mb-8"
         >
           We Built the{' '}
           <span className="relative inline-block">
@@ -189,7 +189,7 @@ const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-          className="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-14"
+          className="text-xl sm:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-14"
         >
           Credifide was created to eliminate the invisible friction that keeps providers away from patients. We don't manage processes. We replace them.
         </motion.p>
@@ -209,7 +209,7 @@ const HeroSection: React.FC = () => {
           </motion.button>
           <motion.div
             whileHover={{ x: 4 }}
-            className="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors cursor-pointer font-semibold"
+            className="flex items-center gap-2 text-slate-500 hover:text-brand-500 transition-colors cursor-pointer font-semibold"
           >
             Learn how it works
             <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />

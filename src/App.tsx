@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useSpring, useMotionValue, useScroll, useTrans
 import { ASSETS, IconRenderer } from './constants';
 import { PhysicsWorld, PhysicsBody } from './components/PhysicsEngine';
 import About from './pages/About';
+import Services from './pages/Services';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -237,7 +238,7 @@ const Background = React.memo(() => {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] rounded-full blur-[140px] will-change-transform"
         style={{ background: 'radial-gradient(ellipse, rgba(127,191,127,0.06) 0%, transparent 70%)', opacity }}
       />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%)' }} />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%)' }} />
     </div>
   );
 });
@@ -274,7 +275,7 @@ const Navbar = React.memo(() => {
         <div className="hidden lg:flex items-center gap-8 font-medium transition-colors duration-500 text-slate-600">
           <Link to="/" className={`hover:text-brand-500 transition-colors ${location.pathname === '/' ? 'text-brand-500' : ''}`}>Home</Link>
           <Link to="/about" className={`hover:text-brand-500 transition-colors ${location.pathname === '/about' ? 'text-brand-500' : ''}`}>About Us</Link>
-          <button onClick={() => scrollToSection('features')} className="hover:text-brand-500 transition-colors cursor-pointer">Services</button>
+          <Link to="/services" className={`hover:text-brand-500 transition-colors ${location.pathname === '/services' ? 'text-brand-500' : ''}`}>Services</Link>
           <button onClick={() => scrollToSection('reviews')} className="hover:text-brand-500 transition-colors cursor-pointer">Resources</button>
           <button onClick={() => scrollToSection('contact')} className="hover:text-brand-500 transition-colors cursor-pointer">Contact</button>
         </div>
@@ -353,7 +354,7 @@ const Hero = React.memo(() => {
   }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-slate-950" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <section id="hero" className="relative overflow-hidden bg-white" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       {/* Mesh gradients */}
@@ -367,7 +368,7 @@ const Hero = React.memo(() => {
       </div>
       {/* Grid overlay */}
       <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(127,191,127,1) 1px,transparent 1px),linear-gradient(90deg,rgba(127,191,127,1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
-      {/* Bottom fade to white */}
+      {/* Bottom fade to slightly darker grey for contrast against next sections */}
       <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #f8fafc)' }} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-36 lg:py-48">
@@ -382,7 +383,7 @@ const Hero = React.memo(() => {
         </PhysicsBody>
 
         <PhysicsBody id="hero-title" className="mb-8">
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-extrabold tracking-tight leading-[1.05] text-white">
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-extrabold tracking-tight leading-[1.05] text-slate-900">
             <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }} className="block">
               Get Credentialed
             </motion.span>
@@ -400,7 +401,7 @@ const Hero = React.memo(() => {
 
         <PhysicsBody id="hero-desc" className="mb-12">
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto text-slate-400">
+            className="text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto text-slate-500">
             Credifide helps healthcare providers get credentialed, contracted, and reimbursed faster without delays or confusion.
           </motion.p>
         </PhysicsBody>
@@ -1603,6 +1604,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="*" element={<Home />} />
           </Routes>
 
           <footer className="py-20 bg-slate-900 text-white">
