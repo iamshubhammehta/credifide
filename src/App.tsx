@@ -1705,14 +1705,14 @@ export default function App() {
                   <img
                     src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/658195174_122237338544126491_687030811474472989_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=3_eKyk5SMU8Q7kNvwEe0JXc&_nc_oc=Adr_E4PSx1RXbUKdHG-M8d5iZVya8Vg2o7xIdOBL-JuMtMDv2ZlrH6LY8tMqqTkm3Mc&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=vlTWwwstsL9d2XiAlNsGNA&_nc_ss=7a3a8&oh=00_Af1GzEhV7xTe4rpdwRNEcd4l_aASPiCyKEGP_axFajVMAA&oe=69D44A1E"
                     alt="Credifide"
-                    className="h-10 sm:h-12 w-auto object-contain"
+                    className="h-14 sm:h-16 w-auto object-contain"
                     loading="lazy"
                   />
                 </Link>
               </div>
 
               {/* Navigation with dashes */}
-              <nav className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 mb-8 text-[13px] font-medium text-white/90">
+              <nav className="flex flex-wrap justify-center items-center gap-x-3 gap-y-3 mb-6 text-base md:text-lg font-bold text-white">
                 <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
                 <span className="text-white/30">—</span>
                 <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
@@ -1726,33 +1726,33 @@ export default function App() {
                 <Link to="#" className="hover:text-brand-accent transition-colors">Unsubscribe</Link>
               </nav>
 
-              {/* Bottom Row: Phone | Socials | Email */}
-              <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center gap-6 pb-10">
-                <div className="text-center md:text-left">
-                  <a href="tel:+13215240606" className="text-[13px] font-medium text-white/90 hover:text-brand-accent transition-colors">
+              {/* Bottom Row: Phone | Socials | Email - Now closer together and aligned with menu */}
+              <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 pb-12 mt-6">
+                <div>
+                  <a href="tel:+13215240606" className="text-base md:text-lg font-bold text-white hover:text-brand-accent transition-colors">
                     +1  321  524  0606
                   </a>
                 </div>
 
-                <div className="flex justify-center items-center gap-6">
+                <div className="flex items-center gap-6">
                 <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    <IconRenderer icon={ASSETS.social.linkedin} size={18} />
+                    <IconRenderer icon={ASSETS.social.linkedin} size={22} />
                   </a>
                   <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    <IconRenderer icon={ASSETS.social.facebook} size={18} />
+                    <IconRenderer icon={ASSETS.social.facebook} size={22} />
                   </a>
                   <a href="#" className="text-white/80 hover:text-white transition-colors pointer-events-none">
-                    <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="w-[22px] h-[22px]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                   </a>
                   <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    <IconRenderer icon={ASSETS.social.instagram} size={18} />
+                    <IconRenderer icon={ASSETS.social.instagram} size={22} />
                   </a>
                 </div>
 
-                <div className="text-center md:text-right">
-                  <a href="mailto:connect@credifide.com" className="text-[13px] font-medium text-white/90 hover:text-brand-accent transition-colors">
+                <div>
+                  <a href="mailto:connect@credifide.com" className="text-base md:text-lg font-bold text-white hover:text-brand-accent transition-colors">
                     connect@credifide.com
                   </a>
                 </div>
@@ -1760,9 +1760,9 @@ export default function App() {
             </div>
 
             {/* Copyright Bar: Exact Color & Height */}
-            <div className="bg-[#A3BD6A] py-1 text-center">
-               <p className="text-[11px] font-medium text-[#11332E]">
-                  © 2026 <span className="font-bold">Credifide</span>, All Rights Reserved
+            <div className="bg-[#A3BD6A] py-2 text-center">
+               <p className="text-[12px] font-bold text-[#11332E]">
+                  © 2026 <span className="font-extrabold uppercase tracking-widest">Credifide</span>, All Rights Reserved
                </p>
             </div>
           </footer>
