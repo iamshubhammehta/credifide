@@ -284,69 +284,69 @@ const Navbar = React.memo(() => {
         <div className="hidden lg:flex items-center gap-8 font-medium transition-colors duration-500 text-slate-600">
           <Link to="/" className={`hover:text-brand-deep transition-colors ${location.pathname === '/' ? 'text-brand-deep font-bold' : ''}`}>Home</Link>
           <Link to="/about" className={`underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname === '/about' ? 'text-brand-deep font-bold' : ''}`}>About Us</Link>
-          
+
           <div className="relative group/nav">
             <Link to="/services" className={`flex items-center gap-1 underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname.startsWith('/services') ? 'text-brand-deep font-bold' : ''}`}>
               Services
               <IconRenderer icon={ASSETS.nav.chevronRight} size={14} className="rotate-90 group-hover/nav:translate-y-0.5 transition-transform" />
             </Link>
-            
+
             {/* Dropdown */}
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
-               <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-4 w-72 backdrop-blur-xl">
-                  <Link to="/services/insurance-credentialing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
-                     <div className="w-10 h-10 rounded-lg bg-brand-deep/10 text-brand-deep flex items-center justify-center shrink-0">
-                        <IconRenderer icon={ASSETS.features.shield} size={20} />
-                     </div>
-                     <div>
-                        <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Credentialing</div>
-                        <p className="text-[11px] text-slate-500 leading-tight">Fast-tracked payer enrollment & compliance.</p>
-                     </div>
-                  </Link>
-                  <Link to="/services/medical-billing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
-                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
-                        <IconRenderer icon={ASSETS.ui.dollar} size={20} />
-                     </div>
-                     <div>
-                        <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Medical Billing</div>
-                        <p className="text-[11px] text-slate-500 leading-tight">Optimized RCM and revenue recovery.</p>
-                     </div>
-                  </Link>
-                  <div className="mt-2 pt-2 border-t border-slate-50 px-4">
-                     <Link to="/services" className="text-[11px] font-bold text-slate-400 hover:text-brand-deep transition-colors flex items-center gap-1">
-                        View All Services
-                        <IconRenderer icon={ASSETS.nav.arrowRight} size={10} />
-                     </Link>
+              <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-4 w-72 backdrop-blur-xl">
+                <Link to="/services/insurance-credentialing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <div className="w-10 h-10 rounded-lg bg-brand-deep/10 text-brand-deep flex items-center justify-center shrink-0">
+                    <IconRenderer icon={ASSETS.features.shield} size={20} />
                   </div>
-               </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Credentialing</div>
+                    <p className="text-[11px] text-slate-500 leading-tight">Fast-tracked payer enrollment & compliance.</p>
+                  </div>
+                </Link>
+                <Link to="/services/medical-billing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
+                    <IconRenderer icon={ASSETS.ui.dollar} size={20} />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Medical Billing</div>
+                    <p className="text-[11px] text-slate-500 leading-tight">Optimized RCM and revenue recovery.</p>
+                  </div>
+                </Link>
+                <div className="mt-2 pt-2 border-t border-slate-50 px-4">
+                  <Link to="/services" className="text-[11px] font-bold text-slate-400 hover:text-brand-deep transition-colors flex items-center gap-1">
+                    View All Services
+                    <IconRenderer icon={ASSETS.nav.arrowRight} size={10} />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-          
+
           <div className="relative group/res">
             <Link to="/resources" className={`flex items-center gap-1 underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname.startsWith('/resources') ? 'text-brand-deep font-bold' : ''}`}>
               Resources
               <IconRenderer icon={ASSETS.nav.chevronRight} size={14} className="rotate-90 group-hover/res:translate-y-0.5 transition-transform" />
             </Link>
-            
+
             {/* Dropdown */}
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/res:opacity-100 group-hover/res:visible transition-all duration-300">
-               <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-4 w-64 backdrop-blur-xl">
-                  <Link to="/resources/blog" className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
-                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
-                        <IconRenderer icon={ASSETS.ui.fileText} size={20} />
-                     </div>
-                     <div className="font-bold text-slate-900 text-sm group-hover/item:text-brand-deep">Blog</div>
-                  </Link>
-                  <Link to="/resources/white-papers" className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
-                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
-                        <IconRenderer icon={ASSETS.features.shield} size={20} />
-                     </div>
-                     <div className="font-bold text-slate-900 text-sm group-hover/item:text-brand-deep">White Papers</div>
-                  </Link>
-               </div>
+              <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-4 w-64 backdrop-blur-xl">
+                <Link to="/resources/blog" className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
+                    <IconRenderer icon={ASSETS.ui.fileText} size={20} />
+                  </div>
+                  <div className="font-bold text-slate-900 text-sm group-hover/item:text-brand-deep">Blog</div>
+                </Link>
+                <Link to="/resources/white-papers" className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
+                    <IconRenderer icon={ASSETS.features.shield} size={20} />
+                  </div>
+                  <div className="font-bold text-slate-900 text-sm group-hover/item:text-brand-deep">White Papers</div>
+                </Link>
+              </div>
             </div>
           </div>
-          
+
           <Link to="/contact" className={`hover:text-brand-deep transition-colors ${location.pathname === '/contact' ? 'text-brand-deep font-bold' : ''}`}>Contact</Link>
         </div>
 
@@ -363,10 +363,10 @@ const Navbar = React.memo(() => {
 
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden flex items-center gap-4">
-           {/* Simple mobile menu logic could be added here, but preserving existing UI for now */}
-           <button className="p-2 text-slate-900" aria-label="Menu">
-             <IconRenderer icon={ASSETS.nav.menu} size={24} />
-           </button>
+          {/* Simple mobile menu logic could be added here, but preserving existing UI for now */}
+          <button className="p-2 text-slate-900" aria-label="Menu">
+            <IconRenderer icon={ASSETS.nav.menu} size={24} />
+          </button>
         </div>
       </nav>
     </header>
@@ -772,7 +772,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
               <div className="relative h-full w-full group/card">
                 {/* Main Card with Green Shadow */}
                 <motion.div
-                   className="saas-card p-8 lg:p-12 flex flex-col items-center justify-center text-center h-full relative shadow-2xl shadow-brand-deep/10 overflow-hidden group-hover/card:shadow-brand-deep/25 transition-all duration-500 bg-white border-brand-light"
+                  className="saas-card p-8 lg:p-12 flex flex-col items-center justify-center text-center h-full relative shadow-2xl shadow-brand-deep/10 overflow-hidden group-hover/card:shadow-brand-deep/25 transition-all duration-500 bg-white border-brand-light"
                 >
                   <div className="absolute inset-0 opacity-100 transition-colors duration-1000 bg-gradient-to-br from-white via-brand-light/20 to-brand-light/40" />
                   <div className="saas-card-glow" />
@@ -782,7 +782,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
                     <ServiceIllustration id={id} icon={Icon} />
                   </div>
 
-                   {/* Extra decorative blobs for more color */}
+                  {/* Extra decorative blobs for more color */}
                   <div className="absolute top-1/4 -left-10 w-40 h-40 bg-brand-accent/20 rounded-full blur-3xl animate-pulse" />
                   <div className="absolute bottom-1/4 -right-10 w-44 h-44 bg-brand-light rounded-full blur-3xl animate-pulse" />
                 </motion.div>
@@ -1689,21 +1689,21 @@ export default function App() {
 
           {/* Sticky Mobile CTA */}
           <div className="md:hidden fixed bottom-6 left-6 right-6 z-[60]">
-             <Link to="/contact" className="w-full bg-brand-deep text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-2xl shadow-brand-deep/40 active:scale-95 transition-transform">
-                Book Free Consultation
-                <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />
-             </Link>
+            <Link to="/contact" className="w-full bg-brand-deep text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-2xl shadow-brand-deep/40 active:scale-95 transition-transform">
+              Book Free Consultation
+              <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />
+            </Link>
           </div>
 
           <footer className="bg-[#11332E] pt-12 pb-0 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
-            
+
             <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
               {/* Logo */}
               <div className="mb-8">
                 <Link to="/" className="flex items-center">
                   <img
-                    src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png"
+                    src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/658195174_122237338544126491_687030811474472989_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=3_eKyk5SMU8Q7kNvwEe0JXc&_nc_oc=Adr_E4PSx1RXbUKdHG-M8d5iZVya8Vg2o7xIdOBL-JuMtMDv2ZlrH6LY8tMqqTkm3Mc&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=vlTWwwstsL9d2XiAlNsGNA&_nc_ss=7a3a8&oh=00_Af1GzEhV7xTe4rpdwRNEcd4l_aASPiCyKEGP_axFajVMAA&oe=69D44A1E"
                     alt="Credifide"
                     className="h-14 sm:h-16 w-auto object-contain"
                     loading="lazy"
@@ -1735,7 +1735,7 @@ export default function App() {
                 </div>
 
                 <div className="flex items-center gap-6">
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                  <a href="#" className="text-white/80 hover:text-white transition-colors">
                     <IconRenderer icon={ASSETS.social.linkedin} size={22} />
                   </a>
                   <a href="#" className="text-white/80 hover:text-white transition-colors">
@@ -1743,7 +1743,7 @@ export default function App() {
                   </a>
                   <a href="#" className="text-white/80 hover:text-white transition-colors pointer-events-none">
                     <svg className="w-[22px] h-[22px]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                     </svg>
                   </a>
                   <a href="#" className="text-white/80 hover:text-white transition-colors">
@@ -1761,9 +1761,9 @@ export default function App() {
 
             {/* Copyright Bar: Exact Color & Height */}
             <div className="bg-[#A3BD6A] py-2 text-center">
-               <p className="text-[12px] font-bold text-[#11332E]">
-                  © 2026 <span className="font-extrabold uppercase tracking-widest">Credifide</span>, All Rights Reserved
-               </p>
+              <p className="text-[12px] font-bold text-[#11332E]">
+                © 2026 <span className="font-extrabold uppercase tracking-widest">Credifide</span>, All Rights Reserved
+              </p>
             </div>
           </footer>
 
