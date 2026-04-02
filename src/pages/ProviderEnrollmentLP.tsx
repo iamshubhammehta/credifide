@@ -89,13 +89,29 @@ const ProviderEnrollmentLP = () => {
                 </div>
               </motion.div>
 
-              {/* Advanced Dashboard Mockup */}
-              <div className="relative h-[600px] group/dash">
-                 {/* Main Base */}
-                 <div className="absolute inset-0 bg-slate-50/50 backdrop-blur-2xl border border-slate-100 rounded-[4rem] rounded-tr-[2rem] rotate-1 shadow-2xl transition-transform duration-1000 group-hover/dash:rotate-0" />
+              {/* Right Dashboard Mockup (DETAILED & POSITIONED RIGHT) */}
+              <div className="relative h-[650px] group/dash md:translate-x-12 lg:translate-x-20">
+                 {/* Main Base Card - Glassmorphism */}
+                 <div className="absolute inset-0 bg-white/50 backdrop-blur-3xl border border-slate-100 rounded-[4rem] rounded-tr-[1.5rem] rotate-1 shadow-[0_50px_100px_-20px_rgba(17,51,46,0.12)] transition-transform duration-1000 group-hover/dash:rotate-0" />
                  
-                 {/* Internal Floating Cards */}
-                 <motion.div className="absolute -top-10 -right-10 w-72 glass-card p-8 floating-1 shadow-brand-deep/5 border-brand-light/20 z-40">
+                 {/* Floating Card: Live Payer Feed (NEW DETAIL) */}
+                 <motion.div className="absolute top-[5%] -left-8 w-60 glass-card p-5 floating-3 z-50 shadow-2xl">
+                    <div className="flex items-center gap-3 mb-4">
+                       <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
+                          <Activity size={16} />
+                       </div>
+                       <span className="text-[10px] font-black uppercase text-slate-400">Payer Feed</span>
+                    </div>
+                    <div className="space-y-3">
+                       <div className="h-1.5 w-full bg-slate-100 rounded-full">
+                          <motion.div animate={{ width: ['20%', '90%', '70%'] }} transition={{ duration: 4, repeat: Infinity }} className="h-full bg-blue-500" />
+                       </div>
+                       <div className="text-[9px] font-bold text-slate-500">Syncing with Medicaid...</div>
+                    </div>
+                 </motion.div>
+
+                 {/* Internal Floating Cards - Re-positioned */}
+                 <motion.div className="absolute top-[25%] -right-8 w-72 glass-card p-8 floating-1 shadow-brand-deep/5 border-brand-light/20 z-40">
                     <div className="flex items-center justify-between mb-6">
                        <div className="w-10 h-10 rounded-2xl bg-brand-deep flex items-center justify-center text-white">
                           <Activity size={20} />
@@ -109,7 +125,7 @@ const ProviderEnrollmentLP = () => {
                     </div>
                  </motion.div>
 
-                 <motion.div className="absolute bottom-[15%] -left-12 w-64 asymmetric-card p-8 floating-2 shadow-brand-accent/10 z-30">
+                 <motion.div className="absolute bottom-[20%] -left-12 w-64 asymmetric-card p-8 floating-2 shadow-brand-accent/10 z-30">
                     <div className="flex items-center gap-3 mb-6">
                        <div className="w-8 h-8 rounded-full bg-brand-accent shadow-lg shadow-brand-accent/20" />
                        <div className="text-sm font-black text-slate-400">STATUS.LIVE</div>
@@ -126,7 +142,7 @@ const ProviderEnrollmentLP = () => {
                     </div>
                  </motion.div>
 
-                 <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-light/30 rounded-full blur-[80px] -z-10 floating-3" />
+                 <motion.div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-brand-light/40 rounded-full blur-[100px] -z-10 floating-3" />
               </div>
             </div>
           </div>
@@ -199,47 +215,86 @@ const ProviderEnrollmentLP = () => {
            </div>
         </section>
 
-        {/* PROCESS: THE FLOW GRID */}
-        <section className="py-32 bg-brand-deep relative overflow-hidden">
+        {/* PROCESS: THE FLOW GRID (COOL COLOR CORRECTION) */}
+        <section className="py-32 bg-[#0f3d3a] relative overflow-hidden">
            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
+           {/* Cool animated data flow lines */}
+           <div className="absolute inset-0 opacity-[0.1] -z-10 bg-[radial-gradient(circle_at_center,_#A3BD6A_1px,_transparent_1px)] bg-[length:32px_32px]" />
+
            <div className="max-w-7xl mx-auto px-6 relative z-10">
               <div className="text-center mb-24">
                  <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-6">Structured To <span className="text-brand-accent italic">Win.</span></h2>
-                 <p className="text-white/60 text-lg max-w-xl mx-auto uppercase tracking-widest font-black text-[10px]">The Credifide Lifecycle</p>
+                 <p className="text-[#A3BD6A] text-lg max-w-xl mx-auto uppercase tracking-[0.5em] font-black text-[10px]">The Credifide Lifecycle</p>
               </div>
 
-              <div className="grid md:grid-cols-4 gap-1 transform cursor-default">
+              <div className="grid md:grid-cols-4 gap-0 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
                  {[
                    { step: '01', title: 'Review', content: 'We analyze your data for gaps and misalignments.', icon: Search },
                    { step: '02', title: 'Submission', content: 'Handled entirely by us, adhering to health plan specs.', icon: FileText },
                    { step: '03', title: 'Contracting', content: 'Assisting in optimal reimbursement rate negotiation.', icon: Gavel },
                    { step: '04', title: 'Ongoing', content: ' assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
                  ].map((p, i) => (
-                   <div key={i} className="bg-white/5 border border-white/10 p-12 hover:bg-white/10 transition-all duration-500 group border-r-0 last:border-r">
-                      <div className="text-brand-accent font-black text-5xl mb-8 opacity-20 group-hover:opacity-100 transition-opacity italic tracking-tighter">{p.step}</div>
-                      <h4 className="text-2xl font-black text-white mb-6 tracking-tight">{p.title}</h4>
-                      <p className="text-white/50 text-sm leading-relaxed">{p.content}</p>
-                   </div>
+                   <motion.div 
+                     key={i} 
+                     whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+                     className="bg-white/5 p-12 transition-all duration-500 group border-r border-white/10 last:border-r-0 relative"
+                   >
+                      <div className="text-[#A3BD6A] font-black text-5xl mb-8 opacity-20 group-hover:opacity-100 transition-opacity italic tracking-tighter">{p.step}</div>
+                      <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
+                         {p.title}
+                         <ArrowRight size={20} className="text-[#A3BD6A] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+                      </h4>
+                      <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/80 transition-colors">{p.content}</p>
+                      
+                      {/* Cool Bottom Accent */}
+                      <div className="absolute bottom-0 left-0 h-1 bg-[#A3BD6A] w-0 group-hover:w-full transition-all duration-700" />
+                   </motion.div>
                  ))}
               </div>
            </div>
         </section>
 
-        {/* SPECIALTIES: THE UNIVERSE */}
-        <section className="py-32 bg-white">
+        {/* SPECIALTIES: ANIMATED EXPERIENCE (COOLER) */}
+        <section className="py-32 bg-white relative overflow-hidden">
+           <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-brand-light/20 rounded-full blur-[100px] -z-10" />
+           
            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-20">
-                 <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 mb-6">Expertise Across <span className="text-brand-deep">Specialties.</span></h2>
-                 <p className="text-slate-500 font-medium">From Orthopedics to Mental Health, we navigate the specific nuances of your field.</p>
+              <div className="text-center mb-24">
+                 <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-8 tracking-tighter">
+                    Expertise Across <br />
+                    <span className="text-brand-deep italic">Every Specialty.</span>
+                 </h2>
+                 <p className="text-slate-500 font-medium max-w-xl mx-auto">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
               </div>
 
-              <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                  {[
-                   'Physicians', 'Specialty Providers', 'Medical Groups', 'Clinics', 'Behavioral Health', 'Telehealth Organizations', 'Multi-Provider Practices', 'Healthcare Startups', 'Orthopedic', 'Mental Health', 'Internal Medicine', 'Urgent Care'
+                   { name: 'Physicians', icon: Users }, 
+                   { name: 'Dental', icon: Shield }, 
+                   { name: 'Behavioral', icon: Activity }, 
+                   { name: 'Urgent Care', icon: Clock }, 
+                   { name: 'Telehealth', icon: Zap }, 
+                   { name: 'Radiology', icon: Search },
+                   { name: 'Pediatrics', icon: Users },
+                   { name: 'Cardiology', icon: Activity },
+                   { name: 'Orthopedic', icon: Shield },
+                   { name: 'Laboratory', icon: Layers },
+                   { name: 'Home Care', icon: Clock },
+                   { name: 'Neurology', icon: Zap }
                  ].map((spec, idx) => (
-                   <div key={idx} className="px-8 py-4 rounded-full border border-slate-100 text-slate-500 font-bold text-sm bg-slate-50/50 hover:bg-brand-deep hover:text-white transition-all duration-500 cursor-default">
-                      {spec}
-                   </div>
+                   <motion.div 
+                     key={idx}
+                     initial={{ opacity: 0, scale: 0.9 }}
+                     whileInView={{ opacity: 1, scale: 1 }}
+                     transition={{ delay: idx * 0.05 }}
+                     whileHover={{ y: -10, borderColor: '#0B6B57' }}
+                     className="p-8 rounded-[2.5rem] border border-slate-100 bg-slate-50/50 flex flex-col items-center justify-center text-center gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-2xl hover:shadow-brand-deep/5"
+                   >
+                      <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:bg-brand-deep group-hover:text-white transition-all duration-500">
+                         <spec.icon size={24} />
+                      </div>
+                      <span className="text-sm font-black text-slate-900 tracking-tight">{spec.name}</span>
+                   </motion.div>
                  ))}
               </div>
            </div>
