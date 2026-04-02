@@ -27,13 +27,14 @@ const ProviderEnrollmentLP = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
       {/* MINIMAL NAVBAR */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/10 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/50 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-brand-deep flex items-center justify-center text-white transition-all group-hover:rotate-12">
-              <IconRenderer icon={ASSETS.features.shield} size={20} />
-            </div>
-            <span className="font-display font-black text-2xl tracking-tighter">Credifide.</span>
+          <Link to="/" className="flex items-center group">
+            <img 
+               src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png" 
+               alt="Credifide" 
+               className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105" 
+            />
           </Link>
           <a 
             href="#form" 
