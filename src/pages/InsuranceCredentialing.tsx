@@ -107,10 +107,10 @@ const InsuranceCredentialing: React.FC = () => {
                 className="bg-white p-8 sm:p-10 rounded-[32px] border border-brand-light shadow-xl shadow-brand-deep/5 relative group overflow-hidden"
               >
                 <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                  <IconRenderer icon={item.icon} size={120} />
+                   <IconRenderer icon={item.icon} size={120} />
                 </div>
                 <div className="w-14 h-14 bg-brand-light text-brand-deep rounded-2xl flex items-center justify-center mb-8 shadow-inner">
-                  <IconRenderer icon={item.icon} size={28} />
+                   <IconRenderer icon={item.icon} size={28} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{item.desc}</p>
@@ -163,33 +163,33 @@ const InsuranceCredentialing: React.FC = () => {
             </div>
             
             <div className="relative mt-12 lg:mt-0">
-              <div className="aspect-[4/5] bg-brand-deep rounded-[48px] overflow-hidden shadow-2xl relative">
-                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-                 {/* Mock UI Element */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%]">
-                    <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6">
-                       <div className="flex justify-between items-center pb-4 border-b border-slate-50">
-                          <div className="font-bold text-slate-900 text-sm sm:text-base">Application Progress</div>
-                          <div className="text-brand-deep text-xs sm:text-sm font-bold">84% Complete</div>
-                       </div>
-                       <div className="space-y-4">
-                          {[90, 65, 80, 40].map((w, i) => (
-                            <div key={i} className="h-1.5 sm:h-2 w-full bg-slate-50 rounded-full overflow-hidden">
-                               <motion.div 
-                                 initial={{ scaleX: 0 }}
-                                 whileInView={{ scaleX: 1 }}
-                                 transition={{ duration: 1.5, delay: 0.5 + i * 0.1 }}
-                                 className="h-full bg-brand-deep origin-left rounded-full" 
-                                 style={{ width: `${w}%` }} 
-                               />
-                            </div>
-                          ))}
-                       </div>
-                    </div>
-                 </div>
-                 {/* Glow element */}
-                 <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
-              </div>
+               <div className="aspect-[4/5] bg-brand-deep rounded-[48px] overflow-hidden shadow-2xl relative">
+                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+                  {/* Mock UI Element */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%]">
+                     <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6">
+                        <div className="flex justify-between items-center pb-4 border-b border-slate-50">
+                           <div className="font-bold text-slate-900 text-sm sm:text-base">Application Progress</div>
+                           <div className="text-brand-deep text-xs sm:text-sm font-bold">84% Complete</div>
+                        </div>
+                        <div className="space-y-4">
+                           {[90, 65, 80, 40].map((w, i) => (
+                             <div key={i} className="h-1.5 sm:h-2 w-full bg-slate-50 rounded-full overflow-hidden">
+                                <motion.div 
+                                  initial={{ scaleX: 0 }}
+                                  whileInView={{ scaleX: 1 }}
+                                  transition={{ duration: 1.5, delay: 0.5 + i * 0.1 }}
+                                  className="h-full bg-brand-deep origin-left rounded-full" 
+                                  style={{ width: `${w}%` }} 
+                                />
+                             </div>
+                           ))}
+                        </div>
+                     </div>
+                  </div>
+                  {/* Glow element */}
+                  <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
+               </div>
             </div>
           </div>
         </div>
@@ -216,7 +216,7 @@ const InsuranceCredentialing: React.FC = () => {
                 className="bg-white p-6 sm:p-8 rounded-3xl border border-brand-light shadow-md hover:shadow-2xl transition-all duration-300"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/50 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner">
-                  <IconRenderer icon={item.icon} size={28} />
+                   <IconRenderer icon={item.icon} size={28} />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-4 leading-tight">{item.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
@@ -227,9 +227,9 @@ const InsuranceCredentialing: React.FC = () => {
       </section>
 
       {/* ─── RESULTS SECTION ─── */}
-      <section className="py-24 sm:py-32 bg-brand-deep text-white relative overflow-hidden">
+      <section className="py-16 bg-brand-deep text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 sm:gap-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
           {[
             { val: "35%", label: "Faster Approvals" },
             { val: "99.8%", label: "Accuracy Rate" },
@@ -243,8 +243,8 @@ const InsuranceCredentialing: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className="text-3xl sm:text-5xl lg:text-7xl font-display font-black mb-4">{stat.val}</div>
-              <div className="text-brand-light/60 font-bold uppercase tracking-widest text-[10px] sm:text-xs">{stat.label}</div>
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-black mb-2">{stat.val}</div>
+              <div className="text-brand-light/60 font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -261,15 +261,15 @@ const InsuranceCredentialing: React.FC = () => {
              <div className="relative z-10">
                 <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-white mb-8 leading-tight">Ready to Optimize Your Enrollment?</h2>
                 <p className="text-lg sm:text-xl text-brand-light/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-                  Join hundreds of medical groups using Credifide to reduce overhead and focus on patient care.
+                   Join hundreds of medical groups using Credifide to reduce overhead and focus on patient care.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link to="/contact" className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold hover:scale-[1.05] transition-all shadow-xl shadow-black/10 w-full sm:w-auto">
-                     Request a Strategy Call
-                  </Link>
-                  <Link to="/contact" className="px-10 py-5 bg-white/10 border border-white/20 text-white rounded-2xl font-bold hover:bg-white/20 transition-all w-full sm:w-auto">
-                     Book Free Consultation
-                  </Link>
+                   <Link to="/contact" className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold hover:scale-[1.05] transition-all shadow-xl shadow-black/10 w-full sm:w-auto">
+                      Request a Strategy Call
+                   </Link>
+                   <Link to="/contact" className="px-10 py-5 bg-white/10 border border-white/20 text-white rounded-2xl font-bold hover:bg-white/20 transition-all w-full sm:w-auto">
+                      Book Free Consultation
+                   </Link>
                 </div>
              </div>
           </div>

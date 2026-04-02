@@ -486,10 +486,9 @@ const Hero = React.memo(() => {
             className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Link to="/contact"
               className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-deep/20 hover:bg-brand-600 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center">
-              Request a Consultation Call
+              Request a Consultation
               <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <span className="text-slate-500 font-bold">(321) 524-0606</span>
           </motion.div>
         </PhysicsBody>
       </div>
@@ -938,7 +937,7 @@ const Features = React.memo(() => {
       icon: ASSETS.ui.activity,
       title: "Revenue Cycle Management",
       desc: "Maximize your revenue with our AI-driven RCM solutions. We identify gaps, reduce denials, and accelerate your reimbursement cycles.",
-      color: "bg-brand-light/20"
+      color: "bg-white"
     },
     {
       id: "feat-3",
@@ -1696,81 +1695,61 @@ export default function App() {
              </Link>
           </div>
 
-          <footer className="relative bg-brand-deep pt-24 pb-12 overflow-hidden selection:bg-brand-accent selection:text-brand-deep">
-            {/* Background Texture & Gradients */}
+          <footer className="bg-brand-deep py-20 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-[120px]" />
             
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
-                <div className="lg:col-span-1">
-                  <div className="inline-block bg-white rounded-2xl px-5 py-3 mb-8 shadow-xl shadow-black/10">
-                    <img
-                      src={ASSETS.brand.logoImage as string}
-                      alt="Credifide"
-                      className="h-10 w-auto object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <p className="text-brand-100/70 max-w-xs leading-relaxed text-lg mb-8">
-                    Empowering healthcare providers with world-class RCM and credentialing solutions.
-                  </p>
-                  <div className="flex gap-4">
-                    {[ASSETS.social.linkedin, ASSETS.social.twitter, ASSETS.social.github].map((social, idx) => (
-                      <div key={idx} className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-brand-accent hover:text-brand-deep hover:border-brand-accent transition-all duration-300 cursor-pointer group">
-                        <IconRenderer icon={social} size={20} className="group-hover:scale-110 transition-transform" />
-                      </div>
-                    ))}
-                  </div>
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+              <div className="flex flex-col items-center">
+                {/* Logo Section */}
+                <div className="mb-12">
+                   <div className="flex items-center text-3xl font-display font-black tracking-tighter">
+                      <span>Credi</span>
+                      <span className="bg-brand-accent text-brand-deep px-2 ml-0.5 rounded-lg">fide</span>
+                      <span>.</span>
+                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-white font-bold text-xl mb-8">Services</h4>
-                  <ul className="space-y-4 text-brand-100/60 font-medium">
-                    <li><Link to="/services/insurance-credentialing" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Insurance Credentialing</Link></li>
-                    <li><Link to="/services/medical-billing" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Medical Billing</Link></li>
-                    <li><Link to="/services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Revenue Management</Link></li>
-                    <li><Link to="/services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> View All Services</Link></li>
-                  </ul>
-                </div>
+                {/* Primary Links */}
+                <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12 text-sm font-bold text-brand-100/70">
+                   <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
+                   <span className="text-brand-accent/20 hidden md:block">—</span>
+                   <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
+                   <span className="text-brand-accent/20 hidden md:block">—</span>
+                   <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
+                   <span className="text-brand-accent/20 hidden md:block">—</span>
+                   <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>
+                   <span className="text-brand-accent/20 hidden md:block">—</span>
+                   <Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Us</Link>
+                   <span className="text-brand-accent/20 hidden md:block">—</span>
+                   <Link to="/unsubscribe" className="hover:text-brand-accent transition-colors">Unsubscribe</Link>
+                </nav>
 
-                <div>
-                  <h4 className="text-white font-bold text-xl mb-8">Resources</h4>
-                  <ul className="space-y-4 text-brand-100/60 font-medium">
-                    <li><Link to="/resources/blog" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Blog & Insights</Link></li>
-                    <li><Link to="/resources/white-papers" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> White Papers</Link></li>
-                    <li><Link to="/about" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Case Studies</Link></li>
-                    <li><Link to="/contact" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-accent/30 group-hover:bg-brand-accent scale-0 group-hover:scale-100 transition-all duration-300" /> Request Support</Link></li>
-                  </ul>
-                </div>
+                {/* Info Bar */}
+                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 py-8 border-t border-white/5">
+                   <a href="tel:+13215240606" className="text-brand-100 font-bold hover:text-brand-accent transition-colors">
+                      +1-321-524-0606
+                   </a>
 
-                <div>
-                  <h4 className="text-white font-bold text-xl mb-8">Contact</h4>
-                  <div className="space-y-6">
-                    <a href="mailto:connect@credifide.com" className="flex items-center gap-4 text-brand-100/60 hover:text-white transition-colors group">
-                       <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-deep transition-all">
-                          <IconRenderer icon={ASSETS.nav.mail} size={18} />
-                       </div>
-                       connect@credifide.com
-                    </a>
-                    <a href="tel:+13215240606" className="flex items-center gap-4 text-brand-100/60 hover:text-white transition-colors group">
-                       <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-deep transition-all">
-                          <IconRenderer icon={ASSETS.nav.phone} size={18} />
-                       </div>
-                       +1-321-524-0606
-                    </a>
-                  </div>
+                   <div className="flex gap-6">
+                      {[ASSETS.social.linkedin, ASSETS.social.twitter, ASSETS.social.github].map((social, idx) => (
+                        <div key={idx} className="text-brand-100/40 hover:text-brand-accent transition-colors cursor-pointer">
+                          <IconRenderer icon={social} size={20} />
+                        </div>
+                      ))}
+                   </div>
+
+                   <a href="mailto:connect@credifide.com" className="text-brand-100 font-bold hover:text-brand-accent transition-colors">
+                      connect@credifide.com
+                   </a>
                 </div>
               </div>
+            </div>
 
-              <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-brand-100/40 text-sm font-medium">
-                <p>© 2026 Credifide. Engineered for Excellence.</p>
-                <div className="flex gap-8">
-                  <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
-                  <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms of Service</Link>
-                </div>
-              </div>
+            {/* Copyright Bar */}
+            <div className="bg-brand-accent py-4 text-center">
+               <p className="text-[10px] uppercase font-black tracking-[0.2em] text-brand-deep">
+                  © 2026 <span className="font-black">Credifide</span>, All Rights Reserved
+               </p>
             </div>
           </footer>
 
