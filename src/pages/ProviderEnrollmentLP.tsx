@@ -75,30 +75,13 @@ const ProviderEnrollmentLP = () => {
                    Experience 98% first-submission accuracy and 30% faster turnaround times. We treat credentialing as infrastructure, not administrative paperwork.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row items-center gap-6">
-                   <a href="#form" className="w-full sm:w-auto bg-brand-deep text-white px-12 py-6 rounded-3xl font-black text-xl shadow-2xl shadow-brand-deep/30 hover:shadow-brand-deep/50 transition-all flex items-center justify-center gap-4 group">
-                      Book A Strategy Call
-                      <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
+                <div className="w-full max-w-lg mt-8">
+                   <a href="#form" className="w-full bg-brand-deep text-white px-10 py-6 rounded-[2rem] font-black text-2xl shadow-2xl shadow-brand-deep/30 hover:shadow-brand-deep/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between group">
+                      <span>Book A Strategy Call</span>
+                      <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
+                        <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
                    </a>
-                   
-                   {/* Enhanced Social Proof Widget */}
-                   <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md px-6 py-4 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all">
-                      <div className="flex -space-x-3">
-                         {[1,2,3,4].map((i) => (
-                            <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center overflow-hidden shadow-sm">
-                               <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="avatar" className="w-full h-full object-cover" />
-                            </div>
-                         ))}
-                      </div>
-                      <div className="flex flex-col">
-                         <div className="flex items-center gap-1 text-amber-400 mb-1">
-                            {[1,2,3,4,5].map(i => <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
-                         </div>
-                         <div className="flex items-center gap-1 text-slate-600 font-bold text-[11px]">
-                            Trusted by <span className="text-brand-deep font-black">500+</span> Facilities
-                         </div>
-                      </div>
-                   </div>
                 </div>
               </motion.div>
 
@@ -110,9 +93,7 @@ const ProviderEnrollmentLP = () => {
                     {/* Inner Header Logo */}
                     <div className="flex items-center justify-between mb-8 border-b border-slate-100/50 pb-4">
                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-[0.8rem] bg-brand-deep flex items-center justify-center text-white shadow-md">
-                             <Shield size={18} />
-                          </div>
+                          <img src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png" alt="Credifide Logo" className="h-6 w-auto mix-blend-multiply" />
                           <div>
                              <span className="font-display font-black text-xl text-slate-800 tracking-tight leading-none block">Credifide OS</span>
                              <span className="text-[9px] font-black uppercase text-slate-400 tracking-widest block">Enrollment Portal</span>
@@ -250,7 +231,7 @@ const ProviderEnrollmentLP = () => {
                  <div className="max-w-2xl">
                     <h2 className="text-4xl md:text-5xl font-display font-black text-slate-950 mb-6 leading-tight">
                        Operational Infrastructure <br />
-                       <span className="text-brand-deep italic">Not Admin Paperwork.</span>
+                       <span className="text-brand-deep font-black">Not Admin Paperwork.</span>
                     </h2>
                     <p className="text-slate-500 text-lg leading-relaxed">
                        Credifide treats Insurance Credentialing as the foundation of your revenue stream. We apply validation checks before every submission.
@@ -291,7 +272,7 @@ const ProviderEnrollmentLP = () => {
 
            <div className="max-w-7xl mx-auto px-6 relative z-10">
               <div className="text-center mb-24">
-                 <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-6">Structured To <span className="text-brand-accent italic">Win.</span></h2>
+                 <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-6">Structured To <span className="text-brand-accent font-black">Win.</span></h2>
                  <p className="text-[#A3BD6A] text-lg max-w-xl mx-auto uppercase tracking-[0.5em] font-black text-[10px]">The Credifide Lifecycle</p>
               </div>
 
@@ -330,7 +311,7 @@ const ProviderEnrollmentLP = () => {
               <div className="text-center mb-24">
                  <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-8 tracking-tighter">
                     Expertise Across <br />
-                    <span className="text-brand-deep italic">Every Specialty.</span>
+                    <span className="text-brand-deep font-black">Every Specialty.</span>
                  </h2>
                  <p className="text-slate-500 font-medium max-w-xl mx-auto">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
               </div>
