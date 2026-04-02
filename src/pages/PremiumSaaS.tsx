@@ -244,20 +244,6 @@ const PremiumSaaS = () => {
            </motion.div>
         </section>
       </main>
-
-      {/* MINIMAL PREMIUM FOOTER */}
-      <footer className="py-12 bg-white">
-         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">
-               © 2026 Credifide Platform
-            </div>
-            <div className="flex gap-8 text-slate-500 font-bold text-sm">
-               <Link to="/privacy" className="hover:text-brand-deep transition-colors">Privacy</Link>
-               <Link to="/terms" className="hover:text-brand-deep transition-colors">Terms</Link>
-               <Link to="/contact" className="hover:text-brand-deep transition-colors">Support</Link>
-            </div>
-         </div>
-      </footer>
     </div>
   );
 };

@@ -320,43 +320,6 @@ const ProviderEnrollmentLP = () => {
         </section>
       </main>
 
-      {/* MINIMAL PREMIUM FOOTER */}
-      <footer className="bg-white border-t border-slate-100 py-16">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-12 pb-12 border-b border-slate-50">
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white">
-                     <IconRenderer icon={ASSETS.features.shield} size={20} />
-                  </div>
-                  <span className="text-xl font-black tracking-tight text-slate-900">Credifide RCM</span>
-               </div>
-               
-               <div className="flex items-center gap-12 text-sm font-bold text-slate-400">
-                  <Link to="/about" className="hover:text-brand-deep transition-colors">About</Link>
-                  <Link to="/resources/blog" className="hover:text-brand-deep transition-colors">Blog</Link>
-                  <Link to="/privacy" className="hover:text-brand-deep transition-colors">Privacy</Link>
-                  <Link to="/terms" className="hover:text-brand-deep transition-colors">Terms</Link>
-               </div>
-
-               <div className="flex items-center gap-6">
-                   <a href="#" className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-brand-deep transition-colors">
-                      <IconRenderer icon={ASSETS.social.linkedin} size={20} />
-                   </a>
-                   <a href="#" className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-brand-deep transition-colors">
-                      <IconRenderer icon={ASSETS.social.facebook} size={20} />
-                   </a>
-               </div>
-            </div>
-
-            <div className="pt-12 text-center">
-               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] leading-loose">
-                  High Precision Healthcare Operations <br />
-                  © 2026 Credifide - All Insights Protected
-               </p>
-            </div>
-         </div>
-      </footer>
-
       {/* STICKY MOBILE CTA */}
       <div className="md:hidden fixed bottom-6 left-6 right-6 z-[60]">
         <a 

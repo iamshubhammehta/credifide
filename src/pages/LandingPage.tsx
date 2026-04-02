@@ -274,43 +274,6 @@ const LandingPage = () => {
         </section>
       </main>
 
-      {/* MINIMAL FOOTER */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-12 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-            <Link to="/" className="opacity-80 hover:opacity-100 transition-opacity">
-              <img 
-                src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png" 
-                alt="Credifide Logo" 
-                className="h-8 w-auto brightness-0 invert"
-              />
-            </Link>
-
-            <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-slate-400">
-              <a href="mailto:connect@credifide.com" className="hover:text-white flex items-center gap-2">
-                <Mail size={16} className="text-brand-accent" />
-                connect@credifide.com
-              </a>
-              <a href="tel:+13215240606" className="hover:text-white flex items-center gap-2">
-                <Phone size={16} className="text-brand-accent" />
-                +1-321-524-0606
-              </a>
-            </div>
-
-            <div className="flex items-center gap-6">
-               <Link to="/privacy" className="text-xs text-slate-500 hover:text-white uppercase tracking-widest font-bold">Privacy Policy</Link>
-               <Link to="/terms" className="text-xs text-slate-500 hover:text-white uppercase tracking-widest font-bold">Terms & Conditions</Link>
-            </div>
-          </div>
-
-          <div className="text-center pt-8 border-t border-slate-800/50">
-             <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-600">
-                © 2026 Credifide - High Performance Healthcare RCM
-             </p>
-          </div>
-        </div>
-      </footer>
-
       {/* STICKY MOBILE CTA */}
       <div className="md:hidden fixed bottom-6 left-6 right-6 z-[60]">
         <a 

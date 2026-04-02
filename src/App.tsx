@@ -1706,8 +1706,7 @@ export default function App() {
             </div>
           )}
 
-          {!isLandingPage && (
-            <footer className="bg-[#11332E] pt-12 pb-0 text-white relative overflow-hidden">
+          <footer className="bg-[#11332E] pt-12 pb-0 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
               
               <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
@@ -1778,7 +1777,6 @@ export default function App() {
               </p>
             </div>
           </footer>
-          )}
 
         </div>
       </PhysicsWorld>
