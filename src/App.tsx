@@ -1695,57 +1695,74 @@ export default function App() {
              </Link>
           </div>
 
-          <footer className="bg-[#0B302B] py-16 text-white relative overflow-hidden">
+          <footer className="bg-[#11332E] pt-12 pb-0 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
             
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-              <div className="flex flex-col items-center">
-                {/* Logo Section */}
-                <div className="mb-6">
-                   <Link to="/" className="flex items-center">
-                     <img
-                       src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png"
-                       alt="Credifide"
-                       className="h-12 sm:h-14 w-auto object-contain brightness-0 invert"
-                       loading="lazy"
-                     />
-                   </Link>
+            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+              {/* Logo */}
+              <div className="mb-8">
+                <Link to="/" className="flex items-center">
+                  <img
+                    src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png"
+                    alt="Credifide"
+                    className="h-10 sm:h-12 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </Link>
+              </div>
+
+              {/* Navigation with dashes */}
+              <nav className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 mb-8 text-[13px] font-medium text-white/90">
+                <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
+                <span className="text-white/30">—</span>
+                <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
+                <span className="text-white/30">—</span>
+                <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
+                <span className="text-white/30">—</span>
+                <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>
+                <span className="text-white/30">—</span>
+                <Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Us</Link>
+                <span className="text-white/30">—</span>
+                <Link to="#" className="hover:text-brand-accent transition-colors">Unsubscribe</Link>
+              </nav>
+
+              {/* Bottom Row: Phone | Socials | Email */}
+              <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center gap-6 pb-10">
+                <div className="text-center md:text-left">
+                  <a href="tel:+13215240606" className="text-[13px] font-medium text-white/90 hover:text-brand-accent transition-colors">
+                    +1  321  524  0606
+                  </a>
                 </div>
 
-                {/* Primary Links */}
-                <nav className="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-6 text-xl font-bold text-white">
-                   <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
-                   <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
-                   <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
-                   <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>
-                   <Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Us</Link>
-                </nav>
+                <div className="flex justify-center items-center gap-6">
+                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                    <IconRenderer icon={ASSETS.social.linkedin} size={18} />
+                  </a>
+                  <a href="#" className="text-white/80 hover:text-white transition-colors">
+                    <IconRenderer icon={ASSETS.social.facebook} size={18} />
+                  </a>
+                  <a href="#" className="text-white/80 hover:text-white transition-colors pointer-events-none">
+                    <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </a>
+                  <a href="#" className="text-white/80 hover:text-white transition-colors">
+                    <IconRenderer icon={ASSETS.social.instagram} size={18} />
+                  </a>
+                </div>
 
-                {/* Info Bar */}
-                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 py-6 border-t border-white/10 mt-4">
-                   <a href="tel:+13215240606" className="text-brand-100 text-xl font-bold hover:text-brand-accent transition-colors">
-                      +1-321-524-0606
-                   </a>
-
-                   <div className="flex gap-8">
-                      {[ASSETS.social.facebook, ASSETS.social.instagram, ASSETS.social.twitter, ASSETS.social.linkedin].map((social, idx) => (
-                        <div key={idx} className="text-brand-100/60 hover:text-brand-accent transition-colors cursor-pointer">
-                          <IconRenderer icon={social} size={26} />
-                        </div>
-                      ))}
-                   </div>
-
-                   <a href="mailto:connect@credifide.com" className="text-brand-100 text-xl font-bold hover:text-brand-accent transition-colors">
-                      connect@credifide.com
-                   </a>
+                <div className="text-center md:text-right">
+                  <a href="mailto:connect@credifide.com" className="text-[13px] font-medium text-white/90 hover:text-brand-accent transition-colors">
+                    connect@credifide.com
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Copyright Bar */}
-            <div className="bg-[#0D3B35] pt-6 pb-2 text-center">
-               <p className="text-[11px] uppercase font-black tracking-[0.2em] text-brand-accent/80">
-                  © 2026 <span className="text-white">Credifide</span>, All Rights Reserved
+            {/* Copyright Bar: Exact Color & Height */}
+            <div className="bg-[#A3BD6A] py-1 text-center">
+               <p className="text-[11px] font-medium text-[#11332E]">
+                  © 2026 <span className="font-bold">Credifide</span>, All Rights Reserved
                </p>
             </div>
           </footer>
