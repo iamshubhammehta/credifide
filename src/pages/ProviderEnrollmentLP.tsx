@@ -80,19 +80,87 @@ const ProviderEnrollmentLP = () => {
                       Book A Strategy Call
                       <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
                    </a>
-                   <div className="flex items-center gap-3 text-slate-400 font-bold">
-                      <span className="flex">
-                         {[1,2,3,4,5].map(i => <Sparkles key={i} size={14} className="text-brand-accent" />)}
-                      </span>
-                      Trusted by 500+ Facilities
+                   
+                   {/* Enhanced Social Proof Widget */}
+                   <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md px-6 py-4 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all">
+                      <div className="flex -space-x-3">
+                         {[1,2,3,4].map((i) => (
+                            <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center overflow-hidden shadow-sm">
+                               <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="avatar" className="w-full h-full object-cover" />
+                            </div>
+                         ))}
+                      </div>
+                      <div className="flex flex-col">
+                         <div className="flex items-center gap-1 text-amber-400 mb-1">
+                            {[1,2,3,4,5].map(i => <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
+                         </div>
+                         <div className="flex items-center gap-1 text-slate-600 font-bold text-[11px]">
+                            Trusted by <span className="text-brand-deep font-black">500+</span> Facilities
+                         </div>
+                      </div>
                    </div>
                 </div>
               </motion.div>
 
               {/* Right Dashboard Mockup (DETAILED & POSITIONED RIGHT) */}
               <div className="relative h-[650px] group/dash md:translate-x-12 lg:translate-x-20">
-                 {/* Main Base Card - Glassmorphism */}
-                 <div className="absolute inset-0 bg-white/50 backdrop-blur-3xl border border-slate-100 rounded-[4rem] rounded-tr-[1.5rem] rotate-1 shadow-[0_50px_100px_-20px_rgba(17,51,46,0.12)] transition-transform duration-1000 group-hover/dash:rotate-0" />
+                 {/* Main Base Card - Glassmorphism with Inner Data */}
+                 <div className="absolute inset-0 bg-white/60 backdrop-blur-3xl border border-slate-100 rounded-[4rem] rounded-tr-[1.5rem] rotate-1 shadow-[0_50px_100px_-20px_rgba(17,51,46,0.12)] transition-transform duration-1000 group-hover/dash:rotate-0 overflow-hidden flex flex-col p-8">
+                    
+                    {/* Inner Header Logo */}
+                    <div className="flex items-center justify-between mb-8 border-b border-slate-100/50 pb-4">
+                       <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-[0.8rem] bg-brand-deep flex items-center justify-center text-white shadow-md">
+                             <Shield size={18} />
+                          </div>
+                          <div>
+                             <span className="font-display font-black text-xl text-slate-800 tracking-tight leading-none block">Credifide OS</span>
+                             <span className="text-[9px] font-black uppercase text-slate-400 tracking-widest block">Enrollment Portal</span>
+                          </div>
+                       </div>
+                       <div className="flex items-center gap-2 bg-green-50 px-3 py-1.5 rounded-full border border-green-100">
+                          <span className="w-2 h-2 rounded-full bg-green-500 status-pulse" />
+                          <span className="text-[9px] font-bold text-green-700 uppercase tracking-widest">System Active</span>
+                       </div>
+                    </div>
+
+                    {/* Inner Data Area */}
+                    <div className="space-y-4 flex-1 pr-12 pb-12">
+                       <div className="flex justify-between items-end mb-6">
+                          <div>
+                             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Active Credentials</div>
+                             <div className="text-5xl font-display font-black text-slate-900 leading-none tracking-tighter">1,204</div>
+                          </div>
+                          <div className="flex items-center gap-1 text-green-600 bg-green-50 px-2.5 py-1.5 rounded-lg border border-green-100">
+                             <TrendingUp size={14} />
+                             <span className="text-[10px] font-black">+12.4%</span>
+                          </div>
+                       </div>
+
+                       {/* Mock Table List */}
+                       <div className="bg-white rounded-[1.5rem] border border-slate-100 shadow-sm overflow-hidden flex-1 flex flex-col">
+                          <div className="bg-slate-50 px-4 py-3 border-b border-slate-100 grid grid-cols-3 gap-2 text-[9px] font-black text-slate-400 uppercase tracking-widest">
+                             <span>Provider Name</span>
+                             <span>Payer / State</span>
+                             <span>Status</span>
+                          </div>
+                          <div className="flex-1 flex flex-col p-2 gap-1">
+                             {[
+                                { n: 'Dr. Sarah J.', s: 'Approved', p: 'Aetna - TX', c: 'text-green-600 bg-green-50' },
+                                { n: 'Dr. Michael T.', s: 'Pending CAQH', p: 'Cigna - FL', c: 'text-amber-600 bg-amber-50' },
+                                { n: 'City Clinic', s: 'Contracting', p: 'BCBS - NY', c: 'text-blue-600 bg-blue-50' },
+                                { n: 'Dr. Emily R.', s: 'Submitted', p: 'Medicare', c: 'text-slate-600 bg-slate-100' },
+                             ].map((row, idx) => (
+                                <div key={idx} className="grid grid-cols-3 gap-2 px-3 py-3 hover:bg-slate-50 rounded-[1rem] transition-colors items-center cursor-default">
+                                   <span className="text-[11px] font-bold text-slate-700 truncate">{row.n}</span>
+                                   <span className="text-[10px] font-bold text-slate-500 truncate">{row.p}</span>
+                                   <div><span className={`text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded-md ${row.c}`}>{row.s}</span></div>
+                                </div>
+                             ))}
+                          </div>
+                       </div>
+                    </div>
+                 </div>
                  
                  {/* Floating Card: Live Payer Feed (NEW DETAIL) */}
                  <motion.div className="absolute top-[5%] -left-8 w-60 glass-card p-5 floating-3 z-50 shadow-2xl">
