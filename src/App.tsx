@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useSpring, useMotionValue, useScroll, useTransform } from 'motion/react';
+import LandingPage from './pages/LandingPage';
 import { ASSETS, IconRenderer } from './constants';
 import { PhysicsWorld, PhysicsBody } from './components/PhysicsEngine';
 import About from './pages/About';
@@ -1663,6 +1664,9 @@ const Home = React.memo(() => {
 });
 
 export default function App() {
+  const location = useLocation();
+  const isLandingPage = location.pathname.startsWith('/lp/');
+
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-brand-100 selection:text-brand-700">
       <ScrollToTop />
@@ -1670,7 +1674,7 @@ export default function App() {
       <PhysicsWorld>
         <Background />
         <div className="relative">
-          <Navbar />
+          {!isLandingPage && <Navbar />}
 
           <Routes>
             <Route path="/" element={<Home />} />
@@ -1682,34 +1686,38 @@ export default function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/blog" element={<Blog />} />
             <Route path="/resources/white-papers" element={<WhitePapers />} />
-            <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/lp/healthcare-rcm-solutions" element={<LandingPage />} />
             <Route path="*" element={<Home />} />
           </Routes>
 
           {/* Sticky Mobile CTA */}
-          <div className="md:hidden fixed bottom-6 left-6 right-6 z-[60]">
-            <Link to="/contact" className="w-full bg-brand-deep text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-2xl shadow-brand-deep/40 active:scale-95 transition-transform">
-              Book Free Consultation
-              <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />
-            </Link>
-          </div>
+          {!isLandingPage && (
+            <div className="md:hidden fixed bottom-6 left-6 right-6 z-[60]">
+              <Link to="/contact" className="w-full bg-brand-deep text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-2xl shadow-brand-deep/40 active:scale-95 transition-transform">
+                Book Free Consultation
+                <IconRenderer icon={ASSETS.nav.arrowRight} size={18} />
+              </Link>
+            </div>
+          )}
 
-          <footer className="bg-[#0f3d3a] pt-12 pb-0 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
-              {/* Logo */}
-              <div className="mb-8">
-                <Link to="/" className="flex items-center">
-                  <img
-                    src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/658195174_122237338544126491_687030811474472989_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=3_eKyk5SMU8Q7kNvwEe0JXc&_nc_oc=Adr_E4PSx1RXbUKdHG-M8d5iZVya8Vg2o7xIdOBL-JuMtMDv2ZlrH6LY8tMqqTkm3Mc&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=vlTWwwstsL9d2XiAlNsGNA&_nc_ss=7a3a8&oh=00_Af1GzEhV7xTe4rpdwRNEcd4l_aASPiCyKEGP_axFajVMAA&oe=69D44A1E"
-                    alt="Credifide"
-                    className="h-14 sm:h-16 w-auto object-contain"
-                    loading="lazy"
-                  />
-                </Link>
-              </div>
+          {!isLandingPage && (
+            <footer className="bg-[#11332E] pt-12 pb-0 text-white relative overflow-hidden">
+              <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
+              
+              <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+                {/* Logo */}
+                <div className="mb-8">
+                  <Link to="/" className="flex items-center">
+                    <img
+                      src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/658195174_122237338544126491_687030811474472989_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=3_eKyk5SMU8Q7kNvwEe0JXc&_nc_oc=Adr_E4PSx1RXbUKdHG-M8d5iZVya8Vg2o7xIdOBL-JuMtMDv2ZlrH6LY8tMqqTkm3Mc&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=vlTWwwstsL9d2XiAlNsGNA&_nc_ss=7a3a8&oh=00_Af1GzEhV7xTe4rpdwRNEcd4l_aASPiCyKEGP_axFajVMAA&oe=69D44A1E"
+                      alt="Credifide"
+                      className="h-14 sm:h-16 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </Link>
+                </div>
 
               {/* Navigation with dashes */}
               <nav className="flex flex-wrap justify-center items-center gap-x-3 gap-y-3 mb-6 text-base md:text-lg font-bold text-white">
@@ -1766,6 +1774,7 @@ export default function App() {
               </p>
             </div>
           </footer>
+          )}
 
         </div>
       </PhysicsWorld>
