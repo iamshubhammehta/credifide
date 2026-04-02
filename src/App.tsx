@@ -1701,19 +1701,19 @@ export default function App() {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
               <div className="flex flex-col items-center">
                 {/* Logo Section */}
-                <div className="mb-10">
+                <div className="mb-6">
                    <Link to="/" className="flex items-center">
                      <img
                        src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png"
                        alt="Credifide"
-                       className="h-10 sm:h-12 w-auto object-contain"
+                       className="h-12 sm:h-14 w-auto object-contain brightness-0 invert"
                        loading="lazy"
                      />
                    </Link>
                 </div>
 
                 {/* Primary Links */}
-                <nav className="flex flex-wrap justify-center gap-x-10 gap-y-6 mb-12 text-lg font-bold text-brand-100/90">
+                <nav className="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-6 text-xl font-bold text-white">
                    <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
                    <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
                    <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
@@ -1722,7 +1722,7 @@ export default function App() {
                 </nav>
 
                 {/* Info Bar */}
-                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 py-10 border-t border-white/10">
+                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 py-6 border-t border-white/10 mt-4">
                    <a href="tel:+13215240606" className="text-brand-100 text-xl font-bold hover:text-brand-accent transition-colors">
                       +1-321-524-0606
                    </a>
@@ -1730,7 +1730,7 @@ export default function App() {
                    <div className="flex gap-8">
                       {[ASSETS.social.facebook, ASSETS.social.instagram, ASSETS.social.twitter, ASSETS.social.linkedin].map((social, idx) => (
                         <div key={idx} className="text-brand-100/60 hover:text-brand-accent transition-colors cursor-pointer">
-                          <IconRenderer icon={social} size={24} />
+                          <IconRenderer icon={social} size={26} />
                         </div>
                       ))}
                    </div>
@@ -1743,8 +1743,8 @@ export default function App() {
             </div>
 
             {/* Copyright Bar */}
-            <div className="bg-[#0D3B35] py-5 text-center">
-               <p className="text-xs uppercase font-black tracking-[0.2em] text-brand-accent/80">
+            <div className="bg-[#0D3B35] pt-6 pb-2 text-center">
+               <p className="text-[11px] uppercase font-black tracking-[0.2em] text-brand-accent/80">
                   © 2026 <span className="text-white">Credifide</span>, All Rights Reserved
                </p>
             </div>
