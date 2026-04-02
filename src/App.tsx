@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useSpring, useMotionValue, useScroll, useTransform } from 'motion/react';
-import LandingPage from './pages/LandingPage';
-import PremiumSaaS from './pages/PremiumSaaS';
 import ProviderEnrollmentLP from './pages/ProviderEnrollmentLP';
 import { ASSETS, IconRenderer } from './constants';
 import { PhysicsWorld, PhysicsBody } from './components/PhysicsEngine';
@@ -1690,8 +1688,6 @@ export default function App() {
             <Route path="/resources/white-papers" element={<WhitePapers />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
-            <Route path="/lp/healthcare-rcm-solutions" element={<LandingPage />} />
-            <Route path="/lp/premium-experience" element={<PremiumSaaS />} />
             <Route path="/lp/provider-enrollment-excellence" element={<ProviderEnrollmentLP />} />
             <Route path="*" element={<Home />} />
           </Routes>
