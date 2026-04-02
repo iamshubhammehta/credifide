@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ASSETS, IconRenderer } from '../constants';
+import { SEO } from '../components/SEO';
 
 const ServicesHub: React.FC = () => {
   const services = [
     {
-      title: "Payor Credentialing",
+      title: "Payer Credentialing",
       desc: "Comprehensive provider enrollment, CAQH management, and proactive re-credentialing infrastructure.",
       link: "/services/insurance-credentialing",
       icon: ASSETS.features.shield,
@@ -25,6 +26,12 @@ const ServicesHub: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12 pb-20 overflow-hidden">
+      <SEO 
+        title="Healthcare RCM Services & Credentialing Solutions" 
+        description="Comprehensive Revenue Cycle Management (RCM) services including payer credentialing and medical billing for healthcare organizations."
+        keywords="healthcare RCM services, payer credentialing, medical billing company"
+      />
+
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
@@ -39,8 +46,7 @@ const ServicesHub: React.FC = () => {
              transition={{ duration: 0.8 }}
              className="text-5xl lg:text-8xl font-display font-extrabold text-slate-950 tracking-tight leading-[1.05] mb-8"
            >
-             A Specialized Core For <br />
-             <span className="text-brand-deep">Clinical Success.</span>
+             A Specialized Core For <span className="text-brand-deep">Clinical Success</span>
            </motion.h1>
            <motion.p 
              initial={{ opacity: 0, y: 20 }}

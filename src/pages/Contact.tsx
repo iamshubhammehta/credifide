@@ -1,10 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ASSETS, IconRenderer } from '../constants';
+import { SEO } from '../components/SEO';
 
 const Contact = () => {
   return (
     <div className="pt-0 pb-20 lg:pb-24 bg-white relative overflow-hidden">
+      <SEO 
+        title="Contact Us | Healthcare Credentialing Support" 
+        description="Get in touch with Credifide for expert healthcare provider credentialing and complete revenue cycle management setup."
+        keywords="contact credifide, healthcare RCM consultation, medical credentialing help"
+      />
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
@@ -47,7 +53,7 @@ const Contact = () => {
               </div>
               <h3 className="text-2xl font-bold mb-3">Call Us</h3>
               <p className="text-brand-100/70 mb-6 font-medium">Monday - Friday, 9am - 6pm EST</p>
-              <a href="tel:+13215240606" className="text-2xl font-bold hover:text-brand-accent transition-colors block">
+              <a href="tel:+13215240606" className="text-3xl font-black text-white hover:text-brand-accent transition-colors block">
                 +1-321-524-0606
               </a>
             </motion.div>
