@@ -119,6 +119,12 @@
   100% { background-position: 40px 40px; }
 }
 
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 @layer utilities {
   .asymmetric-card {
     @apply bg-white border border-slate-100 rounded-[3rem] rounded-tr-[1rem] shadow-2xl hover:shadow-brand-deep/10 transition-all duration-1000;

@@ -300,77 +300,136 @@ const ProviderEnrollmentLP = () => {
            </div>
         </section>
 
-        {/* LEAD CAPTURE FORM */}
-        <section id="form" className="py-32 bg-slate-50 relative overflow-hidden">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-brand-light/30 rounded-full blur-[160px] opacity-50 -z-10" />
-           <div className="max-w-4xl mx-auto px-6">
-              <div className="asymmetric-card p-8 md:p-20 relative overflow-hidden group">
-                 {/* Internal Glow */}
-                 <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-accent/20 rounded-full blur-[100px] pointer-events-none" />
+        {/* LEAD CAPTURE FORM - ULTRA MODERN ANIMATED */}
+        <section id="form" className="py-32 bg-[#0a1f1c] relative overflow-hidden">
+           {/* Dynamic Animated Background Mesh */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1200px] opacity-30 select-none pointer-events-none">
+              <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#A3BD6A]/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
+              <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-brand-deep/40 rounded-full blur-[150px] mix-blend-screen" />
+           </div>
+           
+           <div className="max-w-5xl mx-auto px-6 relative z-10">
+              <motion.div 
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.8, ease: "easeOut" }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 className="relative bg-white/5 backdrop-blur-2xl rounded-[3rem] border border-white/10 p-8 md:p-20 overflow-hidden shadow-[0_0_100px_rgba(11,107,87,0.1)]"
+              >
+                 {/* Sweep effect on card */}
+                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#A3BD6A] to-transparent opacity-50" />
                  
-                 <div className="relative z-10">
-                    <div className="text-center mb-16">
-                       <h2 className="text-4xl md:text-6xl font-display font-black text-slate-950 mb-6 tracking-tight">Scale Your <span className="text-brand-deep italic">Onboarding.</span></h2>
-                       <p className="text-slate-500 text-lg font-medium">Select a time that works best for your team or submit your details below.</p>
-                    </div>
-
-                    <form className="space-y-8">
-                       <div className="grid md:grid-cols-2 gap-8">
-                          <div className="space-y-3">
-                             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Full Legal Name</label>
-                             <input type="text" placeholder="Dr. Sarah Johnson" className="w-full px-8 py-5 rounded-[2rem] bg-slate-50 border border-slate-100 focus:outline-none focus:bg-white focus:ring-4 focus:ring-brand-deep/5 transition-all text-sm font-bold" />
-                          </div>
-                          <div className="space-y-3">
-                             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Email Workspace</label>
-                             <input type="email" placeholder="sarah@healthlink.com" className="w-full px-8 py-5 rounded-[2rem] bg-slate-50 border border-slate-100 focus:outline-none focus:bg-white focus:ring-4 focus:ring-brand-deep/5 transition-all text-sm font-bold" />
-                          </div>
-                       </div>
-                       
-                       <div className="grid md:grid-cols-2 gap-8">
-                          <div className="space-y-3">
-                             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Practice Type</label>
-                             <select className="w-full px-8 py-5 rounded-[2rem] bg-slate-50 border border-slate-100 focus:outline-none focus:bg-white focus:ring-4 focus:ring-brand-deep/5 transition-all text-sm font-bold appearance-none cursor-pointer">
-                                <option>Solo Provider</option>
-                                <option>Group Practice</option>
-                                <option>Organization / Clinic</option>
-                                <option>Telehealth Startup</option>
-                             </select>
-                          </div>
-                          <div className="space-y-3">
-                             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Phone Contact</label>
-                             <input type="tel" placeholder="+1 (321) 524-0606" className="w-full px-8 py-5 rounded-[2rem] bg-slate-50 border border-slate-100 focus:outline-none focus:bg-white focus:ring-4 focus:ring-brand-deep/5 transition-all text-sm font-bold" />
-                          </div>
-                       </div>
-
-                       <div className="space-y-3">
-                          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Enrollment Challenges</label>
-                          <textarea rows={4} placeholder="Describe your current payer enrollment or recredentialing needs..." className="w-full px-8 py-6 rounded-[2.5rem] bg-slate-50 border border-slate-100 focus:outline-none focus:bg-white focus:ring-4 focus:ring-brand-deep/5 transition-all text-sm font-bold resize-none"></textarea>
-                       </div>
-
-                       <button className="w-full bg-brand-deep text-white py-6 rounded-[2.5rem] font-black text-2xl shadow-2xl shadow-brand-deep/20 hover:shadow-brand-deep/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-4 group">
-                          Call Our Experts
-                          <Phone size={24} className="group-hover:rotate-[15deg] transition-transform" />
-                       </button>
-                    </form>
-
-                    <div className="mt-12 flex justify-center items-center gap-10">
-                       <div className="flex flex-col items-center gap-2">
-                          <div className="text-2xl font-black text-slate-900 leading-none">90</div>
-                          <div className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Day Goal</div>
-                       </div>
-                       <div className="h-10 w-[1px] bg-slate-100" />
-                       <div className="flex flex-col items-center gap-2">
-                          <div className="text-2xl font-black text-slate-900 leading-none">35%</div>
-                          <div className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Efficiency</div>
-                       </div>
-                       <div className="h-10 w-[1px] bg-slate-100" />
-                       <div className="flex flex-col items-center gap-2">
-                          <div className="text-2xl font-black text-slate-900 leading-none">HIPAA</div>
-                          <div className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Compliant</div>
-                       </div>
-                    </div>
+                 <div className="text-center mb-16 relative">
+                    <motion.div 
+                       initial={{ scale: 0.8, opacity: 0 }}
+                       whileInView={{ scale: 1, opacity: 1 }}
+                       transition={{ duration: 0.8, delay: 0.2 }}
+                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/50 text-[10px] uppercase font-black tracking-[0.3em] mb-8"
+                    >
+                       <span className="w-2 h-2 rounded-full bg-[#A3BD6A] animate-ping" />
+                       Priority Access
+                    </motion.div>
+                    <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter">
+                       Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A3BD6A] to-brand-light italic">Sequence.</span>
+                    </h2>
+                    <p className="text-white/40 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                       Drop your coordinates below. Our system will analyze your practice matrix and initiate the onboarding protocol.
+                    </p>
                  </div>
-              </div>
+
+                 <form className="max-w-3xl mx-auto space-y-12">
+                    <div className="grid md:grid-cols-2 gap-12">
+                       {/* Animated Input Field 1 */}
+                       <motion.div 
+                          className="relative group"
+                          initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}
+                       >
+                          <input type="text" id="name" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer placeholder-transparent" placeholder="Name" />
+                          <label htmlFor="name" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest cursor-text">Provider / Group Name</label>
+                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full" />
+                       </motion.div>
+
+                       {/* Animated Input Field 2 */}
+                       <motion.div 
+                          className="relative group"
+                          initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
+                       >
+                          <input type="email" id="email" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer placeholder-transparent" placeholder="Email" />
+                          <label htmlFor="email" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest cursor-text">Secure Email</label>
+                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full" />
+                       </motion.div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-12">
+                       {/* Custom Animated Select */}
+                       <motion.div 
+                          className="relative group"
+                          initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}
+                       >
+                          <select id="type" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer appearance-none cursor-pointer">
+                             <option value="" disabled selected hidden></option>
+                             <option className="bg-[#0f3d3a] text-white">Solo Practitioner</option>
+                             <option className="bg-[#0f3d3a] text-white">Group Practice</option>
+                             <option className="bg-[#0f3d3a] text-white">Enterprise / Hospital</option>
+                             <option className="bg-[#0f3d3a] text-white">Digital Health Startup</option>
+                          </select>
+                          <label htmlFor="type" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest pointer-events-none">Practice Architecture</label>
+                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full pointer-events-none" />
+                          <div className="absolute right-0 top-6 w-3 h-3 border-r-2 border-b-2 border-white/30 transform rotate-45 pointer-events-none group-hover:border-[#A3BD6A] transition-colors" />
+                       </motion.div>
+
+                       {/* Animated Input Field 4 */}
+                       <motion.div 
+                          className="relative group"
+                          initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
+                       >
+                          <input type="tel" id="mobile" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer placeholder-transparent" placeholder="Phone" />
+                          <label htmlFor="mobile" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest cursor-text">Direct Comms (Phone)</label>
+                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full" />
+                       </motion.div>
+                    </div>
+
+                    <motion.div 
+                       className="relative pt-6"
+                       initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
+                    >
+                       <button 
+                          type="button" 
+                          className="w-full py-8 rounded-[2rem] bg-white/5 border border-white/10 relative overflow-hidden group hover:border-[#A3BD6A]/50 transition-colors"
+                       >
+                          {/* Animated Button Background */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A3BD6A]/20 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[#A3BD6A]/10 transition-opacity duration-500 blur-xl" />
+                          
+                          <div className="relative z-10 flex items-center justify-center gap-4">
+                             <span className="text-2xl font-black text-white tracking-widest uppercase group-hover:text-[#A3BD6A] transition-colors">
+                                Authenticate & Connect
+                             </span>
+                             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#A3BD6A] transition-colors duration-500 text-white group-hover:text-[#0f3d3a]">
+                                <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                             </div>
+                          </div>
+                       </button>
+                    </motion.div>
+                 </form>
+
+                 {/* High-tech Footer Stats */}
+                 <motion.div 
+                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1 }}
+                    className="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center items-center gap-8 md:gap-20"
+                 >
+                    {[
+                       { v: '256-BIT', l: 'Encryption' },
+                       { v: 'HIPAA', l: 'Compliant' },
+                       { v: '0.0s', l: 'Latency' }
+                    ].map((st, i) => (
+                       <div key={i} className="flex flex-col items-center gap-2">
+                          <div className="text-xl md:text-3xl font-black text-white/80 font-mono tracking-tighter">{st.v}</div>
+                          <div className="text-[10px] font-black text-[#A3BD6A] uppercase tracking-[0.3em]">{st.l}</div>
+                       </div>
+                    ))}
+                 </motion.div>
+              </motion.div>
            </div>
         </section>
       </main>
