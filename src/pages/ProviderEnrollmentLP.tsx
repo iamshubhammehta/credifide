@@ -7,19 +7,31 @@ import {
   Zap, 
   Activity, 
   Clock, 
-import { Users, Shield, Zap, TrendingUp, CheckCircle2, ChevronRight, Activity, Clock, FileText, Search, Layers, Scale, Fingerprint, ArrowRight, Mail, Phone, Sparkles, Gavel } from 'lucide-react';
+  CheckCircle2, 
+  ArrowRight,
+  TrendingUp,
+  Fingerprint,
+  Mail,
+  Phone,
+  Layers,
+  Sparkles,
+  Users,
+  Search,
+  FileText,
+  Gavel,
+  Scale
+} from 'lucide-react';
 import { ASSETS, IconRenderer } from '../constants';
-import { SEO } from '../components/SEO';
+import { useSEO } from '../hooks/useSEO';
 
-const ProviderEnrollmentLP = () => {
+const ProviderEnrollmentLP: React.FC = () => {
+  useSEO(
+    'Provider Enrollment Excellence | Credifide',
+    'Experience 98% first-submission accuracy and 30% faster provider enrollment turnaround times. We treat credentialing as infrastructure.'
+  );
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
-      <SEO 
-        title="Provider Enrollment & Medical Credentialing" 
-        description="Fast-track your healthcare provider enrollment and CAQH credentialing with Credifide. Join 500+ facilities maximizing medical revenue streams."
-        keywords="provider enrollment, medical credentialing, CAQH profile management, healthcare revenue cycle"
-      />
-      
       {/* MINIMAL NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-[100] bg-white/50 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">

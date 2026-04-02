@@ -6,6 +6,7 @@ import { ASSETS, IconRenderer } from './constants';
 import { PhysicsWorld, PhysicsBody } from './components/PhysicsEngine';
 import About from './pages/About';
 import Services from './pages/Services';
+import { useSEO } from './hooks/useSEO';
 import InsuranceCredentialing from './pages/InsuranceCredentialing';
 import MedicalBilling from './pages/MedicalBilling';
 import Contact from './pages/Contact';
@@ -1638,6 +1639,11 @@ const Specialties = React.memo(() => {
 
 const Home = React.memo(() => {
   const { hash } = useLocation();
+  
+  useSEO(
+    'Credifide - Modern Healthcare RCM & Provider Enrollment',
+    'Streamline your healthcare operations with Credifide. We specialize in Provider Enrollment, Insurance Credentialing, and Medical Billing for modern clinical success.'
+  );
 
   useEffect(() => {
     if (hash) {

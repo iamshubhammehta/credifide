@@ -2,8 +2,14 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { ASSETS, IconRenderer } from '../constants';
 import { Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 const MedicalBilling: React.FC = () => {
+  useSEO(
+    'Medical Billing & RCM Operations | Credifide',
+    'Maximize your practice revenue with Credifide\'s end-to-end medical billing solutions. We systematically manage claims, denials, and cashflow.'
+  );
+
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-0">
       {/* ─── HERO SECTION ─── */}

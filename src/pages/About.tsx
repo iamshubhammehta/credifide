@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue } from 'motion/react';
 import { ASSETS, IconRenderer } from '../constants';
-import { Link, useLocation } from 'react-router-dom';
-import { SEO } from '../components/SEO';
+import { Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 // ─── Utility: Animate on scroll ───────────────────────────────────────────────
 const FadeUp: React.FC<{ children: React.ReactNode; delay?: number; className?: string }> = ({
@@ -1198,28 +1198,50 @@ const FinalCTA: React.FC = () => {
     <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         <FadeUp>
-          <div className="relative rounded-[48px] overflow-hidden bg-slate-50 border border-slate-200">
-            {/* Minimal BG */}
-            <div className="absolute inset-0 bg-white" />
+          <div className="relative rounded-[48px] overflow-hidden">
+            {/* Animated gradient BG */}
+            <motion.div
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, #0B6B57, #095646, #074235, #0B6B57)',
+                backgroundSize: '300% 300%',
+              }}
+            />
+
+            {/* Orbs */}
+            <motion.div
+              animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
+              transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+              className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-[100px] will-change-transform"
+            />
+            <motion.div
+              animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+              className="absolute bottom-[-20%] right-[-10%] w-80 h-80 bg-brand-accent/20 rounded-full blur-[80px] will-change-transform"
+            />
 
             {/* Grid */}
-            <div className="absolute inset-0 opacity-[0.2]" style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)',
+            <div className="absolute inset-0 opacity-[0.04]" style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
               backgroundSize: '48px 48px',
             }} />
 
-            <div className="relative z-10 py-24 px-8 lg:px-20 text-center">
+            <div className="relative z-10 py-24 px-8 lg:px-20">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-slate-100 text-slate-800 text-sm font-black uppercase tracking-widest mb-8 shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-white text-sm font-semibold mb-8"
               >
                 <motion.span
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="w-2 h-2 rounded-full bg-brand-deep"
+                  className="w-2 h-2 rounded-full bg-brand-400"
                 />
                 Start Your Journey
               </motion.div>
@@ -1229,10 +1251,10 @@ const FinalCTA: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-display font-black text-slate-900 leading-tight mb-6"
+                className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6"
               >
                 Ready to transform <br />
-                <span className="text-brand-deep">how you operate?</span>
+                <span className="text-brand-400">how you operate?</span>
               </motion.h2>
 
               <motion.p
@@ -1240,7 +1262,7 @@ const FinalCTA: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-slate-600 text-lg max-w-2xl mx-auto mb-12 leading-relaxed font-medium"
+                className="text-slate-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
               >
                 Join hundreds of providers who stopped waiting and started growing. Your first consultation is free — and it changes everything.
               </motion.p>
@@ -1254,13 +1276,13 @@ const FinalCTA: React.FC = () => {
               >
                 <Link
                   to="/contact"
-                  className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-black text-lg shadow-2xl hover:scale-105 transition-all flex items-center gap-3 w-full sm:w-auto justify-center group"
+                  className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold text-lg shadow-2xl shadow-black/10 hover:scale-105 transition-all flex items-center gap-3 w-full sm:w-auto justify-center"
                 >
                   Book a Free Consultation
-                  <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <IconRenderer icon={ASSETS.nav.arrowRight} size={20} />
                 </Link>
-                <div className="text-slate-500 font-bold text-sm flex items-center gap-2 mt-4 sm:mt-0">
-                  <span className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-[10px] text-green-600">✓</span>
+                <div className="text-brand-light/60 text-sm flex items-center gap-2">
+                  <span className="w-4 h-4 rounded-full border border-brand-light/30 flex items-center justify-center text-[10px]">✓</span>
                   No commitment required
                 </div>
               </motion.div>
@@ -1274,18 +1296,17 @@ const FinalCTA: React.FC = () => {
 
 // ─── Main About Page ───────────────────────────────────────────────────────────
 const About: React.FC = () => {
+  useSEO(
+    'About Us | Credifide',
+    'Learn how Credifide is revolutionizing healthcare RCM. See our story, principles, and how we build enterprise-grade infrastructure for modern practices.'
+  );
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
   return (
-    <div className="bg-white min-h-screen overflow-hidden selection:bg-brand-500/20">
-      <SEO 
-        title="About Us | Medical Credentialing Experts" 
-        description="Learn about Credifide's mission to optimize healthcare provider operations through state-of-the-art credentialing and RCM technology."
-        keywords="about credifide, healthcare technology company, medical credentialing experts"
-      />
-
+    <div className="overflow-x-hidden">
       <HeroSection />
       <StorySection />
       <ProblemSection />

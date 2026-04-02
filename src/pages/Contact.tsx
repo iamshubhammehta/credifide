@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ASSETS, IconRenderer } from '../constants';
-import { SEO } from '../components/SEO';
+import { useSEO } from '../hooks/useSEO';
 
 const Contact = () => {
+  useSEO(
+    'Contact Us | Credifide',
+    'Get in touch with Credifide. Book a strategy call or contact our team to build your revenue engine and simplify your provider enrollment.'
+  );
+
   return (
     <div className="pt-0 pb-20 lg:pb-24 bg-white relative overflow-hidden">
-      <SEO 
-        title="Contact Us | Healthcare Credentialing Support" 
-        description="Get in touch with Credifide for expert healthcare provider credentialing and complete revenue cycle management setup."
-        keywords="contact credifide, healthcare RCM consultation, medical credentialing help"
-      />
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />
@@ -51,9 +51,9 @@ const Contact = () => {
               <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-8 border border-white/10 group-hover:bg-brand-accent group-hover:text-brand-deep transition-all duration-500">
                 <IconRenderer icon={ASSETS.nav.phone} size={28} />
               </div>
-              <h3 className="text-2xl font-bold mb-3">Call Us</h3>
-              <p className="text-brand-100/70 mb-6 font-medium">Monday - Friday, 9am - 6pm EST</p>
-              <a href="tel:+13215240606" className="text-3xl font-black text-white hover:text-brand-accent transition-colors block">
+              <h3 className="text-2xl font-bold mb-3 text-white">Call Us</h3>
+              <p className="text-white/80 mb-6 font-medium">Monday - Friday, 9am - 6pm EST</p>
+              <a href="tel:+13215240606" className="text-2xl font-black text-[#A3BD6A] hover:text-white transition-colors block">
                 +1-321-524-0606
               </a>
             </motion.div>

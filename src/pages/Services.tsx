@@ -2,9 +2,14 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ASSETS, IconRenderer } from '../constants';
-import { SEO } from '../components/SEO';
+import { useSEO } from '../hooks/useSEO';
 
 const ServicesHub: React.FC = () => {
+  useSEO(
+    'Services & Solutions | Credifide',
+    'Explore Credifide\'s core services: Payer Credentialing, Medical Billing, and complete Revenue Cycle Management infrastructure for clinical success.'
+  );
+
   const services = [
     {
       title: "Payer Credentialing",
@@ -26,12 +31,6 @@ const ServicesHub: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12 pb-20 overflow-hidden">
-      <SEO 
-        title="Healthcare RCM Services & Credentialing Solutions" 
-        description="Comprehensive Revenue Cycle Management (RCM) services including payer credentialing and medical billing for healthcare organizations."
-        keywords="healthcare RCM services, payer credentialing, medical billing company"
-      />
-
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full blur-[120px] bg-brand-deep/5" />

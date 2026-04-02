@@ -2,8 +2,14 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { ASSETS, IconRenderer } from '../constants';
 import { Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 const InsuranceCredentialing: React.FC = () => {
+  useSEO(
+    'Insurance & Payer Credentialing Services | Credifide',
+    'Stop losing revenue to enrollment delays. Our proactive credentialing infrastructure builds direct payer pathways for faster reimbursements.'
+  );
+
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
