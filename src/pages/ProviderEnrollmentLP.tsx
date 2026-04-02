@@ -300,135 +300,109 @@ const ProviderEnrollmentLP = () => {
            </div>
         </section>
 
-        {/* LEAD CAPTURE FORM - ULTRA MODERN ANIMATED */}
-        <section id="form" className="py-32 bg-[#0a1f1c] relative overflow-hidden">
-           {/* Dynamic Animated Background Mesh */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1200px] opacity-30 select-none pointer-events-none">
-              <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#A3BD6A]/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
-              <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-brand-deep/40 rounded-full blur-[150px] mix-blend-screen" />
-           </div>
-           
-           <div className="max-w-5xl mx-auto px-6 relative z-10">
+        {/* LEAD CAPTURE FORM - MODERN 'WIDGET/IFRAME' STYLE */}
+        <section id="form" className="py-32 bg-slate-50 relative overflow-hidden">
+           {/* Soft Background Accents */}
+           <div className="absolute top-0 right-0 w-full h-[500px] bg-brand-light/20 rounded-bl-full -z-10" />
+           <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-deep/5 rounded-tr-full -z-10" />
+
+           <div className="max-w-4xl mx-auto px-6 relative z-10">
+              <div className="text-center mb-16">
+                 <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 mb-6">Create Your <span className="text-brand-deep">Profile.</span></h2>
+                 <p className="text-slate-500 font-medium">Complete the secure application below to initiate your credentialing process.</p>
+              </div>
+
+              {/* The "Iframe" Widget Container */}
               <motion.div 
-                 initial={{ opacity: 0, y: 40 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.8, ease: "easeOut" }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 className="relative bg-white/5 backdrop-blur-2xl rounded-[3rem] border border-white/10 p-8 md:p-20 overflow-hidden shadow-[0_0_100px_rgba(11,107,87,0.1)]"
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ duration: 0.6 }}
+                 className="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden relative"
               >
-                 {/* Sweep effect on card */}
-                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#A3BD6A] to-transparent opacity-50" />
-                 
-                 <div className="text-center mb-16 relative">
-                    <motion.div 
-                       initial={{ scale: 0.8, opacity: 0 }}
-                       whileInView={{ scale: 1, opacity: 1 }}
-                       transition={{ duration: 0.8, delay: 0.2 }}
-                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/50 text-[10px] uppercase font-black tracking-[0.3em] mb-8"
-                    >
-                       <span className="w-2 h-2 rounded-full bg-[#A3BD6A] animate-ping" />
-                       Priority Access
-                    </motion.div>
-                    <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter">
-                       Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A3BD6A] to-brand-light italic">Sequence.</span>
-                    </h2>
-                    <p className="text-white/40 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-                       Drop your coordinates below. Our system will analyze your practice matrix and initiate the onboarding protocol.
-                    </p>
+                 {/* Widget Header (Like a browser tab/header) */}
+                 <div className="bg-[#0f3d3a] px-8 py-6 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                       <span className="w-3 h-3 rounded-full bg-brand-light" />
+                       <span className="w-3 h-3 rounded-full bg-white/20" />
+                       <span className="w-3 h-3 rounded-full bg-white/20" />
+                    </div>
+                    <div className="text-white/60 text-xs font-black uppercase tracking-[0.2em] flex items-center gap-2">
+                       <Shield size={14} className="text-brand-light" />
+                       Secure Form
+                    </div>
                  </div>
 
-                 <form className="max-w-3xl mx-auto space-y-12">
-                    <div className="grid md:grid-cols-2 gap-12">
-                       {/* Animated Input Field 1 */}
-                       <motion.div 
-                          className="relative group"
-                          initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}
-                       >
-                          <input type="text" id="name" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer placeholder-transparent" placeholder="Name" />
-                          <label htmlFor="name" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest cursor-text">Provider / Group Name</label>
-                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full" />
-                       </motion.div>
-
-                       {/* Animated Input Field 2 */}
-                       <motion.div 
-                          className="relative group"
-                          initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
-                       >
-                          <input type="email" id="email" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer placeholder-transparent" placeholder="Email" />
-                          <label htmlFor="email" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest cursor-text">Secure Email</label>
-                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full" />
-                       </motion.div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-12">
-                       {/* Custom Animated Select */}
-                       <motion.div 
-                          className="relative group"
-                          initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}
-                       >
-                          <select id="type" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer appearance-none cursor-pointer">
-                             <option value="" disabled selected hidden></option>
-                             <option className="bg-[#0f3d3a] text-white">Solo Practitioner</option>
-                             <option className="bg-[#0f3d3a] text-white">Group Practice</option>
-                             <option className="bg-[#0f3d3a] text-white">Enterprise / Hospital</option>
-                             <option className="bg-[#0f3d3a] text-white">Digital Health Startup</option>
-                          </select>
-                          <label htmlFor="type" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest pointer-events-none">Practice Architecture</label>
-                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full pointer-events-none" />
-                          <div className="absolute right-0 top-6 w-3 h-3 border-r-2 border-b-2 border-white/30 transform rotate-45 pointer-events-none group-hover:border-[#A3BD6A] transition-colors" />
-                       </motion.div>
-
-                       {/* Animated Input Field 4 */}
-                       <motion.div 
-                          className="relative group"
-                          initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
-                       >
-                          <input type="tel" id="mobile" required className="w-full bg-transparent border-0 border-b-2 border-white/10 px-0 py-4 text-white text-xl font-bold focus:ring-0 focus:outline-none focus:border-[#A3BD6A] transition-colors peer placeholder-transparent" placeholder="Phone" />
-                          <label htmlFor="mobile" className="absolute left-0 top-4 text-white/30 text-lg font-bold transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#A3BD6A] peer-valid:-top-6 peer-valid:text-xs peer-valid:text-white/50 uppercase tracking-widest cursor-text">Direct Comms (Phone)</label>
-                          <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#A3BD6A] transition-all duration-500 ease-out peer-focus:w-full" />
-                       </motion.div>
-                    </div>
-
-                    <motion.div 
-                       className="relative pt-6"
-                       initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
-                    >
-                       <button 
-                          type="button" 
-                          className="w-full py-8 rounded-[2rem] bg-white/5 border border-white/10 relative overflow-hidden group hover:border-[#A3BD6A]/50 transition-colors"
-                       >
-                          {/* Animated Button Background */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A3BD6A]/20 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
-                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[#A3BD6A]/10 transition-opacity duration-500 blur-xl" />
-                          
-                          <div className="relative z-10 flex items-center justify-center gap-4">
-                             <span className="text-2xl font-black text-white tracking-widest uppercase group-hover:text-[#A3BD6A] transition-colors">
-                                Authenticate & Connect
-                             </span>
-                             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#A3BD6A] transition-colors duration-500 text-white group-hover:text-[#0f3d3a]">
-                                <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                 {/* Form Body - Clean, Material-inspired with SaaS touches */}
+                 <div className="p-8 md:p-12">
+                    <form className="space-y-10">
+                       
+                       {/* Field Group 1 */}
+                       <div className="space-y-8 p-6 rounded-2xl bg-slate-50 border border-slate-100/50 hover:border-slate-200 transition-colors">
+                          <h3 className="text-sm font-black text-brand-deep uppercase tracking-widest mb-4 flex items-center gap-2">
+                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent object-cover"></span> Basic Details
+                          </h3>
+                          <div className="grid md:grid-cols-2 gap-8">
+                             <div className="relative">
+                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Provider Name</label>
+                                <input type="text" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="e.g. Dr. John Doe" />
+                             </div>
+                             <div className="relative">
+                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Practice Name</label>
+                                <input type="text" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="e.g. City Health Clinic" />
                              </div>
                           </div>
-                       </button>
-                    </motion.div>
-                 </form>
-
-                 {/* High-tech Footer Stats */}
-                 <motion.div 
-                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1 }}
-                    className="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center items-center gap-8 md:gap-20"
-                 >
-                    {[
-                       { v: '256-BIT', l: 'Encryption' },
-                       { v: 'HIPAA', l: 'Compliant' },
-                       { v: '0.0s', l: 'Latency' }
-                    ].map((st, i) => (
-                       <div key={i} className="flex flex-col items-center gap-2">
-                          <div className="text-xl md:text-3xl font-black text-white/80 font-mono tracking-tighter">{st.v}</div>
-                          <div className="text-[10px] font-black text-[#A3BD6A] uppercase tracking-[0.3em]">{st.l}</div>
+                          
+                          <div className="grid md:grid-cols-2 gap-8">
+                             <div className="relative">
+                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
+                                <input type="email" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="john@example.com" />
+                             </div>
+                             <div className="relative">
+                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Phone Number</label>
+                                <input type="tel" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="(555) 123-4567" />
+                             </div>
+                          </div>
                        </div>
-                    ))}
-                 </motion.div>
+
+                       {/* Field Group 2 */}
+                       <div className="space-y-8 p-6 rounded-2xl bg-slate-50 border border-slate-100/50 hover:border-slate-200 transition-colors">
+                          <h3 className="text-sm font-black text-brand-deep uppercase tracking-widest mb-4 flex items-center gap-2">
+                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> Service Needs
+                          </h3>
+                          <div className="relative">
+                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Primary Goal</label>
+                             <div className="relative">
+                                <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm appearance-none">
+                                   <option>New Enrollment Setup</option>
+                                   <option>Recredentialing / Maintenance</option>
+                                   <option>Contracting & Negotiation</option>
+                                   <option>CAQH Management</option>
+                                </select>
+                                <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 transform rotate-90 text-slate-400 pointer-events-none" size={18} />
+                             </div>
+                          </div>
+
+                          <div className="relative">
+                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Additional Information</label>
+                             <textarea rows={3} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm resize-none" placeholder="Tell us about the specific payers or challenges you are facing..."></textarea>
+                          </div>
+                       </div>
+
+                       {/* Submit Action */}
+                       <div className="pt-4 flex items-center justify-between flex-wrap gap-6">
+                           <div className="flex items-center gap-2 text-[10px] uppercase font-black tracking-widest text-slate-400">
+                               <CheckCircle2 size={14} className="text-green-500" />
+                               No credit card required
+                           </div>
+                           <button type="button" className="bg-brand-deep text-white px-10 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-[#0f3d3a] hover:shadow-lg transition-all active:scale-95 group">
+                              Submit Application
+                              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
+                                 <ArrowRight size={14} />
+                              </div>
+                           </button>
+                       </div>
+                    </form>
+                 </div>
               </motion.div>
            </div>
         </section>
