@@ -240,23 +240,20 @@ const ProviderEnrollmentLP: React.FC = () => {
               </motion.div>
 
               {/* Modern Squircle Logo Grid - Optimized for attractiveness */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                  {[
-                    { name: 'Medicare', color: '#004A99', icon: Shield },
-                    { name: 'Medicaid', color: '#00833E', icon: Activity },
-                    { name: 'Aetna', color: '#9D2235', icon: Zap },
-                    { name: 'Cigna', color: '#007DA3', icon: Activity },
-                    { name: 'Humana', color: '#77BC1F', icon: Shield },
-                    { name: 'Molina', color: '#F15D22', icon: Activity },
-                    { name: 'Wellcare', color: '#0079C1', icon: Zap },
-                    { name: 'Optum', color: '#E87722', icon: Activity },
-                    { name: 'Tricare', color: '#003366', icon: Shield },
-                    { name: 'Tri-West', color: '#D21034', icon: Activity },
-                    { name: 'Beacon Health', color: '#004C97', icon: Zap },
-                    { name: 'United Health', color: '#102C57', icon: Activity },
-                    { name: 'BCBS', color: '#00539B', icon: Shield },
-                    { name: 'Kaiser', color: '#0067B1', icon: Zap },
-                    { name: 'Centene', color: '#003B5C', icon: Activity }
+                    { name: 'United Health', logo: 'https://credifide.com/wp-content/uploads/2026/03/2-1-150x150.png', color: '#002677' },
+                    { name: 'Medicare', logo: 'https://credifide.com/wp-content/uploads/2026/03/3-1-150x150.png', color: '#004A99' },
+                    { name: 'Carelon', logo: 'https://credifide.com/wp-content/uploads/2026/03/4-1-150x150.png', color: '#007DA3' },
+                    { name: 'Tricare', logo: 'https://credifide.com/wp-content/uploads/2026/03/5-1-150x150.png', color: '#003366' },
+                    { name: 'Aetna', logo: 'https://credifide.com/wp-content/uploads/2026/03/6-1-150x150.png', color: '#9D2235' },
+                    { name: 'Medicaid', logo: 'https://credifide.com/wp-content/uploads/2026/03/7-1-150x150.png', color: '#00833E' },
+                    { name: 'Wellcare', logo: 'https://credifide.com/wp-content/uploads/2026/03/8-1-150x150.png', color: '#0079C1' },
+                    { name: 'Molina', logo: 'https://credifide.com/wp-content/uploads/2026/03/9-1-150x150.png', color: '#F15D22' },
+                    { name: 'TriWest', logo: 'https://credifide.com/wp-content/uploads/2026/03/10-1-150x150.png', color: '#D21034' },
+                    { name: 'Cigna', logo: 'https://credifide.com/wp-content/uploads/2026/03/11-1-150x150.png', color: '#007DA3' },
+                    { name: 'Humana', logo: 'https://credifide.com/wp-content/uploads/2026/03/12-1-150x150.png', color: '#77BC1F' },
+                    { name: 'Optum', logo: 'https://credifide.com/wp-content/uploads/2026/03/13-150x150.png', color: '#E87722' }
                  ].map((payer, idx) => (
                     <motion.div
                        key={idx}
@@ -268,7 +265,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                           scale: 1.05,
                           boxShadow: '0 40px 80px -20px rgba(11, 107, 87, 0.15)'
                        }}
-                       className="group relative bg-white aspect-square rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center gap-4 transition-all duration-700 cursor-default shadow-sm overflow-hidden"
+                       className="group relative bg-white aspect-[7/5] rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-6 gap-4 transition-all duration-700 cursor-default shadow-sm overflow-hidden"
                     >
                        {/* Subtle Inner Glow */}
                        <div 
@@ -276,20 +273,18 @@ const ProviderEnrollmentLP: React.FC = () => {
                          style={{ background: `radial-gradient(circle at center, ${payer.color}, transparent 70%)` }} 
                        />
                        
-                       {/* Logo Icon Placeholder (Stylized Square) */}
-                       <div 
-                         className="w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-transform group-hover:rotate-6 shadow-lg shadow-black/5"
-                         style={{ backgroundColor: payer.color }}
-                       >
-                          <payer.icon size={24} />
-                       </div>
+                       <img 
+                          src={payer.logo} 
+                          alt={payer.name} 
+                          className="h-16 w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100" 
+                       />
                        
-                       <span className="text-[11px] font-black text-slate-800 uppercase tracking-widest leading-none">
+                       <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none group-hover:text-slate-800 transition-colors">
                           {payer.name}
                        </span>
 
-                       {/* Interactive Payer Badge */}
-                       <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-brand-accent transition-colors" />
+                       {/* Interactive Badge */}
+                       <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-slate-100 group-hover:bg-brand-accent transition-colors" />
                     </motion.div>
                  ))}
               </div>
