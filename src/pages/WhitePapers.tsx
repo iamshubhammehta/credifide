@@ -51,7 +51,7 @@ const WhitePapers = () => {
         </motion.div>
 
         {/* White Paper Grid */}
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
            {whitePapers.map((paper, i) => (
               <motion.div
                  key={paper.id}
@@ -59,9 +59,9 @@ const WhitePapers = () => {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                 className="saas-card group flex flex-col md:flex-row h-full bg-white border-brand-100 overflow-hidden"
+                 className="saas-card group flex flex-col h-full bg-white border-brand-100 overflow-hidden hover:shadow-2xl hover:shadow-brand-deep/10 transition-all duration-500"
               >
-                 <div className="md:w-2/5 aspect-[4/5] md:aspect-auto relative overflow-hidden bg-slate-900">
+                 <div className="aspect-[16/10] relative overflow-hidden bg-slate-900 shrink-0">
                     <img 
                        src={paper.image} 
                        alt={paper.title} 
@@ -69,24 +69,32 @@ const WhitePapers = () => {
                        loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-6 left-6 text-white group-hover:-translate-y-2 transition-transform duration-500">
-                        <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-md border border-white/30 mb-2">
-                           <IconRenderer icon={ASSETS.ui.fileText} size={20} />
+                    <div className="absolute bottom-4 left-4 text-white group-hover:-translate-y-1 transition-transform duration-500">
+                        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-md border border-white/30 mb-2">
+                           <IconRenderer icon={ASSETS.ui.fileText} size={16} />
                         </div>
-                        <p className="text-xs font-bold uppercase tracking-widest opacity-80">{paper.date} • {paper.pages} Pages</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">{paper.date}</p>
                     </div>
                  </div>
 
-                 <div className="md:w-3/5 p-10 flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-brand-500 transition-colors leading-tight">{paper.title}</h3>
-                    <p className="text-slate-600 mb-8 leading-relaxed">{paper.description}</p>
-                    <button
-                       onClick={() => handleDownload(paper)}
-                       className="flex items-center justify-center gap-3 w-full bg-brand-deep text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-deep/20 hover:bg-brand-600 transition-all active:scale-95"
-                    >
-                       Download White Paper
-                       <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="stroke-[3px]" />
-                    </button>
+                 <div className="p-8 flex flex-col flex-grow">
+                    <div className="flex-grow">
+                       <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-brand-500 transition-colors leading-tight">{paper.title}</h3>
+                       <p className="text-slate-600 text-sm mb-6 leading-relaxed line-clamp-3">{paper.description}</p>
+                    </div>
+                    <div className="border-t border-slate-100 pt-6 mt-auto">
+                       <p className="text-xs font-bold text-brand-deep/50 uppercase tracking-widest mb-4 flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+                          {paper.pages} Page Resource
+                       </p>
+                       <button
+                          onClick={() => handleDownload(paper)}
+                          className="flex items-center justify-center gap-3 w-full bg-brand-deep text-white text-sm font-bold py-3.5 rounded-xl shadow-lg shadow-brand-deep/20 hover:bg-brand-600 transition-all active:scale-95"
+                       >
+                          Download Now
+                          <IconRenderer icon={ASSETS.nav.arrowRight} size={16} className="stroke-[2px]" />
+                       </button>
+                    </div>
                  </div>
               </motion.div>
            ))}
