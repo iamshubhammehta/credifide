@@ -379,146 +379,150 @@ const Navbar = React.memo(() => {
 });
 
 const Hero = React.memo(() => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const dpr = window.devicePixelRatio || 1;
+    let W = 0, H = 0;
+    const resize = () => {
+      W = canvas.offsetWidth; H = canvas.offsetHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.scale(dpr, dpr);
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    const N = 55;
+    const pts = Array.from({ length: N }, () => ({
+      x: Math.random() * 1920, y: Math.random() * 900,
+      vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.8 + 0.4, o: Math.random() * 0.4 + 0.15,
+    }));
+    const draw = () => {
+      if (!W || !H) { rafRef.current = requestAnimationFrame(draw); return; }
+      ctx.clearRect(0, 0, W, H);
+      const grd = ctx.createRadialGradient(mouseRef.current.x, mouseRef.current.y, 0, mouseRef.current.x, mouseRef.current.y, 280);
+      grd.addColorStop(0, 'rgba(127,191,127,0.06)'); grd.addColorStop(1, 'transparent');
+      ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
+      pts.forEach(p => {
+        p.x += p.vx + (mouseRef.current.x - W / 2) * 0.00006;
+        p.y += p.vy + (mouseRef.current.y - H / 2) * 0.00006;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(127,191,127,${p.o})`; ctx.fill();
+      });
+      for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 110) {
+          ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = `rgba(127,191,127,${0.07 * (1 - d / 110)})`; ctx.lineWidth = 0.5; ctx.stroke();
+        }
+      }
+      rafRef.current = requestAnimationFrame(draw);
+    };
+    const onMouse = (e: MouseEvent) => { const r = canvas.getBoundingClientRect(); mouseRef.current = { x: e.clientX - r.left, y: e.clientY - r.top }; };
+    window.addEventListener('mousemove', onMouse);
+    draw();
+    return () => { window.removeEventListener('resize', resize); window.removeEventListener('mousemove', onMouse); cancelAnimationFrame(rafRef.current); };
+  }, []);
+
   return (
-    <section id="hero" className="relative overflow-hidden bg-white min-h-screen flex items-center pt-20">
-      {/* Mesh gradients - Static/Subtle */}
+    <section id="hero" className="relative overflow-hidden bg-white" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+      {/* Particle canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      {/* Mesh gradients */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute top-[-10%] left-[-5%] w-[55%] h-[55%] rounded-full blur-[130px] opacity-20"
-          style={{ background: 'rgba(11, 107, 87, 0.08)' }} 
-        />
-        <div 
-          className="absolute bottom-[-10%] right-[-5%] w-[55%] h-[55%] rounded-full blur-[150px] opacity-20"
-          style={{ background: 'rgba(127, 191, 127, 0.08)' }} 
-        />
+        <motion.div animate={{ x: [0, 50, 0], y: [0, 30, 0] }} transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-[-10%] left-[-5%] w-[55%] h-[55%] rounded-full blur-[130px] will-change-transform"
+          style={{ background: 'rgba(11, 107, 87, 0.05)' }} />
+        <motion.div animate={{ x: [0, -35, 0], y: [0, 50, 0] }} transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+          className="absolute bottom-[-10%] right-[-5%] w-[55%] h-[55%] rounded-full blur-[150px] will-change-transform"
+          style={{ background: 'rgba(127, 191, 127, 0.05)' }} />
       </div>
       {/* Grid overlay */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(11, 107, 87, 1) 1px,transparent 1px),linear-gradient(90deg,rgba(11, 107, 87, 1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
-          {/* Left Column: Content */}
-          <div className="text-left py-12 lg:py-20">
-            <PhysicsBody id="hero-badge" className="inline-block mb-8">
-              <motion.span
-                initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-[10px] font-black uppercase tracking-[0.2em] backdrop-blur-md shadow-sm mb-4"
-              >
-                <span className="w-2 h-2 rounded-full bg-brand-deep shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
-                Trusted by 500+ Healthcare Providers
-              </motion.span>
-            </PhysicsBody>
-
-            <PhysicsBody id="hero-title" className="mb-10">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter leading-[0.9] text-slate-900">
-                  <span className="block mb-2">Get Credentialed</span>
-                  <span className="text-brand-deep block pb-4">Faster.</span>
-                  <span className="block">Get Paid Sooner.</span>
-              </h1>
-            </PhysicsBody>
-
-            <PhysicsBody id="hero-desc" className="mb-12">
-              <p className="text-lg lg:text-xl leading-relaxed max-w-xl text-slate-500 font-bold">
-                Credifide helps healthcare providers get credentialed, contracted, and reimbursed faster without delays or confusion.
-              </p>
-            </PhysicsBody>
-
-            <div className="flex flex-wrap gap-4">
-              {[
-                  { icon: ASSETS.ui.shieldCheck, text: 'HIPAA Compliant' },
-                  { icon: ASSETS.features.zap, text: 'AI-Powered Workflow' }
-              ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-black uppercase text-slate-400 tracking-widest">
-                      <IconRenderer icon={item.icon} size={14} className="text-brand-deep" />
-                      {item.text}
-                  </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column: Hero Form */}
-          <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-16 lg:pt-16 lg:pb-24">
+        <PhysicsBody id="hero-badge" className="inline-block mb-8">
+          <motion.span
+            initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-sm font-black uppercase tracking-[0.2em] backdrop-blur-md shadow-sm mb-4"
           >
-            <div className="bg-white rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(11,51,46,0.15)] border border-slate-100 overflow-hidden relative z-10">
-              {/* Form Tab UI */}
-              <div className="bg-[#0f3d3a] px-8 py-5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-brand-light" />
-                  <span className="text-white text-[10px] font-black uppercase tracking-[0.3em]">Direct Application</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/40 text-[9px] font-black uppercase tracking-widest">
-                  <IconRenderer icon={ASSETS.ui.lock} size={12} className="text-brand-accent" />
-                  SSL Encrypted
-                </div>
-              </div>
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
+            Trusted by 500+ Healthcare Providers
+          </motion.span>
+        </PhysicsBody>
 
-              <div className="p-8 md:p-10">
-                <div className="mb-8">
-                  <h2 className="text-3xl font-black text-slate-900 mb-2">Create Profile.</h2>
-                  <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">Start your enrollment process today</p>
-                </div>
-                
-                <form className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
-                      <input type="text" placeholder="John Doe" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-sm font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Practice Name</label>
-                      <input type="text" placeholder="Clinic Name" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-sm font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" />
-                    </div>
-                  </div>
+        <PhysicsBody id="hero-title" className="mb-10">
+          <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-display font-black tracking-tighter leading-[0.95] text-slate-900">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.12,
+                  }
+                }
+              }}
+            >
+              <motion.span 
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: 45 },
+                  visible: { opacity: 1, y: 0, rotateX: 0 }
+                }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="block will-change-transform"
+              >
+                Get Credentialed
+              </motion.span>
+              <motion.span 
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: 45 },
+                  visible: { opacity: 1, y: 0, rotateX: 0 }
+                }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="block relative will-change-transform"
+              >
+                <span className="text-brand-deep">Faster.</span>{' '}
+                Get Paid{' '}
+                <span className="relative inline-block">
+                  Sooner.
+                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1.5, duration: 2, ease: 'circOut' }}
+                    className="absolute -bottom-1 sm:-bottom-3 left-0 right-0 h-[4px] bg-gradient-to-r from-transparent via-brand-accent to-transparent origin-left shadow-[0_0_15px_rgba(127,191,127,0.6)]" />
+                </span>
+              </motion.span>
+            </motion.div>
+          </h1>
+        </PhysicsBody>
 
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
-                    <input type="email" placeholder="john@example.com" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-sm font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" />
-                  </div>
+        <PhysicsBody id="hero-desc" className="mb-12">
+          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto text-slate-500">
+            Credifide helps healthcare providers get credentialed, contracted, and reimbursed faster without delays or confusion.
+          </motion.p>
+        </PhysicsBody>
 
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone Number</label>
-                    <input type="tel" placeholder="(555) 000-0000" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-sm font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" />
-                  </div>
-
-                  {/* TMC Checkbox */}
-                  <div className="pt-2">
-                     <label className="flex items-start gap-3 cursor-pointer group">
-                        <div className="relative flex items-center justify-center mt-1">
-                           <input type="checkbox" className="peer appearance-none w-5 h-5 border-2 border-slate-200 rounded-md checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer" />
-                           <IconRenderer icon={ASSETS.ui.check} size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-500 leading-relaxed uppercase tracking-wider group-hover:text-slate-700 transition-colors">
-                           I accept the <Link to="/terms" className="text-brand-deep underline">Terms</Link> and <Link to="/privacy" className="text-brand-deep underline">Privacy</Link>.
-                        </span>
-                     </label>
-                  </div>
-
-                  <button className="w-full bg-brand-deep text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#0f1f1d] hover:shadow-2xl transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-3 group">
-                    Send Request
-                    <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  
-                  <p className="text-[9px] text-slate-400 text-center font-bold uppercase tracking-widest mt-4">
-                    Immediate response timeframe: 24-48 Hours
-                  </p>
-                </form>
-              </div>
-            </div>
-
-            {/* Background Decorative Blob */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-light/40 rounded-full blur-[80px] -z-0" />
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand-deep/10 rounded-full blur-[80px] -z-0" />
+        <PhysicsBody id="hero-cta-primary">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <Link to="/contact"
+              className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-deep/20 hover:bg-brand-600 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center">
+              Request a Consultation
+              <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
-
-        </div>
+        </PhysicsBody>
       </div>
+
     </section>
   );
 });
