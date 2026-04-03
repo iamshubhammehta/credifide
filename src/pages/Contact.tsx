@@ -87,8 +87,8 @@ const Contact = () => {
                 <IconRenderer icon={ASSETS.ui.target} size={24} />
               </div>
               <h3 className="text-xl font-bold mb-2 text-slate-900">Our Office</h3>
-              <p className="text-slate-500 mb-1 font-medium text-sm leading-relaxed">Melbourne, FL 32935</p>
-              <p className="text-slate-500 font-medium text-xs">United States</p>
+              <p className="text-slate-500 mb-1 font-medium text-sm leading-relaxed">407 E Ayre St #1480</p>
+              <p className="text-slate-500 font-medium text-xs">Wilmington, DE 19804</p>
             </motion.div>
           </div>
 
@@ -167,6 +167,43 @@ const Contact = () => {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="mt-16 lg:mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+           initial={{ opacity: 0, scale: 0.98 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8 }}
+           className="relative rounded-[40px] overflow-hidden shadow-2xl border border-brand-light shadow-brand-deep/10 aspect-[21/9] min-h-[400px]"
+        >
+           <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3071.189679168434!2d-75.5971488!3d39.713585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f96614e5b72d%3A0xc34a8e6b9b3e9e1e!2s407%20E%20Ayre%20St%20%231480%2C%20Wilmington%2C%20DE%2019804%2C%20USA!5e0!3m2!1sen!2sin!4v1712160000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, filter: 'grayscale(1) contrast(1.2) opacity(0.8)' }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Credifide Office Location"
+              className="absolute inset-0"
+           />
+           {/* Custom Overlay for modern look */}
+           <div className="absolute inset-0 pointer-events-none border-[12px] border-white/40 rounded-[40px]" />
+           <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.05)]" />
+           
+           {/* Floating Mini Badge */}
+           <div className="absolute bottom-8 left-8 z-10 px-6 py-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-brand-light flex items-center gap-4">
+              <div className="w-10 h-10 bg-brand-deep text-white rounded-xl flex items-center justify-center">
+                 <IconRenderer icon={ASSETS.ui.target} size={20} />
+              </div>
+              <div>
+                 <div className="text-xs font-black uppercase tracking-widest text-brand-deep/60 mb-0.5">Headquarters</div>
+                 <div className="text-sm font-bold text-slate-900">Wilmington, DE</div>
+              </div>
+           </div>
+        </motion.div>
       </section>
 
       {/* CTA Section - Final Premium Section copied from About page style */}
