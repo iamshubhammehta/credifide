@@ -43,22 +43,22 @@ const Contact = () => {
 
       {/* Main Content */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 relative z-10">
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
           {/* Contact Info Cards */}
-          <div className="lg:col-span-1 space-y-5">
+          <div className="lg:col-span-1 flex flex-col gap-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="saas-card p-8 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group"
+              className="saas-card p-8 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group flex-1"
             >
               <div className="w-12 h-12 bg-brand-light rounded-2xl flex items-center justify-center mb-6 text-brand-deep border border-brand-accent/20 group-hover:bg-brand-accent transition-all duration-500">
                 <IconRenderer icon={ASSETS.nav.phone} size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900">Call Us</h3>
-              <p className="text-slate-500 mb-4 font-medium text-sm">Monday - Friday, 9am - 6pm EST</p>
-              <a href="tel:3215240606" className="text-lg font-bold text-brand-deep hover:underline transition-all">(321) 524-0606</a>
+              <h3 className="text-2xl font-bold mb-3 text-slate-900">Call Us</h3>
+              <p className="text-slate-500 mb-5 font-medium text-sm">Monday - Friday, 9am - 6pm EST</p>
+              <a href="tel:3215240606" className="text-xl font-bold text-brand-deep hover:underline transition-all">(321) 524-0606</a>
             </motion.div>
 
             <motion.div
@@ -66,14 +66,14 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="saas-card p-8 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group"
+              className="saas-card p-8 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group flex-1"
             >
               <div className="w-12 h-12 bg-brand-light rounded-2xl flex items-center justify-center mb-6 text-brand-deep border border-brand-accent/20 group-hover:bg-brand-accent transition-all duration-500">
                 <IconRenderer icon={ASSETS.nav.mail} size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900">Email Us</h3>
-              <p className="text-slate-500 mb-4 font-medium text-sm">We'll respond within 24 hours.</p>
-              <a href="mailto:connect@credifide.com" className="text-lg font-bold text-brand-deep hover:underline transition-all">connect@credifide.com</a>
+              <h3 className="text-2xl font-bold mb-3 text-slate-900">Email Us</h3>
+              <p className="text-slate-500 mb-5 font-medium text-sm">We'll respond within 24 hours.</p>
+              <a href="mailto:connect@credifide.com" className="text-xl font-bold text-brand-deep hover:underline transition-all">connect@credifide.com</a>
             </motion.div>
 
             <motion.div
@@ -81,12 +81,12 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="saas-card p-8 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group"
+              className="saas-card p-8 bg-white border-brand-light shadow-2xl shadow-brand-deep/5 group flex-1"
             >
               <div className="w-12 h-12 bg-brand-light rounded-2xl flex items-center justify-center mb-6 text-brand-deep border border-brand-accent/20 group-hover:bg-brand-accent transition-all duration-500">
                 <IconRenderer icon={ASSETS.ui.target} size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900">Our Office</h3>
+              <h3 className="text-2xl font-bold mb-3 text-slate-900">Our Office</h3>
               <p className="text-slate-500 mb-1 font-medium text-sm leading-relaxed">407 E Ayre St #1480</p>
               <p className="text-slate-500 font-medium text-xs">Wilmington, DE 19804</p>
             </motion.div>
@@ -99,50 +99,50 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="saas-card p-8 lg:p-12 bg-white border-brand-light shadow-2xl shadow-brand-deep/10"
+              className="saas-card p-8 lg:p-14 bg-white border-brand-light shadow-2xl shadow-brand-deep/10 h-full flex flex-col"
             >
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
+              <form className="space-y-7 flex-grow">
+                <div className="grid md:grid-cols-2 gap-7">
+                  <div className="space-y-2.5">
                     <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="John Doe"
-                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="john@example.com"
-                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
+                <div className="grid md:grid-cols-2 gap-7">
+                  <div className="space-y-2.5">
                     <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
                     <input 
                       type="tel" 
                       placeholder="(555) 000-0000"
-                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <label className="text-sm font-bold text-slate-700 ml-1">Practice Name</label>
                     <input 
                       type="text" 
                       placeholder="Medical Group LLC"
-                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <label className="text-sm font-bold text-slate-700 ml-1">Interested Services</label>
-                  <select className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium appearance-none bg-white">
+                  <select className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium appearance-none bg-slate-50/30">
                     <option>Insurance Credentialing</option>
                     <option>Medical Billing (RCM)</option>
                     <option>Both Services</option>
@@ -150,18 +150,18 @@ const Contact = () => {
                   </select>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2.5 flex-grow">
                   <label className="text-sm font-bold text-slate-700 ml-1">Message</label>
                   <textarea 
-                    rows={4}
+                    rows={6}
                     placeholder="Tell us about your practice needs..."
-                    className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium resize-none"
+                    className="w-full h-[calc(100%-40px)] px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium resize-none bg-slate-50/30"
                   ></textarea>
                 </div>
 
-                <button className="w-full py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg hover:bg-brand-600 transition-all shadow-xl shadow-brand-deep/20 flex items-center justify-center gap-2 group">
+                <button className="w-full py-6 bg-brand-deep text-white rounded-2xl font-bold text-xl hover:bg-brand-600 transition-all shadow-xl shadow-brand-deep/20 flex items-center justify-center gap-2 group mt-4">
                   Send Message
-                  <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <IconRenderer icon={ASSETS.nav.arrowRight} size={24} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </form>
             </motion.div>
@@ -182,7 +182,7 @@ const Contact = () => {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3071.189679168434!2d-75.5971488!3d39.713585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f96614e5b72d%3A0xc34a8e6b9b3e9e1e!2s407%20E%20Ayre%20St%20%231480%2C%20Wilmington%2C%20DE%2019804%2C%20USA!5e0!3m2!1sen!2sin!4v1712160000000!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
-              style={{ border: 0, filter: 'grayscale(1) contrast(1.2) opacity(0.8)' }} 
+              style={{ border: 0, filter: 'opacity(0.9) contrast(1.1)' }} 
               allowFullScreen={true} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
