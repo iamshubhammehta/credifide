@@ -104,15 +104,34 @@ const Contact = () => {
               <form className="space-y-7 flex-grow">
                 <div className="grid md:grid-cols-2 gap-7">
                   <div className="space-y-2.5">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
+                    <label className="text-sm font-bold text-slate-700 ml-1">First Name</label>
                     <input 
                       type="text" 
-                      placeholder="John Doe"
+                      placeholder="John"
                       className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
                     />
                   </div>
                   <div className="space-y-2.5">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
+                    <label className="text-sm font-bold text-slate-700 ml-1">Last Name</label>
+                    <input 
+                      type="text" 
+                      placeholder="Doe"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-7">
+                  <div className="space-y-2.5">
+                    <label className="text-sm font-bold text-slate-700 ml-1">Phone</label>
+                    <input 
+                      type="tel" 
+                      placeholder="(555) 000-0000"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
+                    />
+                  </div>
+                  <div className="space-y-2.5">
+                    <label className="text-sm font-bold text-slate-700 ml-1">Email</label>
                     <input 
                       type="email" 
                       placeholder="john@example.com"
@@ -123,10 +142,10 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-7">
                   <div className="space-y-2.5">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
+                    <label className="text-sm font-bold text-slate-700 ml-1">Specialty</label>
                     <input 
-                      type="tel" 
-                      placeholder="(555) 000-0000"
+                      type="text" 
+                      placeholder="e.g. Cardiology"
                       className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
                     />
                   </div>
@@ -140,27 +159,57 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2.5">
-                  <label className="text-sm font-bold text-slate-700 ml-1">Interested Services</label>
-                  <select className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium appearance-none bg-slate-50/30">
-                    <option>Insurance Credentialing</option>
-                    <option>Medical Billing (RCM)</option>
-                    <option>Both Services</option>
-                    <option>Other / General Inquiry</option>
-                  </select>
+                <div className="grid md:grid-cols-2 gap-7">
+                  <div className="space-y-2.5">
+                    <label className="text-sm font-bold text-slate-700 ml-1">Number of Providers</label>
+                    <input 
+                      type="number" 
+                      placeholder="1-10"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
+                    />
+                  </div>
+                  <div className="space-y-2.5">
+                    <label className="text-sm font-bold text-slate-700 ml-1">State</label>
+                    <input 
+                      type="text" 
+                      placeholder="e.g. Delaware"
+                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium bg-slate-50/30"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2.5 flex-grow">
-                  <label className="text-sm font-bold text-slate-700 ml-1">Message</label>
+                  <label className="text-sm font-bold text-slate-700 ml-1">Tell us what you need</label>
                   <textarea 
-                    rows={6}
-                    placeholder="Tell us about your practice needs..."
-                    className="w-full h-[calc(100%-40px)] px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium resize-none bg-slate-50/30"
+                    rows={4}
+                    placeholder="Briefly describe your practice goals..."
+                    className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-brand-deep/5 focus:border-brand-deep transition-all font-medium resize-none bg-slate-50/30"
                   ></textarea>
                 </div>
 
+                {/* Disclaimer Box */}
+                <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl text-[11px] text-slate-500 leading-relaxed font-medium">
+                  By providing your phone number, you agree to receive a text message from Credifide. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply 'STOP' at any time. For more information, reply 'HELP'.{' '}
+                  <Link to="/privacy" className="text-brand-deep hover:underline font-bold">Privacy Policy</Link> | <Link to="/terms" className="text-brand-deep hover:underline font-bold">Terms and Conditions</Link>
+                </div>
+
+                {/* Acceptance Checkbox */}
+                <label className="flex items-start gap-3 cursor-pointer group">
+                   <div className="relative flex items-center justify-center mt-0.5">
+                      <input 
+                        type="checkbox" 
+                        className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-slate-200 checked:border-brand-deep checked:bg-brand-deep transition-all" 
+                        required
+                      />
+                      <IconRenderer icon={ASSETS.ui.check} size={14} className="pointer-events-none absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
+                   </div>
+                   <span className="text-sm text-slate-600 font-medium select-none group-hover:text-slate-900 transition-colors">
+                      I accept the <Link to="/terms" className="text-brand-deep font-bold hover:underline">Terms and Conditions</Link>.
+                   </span>
+                </label>
+
                 <button className="w-full py-6 bg-brand-deep text-white rounded-2xl font-bold text-xl hover:bg-brand-600 transition-all shadow-xl shadow-brand-deep/20 flex items-center justify-center gap-2 group mt-4">
-                  Send Message
+                  Submit
                   <IconRenderer icon={ASSETS.nav.arrowRight} size={24} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </form>
