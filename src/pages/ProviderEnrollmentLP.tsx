@@ -276,10 +276,10 @@ const ProviderEnrollmentLP: React.FC = () => {
                        <img 
                           src={payer.logo} 
                           alt={payer.name} 
-                          className="h-16 w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100" 
+                          className="h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-700 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100" 
                        />
                        
-                       <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none group-hover:text-slate-800 transition-colors">
+                       <span className="text-xs font-black text-slate-400 uppercase tracking-widest leading-none group-hover:text-slate-800 transition-colors">
                           {payer.name}
                        </span>
 
