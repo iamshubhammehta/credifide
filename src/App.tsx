@@ -60,11 +60,11 @@ const BrandTeaser = () => {
   useEffect(() => {
     const keywordInterval = setInterval(() => {
       setIndex(prev => (prev + 1) % keywords.length);
-    }, 1500); // 1.5s per keyword
+    }, 1300); // Ultra-snappy: 1.3s per keyword
     
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 3400); // 3s content + 0.4s lightning-fast reveal
+    }, 3000); // Entire sequence completes in 3.0 seconds
 
     return () => {
       clearInterval(keywordInterval);
@@ -83,14 +83,14 @@ const BrandTeaser = () => {
           <motion.div 
             initial={{ x: 0 }}
             exit={{ x: '-100%' }}
-            transition={{ duration: 0.4, ease: [0.85, 0, 0.15, 1], delay: 3.0 }}
+            transition={{ duration: 0.35, ease: [0.85, 0, 0.15, 1], delay: 2.6 }}
             className="absolute inset-y-0 left-0 w-1/2 bg-brand-deep pointer-events-auto"
           />
           {/* Right Curtain */}
           <motion.div 
             initial={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ duration: 0.4, ease: [0.85, 0, 0.15, 1], delay: 3.0 }}
+            transition={{ duration: 0.35, ease: [0.85, 0, 0.15, 1], delay: 2.6 }}
             className="absolute inset-y-0 right-0 w-1/2 bg-brand-deep pointer-events-auto border-l border-white/5"
           />
 
@@ -99,13 +99,13 @@ const BrandTeaser = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05, filter: 'blur(5px)' }}
-            transition={{ duration: 0.3, delay: 0 }}
+            transition={{ duration: 0.25 }}
             className="relative z-10 text-center px-6"
           >
             <motion.div 
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.1 }}
               className="mb-10"
             >
               <img 
@@ -118,7 +118,7 @@ const BrandTeaser = () => {
             <motion.h1 
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.3 }}
               className="text-3xl md:text-6xl font-black text-white mb-10 tracking-tighter uppercase italic"
             >
               Welcome to <span className="text-brand-accent">Credifide</span>
@@ -142,7 +142,7 @@ const BrandTeaser = () => {
             <motion.div 
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 3.0, ease: "linear" }}
+              transition={{ duration: 2.6, ease: "linear" }}
               className="mt-12 h-1 w-64 mx-auto bg-brand-accent/20 origin-left"
             >
                <motion.div 
