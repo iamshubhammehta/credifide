@@ -106,12 +106,12 @@ const BrandTeaser = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="mb-10"
+              className="mb-12"
             >
               <img 
                 src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png" 
                 alt="Credifide" 
-                className="h-12 md:h-16 mx-auto" 
+                className="h-16 md:h-24 mx-auto" 
               />
             </motion.div>
 
