@@ -98,7 +98,7 @@ const InsuranceCredentialing: React.FC = () => {
              </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
             {[
               { icon: ASSETS.features.clock, title: "Revenue Delays", desc: "Missing provider data costs groups thousands in daily lost revenue." },
               { icon: ASSETS.ui.alert, title: "Process Churn", desc: "Fragmented systems lead to stalled applications and missed deadlines." },
@@ -209,7 +209,7 @@ const InsuranceCredentialing: React.FC = () => {
             <p className="text-base sm:text-lg text-slate-500">We handle the complexity so you can focus on care.</p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             {[
               { title: "Payer Enrollment", icon: ASSETS.features.shield, desc: "Fast-tracked initial enrollment for all major commercial & government payers." },
               { title: "CAQH Profile", icon: ASSETS.ui.fileText, desc: "Regular maintenance and data attestation to ensure continuous compliance." },

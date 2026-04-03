@@ -69,7 +69,7 @@ const ServicesHub: React.FC = () => {
            </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 max-w-6xl mx-auto">
           {services.map((service, i) => (
             <motion.div
               key={i}

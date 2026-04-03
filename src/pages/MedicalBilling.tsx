@@ -147,7 +147,7 @@ const MedicalBilling: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             {[
               { icon: ASSETS.ui.clipboard, title: "Charge Entry", desc: "Digital scrubbing and entry of patient encounters within 24 hours." },
               { icon: ASSETS.ui.fileText, title: "Precision Coding", desc: "Certified coders ensure ICD-10, CPT, and modifier accuracy." },
@@ -184,7 +184,7 @@ const MedicalBilling: React.FC = () => {
              <p className="text-lg sm:text-xl text-brand-light/60 max-w-2xl mx-auto font-medium">A structured, automated workflow from encounter to payment posting.</p>
           </div>
           
-          <div className="relative flex flex-col lg:flex-row justify-between gap-12 items-center lg:items-start group">
+          <div className="relative flex flex-col lg:flex-row justify-between gap-12 lg:gap-20 items-center lg:items-start group">
              {/* Dynamic connector line (Desktop) */}
              <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent hidden lg:block" />
              

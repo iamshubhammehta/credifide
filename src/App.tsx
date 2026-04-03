@@ -933,7 +933,7 @@ const OurApproach = React.memo(() => {
             </PhysicsBody>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 w-full items-stretch">
             {approachData.map((card, index) => (
               <ApproachCard
                 key={card.id}
