@@ -38,17 +38,27 @@ const ServicesHub: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
-           <motion.h1 
-             initial={{ opacity: 0, y: 30 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8 }}
-             className="text-5xl lg:text-8xl font-display font-extrabold text-slate-950 tracking-tight leading-[1.05] mb-8"
-           >
-             A Specialized <br />
-             Core For <br />
-             <span className="text-brand-deep whitespace-nowrap">Clinical Success</span>
-           </motion.h1>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-500/20 bg-brand-500/10 text-brand-deep text-[10px] font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
+            Service Ecosystem
+          </motion.div>
+
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl lg:text-7xl font-display font-extrabold text-slate-950 tracking-tight leading-[1.05] mb-8"
+          >
+            A Specialized <br />
+            Core For <br />
+            <span className="text-brand-deep whitespace-nowrap">Clinical Success</span>
+          </motion.h1>
            <motion.p 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}

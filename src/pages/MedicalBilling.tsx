@@ -32,17 +32,17 @@ const MedicalBilling: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-sm font-bold mb-10 overflow-hidden relative"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-[10px] font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-deep animate-pulse" />
-            Predictable Revenue Cycle Management
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
+            Billing Solutions
           </motion.div>
           
           <motion.h1 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl lg:text-8xl font-display font-extrabold text-slate-950 leading-tight tracking-tight mb-8"
+            className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold text-slate-950 leading-tight tracking-tighter mb-8"
           >
             Maximize Recovery. <br />
             <span className="text-brand-deep">Eliminate Friction.</span>

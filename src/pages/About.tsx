@@ -157,20 +157,20 @@ const HeroSection: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20 pb-16 lg:pt-24 lg:pb-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-sm font-semibold mb-10 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-500/20 bg-brand-500/10 text-brand-400 text-[10px] font-black uppercase tracking-widest mb-8 backdrop-blur-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
           Our Story
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold text-slate-900 leading-[1.05] tracking-tight mb-8"
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-slate-900 leading-[1.05] tracking-tight mb-8"
         >
           We Built the{' '}
           <span className="relative inline-block">

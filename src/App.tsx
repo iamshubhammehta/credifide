@@ -451,28 +451,34 @@ const Hero = React.memo(() => {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-16 lg:pt-16 lg:pb-24">
         <PhysicsBody id="hero-badge" className="inline-block mb-8">
           <motion.span
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light text-brand-deep text-sm font-bold backdrop-blur-sm shadow-sm"
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-deep/20 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-widest backdrop-blur-sm shadow-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
             Trusted by 500+ Healthcare Providers
           </motion.span>
         </PhysicsBody>
 
         <PhysicsBody id="hero-title" className="mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-display font-black tracking-tight leading-[1.05] text-slate-900">
-            <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }} className="block">
-              Get Credentialed
-            </motion.span>
-            <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.12, ease: [0.16, 1, 0.3, 1] }} className="block relative">
-              <span className="text-brand-deep">Faster.</span>{' '}
-              Get Paid{' '}
-              <span className="relative inline-block">
-                Sooner.
-                <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1, duration: 1.2, ease: 'circOut' }}
-                  className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-accent to-transparent origin-left" />
-              </span>
-            </motion.span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black tracking-tighter leading-[1.05] text-slate-900">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} className="block">
+                Get Credentialed
+              </motion.span>
+              <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }} className="block relative">
+                <span className="text-brand-deep">Faster.</span>{' '}
+                Get Paid{' '}
+                <span className="relative inline-block">
+                  Sooner.
+                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1.2, duration: 1.5, ease: 'circOut' }}
+                    className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-accent to-transparent origin-left shadow-[0_0_12px_rgba(127,191,127,0.5)]" />
+                </span>
+              </motion.span>
+            </motion.div>
           </h1>
         </PhysicsBody>
 
