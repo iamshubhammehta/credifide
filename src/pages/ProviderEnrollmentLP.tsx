@@ -74,9 +74,17 @@ const ProviderEnrollmentLP: React.FC = () => {
                    <Zap size={14} />
                    AI-Powered Enrollment Platform
                 </div>
-                <h1 className="text-5xl md:text-7xl font-display font-black text-slate-950 leading-[0.95] mb-8">
+                <h1 className="text-5xl md:text-7xl font-display font-black text-slate-950 leading-[1.05] mb-8">
                    Payer & Provider <br />
-                   <span className="text-brand-deep underline decoration-brand-accent/20 decoration-6 underline-offset-4">Enrollment.</span>
+                   <span className="relative inline-block px-2">
+                      <span className="relative z-10">Enrollment.</span>
+                      <motion.div 
+                         initial={{ scaleX: 0 }}
+                         whileInView={{ scaleX: 1 }}
+                         transition={{ delay: 0.8, duration: 0.8, ease: "circOut" }}
+                         className="absolute bottom-2 left-0 right-0 h-4 bg-brand-accent/20 -z-0 origin-left"
+                      />
+                   </span>
                 </h1>
                 <p className="text-lg text-slate-500 mb-10 max-w-lg leading-relaxed font-medium">
                    Experience 98% first-submission accuracy and 30% faster turnaround times. We treat credentialing as infrastructure, not administrative paperwork.
@@ -92,12 +100,11 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* Right Dashboard Mockup (DETAILED & POSITIONED RIGHT) */}
-              <div className="relative h-[650px] group/dash md:translate-x-12 lg:translate-x-20">
-                 {/* Main Base Card - Glassmorphism with Inner Data */}
+              {/* Dashboard Side */}
+              <div className="relative h-[600px] group/dash md:translate-x-12 lg:translate-x-20">
+                 {/* Main Base Card */}
                  <div className="absolute inset-0 bg-white/60 backdrop-blur-3xl border border-slate-100 rounded-[4rem] rounded-tr-[1.5rem] rotate-1 shadow-[0_50px_100px_-20px_rgba(17,51,46,0.12)] transition-transform duration-1000 group-hover/dash:rotate-0 overflow-hidden flex flex-col p-8">
-                    
-                    {/* Inner Header Logo */}
+                    {/* Inner Header */}
                     <div className="flex items-center justify-between mb-8 border-b border-slate-100/50 pb-4">
                        <div className="flex items-center gap-3">
                           <img src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png" alt="Credifide Logo" className="h-6 w-auto mix-blend-multiply" />
@@ -112,7 +119,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        </div>
                     </div>
 
-                    {/* Inner Data Area */}
+                    {/* Data Area */}
                     <div className="space-y-4 flex-1 pr-12 pb-12">
                        <div className="flex justify-between items-end mb-6">
                           <div>
@@ -125,19 +132,17 @@ const ProviderEnrollmentLP: React.FC = () => {
                           </div>
                        </div>
 
-                       {/* Mock Table List */}
                        <div className="bg-white rounded-[1.5rem] border border-slate-100 shadow-sm overflow-hidden flex-1 flex flex-col">
                           <div className="bg-slate-50 px-4 py-3 border-b border-slate-100 grid grid-cols-3 gap-2 text-[9px] font-black text-slate-400 uppercase tracking-widest">
                              <span>Provider Name</span>
                              <span>Payer / State</span>
                              <span>Status</span>
                           </div>
-                          <div className="flex-1 flex flex-col p-2 gap-1">
+                          <div className="flex-1 flex flex-col p-2 gap-1 font-medium">
                              {[
                                 { n: 'Dr. Sarah J.', s: 'Approved', p: 'Aetna - TX', c: 'text-green-600 bg-green-50' },
                                 { n: 'Dr. Michael T.', s: 'Pending CAQH', p: 'Cigna - FL', c: 'text-amber-600 bg-amber-50' },
                                 { n: 'City Clinic', s: 'Contracting', p: 'BCBS - NY', c: 'text-blue-600 bg-blue-50' },
-                                { n: 'Dr. Emily R.', s: 'Submitted', p: 'Medicare', c: 'text-slate-600 bg-slate-100' },
                              ].map((row, idx) => (
                                 <div key={idx} className="grid grid-cols-3 gap-2 px-3 py-3 hover:bg-slate-50 rounded-[1rem] transition-colors items-center cursor-default">
                                    <span className="text-[11px] font-bold text-slate-700 truncate">{row.n}</span>
@@ -149,24 +154,8 @@ const ProviderEnrollmentLP: React.FC = () => {
                        </div>
                     </div>
                  </div>
-                 
-                 {/* Floating Card: Live Payer Feed (NEW DETAIL) */}
-                 <motion.div className="absolute top-[5%] -left-8 w-60 glass-card p-5 floating-3 z-50 shadow-2xl">
-                    <div className="flex items-center gap-3 mb-4">
-                       <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
-                          <Activity size={16} />
-                       </div>
-                       <span className="text-[10px] font-black uppercase text-slate-400">Payer Feed</span>
-                    </div>
-                    <div className="space-y-3">
-                       <div className="h-1.5 w-full bg-slate-100 rounded-full">
-                          <motion.div animate={{ width: ['20%', '90%', '70%'] }} transition={{ duration: 4, repeat: Infinity }} className="h-full bg-blue-500" />
-                       </div>
-                       <div className="text-[9px] font-bold text-slate-500">Syncing with Medicaid...</div>
-                    </div>
-                 </motion.div>
 
-                 {/* Internal Floating Cards - Re-positioned */}
+                 {/* Internal Floating Card */}
                  <motion.div className="absolute top-[25%] -right-8 w-72 glass-card p-8 floating-1 shadow-brand-deep/5 border-brand-light/20 z-40">
                     <div className="flex items-center justify-between mb-6">
                        <div className="w-10 h-10 rounded-2xl bg-brand-deep flex items-center justify-center text-white">
@@ -180,33 +169,14 @@ const ProviderEnrollmentLP: React.FC = () => {
                        <motion.div initial={{ width: 0 }} whileInView={{ width: '85%' }} transition={{ duration: 2 }} className="h-full bg-brand-deep" />
                     </div>
                  </motion.div>
-
-                 <motion.div className="absolute bottom-[20%] -left-12 w-64 asymmetric-card p-8 floating-2 shadow-brand-accent/10 z-30">
-                    <div className="flex items-center gap-3 mb-6">
-                       <div className="w-8 h-8 rounded-full bg-brand-accent shadow-lg shadow-brand-accent/20" />
-                       <div className="text-sm font-black text-slate-400">STATUS.LIVE</div>
-                    </div>
-                    <div className="space-y-4">
-                       <div className="flex justify-between items-center bg-slate-50 p-3 rounded-2xl border border-slate-100">
-                          <span className="text-[10px] font-bold text-slate-500">Medicare Enroll</span>
-                          <span className="w-2 h-2 rounded-full bg-green-500 status-pulse" />
-                       </div>
-                       <div className="flex justify-between items-center bg-slate-50 p-3 rounded-2xl border border-slate-100 opacity-60">
-                          <span className="text-[10px] font-bold text-slate-500">BCBS Contract</span>
-                          <span className="w-2 h-2 rounded-full bg-amber-500" />
-                       </div>
-                    </div>
-                 </motion.div>
-
-                 <motion.div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-brand-light/40 rounded-full blur-[100px] -z-10 floating-3" />
               </div>
             </div>
           </div>
         </section>
 
-        {/* METRICS SECTION: GRID OF ADVANTAGE */}
+        {/* METRICS SECTION */}
         <section className="py-24 bg-slate-50/50 relative">
-           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
               {[
                 { label: 'Submission Accuracy', value: '98%', icon: Shield, color: 'text-brand-deep' },
                 { label: 'Turnaround Time', value: '30%', sub: 'Faster', icon: Zap, color: 'text-brand-accent' },
@@ -218,7 +188,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 text-center flex flex-col items-center group"
+                  className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col items-center group cursor-default"
                 >
                    <div className={`${m.color} bg-slate-50 w-16 h-16 rounded-[1.5rem] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                       <m.icon size={28} />
@@ -228,6 +198,59 @@ const ProviderEnrollmentLP: React.FC = () => {
                    <div className="text-xs text-slate-400 font-bold uppercase tracking-widest">{m.label}</div>
                 </motion.div>
               ))}
+           </div>
+        </section>
+
+        {/* PAYER NETWORK SECTION: THE MODERN TECHY VERSION */}
+        <section className="py-32 bg-white relative overflow-hidden">
+           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#A3BD6A10,_transparent_50%)] pointer-events-none" />
+           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+              <motion.div
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 className="mb-20"
+              >
+                 <h2 className="text-4xl md:text-6xl font-display font-black text-slate-950 mb-6 tracking-tighter">
+                   Get Credentialed with Leading <br />
+                   <span className="text-brand-deep italic">Payers Nationwide.</span>
+                 </h2>
+                 <p className="text-slate-500 font-medium max-w-2xl mx-auto uppercase tracking-[0.4em] text-[10px]">Strategic Enrollment Infrastructure</p>
+              </motion.div>
+
+              {/* Modern Techy Payer Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                 {[
+                    'Medicare', 'Medicaid', 'Aetna', 'Cigna', 'Humana',
+                    'Molina', 'Wellcare', 'Optum', 'Tricare', 'Tri-West',
+                    'Beacon Health', 'United Healthcare', 'BCBS', 'Kaiser', 'Centene'
+                 ].map((payer, idx) => (
+                    <motion.div
+                       key={idx}
+                       initial={{ opacity: 0, scale: 0.9 }}
+                       whileInView={{ opacity: 1, scale: 1 }}
+                       transition={{ delay: idx * 0.03 }}
+                       whileHover={{ y: -5, borderColor: '#0B6B57', backgroundColor: 'rgba(11, 107, 87, 0.02)' }}
+                       className="p-8 rounded-[1.5rem] border border-slate-100 bg-slate-50/30 flex items-center justify-center text-center group transition-all duration-500 cursor-default"
+                    >
+                       <span className="text-sm font-black text-slate-800 uppercase tracking-widest group-hover:text-brand-deep transition-colors whitespace-nowrap">
+                          {payer}
+                       </span>
+                    </motion.div>
+                 ))}
+                 
+                 {/* "And More" Card */}
+                 <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="p-8 rounded-[1.5rem] border-2 border-dashed border-brand-light flex items-center justify-center text-center bg-brand-light/5 hover:bg-brand-light/20 transition-all cursor-pointer group"
+                 >
+                    <span className="text-xs font-black text-brand-deep uppercase tracking-[0.2em] flex items-center gap-2">
+                       And More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                 </motion.div>
+              </div>
            </div>
         </section>
 
