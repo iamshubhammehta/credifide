@@ -811,78 +811,129 @@ const StorySection: React.FC = () => {
 const ProblemSection: React.FC = () => {
   const problems = [
     {
-      icon: ASSETS.ui.fileText,
-      title: 'Paper-Based Chaos',
-      desc: 'Credentialing still runs on faxes, PDFs, and spreadsheets in 2026. Every manual step is a potential delay or error.',
-      stat: '60%',
-      statLabel: 'of applications have data errors',
+      icon: ASSETS.ui.fileText, // Will be replaced by Churn custom SVG in render
+      title: 'Process Churn',
+      desc: 'Legacy systems create endless loops of re-entry and verification. Every redundant step is a potential failure point.',
+      stat: '52%',
+      statLabel: 'of admin time spent on re-work',
+      type: 'churn'
     },
     {
       icon: ASSETS.ui.alert,
-      title: 'Revenue Lost to Denials',
-      desc: 'Claims denied due to credentialing gaps cost practices thousands monthly. Most never get appealed or recovered.',
+      title: 'Revenue Leakage',
+      desc: 'Claims denied due to credentialing gaps cost practices thousands monthly. Most never get recovered.',
       stat: '$262B',
-      statLabel: 'in denied claims annually in the US',
+      statLabel: 'in annual US denied claims',
+      type: 'alert'
     },
     {
       icon: ASSETS.features.clock,
-      title: 'Months of Waiting',
-      desc: 'Average credentialing takes 90–120 days. Every day waiting is a day a provider cannot bill or see insured patients.',
-      stat: '90d',
-      statLabel: 'average credentialing cycle length',
+      title: 'Weeks of Delay',
+      desc: 'Average credentialing takes 90–120 days. Every day waiting is a day a provider cannot bill for care.',
+      stat: '90-120d',
+      statLabel: 'typical manual cycle length',
+      type: 'clock'
     },
     {
       icon: ASSETS.ui.search,
       title: 'Zero Visibility',
-      desc: 'Providers have no idea where their application stands. Follow-ups are manual, slow, and often unanswered.',
-      stat: '3 in 4',
-      statLabel: 'providers feel left in the dark',
+      desc: 'Providers have no idea where their application stands. Follow-ups are manual, slow, and unanswered.',
+      stat: '1 in 3',
+      statLabel: 'apps lost in carrier backlogs',
+      type: 'search'
     },
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-brand-light/30 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(11,107,87,1) 1px, transparent 1px),linear-gradient(90deg, rgba(11,107,87,1) 1px, transparent 1px)',
-        backgroundSize: '48px 48px',
-      }} />
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-brand-light to-transparent pointer-events-none" />
+    <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-light/20 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-brand-light/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative">
-        <FadeUp className="text-center mb-20 text-slate-950">
-          <span className="text-brand-deep/60 font-bold tracking-widest uppercase text-sm">The Reality</span>
-          <h2 className="text-4xl lg:text-6xl font-display font-bold mt-3 leading-tight">
-            Where the system <span className="text-brand-accent">breaks down</span>.
+        <FadeUp className="text-center mb-24 max-w-3xl mx-auto">
+          <span className="text-brand-600 font-black tracking-[0.3em] uppercase text-xs mb-4 block">The Critical Barrier</span>
+          <h2 className="text-5xl lg:text-7xl font-display font-black text-slate-900 leading-[1.05] tracking-tight">
+            Credentialing is <span className="text-brand-500">Broken.</span>
           </h2>
-          <p className="text-slate-400 text-lg mt-5 max-w-2xl mx-auto">
-            The healthcare credentialing and billing ecosystem is one of the most broken administrative systems in any industry.
+          <p className="text-slate-400 text-xl mt-8 font-medium leading-relaxed">
+            The healthcare administration ecosystem is trapped in a legacy loop of faxes, spreadsheets, and manual follow-ups.
           </p>
         </FadeUp>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
           {problems.map((p, i) => (
             <FadeUp key={i} delay={i * 0.1}>
               <motion.div
-                whileHover={{ scale: 1.02, borderColor: 'rgba(11,107,87,0.3)' }}
-                className="group bg-white border border-brand-light rounded-3xl p-8 relative overflow-hidden backdrop-blur-sm will-change-transform shadow-xl shadow-brand-deep/5 transition-colors duration-300"
+                whileHover={{ y: -10, borderColor: 'rgba(11,107,87,0.3)' }}
+                className="group h-full bg-slate-50 border border-slate-100/60 rounded-[40px] p-10 relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-brand-deep/5"
               >
-                {/* Glow on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(circle at 50% 0%, rgba(11,107,87,0.06), transparent 70%)' }} />
+                {/* Visual Accent */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-light/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="flex flex-col h-full relative z-10">
+                   {/* Animated Icon Container */}
+                   <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-slate-200/50 flex items-center justify-center mb-8 relative">
+                      {p.type === 'clock' ? (
+                         <div className="relative w-8 h-8">
+                            <motion.div 
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                              className="absolute inset-0 border-2 border-dashed border-brand-accent/40 rounded-full"
+                            />
+                            <motion.div 
+                               animate={{ rotate: 360 }}
+                               transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                               className="absolute top-1 left-1/2 -ml-0.5 w-0.5 h-3 bg-brand-deep origin-bottom rounded-full"
+                            />
+                            <div className="absolute top-1/2 left-1/2 -ml-0.5 -mt-0.5 w-1 h-1 bg-brand-deep rounded-full" />
+                            <IconRenderer icon={ASSETS.features.clock} size={20} className="text-brand-deep opacity-60" />
+                         </div>
+                      ) : p.type === 'churn' ? (
+                         <motion.div 
+                           animate={{ rotate: -360 }}
+                           transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                           className="relative"
+                         >
+                            <svg className="w-8 h-8 text-brand-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                         </motion.div>
+                      ) : (
+                         <IconRenderer icon={p.icon} size={26} className="text-brand-deep" />
+                      )}
+                      
+                      {/* Pulse target for delay animation */}
+                      {p.type === 'clock' && (
+                         <motion.div 
+                           animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] }}
+                           transition={{ duration: 2, repeat: Infinity }}
+                           className="absolute -inset-2 bg-brand-accent/20 rounded-full pointer-events-none"
+                         />
+                      )}
+                   </div>
 
-                <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-light border border-brand-deep/10 flex items-center justify-center text-brand-deep shrink-0 shadow-inner">
-                    <IconRenderer icon={p.icon} size={22} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-slate-900 font-bold text-xl mb-2">{p.title}</h3>
-                    <p className="text-slate-500 leading-relaxed text-sm">{p.desc}</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-3">
-                  <span className="text-2xl font-display font-bold text-brand-deep">{p.stat}</span>
-                  <span className="text-slate-400 text-sm">{p.statLabel}</span>
+                   <h3 className="text-2xl lg:text-3xl font-display font-black text-slate-900 mb-4">{p.title}</h3>
+                   <p className="text-slate-500 leading-relaxed font-medium mb-10 flex-1">{p.desc}</p>
+                   
+                   {/* Realistic Metric Footer */}
+                   <div className="mt-auto pt-8 border-t border-slate-200/60">
+                      <div className="flex items-baseline gap-3">
+                         <motion.span 
+                           whileInView={{ scale: [0.95, 1.05, 1] }}
+                           className="text-4xl lg:text-5xl font-display font-black text-brand-deep"
+                         >
+                            {p.stat}
+                         </motion.span>
+                         <span className="text-slate-400 text-sm font-bold uppercase tracking-widest">{p.statLabel}</span>
+                      </div>
+                      
+                      {/* Technical Detail */}
+                      <div className="mt-4 flex items-center gap-2">
+                         <div className="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#7FBF7F]" />
+                         <span className="text-[10px] font-black text-slate-400 tracking-wider">ANNUAL IMPACT ANALYSIS · 2026</span>
+                      </div>
+                   </div>
                 </div>
               </motion.div>
             </FadeUp>
