@@ -1364,12 +1364,12 @@ const ContactSection = React.memo(() => {
             </div>
 
             {/* Right Side: Interactive Form */}
-            <div className="p-8 lg:p-16 relative transition-colors duration-1000 bg-slate-50/50">
+            <div className="p-8 lg:p-16 relative transition-all duration-700 bg-slate-50/50 min-h-[620px] flex flex-col">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="h-full flex flex-col items-center justify-center text-center py-12"
+                  className="h-full flex flex-col items-center justify-center text-center py-12 flex-grow"
                 >
                   <div className="w-20 h-20 bg-brand-deep rounded-full flex items-center justify-center text-white mb-8 shadow-lg shadow-brand-deep/20">
                     <IconRenderer icon={ASSETS.features.check} size={40} />
@@ -1386,7 +1386,7 @@ const ContactSection = React.memo(() => {
                   </button>
                 </motion.div>
               ) : (
-                <div className="h-full flex flex-col">
+                <div className="flex-grow flex flex-col h-full">
                   {/* Progress Indicator */}
                   <div className="flex items-center justify-between mb-12 relative">
                     <div className="absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2 transition-colors duration-1000 bg-brand-light" />
