@@ -73,19 +73,51 @@
   @apply shadow-xl backdrop-blur-md;
 }
 
-.cursor-follower {
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-brand-deep);
+  border-radius: 50%;
+  z-index: 10000;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+.cursor-outline {
   pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 40px;
   height: 40px;
+  border: 1.5px solid var(--color-brand-deep);
   border-radius: 50%;
-  background-color: rgba(11, 107, 87, 0.08);
-  border: 1.5px solid rgba(11, 107, 87, 0.2);
   z-index: 9999;
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-  will-change: transform, width, height;
+  will-change: transform, width, height, border-color, background-color;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              background-color 0.3s ease,
+              border-radius 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-outline.active {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(127, 191, 127, 0.15);
+  border-color: transparent;
+}
+
+.cursor-outline.text {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border-color: rgba(127, 191, 127, 0.5);
 }
 
 @layer utilities {

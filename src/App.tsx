@@ -27,27 +27,61 @@ const ScrollToTop = () => {
 
 // Cursor Follower Component
 const CursorFollower = React.memo(() => {
+  const [cursorState, setCursorState] = useState<'default' | 'active' | 'text'>('default');
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 250 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+  // Core dot follows precisely
+  const dotX = useSpring(mouseX, { damping: 30, stiffness: 400 });
+  const dotY = useSpring(mouseY, { damping: 30, stiffness: 400 });
+
+  // Outline follows with more weight/lag
+  const outlineX = useSpring(mouseX, { damping: 20, stiffness: 150 });
+  const outlineY = useSpring(mouseY, { damping: 20, stiffness: 150 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 20);
-      mouseY.set(e.clientY - 20);
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+
+      const target = e.target as HTMLElement;
+      const isInteractive = target.closest('button, a, .interactive, input, select');
+      const isText = target.closest('h1, h2, h3, h4, p, span, li');
+
+      if (isInteractive) {
+        setCursorState('active');
+      } else if (isText) {
+        setCursorState('text');
+      } else {
+        setCursorState('default');
+      }
     };
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
   return (
-    <motion.div
-      className="cursor-follower hidden md:block will-change-transform"
-      style={{ x: cursorX, y: cursorY }}
-    />
+    <>
+      <motion.div
+        className="cursor-dot hidden md:block"
+        style={{ 
+          x: dotX, 
+          y: dotY,
+          translateX: '-50%',
+          translateY: '-50%'
+        }}
+      />
+      <motion.div
+        className={`cursor-outline hidden md:block ${cursorState === 'active' ? 'active' : ''} ${cursorState === 'text' ? 'text' : ''}`}
+        style={{ 
+          x: outlineX, 
+          y: outlineY,
+          translateX: '-50%',
+          translateY: '-50%'
+        }}
+      />
+    </>
   );
 });
 
