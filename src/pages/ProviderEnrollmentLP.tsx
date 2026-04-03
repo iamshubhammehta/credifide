@@ -444,13 +444,36 @@ const ProviderEnrollmentLP: React.FC = () => {
                           </div>
                        </div>
 
+                       {/* Compliance & T&C */}
+                       <div className="space-y-6">
+                            <div className="p-6 rounded-2xl bg-brand-light/20 border border-brand-light/50">
+                                <p className="text-[11px] text-slate-500 leading-relaxed font-bold">
+                                    By providing your phone number, you agree to receive a text message from Credifide. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply "STOP" at any time. For more information, reply "HELP". <Link to="/privacy" className="text-brand-deep underline">Privacy Policy</Link> | <Link to="/terms" className="text-brand-deep underline">Terms and Conditions</Link>.
+                                </p>
+                            </div>
+
+                            <label className="flex items-start gap-3 cursor-pointer group">
+                                <div className="relative flex items-center justify-center mt-1">
+                                    <input 
+                                        type="checkbox" 
+                                        required 
+                                        className="peer appearance-none w-5 h-5 border-2 border-slate-200 rounded-md checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer"
+                                    />
+                                    <IconRenderer icon={ASSETS.features.check} size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
+                                </div>
+                                <span className="text-xs font-bold text-slate-600 group-hover:text-slate-900 transition-colors">
+                                    I accept the <Link to="/terms" className="text-brand-deep underline">Terms and Conditions</Link> and agree to the processing of my data.
+                                </span>
+                            </label>
+                       </div>
+
                        {/* Submit Action */}
-                       <div className="pt-4 flex items-center justify-between flex-wrap gap-6">
-                           <div className="flex items-center gap-2 text-[10px] uppercase font-black tracking-widest text-slate-400">
+                       <div className="pt-4 flex items-center justify-between flex-wrap gap-6 text-slate-400">
+                           <div className="flex items-center gap-2 text-[10px] uppercase font-black tracking-widest ">
                                <CheckCircle2 size={14} className="text-green-500" />
                                No credit card required
                            </div>
-                           <button type="button" className="bg-brand-deep text-white px-10 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-[#0f3d3a] hover:shadow-lg transition-all active:scale-95 group">
+                           <button type="submit" className="bg-brand-deep text-white px-10 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-[#0f3d3a] hover:shadow-lg transition-all active:scale-95 group">
                               Submit Application
                               <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
                                  <ArrowRight size={14} />
