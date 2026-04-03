@@ -1318,9 +1318,9 @@ const ContactSection = React.memo(() => {
           transition={{ duration: 0.8 }}
           className="rounded-[40px] overflow-hidden shadow-2xl border transition-colors duration-1000 bg-white border-slate-200"
         >
-          <div className="grid lg:grid-cols-2">
+          <div className="grid lg:grid-cols-2 min-h-[850px]">
             {/* Left Side: Content */}
-            <div className="p-8 lg:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r transition-colors duration-1000 border-slate-100">
+            <div className="p-8 lg:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r transition-colors duration-1000 border-slate-100 bg-white">
               <PhysicsBody id="contact-badge" className="inline-block mb-6">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-1000 bg-brand-light border-brand-deep/10 text-brand-deep w-fit font-bold">
                   <IconRenderer icon={ASSETS.ui.sparkles} size={14} />
