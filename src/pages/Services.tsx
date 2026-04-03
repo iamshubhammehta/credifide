@@ -63,7 +63,7 @@ const ServicesHub: React.FC = () => {
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.1 }}
-             className="text-xl text-slate-500 leading-relaxed font-medium"
+             className="text-xl text-slate-500 leading-relaxed font-medium mb-12"
            >
              Credifide manages the operational complexity of healthcare so you can focus on modern patient outcomes.
            </motion.p>

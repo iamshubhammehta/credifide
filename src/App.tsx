@@ -1440,18 +1440,18 @@ const ContactSection = React.memo(() => {
                                   setFormData({ ...formData, providerType: type });
                                   handleNext();
                                 }}
-                                className={`p-4 rounded-2xl border text-left transition-all duration-300 group ${formData.providerType === type
+                                className={`p-6 sm:p-8 rounded-3xl border text-left transition-all duration-300 group hover:scale-[1.02] shadow-sm hover:shadow-xl ${formData.providerType === type
                                   ? 'bg-brand-deep/10 border-brand-deep text-brand-deep'
                                   : 'bg-white border-brand-light text-slate-500 hover:border-brand-accent hover:bg-brand-light/30'
                                   }`}
                               >
-                                <div className={`w-8 h-8 rounded-lg mb-3 flex items-center justify-center transition-colors ${formData.providerType === type
+                                <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-colors ${formData.providerType === type
                                   ? 'bg-brand-deep text-white'
                                   : 'bg-brand-light text-brand-deep/50 group-hover:bg-brand-accent group-hover:text-brand-deep'
                                   }`}>
-                                  <IconRenderer icon={ASSETS.ui.users} size={16} />
+                                  <IconRenderer icon={ASSETS.ui.users} size={24} />
                                 </div>
-                                <span className="font-bold text-sm tracking-tight">{type}</span>
+                                <span className="font-bold text-lg tracking-tight block">{type}</span>
                               </button>
                             ))}
                           </div>
@@ -1476,21 +1476,21 @@ const ContactSection = React.memo(() => {
                                   setFormData({ ...formData, serviceNeeded: service });
                                   handleNext();
                                 }}
-                                className={`w-full p-5 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between group ${formData.serviceNeeded === service
+                                className={`w-full p-6 sm:p-7 rounded-3xl border text-left transition-all duration-300 flex items-center justify-between group hover:scale-[1.01] shadow-sm hover:shadow-xl ${formData.serviceNeeded === service
                                   ? 'bg-brand-deep/10 border-brand-deep text-brand-deep font-bold'
                                   : 'bg-white border-brand-light text-slate-500 hover:border-brand-accent hover:bg-brand-light/30'
                                   }`}
                               >
-                                <div className="flex items-center gap-4">
-                                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${formData.serviceNeeded === service
+                                <div className="flex items-center gap-5">
+                                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${formData.serviceNeeded === service
                                     ? 'bg-brand-deep text-white'
                                     : 'bg-brand-light text-brand-deep/50 group-hover:bg-brand-accent group-hover:text-brand-deep'
                                     }`}>
-                                    <IconRenderer icon={ASSETS.features.zap} size={18} />
+                                    <IconRenderer icon={ASSETS.features.zap} size={22} />
                                   </div>
-                                  <span className="font-bold tracking-tight">{service}</span>
+                                  <span className="font-bold text-lg tracking-tight">{service}</span>
                                 </div>
-                                <IconRenderer icon={ASSETS.ui.chevronRight} size={18} className={formData.serviceNeeded === service ? 'text-brand-deep' : 'text-slate-400'} />
+                                <IconRenderer icon={ASSETS.ui.chevronRight} size={22} className={formData.serviceNeeded === service ? 'text-brand-deep' : 'text-slate-400'} />
                               </button>
                             ))}
                           </div>
