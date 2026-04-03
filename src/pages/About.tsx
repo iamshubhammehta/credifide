@@ -689,6 +689,89 @@ const StorySection: React.FC = () => {
                          ))}
                       </div>
 
+                      {/* UI Data Snippets (NEW) */}
+                      <div className="absolute inset-0 z-15 p-8 pointer-events-none">
+                         {i === 0 && ( /* The Beginning - Chaos/Manual */
+                            <div className="flex flex-col gap-3">
+                               <motion.div 
+                                 animate={{ x: [0, 5, 0], y: [0, -5, 0] }}
+                                 transition={{ duration: 4, repeat: Infinity }}
+                                 className="w-40 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3"
+                               >
+                                  <div className="h-1.5 w-1/2 bg-white/20 rounded-full mb-2" />
+                                  <div className="flex justify-between items-center">
+                                     <div className="h-4 w-12 bg-red-400/40 rounded shadow-[0_0_10px_rgba(239,68,68,0.2)]" />
+                                     <span className="text-[10px] text-white/40 font-mono italic">Delay +90d</span>
+                                  </div>
+                               </motion.div>
+                               <motion.div 
+                                 animate={{ x: [0, -4, 0], y: [0, 6, 0] }}
+                                 transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+                                 className="w-32 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 self-end"
+                               >
+                                  <div className="h-1.5 w-2/3 bg-white/20 rounded-full mb-2" />
+                                  <div className="h-3 w-16 bg-white/10 rounded" />
+                               </motion.div>
+                            </div>
+                         )}
+                         
+                         {i === 1 && ( /* The Insight - Mapping */
+                            <div className="h-full flex items-center justify-center">
+                               <motion.div 
+                                 animate={{ scale: [1, 1.05, 1], rotate: [0, 2, 0] }}
+                                 transition={{ duration: 6, repeat: Infinity }}
+                                 className="p-6 bg-brand-deep/20 backdrop-blur-xl border border-brand-light/30 rounded-[32px] shadow-2xl relative overflow-hidden group-hover:bg-brand-deep/40 transition-colors duration-700"
+                               >
+                                  <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent opacity-40 animate-pulse" />
+                                  <div className="relative z-10 flex flex-col items-center gap-4">
+                                     <div className="w-12 h-1 bg-brand-accent rounded-full mb-1 shadow-[0_0_15px_#7FBF7F]" />
+                                     <div className="text-[10px] text-white/60 font-black tracking-[0.3em] uppercase">Pattern Syncing</div>
+                                     <div className="flex gap-1.5">
+                                        {[1,2,3,4].map(dot => (
+                                           <motion.div key={dot} animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: dot * 0.2 }} className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                                        ))}
+                                     </div>
+                                  </div>
+                               </motion.div>
+                            </div>
+                         )}
+
+                         {i === 2 && ( /* The Mission - Optimized System */
+                            <div className="h-full flex flex-col justify-between">
+                               <motion.div 
+                                 animate={{ y: [0, -8, 0] }}
+                                 transition={{ duration: 4, repeat: Infinity }}
+                                 className="max-w-[200px] bg-white rounded-2xl p-4 shadow-2xl border border-brand-light/20 self-end"
+                               >
+                                  <div className="flex items-center gap-3 mb-3">
+                                     <div className="w-8 h-8 rounded-lg bg-brand-light flex items-center justify-center text-brand-deep">
+                                        <IconRenderer icon={ASSETS.ui.activity} size={18} />
+                                     </div>
+                                     <div className="text-[11px] font-black text-slate-800 tracking-tight">System Prime</div>
+                                  </div>
+                                  <div className="flex items-baseline gap-2">
+                                     <span className="text-2xl font-display font-black text-brand-deep">35%</span>
+                                     <span className="text-[10px] font-bold text-slate-400 leading-none">Faster Cycles</span>
+                                  </div>
+                               </motion.div>
+                               
+                               <motion.div 
+                                 animate={{ y: [0, 8, 0] }}
+                                 transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+                                 className="max-w-[180px] bg-brand-deep rounded-2xl p-4 shadow-2xl border border-white/10"
+                               >
+                                  <div className="flex items-center gap-2 mb-2">
+                                     <div className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+                                     <span className="text-[9px] font-black text-white/60 uppercase tracking-widest">Active Ops</span>
+                                  </div>
+                                  <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                     <motion.div initial={{ width: 0 }} animate={{ width: '85%' }} transition={{ duration: 2, delay: 1 }} className="h-full bg-brand-accent" />
+                                  </div>
+                               </motion.div>
+                            </div>
+                         )}
+                      </div>
+
                       {/* Content Overlay */}
                       <div className="absolute inset-0 z-20 p-10 flex flex-col justify-end">
                          <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-deep transition-all duration-500 shadow-2xl">
