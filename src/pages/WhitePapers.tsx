@@ -9,27 +9,23 @@ const WhitePapers = () => {
   const whitePapers = [
     {
       id: 1,
-      title: 'The Provider Enrollment Survival Guide (2024 Edition)',
-      description: 'A comprehensive 45-page blueprint for navigating the complexities of payer enrollment and maintaining compliance across state lines.',
-      image: 'https://images.unsplash.com/photo-1586769852044-692d6e37035/0?q=80&w=2070&auto=format&fit=crop',
-      pages: 45,
-      filesize: '4.2 MB'
+      title: 'Insurance Credentialing in 2026: Industry Insights & Innovation',
+      description: 'Credentialing is no longer a background process – it is a direct driver of provider activation speed, revenue flow, and compliance standing for healthcare organizations of every size. Drawing on industry benchmarks from MGMA and CAQH, this paper examines the forces reshaping provider enrollment and the operational strategies high-performing organizations use to scale.',
+      image: 'https://credifide.com/wp-content/uploads/2026/03/Insurance-Credentialing-2026-Thumbnail.png',
+      date: 'March 18, 2026',
+      pages: 42,
+      filesize: '4.8 MB',
+      link: 'https://credifide.com/white-paper/insurance-credentialing-in-2026-a-complete-guide/'
     },
     {
       id: 2,
-      title: 'Optimizing Revenue Cycle Management Performance',
-      description: 'Master the metrics that matter. This white paper details how top-performing practices achieve 98% clean claim rates and reduced AR days.',
-      image: 'https://images.unsplash.com/photo-1543269664-76bc3/216?q=80&w=2070&auto=format&fit=crop',
-      pages: 32,
-      filesize: '3.8 MB'
-    },
-    {
-      id: 3,
-      title: 'Healthcare Compliance & The Future of Billing',
-      description: 'An executive analysis of current and upcoming regulatory changes and how they will shape the healthcare landscape through 2026.',
-      image: 'https://images.unsplash.com/photo-1532012197367-e856ff/5e8?q=80&w=2070&auto=format&fit=crop',
-      pages: 28,
-      filesize: '2.5 MB'
+      title: 'Outsourcing Credentialing for Multispecialty Clinics: When to Switch & How to Scale',
+      description: 'As practices expand across specialties and payer networks, in-house credentialing often becomes fragmented and slow. This whitepaper explores operational inflection points where outsourcing becomes a strategic advantage. It provides a structured roadmap to evaluate readiness, identify bottlenecks, and implement scalable workflows.',
+      image: 'https://credifide.com/wp-content/uploads/2026/01/Outsourcing-Credentialing-Multispecialty-Thumbnail.png',
+      date: 'January 29, 2026',
+      pages: 38,
+      filesize: '5.2 MB',
+      link: 'https://credifide.com/white-paper/outsourcing-credentialing-for-multispecialty-clinics/'
     }
   ];
 
@@ -77,7 +73,7 @@ const WhitePapers = () => {
                         <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-md border border-white/30 mb-2">
                            <IconRenderer icon={ASSETS.ui.fileText} size={20} />
                         </div>
-                        <p className="text-xs font-bold uppercase tracking-widest opacity-80">{paper.pages} Pages • {paper.filesize}</p>
+                        <p className="text-xs font-bold uppercase tracking-widest opacity-80">{paper.date} • {paper.pages} Pages</p>
                     </div>
                  </div>
 
