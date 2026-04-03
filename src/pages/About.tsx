@@ -660,7 +660,7 @@ const StorySection: React.FC = () => {
                       >
                          <img 
                            src={s.img} 
-                           alt={s.title} 
+                           alt="" 
                            className="w-full h-full object-cover opacity-60 mix-blend-soft-light transition-all duration-1000 group-hover:opacity-80"
                          />
                          <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/90 via-transparent to-transparent" />
