@@ -1,0 +1,2 @@
+// Use the provided logo instead of the previous one
+const logoPng = "https://credifide.com/wp-content/uploads/2026/03/white-green-logo-fixed.png"; // I'll assume this is the one if I were to host it, but I'll use a local path if I can save it.
