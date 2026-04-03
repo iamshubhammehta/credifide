@@ -1544,6 +1544,27 @@ const ContactSection = React.memo(() => {
                             </div>
                           </div>
 
+                          {/* Disclaimer Box */}
+                          <div className="p-5 bg-slate-50 border border-slate-200 rounded-2xl text-[10px] text-slate-500 leading-relaxed font-medium">
+                            By providing your phone number, you agree to receive a text message from Credifide. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply 'STOP' at any time. For more information, reply 'HELP'.{' '}
+                            <Link to="/privacy" className="text-brand-deep hover:underline font-bold">Privacy Policy</Link> | <Link to="/terms" className="text-brand-deep hover:underline font-bold">Terms and Conditions</Link>
+                          </div>
+
+                          {/* Acceptance Checkbox */}
+                          <label className="flex items-start gap-3 cursor-pointer group">
+                             <div className="relative flex items-center justify-center mt-0.5 shrink-0">
+                                <input 
+                                  type="checkbox" 
+                                  className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-slate-200 checked:border-brand-deep checked:bg-brand-deep transition-all" 
+                                  required
+                                />
+                                <IconRenderer icon={ASSETS.ui.check} size={14} className="pointer-events-none absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
+                             </div>
+                             <span className="text-xs text-slate-600 font-medium select-none group-hover:text-slate-900 transition-colors">
+                                I accept the <Link to="/terms" className="text-brand-deep font-bold hover:underline">Terms and Conditions</Link>.
+                             </span>
+                          </label>
+
                           <div className="flex items-center gap-4 pt-4">
                             <button
                               type="button"
