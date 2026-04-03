@@ -1114,16 +1114,8 @@ const ReviewsSection = React.memo(() => {
       } catch (error) {
         console.error("Error fetching reviews:", error);
         setReviews([
-          { id: 1, name: "Dr. Sarah L.", role: "Founder / CEO", rating: 5, text: "Huge Time Saver for My Mental Health Practice. I have been very happy with Credifide." },
-          { id: 2, name: "Michael R.", role: "Medical Director", rating: 5, text: "I have been very happy with Credifide. They are very responsive and easy to work with." },
-          { id: 3, name: "Dr. James Chen", role: "Practice Manager", rating: 5, text: "The RCM services provided by Credifide are top-notch. Significant reduction in denials." },
-          { id: 4, name: "Emily Watson", role: "Operations Lead", rating: 5, text: "Credifide transformed our billing process. The automation is seamless and reliable." },
-          { id: 5, name: "Dr. Robert King", role: "Clinical Specialist", rating: 5, text: "The most intuitive credentialing platform I've used. Highly recommend to any practice." },
-          { id: 6, name: "Jessica Miller", role: "Office Administrator", rating: 5, text: "Customer support is exceptional. They really care about our success." },
-          { id: 7, name: "Dr. David Wilson", role: "Solo Provider", rating: 5, text: "Finally, a solution that actually works for solo practitioners. Saved me hours of paperwork." },
-          { id: 8, name: "Linda Garcia", role: "Billing Coordinator", rating: 5, text: "The transparency is refreshing. I can track every claim in real-time." },
-          { id: 9, name: "Dr. Kevin Park", role: "Chief of Surgery", rating: 5, text: "The efficiency gains we've seen are remarkable. Credifide is a game-changer for hospital operations." },
-          { id: 10, name: "Sarah Thompson", role: "HR Director", rating: 5, text: "Onboarding new providers has never been easier. The platform is intuitive and powerful." }
+          { id: 1, name: "Gatil Y.", role: "Mental Health Practice Owner", rating: 5, text: "As a small mental health practice owner, credentialing always ended up on the 'I'll deal with it later' list. Since working with Credifide, I'm not chasing updates anymore. They handle the back-and-forth and keep me informed, which has made a big difference." },
+          { id: 2, name: "Simran R.R.", role: "Healthcare Provider", rating: 5, text: "I have been very happy with Credifide so far. Initially I was clueless about the entire process and a bit hesitant but thanks to Tyler. They were able to get me 2 contracts within the first month. I would highly recommend Credifide." },
         ]);
       } finally {
         setIsLoading(false);
@@ -1231,9 +1223,9 @@ const ReviewsSection = React.memo(() => {
                 ))}
               </div>
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                <span>TrustScore 4.9</span>
+                <span>TrustScore 5.0</span>
                 <span className="w-1 h-1 rounded-full bg-slate-300" />
-                <span className="text-slate-500 font-medium">128 reviews</span>
+                <span className="text-slate-500 font-medium">2 reviews</span>
               </div>
             </div>
 
@@ -1708,73 +1700,73 @@ export default function App() {
             </div>
           )}
 
-          <footer className="bg-[#0f3d3a] pt-12 pb-0 text-white relative overflow-hidden">
+          <footer className="bg-[#0f3d3a] pt-6 pb-0 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
               
               <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
                 {/* Logo */}
-                <div className="mb-8">
+                <div className="mb-4">
                   <Link to="/" className="flex items-center">
                     <img
                       src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/658195174_122237338544126491_687030811474472989_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=3_eKyk5SMU8Q7kNvwEe0JXc&_nc_oc=Adr_E4PSx1RXbUKdHG-M8d5iZVya8Vg2o7xIdOBL-JuMtMDv2ZlrH6LY8tMqqTkm3Mc&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=vlTWwwstsL9d2XiAlNsGNA&_nc_ss=7a3a8&oh=00_Af1GzEhV7xTe4rpdwRNEcd4l_aASPiCyKEGP_axFajVMAA&oe=69D44A1E"
                       alt="Credifide"
-                      className="h-14 sm:h-16 w-auto object-contain"
+                      className="h-10 sm:h-12 w-auto object-contain"
                       loading="lazy"
                     />
                   </Link>
                 </div>
 
               {/* Navigation with dashes */}
-              <nav className="flex flex-wrap justify-center items-center gap-x-3 gap-y-3 mb-6 text-base md:text-lg font-bold text-white">
+              <nav className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1.5 mb-3 text-sm md:text-base font-semibold text-white/90">
                 <Link to="/about" className="hover:text-brand-accent transition-colors">About Us</Link>
-                <span className="text-white/30">—</span>
+                <span className="text-white/20">—</span>
                 <Link to="/resources/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
-                <span className="text-white/30">—</span>
+                <span className="text-white/20">—</span>
                 <Link to="/privacy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
-                <span className="text-white/30">—</span>
+                <span className="text-white/20">—</span>
                 <Link to="/terms" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>
-                <span className="text-white/30">—</span>
+                <span className="text-white/20">—</span>
                 <Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Us</Link>
-                <span className="text-white/30">—</span>
+                <span className="text-white/20">—</span>
                 <Link to="#" className="hover:text-brand-accent transition-colors">Unsubscribe</Link>
               </nav>
 
-              {/* Bottom Row: Phone | Socials | Email - Now closer together and aligned with menu */}
-              <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 pb-12 mt-6">
+              {/* Bottom Row: Phone | Socials | Email */}
+              <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 pb-5 mt-2">
                 <div>
-                  <a href="tel:+13215240606" className="text-base md:text-lg font-bold text-white hover:text-brand-accent transition-colors">
-                    +1  321  524  0606
+                  <a href="tel:+13215240606" className="text-sm md:text-base font-semibold text-white/80 hover:text-brand-accent transition-colors">
+                    +1 321 524 0606
                   </a>
                 </div>
 
-                <div className="flex items-center gap-6">
-                  <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    <IconRenderer icon={ASSETS.social.linkedin} size={22} />
+                <div className="flex items-center gap-4">
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <IconRenderer icon={ASSETS.social.linkedin} size={18} />
                   </a>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    <IconRenderer icon={ASSETS.social.facebook} size={22} />
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <IconRenderer icon={ASSETS.social.facebook} size={18} />
                   </a>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors pointer-events-none">
-                    <svg className="w-[22px] h-[22px]" viewBox="0 0 24 24" fill="currentColor">
+                  <a href="#" className="text-white/60 hover:text-white transition-colors pointer-events-none">
+                    <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                     </svg>
                   </a>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors">
-                    <IconRenderer icon={ASSETS.social.instagram} size={22} />
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <IconRenderer icon={ASSETS.social.instagram} size={18} />
                   </a>
                 </div>
 
                 <div>
-                  <a href="mailto:connect@credifide.com" className="text-base md:text-lg font-bold text-white hover:text-brand-accent transition-colors">
+                  <a href="mailto:connect@credifide.com" className="text-sm md:text-base font-semibold text-white/80 hover:text-brand-accent transition-colors">
                     connect@credifide.com
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Copyright Bar: Exact Color & Height */}
-            <div className="bg-[#A3BD6A] py-2 text-center">
-              <p className="text-[12px] font-bold text-[#0f3d3a]">
+            {/* Copyright Bar */}
+            <div className="bg-[#A3BD6A] py-1.5 text-center">
+              <p className="text-[11px] font-bold text-[#0f3d3a]">
                 © 2026 <span className="font-extrabold uppercase tracking-widest">Credifide</span>, All Rights Reserved
               </p>
             </div>

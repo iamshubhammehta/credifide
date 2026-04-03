@@ -793,7 +793,7 @@ const TransformationSection: React.FC = () => {
               layoutId="toggle-pill"
               className="absolute inset-y-1.5 w-[calc(50%-3px)] rounded-xl"
               style={{
-                background: active === 'old' ? 'linear-gradient(135deg, #cbd5e1, #94a3b8)' : 'linear-gradient(135deg, #7FBF7F, #6aa86a)',
+                background: active === 'old' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : 'linear-gradient(135deg, #7FBF7F, #6aa86a)',
                 left: active === 'old' ? '6px' : 'calc(50% + 3px)',
               }}
               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -826,12 +826,12 @@ const TransformationSection: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.4 }}
-                className={`flex items-start gap-4 p-5 rounded-2xl border ${active === 'old' ? 'border-slate-200 bg-slate-50' : 'border-brand-100 bg-brand-50'}`}
+                className={`flex items-start gap-4 p-5 rounded-2xl border ${active === 'old' ? 'border-red-200 bg-red-50/60' : 'border-brand-100 bg-brand-50'}`}
               >
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${active === 'old' ? 'bg-slate-200 text-slate-500' : 'bg-brand-100 text-brand-600'}`}>
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${active === 'old' ? 'bg-red-100 text-red-500' : 'bg-brand-100 text-brand-600'}`}>
                   {active === 'old' ? '✕' : '✓'}
                 </div>
-                <span className={`font-medium text-sm leading-relaxed ${active === 'old' ? 'text-slate-700' : 'text-brand-700'}`}>{item}</span>
+                <span className={`font-medium text-sm leading-relaxed ${active === 'old' ? 'text-red-800' : 'text-brand-700'}`}>{item}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -842,7 +842,7 @@ const TransformationSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className={`rounded-3xl p-8 ${active === 'old' ? 'bg-slate-50 border border-slate-200' : 'bg-brand-deep border border-brand-accent/30'} relative overflow-hidden shadow-2xl`}
+            className={`rounded-3xl p-8 ${active === 'old' ? 'bg-red-50 border border-red-200' : 'bg-brand-deep border border-brand-accent/30'} relative overflow-hidden shadow-2xl`}
           >
             <div className="space-y-5">
               {[...Array(4)].map((_, i) => (
@@ -853,9 +853,9 @@ const TransformationSection: React.FC = () => {
                   transition={{ delay: i * 0.12, duration: 0.6, ease: 'easeOut' }}
                   className="relative origin-left"
                 >
-                  <div className={`h-8 rounded-lg ${active === 'old' ? 'bg-white' : 'bg-white/10'} flex items-center px-4 gap-3 border ${active === 'old' ? 'border-slate-200' : 'border-white/5'}`}>
-                    <div className={`w-2 h-2 rounded-full ${active === 'old' ? 'bg-slate-300' : 'bg-brand-accent'} animate-pulse`} />
-                    <div className={`h-2 rounded ${active === 'old' ? 'bg-slate-100' : 'bg-white/20'}`} style={{ width: `${40 + i * 15}%` }} />
+                  <div className={`h-8 rounded-lg ${active === 'old' ? 'bg-white' : 'bg-white/10'} flex items-center px-4 gap-3 border ${active === 'old' ? 'border-red-200' : 'border-white/5'}`}>
+                    <div className={`w-2 h-2 rounded-full ${active === 'old' ? 'bg-red-400' : 'bg-brand-accent'} animate-pulse`} />
+                    <div className={`h-2 rounded ${active === 'old' ? 'bg-red-100' : 'bg-white/20'}`} style={{ width: `${40 + i * 15}%` }} />
                   </div>
                 </motion.div>
               ))}
@@ -863,15 +863,15 @@ const TransformationSection: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className={`mt-6 p-5 rounded-2xl ${active === 'old' ? 'bg-white border border-slate-200 shadow-sm' : 'bg-white/10 border border-white/20'}`}
+                className={`mt-6 p-5 rounded-2xl ${active === 'old' ? 'bg-white border border-red-200 shadow-sm' : 'bg-white/10 border border-white/20'}`}
               >
-                <p className={`font-bold text-3xl ${active === 'old' ? 'text-slate-400' : 'text-white'}`}>
+                <p className={`font-bold text-3xl ${active === 'old' ? 'text-red-400' : 'text-white'}`}>
                   {active === 'old' ? '120 days' : '35 days'}
                 </p>
-                <p className={`text-sm mt-1 ${active === 'old' ? 'text-slate-400/60' : 'text-brand-light/60'}`}>Average credentialing cycle</p>
+                <p className={`text-sm mt-1 ${active === 'old' ? 'text-red-400/60' : 'text-brand-light/60'}`}>Average credentialing cycle</p>
               </motion.div>
             </div>
-            <div className={`absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-2xl ${active === 'old' ? 'bg-slate-400/10' : 'bg-white/10'}`} />
+            <div className={`absolute -bottom-8 -right-8 w-36 h-36 rounded-full blur-2xl ${active === 'old' ? 'bg-red-400/15' : 'bg-white/10'}`} />
           </motion.div>
         </div>
       </div>
