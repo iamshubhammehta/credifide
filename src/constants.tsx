@@ -45,6 +45,7 @@ import {
   AlertCircle,
   Mail,
   ChevronDown,
+  Lock,
   LucideIcon
 } from 'lucide-react';
 
@@ -130,6 +131,7 @@ export const ASSETS = {
     clipboard: ClipboardCheck,
     activity: Activity,
     chevronDown: ChevronDown,
+    lock: Lock,
   }
 };
 

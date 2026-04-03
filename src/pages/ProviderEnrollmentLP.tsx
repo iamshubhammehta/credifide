@@ -19,7 +19,8 @@ import {
   Search,
   FileText,
   Gavel,
-  Scale
+  Scale,
+  Lock
 } from 'lucide-react';
 import { ASSETS, IconRenderer } from '../constants';
 import { useSEO } from '../hooks/useSEO';
@@ -56,7 +57,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center">
           {/* Dynamic Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-             <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-light/10 rounded-full blur-[160px] animate-pulse" />
+             <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-light/5 rounded-full blur-[160px]" />
              <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[140px]" />
              <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(#11332E 1px, transparent 1px), linear-gradient(90deg, #11332E 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
           </div>
@@ -76,100 +77,92 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
                 <h1 className="text-5xl md:text-7xl font-display font-black text-slate-950 leading-[1.05] mb-8">
                    Payer & Provider <br />
-                   <span className="relative inline-block px-2">
+                   <span className="relative inline-block px-4 py-2 mt-2">
                       <span className="relative z-10">Enrollment.</span>
                       <motion.div 
                          initial={{ scaleX: 0 }}
                          whileInView={{ scaleX: 1 }}
                          transition={{ delay: 0.8, duration: 0.8, ease: "circOut" }}
-                         className="absolute bottom-2 left-0 right-0 h-4 bg-brand-accent/20 -z-0 origin-left"
+                         className="absolute bottom-1 left-0 right-0 h-4 bg-brand-accent/30 -z-0 origin-left rounded-lg"
                       />
                    </span>
                 </h1>
-                <p className="text-lg text-slate-500 mb-10 max-w-lg leading-relaxed font-medium">
+                <p className="text-lg text-slate-500 mb-10 max-w-lg leading-relaxed font-bold">
                    Experience 98% first-submission accuracy and 30% faster turnaround times. We treat credentialing as infrastructure, not administrative paperwork.
                 </p>
                 
-                <div className="w-full max-w-md mt-6">
-                   <a href="#form" className="w-full bg-brand-deep text-white px-8 py-5 rounded-[1.5rem] font-black text-xl shadow-2xl shadow-brand-deep/30 hover:shadow-brand-deep/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between group">
-                      <span>Book A Strategy Call</span>
-                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
-                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                <div className="hidden lg:flex flex-wrap gap-4 mt-8">
+                   {[
+                      { icon: Shield, text: 'HIPAA Compliant' },
+                      { icon: Clock, text: '30% Faster approvals' },
+                      { icon: Zap, text: 'AI Validation' }
+                   ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-black uppercase text-slate-500 tracking-widest">
+                         <item.icon size={12} className="text-brand-deep" />
+                         {item.text}
                       </div>
-                   </a>
+                   ))}
                 </div>
               </motion.div>
 
-              {/* Dashboard Side */}
-              <div className="relative h-[600px] group/dash md:translate-x-12 lg:translate-x-20">
-                 {/* Main Base Card */}
-                 <div className="absolute inset-0 bg-white/60 backdrop-blur-3xl border border-slate-100 rounded-[4rem] rounded-tr-[1.5rem] rotate-1 shadow-[0_50px_100px_-20px_rgba(17,51,46,0.12)] transition-transform duration-1000 group-hover/dash:rotate-0 overflow-hidden flex flex-col p-8">
-                    {/* Inner Header */}
-                    <div className="flex items-center justify-between mb-8 border-b border-slate-100/50 pb-4">
-                       <div className="flex items-center gap-3">
-                          <img src="https://credifide.com/wp-content/uploads/2025/03/Final-Logo2-3-26.png" alt="Credifide Logo" className="h-6 w-auto mix-blend-multiply" />
-                          <div>
-                             <span className="font-display font-black text-xl text-slate-800 tracking-tight leading-none block">Credifide OS</span>
-                             <span className="text-[9px] font-black uppercase text-slate-400 tracking-widest block">Enrollment Portal</span>
-                          </div>
-                       </div>
-                       <div className="flex items-center gap-2 bg-green-50 px-3 py-1.5 rounded-full border border-green-100">
-                          <span className="w-2 h-2 rounded-full bg-green-500 status-pulse" />
-                          <span className="text-[9px] font-bold text-green-700 uppercase tracking-widest">System Active</span>
-                       </div>
-                    </div>
+              {/* HERO FORM: REPLACED ANIMATION WITH FORM */}
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative z-20"
+                id="form"
+              >
+                  {/* Glass-styled Form Container */}
+                  <div className="bg-white rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(11,51,46,0.15)] border border-slate-100 overflow-hidden">
+                     {/* Form Header */}
+                     <div className="bg-[#0f3d3a] px-8 py-5 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                           <span className="w-2.5 h-2.5 rounded-full bg-brand-light" />
+                           <span className="text-white text-[10px] font-black uppercase tracking-[0.3em]">Direct Application</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-white/40 text-[9px] font-black uppercase tracking-widest">
+                           <Lock size={12} className="text-brand-accent" />
+                           256-Bit Encrypted
+                        </div>
+                     </div>
 
-                    {/* Data Area */}
-                    <div className="space-y-4 flex-1 pr-12 pb-12">
-                       <div className="flex justify-between items-end mb-6">
-                          <div>
-                             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Active Credentials</div>
-                             <div className="text-5xl font-display font-black text-slate-900 leading-none tracking-tighter">1,204</div>
-                          </div>
-                          <div className="flex items-center gap-1 text-green-600 bg-green-50 px-2.5 py-1.5 rounded-lg border border-green-100">
-                             <TrendingUp size={14} />
-                             <span className="text-[10px] font-black">+12.4%</span>
-                          </div>
-                       </div>
+                     <div className="p-8">
+                        <h2 className="text-2xl font-black text-slate-900 mb-2">Create Profile.</h2>
+                        <p className="text-xs text-slate-400 font-bold mb-8 uppercase tracking-widest">Immediate Response Enrollment</p>
+                        
+                        <form className="space-y-6">
+                           <div className="grid grid-cols-2 gap-4">
+                              <div className="relative">
+                                 <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Full Name</label>
+                                 <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-slate-900 font-bold text-sm focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all" placeholder="John Doe" />
+                              </div>
+                              <div className="relative">
+                                 <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Practice Name</label>
+                                 <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-slate-900 font-bold text-sm focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all" placeholder="Clinic Name" />
+                              </div>
+                           </div>
 
-                       <div className="bg-white rounded-[1.5rem] border border-slate-100 shadow-sm overflow-hidden flex-1 flex flex-col">
-                          <div className="bg-slate-50 px-4 py-3 border-b border-slate-100 grid grid-cols-3 gap-2 text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                             <span>Provider Name</span>
-                             <span>Payer / State</span>
-                             <span>Status</span>
-                          </div>
-                          <div className="flex-1 flex flex-col p-2 gap-1 font-medium">
-                             {[
-                                { n: 'Dr. Sarah J.', s: 'Approved', p: 'Aetna - TX', c: 'text-green-600 bg-green-50' },
-                                { n: 'Dr. Michael T.', s: 'Pending CAQH', p: 'Cigna - FL', c: 'text-amber-600 bg-amber-50' },
-                                { n: 'City Clinic', s: 'Contracting', p: 'BCBS - NY', c: 'text-blue-600 bg-blue-50' },
-                             ].map((row, idx) => (
-                                <div key={idx} className="grid grid-cols-3 gap-2 px-3 py-3 hover:bg-slate-50 rounded-[1rem] transition-colors items-center cursor-default">
-                                   <span className="text-[11px] font-bold text-slate-700 truncate">{row.n}</span>
-                                   <span className="text-[10px] font-bold text-slate-500 truncate">{row.p}</span>
-                                   <div><span className={`text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded-md ${row.c}`}>{row.s}</span></div>
-                                </div>
-                             ))}
-                          </div>
-                       </div>
-                    </div>
-                 </div>
+                           <div className="relative">
+                              <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Email Address</label>
+                              <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-slate-900 font-bold text-sm focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all" placeholder="connect@example.com" />
+                           </div>
 
-                 {/* Internal Floating Card */}
-                 <motion.div className="absolute top-[25%] -right-8 w-72 glass-card p-8 floating-1 shadow-brand-deep/5 border-brand-light/20 z-40">
-                    <div className="flex items-center justify-between mb-6">
-                       <div className="w-10 h-10 rounded-2xl bg-brand-deep flex items-center justify-center text-white">
-                          <Activity size={20} />
-                       </div>
-                       <div className="text-[10px] font-black uppercase text-brand-deep bg-brand-light px-3 py-1 rounded-full">Automated</div>
-                    </div>
-                    <div className="text-lg font-black text-slate-900 mb-1 leading-tight">CAQH Profile Check</div>
-                    <div className="text-xs text-slate-500 font-bold mb-4">Verification Layer Active</div>
-                    <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                       <motion.div initial={{ width: 0 }} whileInView={{ width: '85%' }} transition={{ duration: 2 }} className="h-full bg-brand-deep" />
-                    </div>
-                 </motion.div>
-              </div>
+                           <div className="relative">
+                              <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Phone Number</label>
+                              <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-slate-900 font-bold text-sm focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all" placeholder="(555) 000-0000" />
+                           </div>
+
+                           <div className="pt-4">
+                              <button type="submit" className="w-full bg-brand-deep text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#0f3d3a] hover:shadow-xl transition-all active:scale-95 group">
+                                 Submit Application
+                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                              </button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -351,9 +344,9 @@ const ProviderEnrollmentLP: React.FC = () => {
                     { step: '04', title: 'Ongoing', content: 'Assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
                  ].map((p, i) => (
                     <motion.div 
-                      key={i} 
-                      whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
-                      className="bg-white/5 p-12 transition-all duration-500 group border-r border-white/10 last:border-r-0 relative"
+                       key={i} 
+                       whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+                       className="bg-white/5 p-12 transition-all duration-500 group border-r border-white/10 last:border-r-0 relative"
                     >
                        <div className="text-[#A3BD6A] font-black text-5xl mb-8 opacity-20 group-hover:opacity-100 transition-opacity tracking-tighter">{p.step}</div>
                        <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
@@ -413,136 +406,6 @@ const ProviderEnrollmentLP: React.FC = () => {
                    </motion.div>
                  ))}
               </div>
-           </div>
-        </section>
-
-        {/* LEAD CAPTURE FORM - MODERN 'WIDGET/IFRAME' STYLE */}
-        <section id="form" className="py-32 bg-slate-50 relative overflow-hidden">
-           {/* Soft Background Accents */}
-           <div className="absolute top-0 right-0 w-full h-[500px] bg-brand-light/20 rounded-bl-full -z-10" />
-           <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-deep/5 rounded-tr-full -z-10" />
-
-           <div className="max-w-4xl mx-auto px-6 relative z-10">
-              <div className="text-center mb-16">
-                 <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 mb-6">Create Your <span className="text-brand-deep">Profile.</span></h2>
-                 <p className="text-slate-500 font-medium">Complete the secure application below to initiate your credentialing process.</p>
-              </div>
-
-              {/* The "Iframe" Widget Container */}
-              <motion.div 
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.6 }}
-                 className="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden relative"
-              >
-                 {/* Widget Header (Like a browser tab/header) */}
-                 <div className="bg-[#0f3d3a] px-8 py-6 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                       <span className="w-3 h-3 rounded-full bg-brand-light" />
-                       <span className="w-3 h-3 rounded-full bg-white/20" />
-                       <span className="w-3 h-3 rounded-full bg-white/20" />
-                    </div>
-                    <div className="text-white/60 text-xs font-black uppercase tracking-[0.2em] flex items-center gap-2">
-                       <Shield size={14} className="text-brand-light" />
-                       Secure Form
-                    </div>
-                 </div>
-
-                 {/* Form Body - Clean, Material-inspired with SaaS touches */}
-                 <div className="p-8 md:p-12">
-                    <form className="space-y-10">
-                       
-                       {/* Field Group 1 */}
-                       <div className="space-y-8 p-6 rounded-2xl bg-slate-50 border border-slate-100/50 hover:border-slate-200 transition-colors">
-                          <h3 className="text-sm font-black text-brand-deep uppercase tracking-widest mb-4 flex items-center gap-2">
-                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent object-cover"></span> Basic Details
-                          </h3>
-                          <div className="grid md:grid-cols-2 gap-8">
-                             <div className="relative">
-                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Provider Name</label>
-                                <input type="text" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="e.g. Dr. John Doe" />
-                             </div>
-                             <div className="relative">
-                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Practice Name</label>
-                                <input type="text" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="e.g. City Health Clinic" />
-                             </div>
-                          </div>
-                          
-                          <div className="grid md:grid-cols-2 gap-8">
-                             <div className="relative">
-                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
-                                <input type="email" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="john@example.com" />
-                             </div>
-                             <div className="relative">
-                                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Phone Number</label>
-                                <input type="tel" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm" placeholder="(555) 123-4567" />
-                             </div>
-                          </div>
-                       </div>
-
-                       {/* Field Group 2 */}
-                       <div className="space-y-8 p-6 rounded-2xl bg-slate-50 border border-slate-100/50 hover:border-slate-200 transition-colors">
-                          <h3 className="text-sm font-black text-brand-deep uppercase tracking-widest mb-4 flex items-center gap-2">
-                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> Service Needs
-                          </h3>
-                          <div className="relative">
-                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Primary Goal</label>
-                             <div className="relative">
-                                <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm appearance-none">
-                                   <option>New Enrollment Setup</option>
-                                   <option>Recredentialing / Maintenance</option>
-                                   <option>Contracting & Negotiation</option>
-                                   <option>CAQH Management</option>
-                                </select>
-                                <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 transform rotate-90 text-slate-400 pointer-events-none" size={18} />
-                             </div>
-                          </div>
-
-                          <div className="relative">
-                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Additional Information</label>
-                             <textarea rows={3} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 font-medium focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all shadow-sm resize-none" placeholder="Tell us about the specific payers or challenges you are facing..."></textarea>
-                          </div>
-                       </div>
-
-                       {/* Compliance & T&C */}
-                       <div className="space-y-6">
-                            <div className="p-6 rounded-2xl bg-brand-light/20 border border-brand-light/50">
-                                <p className="text-[11px] text-slate-500 leading-relaxed font-bold">
-                                    By providing your phone number, you agree to receive a text message from Credifide. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply "STOP" at any time. For more information, reply "HELP". <Link to="/privacy" className="text-brand-deep underline">Privacy Policy</Link> | <Link to="/terms" className="text-brand-deep underline">Terms and Conditions</Link>.
-                                </p>
-                            </div>
-
-                            <label className="flex items-start gap-3 cursor-pointer group">
-                                <div className="relative flex items-center justify-center mt-1">
-                                    <input 
-                                        type="checkbox" 
-                                        required 
-                                        className="peer appearance-none w-5 h-5 border-2 border-slate-200 rounded-md checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer"
-                                    />
-                                    <IconRenderer icon={ASSETS.features.check} size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
-                                </div>
-                                <span className="text-xs font-bold text-slate-600 group-hover:text-slate-900 transition-colors">
-                                    I accept the <Link to="/terms" className="text-brand-deep underline">Terms and Conditions</Link> and agree to the processing of my data.
-                                </span>
-                            </label>
-                       </div>
-
-                       {/* Submit Action */}
-                       <div className="pt-4 flex items-center justify-between flex-wrap gap-6 text-slate-400">
-                           <div className="flex items-center gap-2 text-[10px] uppercase font-black tracking-widest ">
-                               <CheckCircle2 size={14} className="text-green-500" />
-                               No credit card required
-                           </div>
-                           <button type="submit" className="bg-brand-deep text-white px-10 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-[#0f3d3a] hover:shadow-lg transition-all active:scale-95 group">
-                              Submit Application
-                              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
-                                 <ArrowRight size={14} />
-                              </div>
-                           </button>
-                       </div>
-                    </form>
-                 </div>
-              </motion.div>
            </div>
         </section>
       </main>
