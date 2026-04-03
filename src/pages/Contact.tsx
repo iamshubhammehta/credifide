@@ -26,12 +26,12 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
            {/* Refined Badge */}
-           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-light bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-widest mb-6 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
+           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-light bg-brand-light/30 text-brand-deep text-sm font-black uppercase tracking-[0.2em] mb-8 backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
               Connect With Us
            </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-5xl font-display font-bold text-slate-900 mb-5 leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-7xl lg:text-7xl font-display font-black text-slate-900 mb-8 leading-[1.0] tracking-tighter">
             Let's Build Your <br />
             <span className="text-brand-deep">Revenue Engine</span>
           </h1>

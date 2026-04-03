@@ -451,31 +451,51 @@ const Hero = React.memo(() => {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-16 lg:pt-16 lg:pb-24">
         <PhysicsBody id="hero-badge" className="inline-block mb-8">
           <motion.span
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-deep/20 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-widest backdrop-blur-sm shadow-sm"
+            initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-sm font-black uppercase tracking-[0.2em] backdrop-blur-md shadow-sm mb-4"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
             Trusted by 500+ Healthcare Providers
           </motion.span>
         </PhysicsBody>
 
-        <PhysicsBody id="hero-title" className="mb-8">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black tracking-tighter leading-[1.05] text-slate-900">
+        <PhysicsBody id="hero-title" className="mb-10">
+          <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-display font-black tracking-tighter leading-[0.95] text-slate-900">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.12,
+                  }
+                }
+              }}
             >
-              <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} className="block">
+              <motion.span 
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: 45 },
+                  visible: { opacity: 1, y: 0, rotateX: 0 }
+                }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="block will-change-transform"
+              >
                 Get Credentialed
               </motion.span>
-              <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }} className="block relative">
+              <motion.span 
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: 45 },
+                  visible: { opacity: 1, y: 0, rotateX: 0 }
+                }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="block relative will-change-transform"
+              >
                 <span className="text-brand-deep">Faster.</span>{' '}
                 Get Paid{' '}
                 <span className="relative inline-block">
                   Sooner.
-                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1.2, duration: 1.5, ease: 'circOut' }}
-                    className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-brand-accent to-transparent origin-left shadow-[0_0_12px_rgba(127,191,127,0.5)]" />
+                  <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1.5, duration: 2, ease: 'circOut' }}
+                    className="absolute -bottom-1 sm:-bottom-3 left-0 right-0 h-[4px] bg-gradient-to-r from-transparent via-brand-accent to-transparent origin-left shadow-[0_0_15px_rgba(127,191,127,0.6)]" />
                 </span>
               </motion.span>
             </motion.div>

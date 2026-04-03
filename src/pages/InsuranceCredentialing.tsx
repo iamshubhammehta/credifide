@@ -34,9 +34,9 @@ const InsuranceCredentialing: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-[10px] font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-sm font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
             Insurance Enrollment
           </motion.div>
           
@@ -44,7 +44,7 @@ const InsuranceCredentialing: React.FC = () => {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold text-slate-950 leading-tight tracking-tighter mb-8"
+            className="text-4xl sm:text-7xl lg:text-8xl font-display font-extrabold text-slate-950 leading-tight tracking-tighter mb-8"
           >
             Credentialing That <br />
             <span className="text-brand-deep">Actually Works.</span>

@@ -43,9 +43,9 @@ const ServicesHub: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-500/20 bg-brand-500/10 text-brand-deep text-[10px] font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-500/20 bg-brand-500/10 text-brand-deep text-sm font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-deep animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
             Service Ecosystem
           </motion.div>
 
@@ -53,7 +53,7 @@ const ServicesHub: React.FC = () => {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl lg:text-7xl font-display font-extrabold text-slate-950 tracking-tight leading-[1.05] mb-8"
+            className="text-5xl lg:text-8xl font-display font-extrabold text-slate-950 tracking-tight leading-[1.05] mb-8"
           >
             A Specialized <br />
             Core For <br />
