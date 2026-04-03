@@ -201,55 +201,97 @@ const ProviderEnrollmentLP: React.FC = () => {
            </div>
         </section>
 
-        {/* PAYER NETWORK SECTION: THE MODERN TECHY VERSION */}
+        {/* PAYER NETWORK: THE INTEGRATION HUB EXPERIENCE */}
         <section className="py-32 bg-white relative overflow-hidden">
-           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#A3BD6A10,_transparent_50%)] pointer-events-none" />
+           {/* Modern Hub Lines Animation */}
+           <div className="absolute inset-0 pointer-events-none z-0">
+              <svg className="w-full h-full opacity-[0.03]" viewBox="0 0 1440 800" fill="none">
+                 <motion.path 
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
+                    d="M1440 200L720 400L0 200" stroke="#0B6B57" strokeWidth="2" 
+                 />
+                 <motion.circle 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    cx="720" cy="400" r="10" fill="#0B6B57" 
+                 />
+              </svg>
+           </div>
+
            <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
               <motion.div
                  initial={{ opacity: 0, y: 20 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
-                 className="mb-20"
+                 className="mb-24"
               >
-                 <h2 className="text-4xl md:text-6xl font-display font-black text-slate-950 mb-6 tracking-tighter">
+                 <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-slate-100 bg-slate-50 text-brand-deep text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                    <Layers size={14} />
+                    Verified Global Network
+                 </div>
+                 <h2 className="text-4xl md:text-6xl font-display font-black text-slate-950 mb-8 tracking-tighter">
                    Get Credentialed with Leading <br />
-                   <span className="text-brand-deep italic">Payers Nationwide.</span>
+                   <span className="text-brand-deep">Payers Nationwide.</span>
                  </h2>
-                 <p className="text-slate-500 font-medium max-w-2xl mx-auto uppercase tracking-[0.4em] text-[10px]">Strategic Enrollment Infrastructure</p>
+                 <p className="text-slate-500 font-bold max-w-2xl mx-auto uppercase tracking-[0.4em] text-[10px]">Strategic Enrollment Infrastructure</p>
               </motion.div>
 
-              {/* Modern Techy Payer Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {/* Modern Squircle Logo Grid - Optimized for attractiveness */}
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
                  {[
-                    'Medicare', 'Medicaid', 'Aetna', 'Cigna', 'Humana',
-                    'Molina', 'Wellcare', 'Optum', 'Tricare', 'Tri-West',
-                    'Beacon Health', 'United Healthcare', 'BCBS', 'Kaiser', 'Centene'
+                    { name: 'Medicare', color: '#004A99', icon: Shield },
+                    { name: 'Medicaid', color: '#00833E', icon: Activity },
+                    { name: 'Aetna', color: '#9D2235', icon: Zap },
+                    { name: 'Cigna', color: '#007DA3', icon: Activity },
+                    { name: 'Humana', color: '#77BC1F', icon: Shield },
+                    { name: 'Molina', color: '#F15D22', icon: Activity },
+                    { name: 'Wellcare', color: '#0079C1', icon: Zap },
+                    { name: 'Optum', color: '#E87722', icon: Activity },
+                    { name: 'Tricare', color: '#003366', icon: Shield },
+                    { name: 'Tri-West', color: '#D21034', icon: Activity },
+                    { name: 'Beacon Health', color: '#004C97', icon: Zap },
+                    { name: 'United Health', color: '#102C57', icon: Activity },
+                    { name: 'BCBS', color: '#00539B', icon: Shield },
+                    { name: 'Kaiser', color: '#0067B1', icon: Zap },
+                    { name: 'Centene', color: '#003B5C', icon: Activity }
                  ].map((payer, idx) => (
                     <motion.div
                        key={idx}
-                       initial={{ opacity: 0, scale: 0.9 }}
-                       whileInView={{ opacity: 1, scale: 1 }}
-                       transition={{ delay: idx * 0.03 }}
-                       whileHover={{ y: -5, borderColor: '#0B6B57', backgroundColor: 'rgba(11, 107, 87, 0.02)' }}
-                       className="p-8 rounded-[1.5rem] border border-slate-100 bg-slate-50/30 flex items-center justify-center text-center group transition-all duration-500 cursor-default"
+                       initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                       whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                       transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                       whileHover={{ 
+                          y: -12, 
+                          scale: 1.05,
+                          boxShadow: '0 40px 80px -20px rgba(11, 107, 87, 0.15)'
+                       }}
+                       className="group relative bg-white aspect-square rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center gap-4 transition-all duration-700 cursor-default shadow-sm overflow-hidden"
                     >
-                       <span className="text-sm font-black text-slate-800 uppercase tracking-widest group-hover:text-brand-deep transition-colors whitespace-nowrap">
-                          {payer}
+                       {/* Subtle Inner Glow */}
+                       <div 
+                         className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" 
+                         style={{ background: `radial-gradient(circle at center, ${payer.color}, transparent 70%)` }} 
+                       />
+                       
+                       {/* Logo Icon Placeholder (Stylized Square) */}
+                       <div 
+                         className="w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-transform group-hover:rotate-6 shadow-lg shadow-black/5"
+                         style={{ backgroundColor: payer.color }}
+                       >
+                          <payer.icon size={24} />
+                       </div>
+                       
+                       <span className="text-[11px] font-black text-slate-800 uppercase tracking-widest leading-none">
+                          {payer.name}
                        </span>
+
+                       {/* Interactive Payer Badge */}
+                       <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-brand-accent transition-colors" />
                     </motion.div>
                  ))}
-                 
-                 {/* "And More" Card */}
-                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="p-8 rounded-[1.5rem] border-2 border-dashed border-brand-light flex items-center justify-center text-center bg-brand-light/5 hover:bg-brand-light/20 transition-all cursor-pointer group"
-                 >
-                    <span className="text-xs font-black text-brand-deep uppercase tracking-[0.2em] flex items-center gap-2">
-                       And More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
-                 </motion.div>
               </div>
            </div>
         </section>
@@ -257,13 +299,13 @@ const ProviderEnrollmentLP: React.FC = () => {
         {/* SERVICES: THE INFRASTRUCTURE */}
         <section className="py-32 bg-white flex flex-col items-center">
            <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+              <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 text-slate-900">
                  <div className="max-w-2xl">
-                    <h2 className="text-4xl md:text-5xl font-display font-black text-slate-950 mb-6 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-display font-black mb-6 leading-tight">
                        Operational Infrastructure <br />
                        <span className="text-brand-deep font-black">Not Admin Paperwork.</span>
                     </h2>
-                    <p className="text-slate-500 text-lg leading-relaxed">
+                    <p className="text-slate-500 text-lg leading-relaxed font-bold">
                        Credifide treats Insurance Credentialing as the foundation of your revenue stream. We apply validation checks before every submission.
                     </p>
                  </div>
@@ -275,32 +317,32 @@ const ProviderEnrollmentLP: React.FC = () => {
 
               <div className="grid md:grid-cols-3 gap-8">
                  {[
-                   { title: 'Primary Source Verification', desc: 'Secure, multi-layered verification for total compliance.', icon: Fingerprint },
-                   { title: 'Payer Enrollment', desc: 'End-to-end management for individual and group payers.', icon: FileText },
-                   { title: 'CAQH Profile Management', desc: 'Automated updates and 100% profile accuracy maintenance.', icon: Layers },
-                   { title: 'Contracting Support', desc: 'Negotiation support for optimal medical reimbursement rates.', icon: Scale },
-                   { title: 'Initial Credentialing', desc: 'Fast-track onboarding for solo and group providers.', icon: TrendingUp },
-                   { title: 'Ongoing Support', desc: 'Dedicated recredentialing and maintenance beyond launch.', icon: CheckCircle2 },
+                    { title: 'Primary Source Verification', desc: 'Secure, multi-layered verification for total compliance.', icon: Fingerprint },
+                    { title: 'Payer Enrollment', desc: 'End-to-end management for individual and group payers.', icon: FileText },
+                    { title: 'CAQH Profile Management', desc: 'Automated updates and 100% profile accuracy maintenance.', icon: Layers },
+                    { title: 'Contracting Support', desc: 'Negotiation support for optimal medical reimbursement rates.', icon: Scale },
+                    { title: 'Initial Credentialing', desc: 'Fast-track onboarding for solo and group providers.', icon: TrendingUp },
+                    { title: 'Ongoing Support', desc: 'Dedicated recredentialing and maintenance beyond launch.', icon: CheckCircle2 },
                  ].map((s, i) => (
-                   <div key={i} className="p-10 rounded-[2.5rem] border border-slate-100 hover:border-brand-light group hover:bg-slate-50/50 transition-all duration-700">
-                      <div className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center text-brand-deep mb-8 group-hover:bg-brand-deep group-hover:text-white transition-all duration-700 shadow-sm">
-                         <s.icon size={24} />
-                      </div>
-                      <h4 className="text-xl font-black text-slate-900 mb-4 group-hover:text-brand-deep transition-colors">{s.title}</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed font-medium">{s.desc}</p>
-                   </div>
+                    <div key={i} className="p-10 rounded-[2.5rem] border border-slate-100 hover:border-brand-light group hover:bg-slate-50/50 transition-all duration-700">
+                       <div className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center text-brand-deep mb-8 group-hover:bg-brand-deep group-hover:text-white transition-all duration-700 shadow-sm">
+                          <s.icon size={24} />
+                       </div>
+                       <h4 className="text-xl font-black text-slate-900 mb-4 group-hover:text-brand-deep transition-colors">{s.title}</h4>
+                       <p className="text-sm text-slate-500 leading-relaxed font-bold">{s.desc}</p>
+                    </div>
                  ))}
               </div>
            </div>
         </section>
 
-        {/* PROCESS: THE FLOW GRID (COOL COLOR CORRECTION) */}
+        {/* PROCESS: THE FLOW GRID */}
         <section className="py-32 bg-[#0f3d3a] relative overflow-hidden">
            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
-           {/* Cool animated data flow lines */}
+           {/* Animated flow backdrop */}
            <div className="absolute inset-0 opacity-[0.1] -z-10 bg-[radial-gradient(circle_at_center,_#A3BD6A_1px,_transparent_1px)] bg-[length:32px_32px]" />
 
-           <div className="max-w-7xl mx-auto px-6 relative z-10">
+           <div className="max-w-7xl mx-auto px-6 relative z-10 text-slate-50">
               <div className="text-center mb-24">
                  <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-6">Structured To <span className="text-brand-accent font-black">Win.</span></h2>
                  <p className="text-[#A3BD6A] text-lg max-w-xl mx-auto uppercase tracking-[0.5em] font-black text-[10px]">The Credifide Lifecycle</p>
@@ -308,22 +350,22 @@ const ProviderEnrollmentLP: React.FC = () => {
 
               <div className="grid md:grid-cols-4 gap-0 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
                  {[
-                   { step: '01', title: 'Review', content: 'We analyze your data for gaps and misalignments.', icon: Search },
-                   { step: '02', title: 'Submission', content: 'Handled entirely by us, adhering to health plan specs.', icon: FileText },
-                   { step: '03', title: 'Contracting', content: 'Assisting in optimal reimbursement rate negotiation.', icon: Gavel },
-                   { step: '04', title: 'Ongoing', content: ' assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
+                    { step: '01', title: 'Review', content: 'We analyze your data for gaps and misalignments.', icon: Search },
+                    { step: '02', title: 'Submission', content: 'Handled entirely by us, adhering to health plan specs.', icon: FileText },
+                    { step: '03', title: 'Contracting', content: 'Assisting in optimal reimbursement rate negotiation.', icon: Gavel },
+                    { step: '04', title: 'Ongoing', content: 'Assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
                  ].map((p, i) => (
-                   <motion.div 
-                     key={i} 
-                     whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
-                     className="bg-white/5 p-12 transition-all duration-500 group border-r border-white/10 last:border-r-0 relative"
-                   >
-                      <div className="text-[#A3BD6A] font-black text-5xl mb-8 opacity-20 group-hover:opacity-100 transition-opacity italic tracking-tighter">{p.step}</div>
-                      <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
-                         {p.title}
-                         <ArrowRight size={20} className="text-[#A3BD6A] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                      </h4>
-                      <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/80 transition-colors">{p.content}</p>
+                    <motion.div 
+                      key={i} 
+                      whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+                      className="bg-white/5 p-12 transition-all duration-500 group border-r border-white/10 last:border-r-0 relative"
+                    >
+                       <div className="text-[#A3BD6A] font-black text-5xl mb-8 opacity-20 group-hover:opacity-100 transition-opacity tracking-tighter">{p.step}</div>
+                       <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
+                          {p.title}
+                          <ArrowRight size={20} className="text-[#A3BD6A] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+                       </h4>
+                       <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/80 transition-colors font-bold">{p.content}</p>
                       
                       {/* Cool Bottom Accent */}
                       <div className="absolute bottom-0 left-0 h-1 bg-[#A3BD6A] w-0 group-hover:w-full transition-all duration-700" />
