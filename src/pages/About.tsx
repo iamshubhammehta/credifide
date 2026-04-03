@@ -635,35 +635,73 @@ const StorySection: React.FC = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                      className="group relative rounded-[40px] bg-slate-950 overflow-hidden shadow-2xl shadow-brand-deep/10 aspect-[4/3]"
+                      className="group relative rounded-[40px] bg-slate-950 overflow-hidden shadow-2xl shadow-brand-deep/10 aspect-[4/3] border border-white/5"
                     >
+                      {/* Background Texture & Orbs */}
+                      <div className="absolute inset-0 z-0">
+                         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+                         <motion.div 
+                           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                           transition={{ duration: 8, repeat: Infinity }}
+                           className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-brand-deep/20 rounded-full blur-[100px]" 
+                         />
+                         <motion.div 
+                           animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+                           transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+                           className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-brand-accent/20 rounded-full blur-[80px]" 
+                         />
+                      </div>
+
                       {/* Image Layer with Zoom Effect */}
                       <motion.div
-                         whileHover={{ scale: 1.08 }}
+                         whileHover={{ scale: 1.05 }}
                          transition={{ duration: 1.5, ease: 'easeOut' }}
                          className="absolute inset-0 z-0"
                       >
                          <img 
                            src={s.img} 
                            alt={s.title} 
-                           className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                           className="w-full h-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-110"
                          />
-                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                       </motion.div>
 
+                      {/* Data Particles (Top Layer) */}
+                      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+                         {[...Array(6)].map((_, j) => (
+                           <motion.div
+                             key={j}
+                             initial={{ y: -20, opacity: 0 }}
+                             animate={{ 
+                               y: [0, 240, 0], 
+                               x: [0, (j % 2 === 0 ? 20 : -20), 0],
+                               opacity: [0, 0.4, 0] 
+                             }}
+                             transition={{ 
+                               duration: 4 + j, 
+                               repeat: Infinity, 
+                               delay: j * 0.8,
+                               ease: 'linear' 
+                             }}
+                             className="absolute w-px h-12 bg-gradient-to-b from-transparent via-brand-accent to-transparent"
+                             style={{ left: `${15 + j * 15}%`, top: '-50px' }}
+                           />
+                         ))}
+                      </div>
+
                       {/* Content Overlay */}
-                      <div className="absolute inset-0 z-10 p-10 flex flex-col justify-end">
-                         <div className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <div className="absolute inset-0 z-20 p-10 flex flex-col justify-end">
+                         <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-deep transition-all duration-500 shadow-2xl">
                             <IconRenderer
                                icon={i === 0 ? ASSETS.features.shield : i === 1 ? ASSETS.ui.activity : ASSETS.features.zap}
-                               size={28}
+                               size={32}
                             />
                          </div>
-                         <div className="h-0.5 w-0 group-hover:w-full bg-brand-accent transition-all duration-700 opacity-60" />
+                         <div className="h-0.5 w-[40px] group-hover:w-[120px] bg-brand-accent transition-all duration-700 opacity-80" />
                       </div>
                       
                       {/* Decorative elements */}
-                      <div className="absolute top-8 right-8 text-white/20 font-display text-4xl font-bold italic">
+                      <div className="absolute top-10 right-10 text-white/10 font-display text-6xl font-bold tracking-tighter italic select-none">
                          {i + 1}
                       </div>
                     </motion.div>
