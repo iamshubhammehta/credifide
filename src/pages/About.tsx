@@ -157,12 +157,12 @@ const HeroSection: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20 pb-16 lg:pt-24 lg:pb-20">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-brand-500/20 bg-brand-500/10 text-brand-400 text-sm font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
+          className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-sm font-black uppercase tracking-[0.2em] mb-10 backdrop-blur-md shadow-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
           Our Story
         </motion.div>
 
