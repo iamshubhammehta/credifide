@@ -487,6 +487,19 @@ const Hero = React.memo(() => {
                     <input type="tel" placeholder="(555) 000-0000" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-sm font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" />
                   </div>
 
+                  {/* TMC Checkbox */}
+                  <div className="pt-2">
+                     <label className="flex items-start gap-3 cursor-pointer group">
+                        <div className="relative flex items-center justify-center mt-1">
+                           <input type="checkbox" className="peer appearance-none w-5 h-5 border-2 border-slate-200 rounded-md checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer" />
+                           <IconRenderer icon={ASSETS.ui.check} size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
+                        </div>
+                        <span className="text-[10px] font-bold text-slate-500 leading-relaxed uppercase tracking-wider group-hover:text-slate-700 transition-colors">
+                           I accept the <Link to="/terms" className="text-brand-deep underline">Terms</Link> and <Link to="/privacy" className="text-brand-deep underline">Privacy</Link>.
+                        </span>
+                     </label>
+                  </div>
+
                   <button className="w-full bg-brand-deep text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#0f1f1d] hover:shadow-2xl transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-3 group">
                     Send Request
                     <IconRenderer icon={ASSETS.nav.arrowRight} size={20} className="group-hover:translate-x-1 transition-transform" />

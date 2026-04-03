@@ -20,7 +20,8 @@ import {
   FileText,
   Gavel,
   Scale,
-  Lock
+  Lock,
+  Check
 } from 'lucide-react';
 import { ASSETS, IconRenderer } from '../constants';
 import { useSEO } from '../hooks/useSEO';
@@ -77,13 +78,13 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
                 <h1 className="text-5xl md:text-7xl font-display font-black text-slate-950 leading-[1.05] mb-8">
                    Payer & Provider <br />
-                   <span className="relative inline-block px-4 py-2 mt-2">
+                   <span className="relative inline-block pl-0 py-2 mt-2">
                       <span className="relative z-10">Enrollment.</span>
                       <motion.div 
                          initial={{ scaleX: 0 }}
                          whileInView={{ scaleX: 1 }}
                          transition={{ delay: 0.8, duration: 0.8, ease: "circOut" }}
-                         className="absolute bottom-1 left-0 right-0 h-4 bg-brand-accent/30 -z-0 origin-left rounded-lg"
+                         className="absolute -bottom-1 left-0 right-10 h-3 bg-brand-accent/40 -z-0 origin-left rounded-full"
                       />
                    </span>
                 </h1>
@@ -132,7 +133,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                         <p className="text-xs text-slate-400 font-bold mb-8 uppercase tracking-widest">Immediate Response Enrollment</p>
                         
                         <form className="space-y-6">
-                           <div className="grid grid-cols-2 gap-4">
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               <div className="relative">
                                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 ml-1">Full Name</label>
                                  <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-slate-900 font-bold text-sm focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all" placeholder="John Doe" />
@@ -153,7 +154,20 @@ const ProviderEnrollmentLP: React.FC = () => {
                               <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-slate-900 font-bold text-sm focus:ring-2 focus:ring-brand-deep/20 focus:border-brand-deep outline-none transition-all" placeholder="(555) 000-0000" />
                            </div>
 
-                           <div className="pt-4">
+                           {/* TMC Checkbox */}
+                           <div className="space-y-4 pt-2">
+                              <label className="flex items-start gap-3 cursor-pointer group">
+                                 <div className="relative flex items-center justify-center mt-1">
+                                    <input type="checkbox" className="peer appearance-none w-5 h-5 border-2 border-slate-200 rounded-md checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer" />
+                                    <Check size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
+                                 </div>
+                                 <span className="text-[10px] font-bold text-slate-500 leading-relaxed uppercase tracking-wider group-hover:text-slate-700 transition-colors">
+                                    I accept the <Link to="/terms" className="text-brand-deep underline">Terms</Link> and <Link to="/privacy" className="text-brand-deep underline">Privacy Policy</Link>.
+                                 </span>
+                              </label>
+                           </div>
+
+                           <div className="pt-2">
                               <button type="submit" className="w-full bg-brand-deep text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#0f3d3a] hover:shadow-xl transition-all active:scale-95 group">
                                  Submit Application
                                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -405,6 +419,65 @@ const ProviderEnrollmentLP: React.FC = () => {
                       <span className="text-sm font-black text-slate-900 tracking-tight">{spec.name}</span>
                    </motion.div>
                  ))}
+              </div>
+           </div>
+        </section>
+
+        {/* FINAL CONVERSION: THE BOTTOM FORM */}
+        <section id="footer-form" className="py-32 bg-slate-50 relative overflow-hidden">
+           <div className="max-w-4xl mx-auto px-6 relative z-10">
+              <div className="text-center mb-16">
+                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-light/30 border border-brand-light/50 text-brand-deep text-[10px] font-black uppercase tracking-widest mb-6">
+                    <Sparkles size={14} />
+                    Final Step to Clinical Success
+                 </div>
+                 <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 mb-4">Start Your Enrollment.</h2>
+                 <p className="text-slate-500 font-bold max-w-xl mx-auto">Fill out the form below and our team will be in touch within 24 hours.</p>
+              </div>
+
+              <div className="bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden">
+                 <div className="p-8 md:p-16">
+                    <form className="space-y-8">
+                       <div className="grid md:grid-cols-2 gap-8">
+                          <div className="relative">
+                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 ml-1">Full Name</label>
+                             <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" placeholder="John Doe" />
+                          </div>
+                          <div className="relative">
+                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 ml-1">Practice Name</label>
+                             <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" placeholder="Practice Name" />
+                          </div>
+                       </div>
+
+                       <div className="grid md:grid-cols-2 gap-8">
+                          <div className="relative">
+                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 ml-1">Email Address</label>
+                             <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" placeholder="john@example.com" />
+                          </div>
+                          <div className="relative">
+                             <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 ml-1">Phone Number</label>
+                             <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all" placeholder="(555) 000-0000" />
+                          </div>
+                       </div>
+
+                       <div className="space-y-6">
+                          <label className="flex items-start gap-4 cursor-pointer group">
+                             <div className="relative flex items-center justify-center mt-1">
+                                <input type="checkbox" required className="peer appearance-none w-6 h-6 border-2 border-slate-200 rounded-lg checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer" />
+                                <Check size={16} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
+                             </div>
+                             <span className="text-xs font-bold text-slate-500 leading-relaxed group-hover:text-slate-800 transition-colors">
+                                I accept the <Link to="/terms" className="text-brand-deep underline">Terms & Conditions</Link> and agree to receive follow-up communication regarding my enrollment request.
+                             </span>
+                          </label>
+                       </div>
+
+                       <button type="submit" className="w-full bg-brand-deep text-white py-6 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-4 hover:bg-[#0f1f1d] hover:shadow-2xl transition-all active:scale-[0.98] group">
+                          Complete Application
+                          <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                       </button>
+                    </form>
+                 </div>
               </div>
            </div>
         </section>
