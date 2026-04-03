@@ -579,80 +579,94 @@ const StorySection: React.FC = () => {
       label: 'The Beginning',
       title: 'Born from Frustration.',
       body: 'Healthcare providers were spending months waiting to get credentialed. Clinics were losing revenue not from bad medicine, but from broken administrative systems.',
+      img: '/brain/6009f264-f984-4d12-8a8d-ca979dfac569/about_origin_beginning_1775229944332.png'
     },
     {
       label: 'The Insight',
       title: 'The Problem Was Systemic.',
       body: 'We realized the tools didn\'t exist. Spreadsheets, fax machines, siloed portals. None of it was designed for the pace modern healthcare demands.',
+      img: '/brain/6009f264-f984-4d12-8a8d-ca979dfac569/about_origin_insight_1775229990658.png'
     },
     {
       label: 'The Mission',
       title: 'So We Built the System.',
       body: 'Credifide brings automation, intelligence, and real-time visibility to credentialing and RCM, so every provider can focus fully on patient care.',
+      img: '/brain/6009f264-f984-4d12-8a8d-ca979dfac569/about_origin_mission_1775230029612.png'
     },
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
       {/* Background accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-50/60 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-50/40 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative">
-        <FadeUp className="mb-20">
+        <FadeUp className="mb-24 lg:mb-32">
           <span className="text-brand-600 font-bold tracking-widest uppercase text-sm">Our Origin</span>
-          <h2 className="text-4xl lg:text-6xl font-display font-bold text-slate-900 mt-3 leading-tight">
+          <h2 className="text-5xl lg:text-7xl font-display font-bold text-slate-900 mt-4 leading-tight tracking-tight">
             A story of <span className="text-brand-500">purpose</span>.
           </h2>
         </FadeUp>
 
-        <div className="space-y-24">
+        <div className="space-y-32 lg:space-y-48">
           {statements.map((s, i) => (
             <FadeUp key={i} delay={i * 0.1}>
-              <div className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-                  <span className="text-xs font-bold tracking-widest uppercase text-brand-500 mb-3 block">{s.label}</span>
-                  <h3 className="text-3xl lg:text-5xl font-display font-bold text-slate-900 mb-5 leading-tight">{s.title}</h3>
-                  <p className="text-lg text-slate-500 leading-relaxed max-w-lg">{s.body}</p>
+              <div className={`flex flex-col lg:flex-row items-center gap-16 lg:gap-24 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className="w-full lg:w-1/2">
+                  <div className="inline-flex items-center gap-3 mb-6">
+                    <span className="w-10 h-[1px] bg-brand-light" />
+                    <span className="text-xs font-black tracking-widest uppercase text-brand-500">{s.label}</span>
+                  </div>
+                  <h3 className="text-4xl lg:text-5xl font-display font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">{s.title}</h3>
+                  <p className="text-xl text-slate-500 leading-relaxed max-w-lg font-medium opacity-90">{s.body}</p>
+                  
+                  {/* Action Link for narrative flow */}
+                  <div className="mt-10 flex items-center gap-4 text-brand-deep font-bold group cursor-default">
+                    <div className="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-xs">
+                       0{i + 1}
+                    </div>
+                    <span className="tracking-wide">Core Milestone</span>
+                  </div>
                 </div>
-                <div className={`relative ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+
+                <div className="w-full lg:w-1/2">
                     <motion.div
-                      animate={{ y: [0, -12, 0] }}
-                      transition={{ duration: 5 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                      className="w-full aspect-[5/3] rounded-3xl bg-white border border-brand-light flex items-center justify-center relative overflow-hidden will-change-transform shadow-2xl"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                      className="group relative rounded-[40px] bg-slate-950 overflow-hidden shadow-2xl shadow-brand-deep/10 aspect-[4/3]"
                     >
-                    {/* Abstract animated visual */}
-                    <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 240">
-                      {[...Array(5)].map((_, j) => (
-                        <motion.circle
-                          key={j}
-                          cx={80 + j * 60}
-                          cy={120}
-                          r={20 + j * 8}
-                          fill="none"
-                          stroke="#7FBF7F"
-                          strokeWidth="0.5"
-                          animate={{ r: [20 + j * 8, 30 + j * 10, 20 + j * 8] }}
-                          transition={{ duration: 3 + j, repeat: Infinity, delay: j * 0.3 }}
-                        />
-                      ))}
-                    </svg>
-                      <div className="relative z-10 text-center px-8">
-                        <motion.div
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                          className="w-16 h-16 bg-brand-light rounded-2xl mx-auto mb-4 flex items-center justify-center border border-brand-accent/30"
-                        >
-                          <IconRenderer
-                            icon={i === 0 ? ASSETS.features.shield : i === 1 ? ASSETS.ui.activity : ASSETS.features.zap}
-                            size={28}
-                            className="text-brand-deep"
-                          />
-                        </motion.div>
-                        <p className="text-slate-400 text-sm font-mono">{`0${i + 1} / 03`}</p>
+                      {/* Image Layer with Zoom Effect */}
+                      <motion.div
+                         whileHover={{ scale: 1.08 }}
+                         transition={{ duration: 1.5, ease: 'easeOut' }}
+                         className="absolute inset-0 z-0"
+                      >
+                         <img 
+                           src={s.img} 
+                           alt={s.title} 
+                           className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                         />
+                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                      </motion.div>
+
+                      {/* Content Overlay */}
+                      <div className="absolute inset-0 z-10 p-10 flex flex-col justify-end">
+                         <div className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <IconRenderer
+                               icon={i === 0 ? ASSETS.features.shield : i === 1 ? ASSETS.ui.activity : ASSETS.features.zap}
+                               size={28}
+                            />
+                         </div>
+                         <div className="h-0.5 w-0 group-hover:w-full bg-brand-accent transition-all duration-700 opacity-60" />
                       </div>
-                    {/* Corner glow */}
-                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl" />
-                  </motion.div>
+                      
+                      {/* Decorative elements */}
+                      <div className="absolute top-8 right-8 text-white/20 font-display text-4xl font-bold italic">
+                         {i + 1}
+                      </div>
+                    </motion.div>
                 </div>
               </div>
             </FadeUp>
