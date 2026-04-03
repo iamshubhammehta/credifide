@@ -521,11 +521,6 @@ const Hero = React.memo(() => {
         </PhysicsBody>
       </div>
 
-      {/* Scroll cue */}
-      <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 will-change-transform">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent via-slate-500 to-transparent" />
-      </motion.div>
     </section>
   );
 });
