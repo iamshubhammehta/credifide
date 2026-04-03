@@ -74,19 +74,19 @@ const ProviderEnrollmentLP: React.FC = () => {
                    <Zap size={14} />
                    AI-Powered Enrollment Platform
                 </div>
-                <h1 className="text-6xl md:text-8xl font-display font-black text-slate-950 leading-[0.9] mb-8">
+                <h1 className="text-5xl md:text-7xl font-display font-black text-slate-950 leading-[0.95] mb-8">
                    Payer & Provider <br />
-                   <span className="text-brand-deep underline decoration-brand-accent/20 decoration-8 underline-offset-8">Enrollment.</span>
+                   <span className="text-brand-deep underline decoration-brand-accent/20 decoration-6 underline-offset-4">Enrollment.</span>
                 </h1>
-                <p className="text-xl text-slate-500 mb-12 max-w-lg leading-relaxed font-medium">
+                <p className="text-lg text-slate-500 mb-10 max-w-lg leading-relaxed font-medium">
                    Experience 98% first-submission accuracy and 30% faster turnaround times. We treat credentialing as infrastructure, not administrative paperwork.
                 </p>
                 
-                <div className="w-full max-w-lg mt-8">
-                   <a href="#form" className="w-full bg-brand-deep text-white px-10 py-6 rounded-[2rem] font-black text-2xl shadow-2xl shadow-brand-deep/30 hover:shadow-brand-deep/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between group">
+                <div className="w-full max-w-md mt-6">
+                   <a href="#form" className="w-full bg-brand-deep text-white px-8 py-5 rounded-[1.5rem] font-black text-xl shadow-2xl shadow-brand-deep/30 hover:shadow-brand-deep/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-between group">
                       <span>Book A Strategy Call</span>
-                      <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
-                        <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-deep transition-colors">
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                       </div>
                    </a>
                 </div>
