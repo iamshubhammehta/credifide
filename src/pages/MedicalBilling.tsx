@@ -130,7 +130,7 @@ const MedicalBilling: React.FC = () => {
               { icon: ASSETS.ui.clipboard, title: "Charge Entry", desc: "Digital scrubbing and entry of patient encounters within 24 hours." },
               { icon: ASSETS.ui.fileText, title: "Precision Coding", desc: "Certified coders ensure ICD-10, CPT, and modifier accuracy." },
               { icon: ASSETS.ui.trendingUp, title: "A/R Follow-up", desc: "Aggressive, automated tracking of every claim over 15 days old." },
-              { icon: ASSETS.features.shield, title: "Denial Mgmt", desc: "Strategic appeals and root-cause analysis to stop repeat denials." }
+              { icon: ASSETS.features.shield, title: "Denial Management", desc: "Strategic appeals and root-cause analysis to stop repeat denials." }
             ].map((item, i) => (
               <motion.div
                 key={i}
