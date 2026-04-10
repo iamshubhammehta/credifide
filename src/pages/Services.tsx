@@ -65,7 +65,7 @@ const ServicesHub: React.FC = () => {
              transition={{ delay: 0.1 }}
              className="text-xl text-slate-500 leading-relaxed font-medium mb-12"
            >
-             Credifide manages the operational complexity of healthcare so you can focus on modern patient outcomes.
+             Credifide manages the operational complexity of healthcare so you can focus on patient outcomes.
            </motion.p>
         </div>
 
