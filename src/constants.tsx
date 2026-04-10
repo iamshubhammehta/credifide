@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  Phone, 
-  ArrowRight, 
+import {
+  Phone,
+  ArrowRight,
   ArrowLeft,
-  Menu, 
-  X, 
-  Github, 
-  Twitter, 
+  Menu,
+  X,
+  Github,
+  Twitter,
   Linkedin,
   Shield,
   Zap,
@@ -160,28 +160,28 @@ interface IconRendererProps {
   className?: string;
 }
 
-export const IconRenderer: React.FC<IconRendererProps> = React.memo(({ 
-  icon: Icon, 
-  image, 
-  size = 24, 
-  className = "" 
+export const IconRenderer: React.FC<IconRendererProps> = React.memo(({
+  icon: Icon,
+  image,
+  size = 24,
+  className = ""
 }) => {
   if (image) {
     return (
-      <img 
-        src={image} 
-        alt="icon" 
-        style={{ width: size, height: size }} 
+      <img
+        src={image}
+        alt="icon"
+        style={{ width: size, height: size }}
         className={`object-contain ${className}`}
         referrerPolicy="no-referrer"
         loading="lazy"
       />
     );
   }
-  
+
   if (Icon) {
     return <Icon size={size} className={className} />;
   }
-  
+
   return null;
 });

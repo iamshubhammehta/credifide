@@ -47,10 +47,10 @@ const Background = React.memo(() => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    
+
     const dpr = window.devicePixelRatio || 1;
     let W = 0, H = 0;
-    
+
     const resize = () => {
       W = window.innerWidth;
       H = window.innerHeight;
@@ -58,21 +58,21 @@ const Background = React.memo(() => {
       canvas.height = H * dpr;
       ctx.scale(dpr, dpr);
     };
-    
+
     resize();
     window.addEventListener('resize', resize);
-    
+
     const N = Math.floor((W < 768 ? 40 : 100) * animations.particleDensity);
     const pts = Array.from({ length: N }, () => ({
       x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - 0.5) * (animations.isMobile ? 0.2 : 0.4), 
+      vx: (Math.random() - 0.5) * (animations.isMobile ? 0.2 : 0.4),
       vy: (Math.random() - 0.5) * (animations.isMobile ? 0.2 : 0.4),
       r: Math.random() * 2 + 0.5, o: Math.random() * 0.4 + 0.1,
     }));
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
-      
+
       // Radial glow around mouse
       const grd = ctx.createRadialGradient(mouseRef.current.x, mouseRef.current.y, 0, mouseRef.current.x, mouseRef.current.y, 350);
       grd.addColorStop(0, 'rgba(127,191,127,0.12)');
@@ -85,7 +85,7 @@ const Background = React.memo(() => {
         p.y += p.vy + (mouseRef.current.y - H / 2) * 0.00005;
         if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
         if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-        
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(127,191,127,${p.o})`;
@@ -112,10 +112,10 @@ const Background = React.memo(() => {
     const onMouse = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
-    
+
     window.addEventListener('mousemove', onMouse);
     draw();
-    
+
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouse);
@@ -127,7 +127,7 @@ const Background = React.memo(() => {
     <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none bg-white">
       {/* Particle canvas effect */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
-      
+
       {/* Very subtle brand glow that fades on scroll */}
       <motion.div
         className="absolute inset-0 w-full h-full blur-[160px] will-change-transform"
@@ -378,7 +378,7 @@ const Hero = React.memo(() => {
   return (
     <section id="hero" className="relative overflow-hidden pt-12 pb-6 lg:pt-16" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
       {/* Mesh gradients removed as they are now global */}
-      
+
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
@@ -406,7 +406,7 @@ const Hero = React.memo(() => {
                 }
               }}
             >
-              <motion.span 
+              <motion.span
                 variants={{
                   hidden: { opacity: 0, y: 40, rotateX: 45 },
                   visible: { opacity: 1, y: 0, rotateX: 0 }
@@ -416,7 +416,7 @@ const Hero = React.memo(() => {
               >
                 Get Credentialed
               </motion.span>
-              <motion.span 
+              <motion.span
                 variants={{
                   hidden: { opacity: 0, y: 40, rotateX: 45 },
                   visible: { opacity: 1, y: 0, rotateX: 0 }
@@ -465,8 +465,8 @@ interface ServiceIllustrationProps {
 }
 
 const ServiceIllustration = React.memo(({ id, icon: Icon }: ServiceIllustrationProps) => {
-    const animations = useAnimationSettings();
-    if (id === "feat-1") {
+  const animations = useAnimationSettings();
+  if (id === "feat-1") {
     return (
       <div className="relative w-full h-full flex items-center justify-center">
         {/* Document Base */}
@@ -769,24 +769,24 @@ const ApproachCard = React.memo(({ card, index, scrollYProgress }: { card: any, 
   if (animations.isMobile) {
     return (
       <div className="w-full mb-6">
-         <PhysicsBody id={card.id} className="w-full h-full">
-           <div className="saas-card p-8 bg-white border-slate-200 shadow-2xl relative overflow-hidden h-full group flex flex-col">
-             <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60`} />
-             <div className="relative z-10 flex flex-col flex-1">
-               <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-6 border border-brand-deep/20">
-                 <IconRenderer icon={card.icon} size={22} className="stroke-[1.5px]" />
-               </div>
-               <h3 className="text-2xl font-bold text-slate-900 mb-4">{card.title}</h3>
-               <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{card.desc}</p>
-               
-               <div className="pt-6 border-t border-slate-100 mt-auto">
-                 <p className="font-bold text-sm text-slate-900 leading-snug">
-                   {card.highlight}
-                 </p>
-               </div>
-             </div>
-           </div>
-         </PhysicsBody>
+        <PhysicsBody id={card.id} className="w-full h-full">
+          <div className="saas-card p-8 bg-white border-slate-200 shadow-2xl relative overflow-hidden h-full group flex flex-col">
+            <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60`} />
+            <div className="relative z-10 flex flex-col flex-1">
+              <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-6 border border-brand-deep/20">
+                <IconRenderer icon={card.icon} size={22} className="stroke-[1.5px]" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">{card.title}</h3>
+              <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{card.desc}</p>
+
+              <div className="pt-6 border-t border-slate-100 mt-auto">
+                <p className="font-bold text-sm text-slate-900 leading-snug">
+                  {card.highlight}
+                </p>
+              </div>
+            </div>
+          </div>
+        </PhysicsBody>
       </div>
     );
   }
@@ -1543,17 +1543,17 @@ const ContactSection = React.memo(() => {
 
                           {/* Acceptance Checkbox */}
                           <label className="flex items-start gap-3 cursor-pointer group">
-                             <div className="relative flex items-center justify-center mt-0.5 shrink-0">
-                                <input 
-                                  type="checkbox" 
-                                  className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-slate-200 checked:border-brand-deep checked:bg-brand-deep transition-all" 
-                                  required
-                                />
-                                <IconRenderer icon={ASSETS.ui.check} size={14} className="pointer-events-none absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
-                             </div>
-                             <span className="text-xs text-slate-600 font-medium select-none group-hover:text-slate-900 transition-colors">
-                                I accept the <Link to="/terms" className="text-brand-deep font-bold hover:underline">Terms and Conditions</Link>.
-                             </span>
+                            <div className="relative flex items-center justify-center mt-0.5 shrink-0">
+                              <input
+                                type="checkbox"
+                                className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-slate-200 checked:border-brand-deep checked:bg-brand-deep transition-all"
+                                required
+                              />
+                              <IconRenderer icon={ASSETS.ui.check} size={14} className="pointer-events-none absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
+                            </div>
+                            <span className="text-xs text-slate-600 font-medium select-none group-hover:text-slate-900 transition-colors">
+                              I accept the <Link to="/terms" className="text-brand-deep font-bold hover:underline">Terms and Conditions</Link>.
+                            </span>
                           </label>
 
                           <div className="flex items-center gap-4 pt-4">
@@ -1661,7 +1661,7 @@ const Specialties = React.memo(() => {
 
 const Home = React.memo(() => {
   const { hash } = useLocation();
-  
+
   useSEO(
     'Credifide - Modern Healthcare RCM & Provider Enrollment',
     'Streamline your healthcare operations with Credifide. We specialize in Provider Enrollment, Insurance Credentialing, and Medical Billing for modern clinical success.'
@@ -1723,20 +1723,20 @@ export default function App() {
           </Routes>
 
           <footer className="bg-[#0f3d3a] pt-2 sm:pt-4 md:pt-6 lg:pt-8 pb-0 text-white relative overflow-hidden">
-              <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
-              
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-                {/* Logo */}
-                <div className="mb-1 sm:mb-2 md:mb-5">
-                  <Link to="/" className="flex items-center">
-                    <img
-                      src={footerLogo}
-                      alt="Credifide"
-                      className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
-                      loading="lazy"
-                    />
-                  </Link>
-                </div>
+            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+              {/* Logo */}
+              <div className="mb-1 sm:mb-2 md:mb-5">
+                <Link to="/" className="flex items-center">
+                  <img
+                    src={footerLogo}
+                    alt="Credifide"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </Link>
+              </div>
 
               {/* Navigation with dashes */}
               <nav className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 gap-y-0.5 mb-2 sm:mb-3 md:mb-5 text-xs md:text-sm lg:text-base font-bold text-white/90 px-1">
@@ -1755,7 +1755,7 @@ export default function App() {
 
               {/* Bottom Row: Phone | Socials | Email */}
               <div className="w-full flex flex-row flex-wrap justify-center md:justify-center items-center gap-x-3 md:gap-x-10 gap-y-1.5 md:gap-y-3 pb-[max(8px,env(safe-area-inset-bottom))] md:pb-6">
-                
+
                 {/* Phone */}
                 <div className="order-1 md:order-1 flex items-center">
                   <a href="tel:+13215240606" className="text-xs md:text-sm lg:text-base font-bold text-white/80 hover:text-brand-accent transition-colors flex items-center gap-1.5 py-0.5 px-1.5 md:p-0">
@@ -1764,7 +1764,7 @@ export default function App() {
                       <span>Call Us</span>
                     </div>
                     <div className="hidden md:flex items-center gap-1.5">
-                      <IconRenderer icon={ASSETS.nav.phone} size={14} className="opacity-80"/> 
+                      <IconRenderer icon={ASSETS.nav.phone} size={14} className="opacity-80" />
                       <span>+1 321 524 0606</span>
                     </div>
                   </a>
@@ -1778,7 +1778,7 @@ export default function App() {
                       <span>Email Us</span>
                     </div>
                     <div className="hidden md:flex items-center gap-1.5">
-                      <IconRenderer icon={ASSETS.nav.mail} size={14} className="opacity-80"/> 
+                      <IconRenderer icon={ASSETS.nav.mail} size={14} className="opacity-80" />
                       <span>connect@credifide.com</span>
                     </div>
                   </a>
