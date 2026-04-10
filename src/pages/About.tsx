@@ -483,8 +483,7 @@ const StorySection: React.FC = () => {
             <FadeUp key={i} delay={i * 0.1}>
               <div className={`flex flex-col lg:flex-row items-center gap-10 sm:gap-16 lg:gap-24 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="w-full lg:w-1/2">
-                  <div className="inline-flex items-center gap-3 mb-6">
-                    <span className="w-10 h-[1px] bg-brand-light" />
+                  <div className="mb-6">
                     <span className="text-xs font-black tracking-widest uppercase text-brand-500">{s.label}</span>
                   </div>
                   <h3 className="text-2xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-6 sm:mb-8 leading-[1.1] tracking-tight">{s.title}</h3>
