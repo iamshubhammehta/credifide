@@ -769,16 +769,16 @@ const ApproachCard = React.memo(({ card, index, scrollYProgress }: { card: any, 
     return (
       <div className="w-full mb-6">
          <PhysicsBody id={card.id} className="w-full h-full">
-           <div className="saas-card p-8 bg-white border-slate-200 shadow-2xl relative overflow-hidden h-full group">
+           <div className="saas-card p-8 bg-white border-slate-200 shadow-2xl relative overflow-hidden h-full group flex flex-col">
              <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60`} />
-             <div className="relative z-10">
-               <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner">
-                 <IconRenderer icon={card.icon} size={28} />
+             <div className="relative z-10 flex flex-col flex-1">
+               <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-6 border border-brand-deep/20">
+                 <IconRenderer icon={card.icon} size={22} className="stroke-[1.5px]" />
                </div>
                <h3 className="text-2xl font-bold text-slate-900 mb-4">{card.title}</h3>
-               <p className="text-slate-600 text-base leading-relaxed mb-8">{card.desc}</p>
+               <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{card.desc}</p>
                
-               <div className="pt-6 border-t border-slate-100">
+               <div className="pt-6 border-t border-slate-100 mt-auto">
                  <p className="font-bold text-sm text-slate-900 leading-snug">
                    {card.highlight}
                  </p>
@@ -797,26 +797,26 @@ const ApproachCard = React.memo(({ card, index, scrollYProgress }: { card: any, 
         opacity,
         scale,
       }}
-      className="w-full will-change-transform"
+      className="w-full will-change-transform h-full"
     >
-      <PhysicsBody id={card.id} className="w-full">
-        <div className="saas-card p-8 sm:p-10 flex flex-col items-center text-center relative group/approach transition-colors duration-500 bg-white border-slate-200 shadow-xl hover:shadow-brand-deep/10 will-change-transform">
+      <PhysicsBody id={card.id} className="w-full h-full">
+        <div className="saas-card p-8 sm:p-10 flex flex-col items-center text-center relative group/approach transition-colors duration-500 bg-white border-slate-200 shadow-xl hover:shadow-brand-deep/10 will-change-transform h-full">
           <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60 transition-opacity duration-500 group-hover/approach:opacity-90`} />
 
-          <div className="relative z-10 flex flex-col w-full">
-            <div className="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner group-hover/approach:scale-110 transition-transform duration-500 will-change-transform mx-auto">
-              <IconRenderer icon={card.icon} size={36} />
+          <div className="relative z-10 flex flex-col w-full flex-1">
+            <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-6 border border-brand-deep/20 group-hover/approach:scale-110 transition-transform duration-500 will-change-transform mx-auto">
+              <IconRenderer icon={card.icon} size={22} className="stroke-[1.5px]" />
             </div>
 
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold mb-5 leading-tight transition-colors duration-1000 text-slate-900 text-center">
               {card.title}
             </h3>
 
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed mb-6 transition-colors duration-1000 text-slate-600 text-center">
+            <p className="text-sm sm:text-base lg:text-lg leading-relaxed mb-6 transition-colors duration-1000 text-slate-600 text-center flex-1">
               {card.desc}
             </p>
 
-            <div className="pt-6 border-t w-full transition-colors duration-1000 border-slate-200">
+            <div className="pt-6 border-t w-full transition-colors duration-1000 border-slate-200 mt-auto">
               <p className="font-bold text-sm lg:text-base leading-snug transition-colors duration-1000 text-slate-900 text-center">
                 {card.highlight}
               </p>
@@ -915,7 +915,7 @@ const OurApproach = React.memo(() => {
             </PhysicsBody>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full items-stretch">
             {approachData.map((card, index) => (
               <ApproachCard
                 key={card.id}
