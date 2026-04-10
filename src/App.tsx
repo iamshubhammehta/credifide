@@ -19,6 +19,7 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import logoMain from './assets/logo_main.png';
 import footerLogo from './assets/footer_logo.png';
+import { WhoWeAreCTA } from './components/WhoWeAreCTA';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -1683,6 +1684,7 @@ const Home = React.memo(() => {
       <Hero />
       <Features />
       <OurApproach />
+      <WhoWeAreCTA />
       <Specialties />
       <ReviewsSection />
       <ContactSection />
