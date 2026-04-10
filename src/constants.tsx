@@ -48,6 +48,12 @@ import {
   Lock,
   Rocket,
   Building2,
+  Award,
+  RefreshCw,
+  FileChartLine,
+  Handshake,
+  ClipboardList,
+  Smartphone,
   LucideIcon
 } from 'lucide-react';
 import logoMain from './assets/logo_main.png';
@@ -137,6 +143,12 @@ export const ASSETS = {
     activity: Activity,
     chevronDown: ChevronDown,
     lock: Lock,
+    award: Award,
+    refresh: RefreshCw,
+    chart: FileChartLine,
+    handshake: Handshake,
+    list: ClipboardList,
+    smartphone: Smartphone,
   }
 };
 
