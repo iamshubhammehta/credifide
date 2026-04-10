@@ -254,25 +254,94 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── CTA SECTION ─── */}
-      <section className="py-12 lg:py-16 bg-white">
-         <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-brand-deep rounded-[48px] sm:rounded-[56px] p-10 sm:p-16 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl shadow-brand-deep/20">
-               <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-               <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: 'linear' }} className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-white/5 rounded-[48%] blur-[80px]" />
-               
-               <div className="relative z-10">
-                  <h2 className="text-3xl sm:text-4xl lg:text-7xl font-display font-bold mb-10 leading-tight">Ready to Stabilize <br />Your Cash Flow?</h2>
-                  <p className="text-lg sm:text-xl text-brand-light/70 max-w-3xl mx-auto leading-relaxed mb-16 px-4">
-                     We don't rely on shortcuts or reactive fixes. We design billing systems that hold up under real-world complexity.
-                  </p>
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                     <Link to="/contact" className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold text-lg hover:scale-[1.05] transition-all shadow-xl w-full sm:w-auto">
-                        Book a Consultation
-                     </Link>
-                  </div>
-               </div>
+      <section className="py-12 lg:py-16 bg-transparent relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <div className="relative rounded-[32px] sm:rounded-[48px] overflow-hidden">
+            {/* Animated gradient BG */}
+            <motion.div
+              animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, #0B6B57, #095646, #074235, #0B6B57)',
+                backgroundSize: '300% 300%',
+              }}
+            />
+
+            {/* Floating Orbs */}
+            <motion.div
+              animate={{ x: [0, 20, 0], y: [0, 15, 0] }}
+              transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+              style={{ willChange: 'transform' }}
+              className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-[70px]"
+            />
+            <motion.div
+              animate={{ x: [0, -15, 0], y: [0, -20, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+              style={{ willChange: 'transform' }}
+              className="absolute bottom-[-20%] right-[-10%] w-80 h-80 bg-brand-accent/15 rounded-full blur-[60px]"
+            />
+
+            {/* Grid Overlay */}
+            <div className="absolute inset-0 opacity-[0.04]" style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+            }} />
+
+            <div className="relative z-10 py-16 sm:py-24 px-6 sm:px-8 lg:px-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-white text-sm font-semibold mb-8"
+              >
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-2 h-2 rounded-full bg-brand-400"
+                />
+                Start Your Journey
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-[2.2rem] sm:text-5xl lg:text-7xl font-display font-bold text-white leading-tight mb-6"
+              >
+                Ready to Stabilize <br />
+                <span className="text-brand-400">Your Cash Flow?</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-slate-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
+              >
+                We don't rely on shortcuts or reactive fixes. We design billing systems that hold up under real-world complexity.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex items-center justify-center"
+              >
+                <Link
+                  to="/contact"
+                  className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold text-lg shadow-2xl shadow-black/10 hover:scale-105 transition-all flex items-center gap-3 w-full sm:w-auto justify-center"
+                >
+                  Book a Consultation
+                </Link>
+              </motion.div>
             </div>
-         </div>
+          </div>
+        </div>
       </section>
     </div>
   );
