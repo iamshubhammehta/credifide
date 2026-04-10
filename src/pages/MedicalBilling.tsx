@@ -153,18 +153,18 @@ const MedicalBilling: React.FC = () => {
       </section>
 
       {/* ─── VISUAL FLOW SECTION ─── */}
-      <section className="py-12 lg:py-16 bg-brand-deep relative overflow-hidden">
+      <section className="py-24 lg:py-32 bg-[#0f3d3a] relative overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0 opacity-[0.1]" style={{ backgroundImage: 'radial-gradient(circle, #A3BD6A 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-white">
           <div className="text-center mb-20 sm:mb-24">
-             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-8">The Unified Billing Cycle</h2>
-             <p className="text-lg sm:text-xl text-brand-light/60 max-w-2xl mx-auto font-medium">A structured, automated workflow from encounter to payment posting.</p>
+             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-black text-white mb-6">The Unified Billing Cycle</h2>
+             <p className="text-[#A3BD6A] text-[10px] sm:text-xs max-w-2xl mx-auto uppercase tracking-[0.5em] font-black opacity-90">A structured, automated workflow from encounter to payment posting.</p>
           </div>
           
           <div className="relative flex flex-col lg:flex-row justify-between gap-12 lg:gap-20 items-center lg:items-start group">
              {/* Dynamic connector line (Desktop) */}
-             <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent hidden lg:block" />
+             <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/10 to-transparent hidden lg:block" />
              
              {[
                { icon: ASSETS.ui.fileText, label: "Scrubbing", desc: "Claims are validated against thousands of specific payer rules." },
@@ -180,11 +180,11 @@ const MedicalBilling: React.FC = () => {
                   transition={{ delay: i * 0.2 }}
                   className="relative z-10 flex flex-col items-center text-center max-w-[280px]"
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/10 border border-white/20 rounded-[32px] flex items-center justify-center text-brand-accent mb-6 sm:mb-8 shadow-xl backdrop-blur-md group-hover:bg-white/20 transition-all duration-500">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/5 border border-white/10 rounded-[32px] flex items-center justify-center text-[#A3BD6A] mb-6 sm:mb-8 shadow-xl backdrop-blur-md group-hover:bg-white/10 transition-all duration-500">
                      <IconRenderer icon={node.icon} size={36} />
                   </div>
-                  <h4 className="text-lg sm:text-xl font-bold mb-4">{node.label}</h4>
-                  <p className="text-brand-light/50 text-sm leading-relaxed px-4">{node.desc}</p>
+                  <h4 className="text-lg sm:text-xl font-black mb-4 tracking-tight">{node.label}</h4>
+                  <p className="text-white/50 text-sm leading-relaxed px-4 font-bold group-hover:text-white/80 transition-colors">{node.desc}</p>
                 </motion.div>
              ))}
           </div>
