@@ -345,7 +345,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        The Credifide Advantage
                     </div>
                     <h2 className="text-4xl md:text-6xl font-display font-black text-slate-950 leading-[1.05]">
-                       Why Systems Choose <br />
+                       Why Practices Choose <br />
                        <span className="text-brand-deep">The Credifide Core.</span>
                     </h2>
                  </div>
