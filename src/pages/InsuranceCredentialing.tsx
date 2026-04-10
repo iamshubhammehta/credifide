@@ -76,6 +76,52 @@ const InsuranceCredentialing: React.FC = () => {
         </div>
       </section>
 
+      {/* ─── SERVICES BREAKDOWN ─── */}
+      <section className="py-12 lg:py-16 bg-brand-light/20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-6 text-slate-900 leading-tight">End-to-End Coverage</h2>
+            <p className="text-base sm:text-lg text-slate-500">We handle the complexity so you can focus on care.</p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            {[
+              { title: "Primary Source Verification", icon: ASSETS.ui.clipboard },
+              { title: "Payer Enrollment", icon: ASSETS.ui.userPlus },
+              { title: "CAQH Profile Management", icon: ASSETS.ui.smartphone },
+              { title: "Initial Provider Credentialing", icon: ASSETS.ui.award },
+              { title: "Recredentialing Management", icon: ASSETS.ui.refresh },
+              { title: "Insurance Contracting Coordination", icon: ASSETS.ui.chart },
+              { title: "Contract Rate Negotiation", icon: ASSETS.ui.handshake },
+              { title: "NPI Registration", icon: ASSETS.ui.list }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                whileHover={{ y: -10 }}
+                className="group relative"
+              >
+                <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-brand-light shadow-sm hover:shadow-2xl hover:border-brand-accent transition-all duration-500 h-full relative overflow-hidden flex flex-col items-center text-center">
+                  {/* Hover Glow */}
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand-deep/5 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/30 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner transition-colors duration-500 group-hover:bg-brand-deep group-hover:text-white relative z-10 font-bold">
+                     <IconRenderer icon={item.icon} size={28} />
+                  </div>
+                  
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors duration-500 relative z-10">
+                    {item.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── PROBLEM SECTION ─── */}
       <section className="py-12 lg:py-16 bg-brand-light/30">
         <div className="max-w-7xl mx-auto px-6">
@@ -198,51 +244,6 @@ const InsuranceCredentialing: React.FC = () => {
         </div>
       </section>
 
-      {/* ─── SERVICES BREAKDOWN ─── */}
-      <section className="py-12 lg:py-16 bg-brand-light/20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-6 text-slate-900 leading-tight">End-to-End Coverage</h2>
-            <p className="text-base sm:text-lg text-slate-500">We handle the complexity so you can focus on care.</p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-            {[
-              { title: "Primary Source Verification", icon: ASSETS.ui.clipboard },
-              { title: "Payer Enrollment", icon: ASSETS.ui.userPlus },
-              { title: "CAQH Profile Management", icon: ASSETS.ui.smartphone },
-              { title: "Initial Provider Credentialing", icon: ASSETS.ui.award },
-              { title: "Recredentialing Management", icon: ASSETS.ui.refresh },
-              { title: "Insurance Contracting Coordination", icon: ASSETS.ui.chart },
-              { title: "Contract Rate Negotiation", icon: ASSETS.ui.handshake },
-              { title: "NPI Registration", icon: ASSETS.ui.list }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                whileHover={{ y: -10 }}
-                className="group relative"
-              >
-                <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-brand-light shadow-sm hover:shadow-2xl hover:border-brand-accent transition-all duration-500 h-full relative overflow-hidden flex flex-col items-center text-center">
-                  {/* Hover Glow */}
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand-deep/5 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/30 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner transition-colors duration-500 group-hover:bg-brand-deep group-hover:text-white relative z-10 font-bold">
-                     <IconRenderer icon={item.icon} size={28} />
-                  </div>
-                  
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors duration-500 relative z-10">
-                    {item.title}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
 
