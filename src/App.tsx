@@ -706,7 +706,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
 
           <div>
             <Link
-              to="/contact"
+              to={service.path || "/contact"}
               className="flex items-center gap-2 text-brand-deep font-bold text-base lg:text-lg hover:gap-4 transition-all group will-change-transform"
             >
               Learn more about this service
@@ -940,6 +940,7 @@ const Features = React.memo(() => {
       icon: ASSETS.features.shield,
       title: "Provider Credentialing",
       desc: "Our automated systems handle the entire enrollment process, ensuring your providers are credentialed and contracted with payers faster than ever.",
+      path: "/services/insurance-credentialing",
       color: "bg-white"
     },
     {
@@ -947,6 +948,7 @@ const Features = React.memo(() => {
       icon: ASSETS.ui.activity,
       title: "Revenue Cycle Management",
       desc: "Maximize your revenue with our AI-driven RCM solutions. We identify gaps, reduce denials, and accelerate your reimbursement cycles.",
+      path: "/services/medical-billing",
       color: "bg-white"
     },
     {
@@ -954,6 +956,7 @@ const Features = React.memo(() => {
       icon: ASSETS.features.clock,
       title: "Billing Assessments",
       desc: "Stay compliant and secure with focused billing assessments. We uncover hidden risks and provide actionable insights for financial stability.",
+      path: "/services/medical-billing",
       color: "bg-white"
     }
   ];
