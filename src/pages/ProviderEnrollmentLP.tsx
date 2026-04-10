@@ -511,63 +511,105 @@ const ProviderEnrollmentLP: React.FC = () => {
            </div>
         </section>
 
-        {/* FINAL CONVERSION: THE BOTTOM FORM */}
-        <section id="footer-form" className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
-           <div className="max-w-4xl mx-auto px-6 relative z-10">
-              <div className="text-center mb-10 md:mb-16">
-                 <div className="inline-flex items-center gap-2 md:gap-3 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-brand-light/30 border border-brand-light/50 text-brand-deep text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-4 md:mb-6">
-                    <Sparkles size={12} className="md:w-[14px] md:h-[14px]" />
-                    Final Step to Clinical Success
-                 </div>
-                 <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 mb-2 md:mb-4">Start Your Enrollment.</h2>
-                 <p className="text-slate-500 font-bold max-w-xl mx-auto text-sm md:text-base">Fill out the form below and our team will be in touch within 24 hours.</p>
+        {/* FINAL CONVERSION: GOOGLE CALENDAR BOOKING */}
+        <section id="footer-form" className="py-16 md:py-32 bg-[#0f2e2a] relative overflow-hidden">
+          {/* Background accents */}
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-light/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 30px, #A3BD6A 30px, #A3BD6A 31px)" }} />
+
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-10 md:mb-14"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-[9px] font-black uppercase tracking-[0.3em] mb-6 animate-pulse">
+                <Sparkles size={12} />
+                Book Your Strategy Call
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white mb-4 leading-tight">
+                Schedule a Direct <br className="hidden sm:block" />
+                <span className="text-brand-accent">Consultation.</span>
+              </h2>
+              <p className="text-white/50 font-bold max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                Pick a time that works for you. Our enrollment specialists will walk you through a personalized credentialing strategy.
+              </p>
+            </motion.div>
+
+            {/* Trust badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10"
+            >
+              {[
+                { icon: Shield, text: 'HIPAA Compliant' },
+                { icon: Clock, text: 'Same-Day Response' },
+                { icon: CheckCircle2, text: 'No Obligation' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest">
+                  <item.icon size={12} className="text-brand-accent" />
+                  {item.text}
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Calendar iframe wrapper */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              className="relative rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] bg-white"
+            >
+              {/* Top bar decoration */}
+              <div className="flex items-center gap-2 px-5 py-3 bg-slate-50 border-b border-slate-100">
+                <div className="w-3 h-3 rounded-full bg-red-300" />
+                <div className="w-3 h-3 rounded-full bg-yellow-300" />
+                <div className="w-3 h-3 rounded-full bg-green-300" />
+                <span className="ml-3 text-xs font-bold text-slate-400 tracking-widest uppercase">Book a Consultation — Credifide</span>
               </div>
 
-              <div className="bg-white rounded-3xl md:rounded-[3rem] shadow-xl md:shadow-2xl border border-slate-100 overflow-hidden">
-                 <div className="p-6 sm:p-8 md:p-16">
-                    <form className="space-y-4 md:space-y-8">
-                       <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-                          <div className="relative">
-                             <label className="block text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 md:mb-3 ml-1">Full Name</label>
-                             <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all text-sm md:text-base" placeholder="John Doe" />
-                          </div>
-                          <div className="relative">
-                             <label className="block text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 md:mb-3 ml-1">Practice Name</label>
-                             <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all text-sm md:text-base" placeholder="Practice Name" />
-                          </div>
-                       </div>
-
-                       <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-                          <div className="relative">
-                             <label className="block text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 md:mb-3 ml-1">Email Address</label>
-                             <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all text-sm md:text-base" placeholder="john@example.com" />
-                          </div>
-                          <div className="relative">
-                             <label className="block text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 md:mb-3 ml-1">Phone Number</label>
-                             <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 text-slate-900 font-bold focus:ring-2 focus:ring-brand-deep/20 outline-none transition-all text-sm md:text-base" placeholder="(555) 000-0000" />
-                          </div>
-                       </div>
-
-                       <div className="space-y-4 md:space-y-6">
-                          <label className="flex items-start gap-3 md:gap-4 cursor-pointer group">
-                             <div className="relative flex items-center justify-center mt-1">
-                                <input type="checkbox" required className="peer appearance-none w-5 h-5 md:w-6 md:h-6 border-2 border-slate-200 rounded md:rounded-lg checked:bg-brand-deep checked:border-brand-deep transition-all cursor-pointer" />
-                                <Check size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none md:w-[16px] md:h-[16px]" />
-                             </div>
-                             <span className="text-[10px] md:text-xs font-bold text-slate-500 leading-relaxed group-hover:text-slate-800 transition-colors">
-                                I accept the <Link to="/terms" className="text-brand-deep underline">Terms & Conditions</Link> and agree to receive follow-up communication regarding my enrollment request.
-                             </span>
-                          </label>
-                       </div>
-
-                       <button type="submit" className="w-full bg-brand-deep text-white py-4 md:py-6 rounded-xl md:rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-3 md:gap-4 hover:bg-[#0f1f1d] hover:shadow-2xl transition-all active:scale-[0.98] group">
-                          Complete Application
-                          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform md:w-[20px] md:h-[20px]" />
-                       </button>
-                    </form>
-                 </div>
+              {/* Responsive iframe container */}
+              <div className="w-full" style={{ minHeight: '600px' }}>
+                <iframe
+                  src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
+                  title="Book a Consultation with Credifide"
+                  frameBorder="0"
+                  scrolling="yes"
+                  style={{
+                    width: '100%',
+                    minHeight: '600px',
+                    height: '700px',
+                    border: 'none',
+                    display: 'block',
+                  }}
+                  className="w-full"
+                  allow="camera; microphone; fullscreen"
+                />
               </div>
-           </div>
+            </motion.div>
+
+            {/* Bottom CTA line */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="text-center text-white/30 text-xs font-bold uppercase tracking-widest mt-8"
+            >
+              Prefer to call? Reach us directly at{' '}
+              <a href="tel:+13215240606" className="text-brand-accent hover:text-white transition-colors">
+                (321) 524-0606
+              </a>
+            </motion.p>
+          </div>
         </section>
       </main>
     </div>
