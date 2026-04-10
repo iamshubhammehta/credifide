@@ -1331,7 +1331,7 @@ const ContactSection = React.memo(() => {
 
                 <div className="space-y-6">
                   {[
-                    { text: "98% Accuracy Rate", icon: ASSETS.ui.shieldCheck },
+                    { text: "99% Accuracy Rate", icon: ASSETS.ui.shieldCheck },
                     { text: "30% Faster Credentialing", icon: ASSETS.features.zap },
                     { text: "Full Workflow Transparency", icon: ASSETS.ui.barChart }
                   ].map((item, i) => (
