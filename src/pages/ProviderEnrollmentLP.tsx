@@ -574,7 +574,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                 <div className="w-3 h-3 rounded-full bg-red-300" />
                 <div className="w-3 h-3 rounded-full bg-yellow-300" />
                 <div className="w-3 h-3 rounded-full bg-green-300" />
-                <span className="ml-3 text-xs font-bold text-slate-400 tracking-widest uppercase">Book a Consultation — Credifide</span>
+                <span className="ml-3 text-xs font-bold text-slate-400 tracking-widest uppercase">Book a Consultation - Credifide</span>
               </div>
 
               {/* Responsive iframe container */}

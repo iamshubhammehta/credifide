@@ -705,7 +705,7 @@ const ProblemSection: React.FC = () => {
     {
       icon: ASSETS.features.clock,
       title: 'Weeks of Delay',
-      desc: 'Average credentialing takes 90–120 days. Every day waiting is a day a provider cannot bill for care.',
+      desc: 'Average credentialing takes 90-120 days. Every day waiting is a day a provider cannot bill for care.',
       stat: '90-120d',
       statLabel: 'manual cycle length',
       type: 'clock'
@@ -829,16 +829,16 @@ const TransformationSection: React.FC = () => {
     'Zero real-time status updates',
     'Reactive issue resolution',
     'Revenue leakage from denials',
-    '90–120 day credentialing cycles',
+    '90-120 day credentialing cycles',
   ];
 
   const newWay = [
-    'Unified data hub — enter once, auto-populate everywhere',
+    'Unified data hub - enter once, auto-populate everywhere',
     'Digital submission with audit trail',
     'Live dashboard with milestone tracking',
     'AI-driven issue detection before submission',
     'Automated denial management & appeals',
-    '30–45 day credentialing cycles',
+    '30-45 day credentialing cycles',
   ];
 
   const ref = useRef(null);
@@ -1255,7 +1255,7 @@ const WhoWeWorkWith: React.FC = () => {
   const clients = [
     {
       name: 'Solo Providers',
-      desc: 'Get credentialed, billing, and contracted — all with one partner.',
+      desc: 'Get credentialed, billing, and contracted - all with one partner.',
       icon: ASSETS.ui.users,
       gradient: 'from-brand-500/20 to-emerald-400/10',
     },
@@ -1384,7 +1384,7 @@ const FinalCTA: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-slate-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
               >
-                Join hundreds of providers who stopped waiting and started growing. Your first consultation is free — and it changes everything.
+                Join hundreds of providers who stopped waiting and started growing. Your first consultation is free - and it changes everything.
               </motion.p>
 
               <motion.div

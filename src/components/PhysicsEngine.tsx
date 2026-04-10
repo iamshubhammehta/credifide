@@ -15,7 +15,7 @@ export const PhysicsBody = ({ id, children, className }: PhysicsBodyProps) => {
   );
 };
 
-// PhysicsWorld is now a simple layout wrapper — Anti-Gravity mode removed
+// PhysicsWorld is now a simple layout wrapper - Anti-Gravity mode removed
 interface PhysicsWorldProps {
   children: React.ReactNode;
   isGravityEnabled?: boolean;

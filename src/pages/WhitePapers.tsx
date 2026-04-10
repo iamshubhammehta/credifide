@@ -10,7 +10,7 @@ const WhitePapers = () => {
     {
       id: 1,
       title: 'Insurance Credentialing in 2026: A Complete Guide',
-      description: 'Credentialing is no longer a background process – it is a direct driver of provider activation speed, revenue flow, and compliance standing for healthcare organizations of every size. Drawing on industry benchmarks from MGMA and CAQH, this paper examines the forces reshaping provider enrollment and the operational strategies high-performing organizations use to scale.',
+      description: 'Credentialing is no longer a background process - it is a direct driver of provider activation speed, revenue flow, and compliance standing for healthcare organizations of every size. Drawing on industry benchmarks from MGMA and CAQH, this paper examines the forces reshaping provider enrollment and the operational strategies high-performing organizations use to scale.',
       additionalInfo: 'This whitepaper, "Insurance Credentialing in 2026: Industry Insights & Innovation," examines the forces reshaping provider enrollment today and the operational strategies that high-performing organizations are using to pull ahead. Drawing on industry benchmarks and data from MGMA, CAQH, and the AMA, it maps where credentialing stands in 2026 and where it is going. Designed for practice administrators, physicians, and healthcare founders, the paper delivers a practical framework for benchmarking credentialing maturity, evaluating the Build vs. Buy vs. Partner decision, and implementing the workflows and technologies that reduce turnaround times, prevent denials, and support sustainable growth.',
       gradient: 'from-[#3D5A54] to-[#8CB369]',
       date: 'March 18, 2026',
@@ -20,7 +20,7 @@ const WhitePapers = () => {
       id: 2,
       title: 'Outsourcing Credentialing for Multispecialty Clinics',
       description: 'As practices expand across specialties and payer networks, in-house credentialing often becomes fragmented and slow. This whitepaper explores operational inflection points where outsourcing becomes a strategic advantage. It provides a structured roadmap to evaluate readiness, identify bottlenecks, and implement scalable workflows.',
-      additionalInfo: 'Scaling a multispecialty clinic requires more than just clinical excellence; it requires an administrative engine that can keep pace with growth. This research dive into clinical operations highlights the hidden costs of managing complex provider rosters in-house. We analyze the specific triggers—such as high denial rates, 90+ day delay cycles, and high staff turnover—that indicate it is time to transition to a specialized partner. Learn how top-tier groups are standardizing their workflows across 15+ specialties while maintaining 100% compliance transparency.',
+      additionalInfo: 'Scaling a multispecialty clinic requires more than just clinical excellence; it requires an administrative engine that can keep pace with growth. This research dive into clinical operations highlights the hidden costs of managing complex provider rosters in-house. We analyze the specific triggers - such as high denial rates, 90+ day delay cycles, and high staff turnover - that indicate it is time to transition to a specialized partner. Learn how top-tier groups are standardizing their workflows across 15+ specialties while maintaining 100% compliance transparency.',
       gradient: 'from-brand-deep to-brand-accent',
       date: 'January 29, 2026',
       pages: 38,

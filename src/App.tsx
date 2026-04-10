@@ -31,7 +31,7 @@ const ScrollToTop = () => {
 
 
 
-// Subtle page-level background — soft gradient fade from near-dark to white as user scrolls
+// Subtle page-level background - soft gradient fade from near-dark to white as user scrolls
 const Background = React.memo(() => {
   const { scrollY } = useScroll();
   const animations = useAnimationSettings();
@@ -1741,15 +1741,15 @@ export default function App() {
               {/* Navigation with dashes */}
               <nav className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 gap-y-0.5 mb-2 sm:mb-3 md:mb-5 text-xs md:text-sm lg:text-base font-bold text-white/90 px-1">
                 <Link to="/about" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">About Us</Link>
-                <span className="text-white/20 hidden sm:inline">—</span>
+                <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/resources/blog" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Blog</Link>
-                <span className="text-white/20 hidden sm:inline">—</span>
+                <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/privacy" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Privacy Policy</Link>
-                <span className="text-white/20 hidden sm:inline">—</span>
+                <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/terms" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Terms</Link>
-                <span className="text-white/20 hidden sm:inline">—</span>
+                <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/contact" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Contact</Link>
-                <span className="text-white/20 hidden sm:inline">—</span>
+                <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/about" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Unsubscribe</Link>
               </nav>
 
