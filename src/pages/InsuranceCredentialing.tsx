@@ -208,14 +208,14 @@ const InsuranceCredentialing: React.FC = () => {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {[
-              { title: "Primary Source Verification", icon: ASSETS.ui.clipboard, desc: "Rigorous verification of education, training, and licenses from original sources." },
-              { title: "Payer Enrollment", icon: ASSETS.ui.userPlus, desc: "Fast-tracked initial enrollment for all major commercial and government payers." },
-              { title: "CAQH Profile Management", icon: ASSETS.ui.smartphone, desc: "Regular maintenance and data attestation to ensure continuous compliance." },
-              { title: "Initial Provider Credentialing", icon: ASSETS.ui.award, desc: "Complete setup and onboarding for new providers entering clinical practice." },
-              { title: "Recredentialing Management", icon: ASSETS.ui.refresh, desc: "Early renewal triggers to prevent any disruption in provider participation." },
-              { title: "Insurance Contracting Coordination", icon: ASSETS.ui.chart, desc: "Strategic alignment of payer contracts with clinical growth objectives." },
-              { title: "Contract Rate Negotiation", icon: ASSETS.ui.handshake, desc: "Data-driven negotiation to ensure your group receives maximum reimbursement." },
-              { title: "NPI Registration", icon: ASSETS.ui.list, desc: "Organization and individual NPI creation, updates, and taxonomy management." }
+              { title: "Primary Source Verification", icon: ASSETS.ui.clipboard },
+              { title: "Payer Enrollment", icon: ASSETS.ui.userPlus },
+              { title: "CAQH Profile Management", icon: ASSETS.ui.smartphone },
+              { title: "Initial Provider Credentialing", icon: ASSETS.ui.award },
+              { title: "Recredentialing Management", icon: ASSETS.ui.refresh },
+              { title: "Insurance Contracting Coordination", icon: ASSETS.ui.chart },
+              { title: "Contract Rate Negotiation", icon: ASSETS.ui.handshake },
+              { title: "NPI Registration", icon: ASSETS.ui.list }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -226,21 +226,17 @@ const InsuranceCredentialing: React.FC = () => {
                 whileHover={{ y: -10 }}
                 className="group relative"
               >
-                <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-brand-light shadow-sm hover:shadow-2xl hover:border-brand-accent transition-all duration-500 h-full relative overflow-hidden flex flex-col">
+                <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-brand-light shadow-sm hover:shadow-2xl hover:border-brand-accent transition-all duration-500 h-full relative overflow-hidden flex flex-col items-center text-center">
                   {/* Hover Glow */}
                   <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand-deep/5 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/30 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner transition-colors duration-500 group-hover:bg-brand-deep group-hover:text-white relative z-10">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/30 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner transition-colors duration-500 group-hover:bg-brand-deep group-hover:text-white relative z-10 font-bold">
                      <IconRenderer icon={item.icon} size={28} />
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-brand-deep transition-colors duration-500 relative z-10">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors duration-500 relative z-10">
                     {item.title}
                   </h3>
-                  
-                  <p className="text-slate-500 text-sm leading-relaxed relative z-10 flex-1">
-                    {item.desc}
-                  </p>
                 </div>
               </motion.div>
             ))}
