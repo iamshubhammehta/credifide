@@ -69,26 +69,7 @@ const MedicalBilling: React.FC = () => {
             </Link>
           </motion.div>
           
-          {/* Animated Stats in Hero */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 1 }}
-            className="mt-20 grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-4xl mx-auto border-t border-brand-light pt-16"
-          >
-             <div className="text-center">
-                <div className="text-2xl sm:text-4xl font-display font-bold text-slate-950 mb-2">98.5%</div>
-                <div className="text-slate-400 font-bold tracking-widest text-[10px] sm:text-xs uppercase">First-Pass Yield</div>
-             </div>
-             <div className="text-center sm:border-x border-brand-light px-4 sm:px-8">
-                <div className="text-2xl sm:text-4xl font-display font-bold text-slate-950 mb-2">24h</div>
-                <div className="text-slate-400 font-bold tracking-widest text-[10px] sm:text-xs uppercase">Claim Scrubbing</div>
-             </div>
-             <div className="text-center col-span-2 sm:col-span-1">
-                <div className="text-2xl sm:text-4xl font-display font-bold text-slate-950 mb-2">&lt;35 Days</div>
-                <div className="text-slate-400 font-bold tracking-widest text-[10px] sm:text-xs uppercase">Days in A/R</div>
-             </div>
-          </motion.div>
+
         </div>
       </section>
 
