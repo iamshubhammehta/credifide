@@ -1254,53 +1254,58 @@ const PrinciplesSection: React.FC = () => {
 const WhoWeWorkWith: React.FC = () => {
   const clients = [
     {
-      name: 'Solo Providers',
-      desc: 'Get credentialed, billing, and contracted - all with one partner.',
-      icon: ASSETS.ui.users,
-      gradient: 'from-brand-500/20 to-emerald-400/10',
-    },
-    {
-      name: 'Group Practices',
-      desc: 'Manage your entire provider roster in a single, streamlined system.',
+      name: 'Physicians & Specialty Providers',
+      desc: '',
       icon: ASSETS.specialties.general,
-      gradient: 'from-brand-light to-brand-deep/5',
+      gradient: 'from-[#7FBF7F]/10 to-[#7FBF7F]/10',
     },
     {
-      name: 'Telehealth Platforms',
-      desc: 'Multi-state credentialing and billing for virtual-first practices.',
-      icon: ASSETS.specialties.telehealth,
-      gradient: 'from-brand-accent/20 to-brand-deep/5',
+      name: 'Medical Groups & Clinics',
+      desc: '',
+      icon: ASSETS.ui.users,
+      gradient: 'from-[#7FBF7F]/10 to-[#7FBF7F]/10',
     },
     {
-      name: 'Health Startups',
-      desc: 'Build the right infrastructure from day one without the overhead.',
-      icon: ASSETS.features.zap,
-      gradient: 'from-brand-light to-brand-accent/10',
+      name: 'Behavioral Health And Telehealth Organizations',
+      desc: '',
+      icon: ASSETS.specialties.mentalHealth,
+      gradient: 'from-[#7FBF7F]/10 to-[#7FBF7F]/10',
+    },
+    {
+      name: 'Multi-Provider Practices',
+      desc: '',
+      icon: ASSETS.specialties.hospital,
+      gradient: 'from-[#7FBF7F]/10 to-[#7FBF7F]/10',
+    },
+    {
+      name: 'Healthcare Startups',
+      desc: '',
+      icon: ASSETS.specialties.rocket,
+      gradient: 'from-[#7FBF7F]/10 to-[#7FBF7F]/10',
     },
   ];
 
   return (
-    <section className="py-12 lg:py-16 bg-transparent relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <FadeUp className="text-center mb-12 lg:mb-16">
-          <span className="text-brand-600 font-bold tracking-widest uppercase text-xs sm:text-sm">Who We Serve</span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-slate-900 mt-3 leading-tight px-4">
-            Built for every <span className="text-brand-500">type of provider.</span>
+    <section className="py-12 lg:py-16 bg-[#F5F8F6] relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <FadeUp className="text-center mb-10 lg:mb-12">
+          <h2 className="text-4xl sm:text-5xl font-serif text-slate-900 leading-tight px-4">
+            Who We Support
           </h2>
         </FadeUp>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
           {clients.map((c, i) => (
             <FadeUp key={i} delay={i * 0.1}>
               <motion.div
-                whileHover={{ y: -10, boxShadow: '0 24px 60px rgba(0,0,0,0.1)' }}
-                className="group bg-white rounded-3xl p-8 border border-slate-200 text-center cursor-default will-change-transform transition-shadow duration-300"
+                whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}
+                className="group h-full bg-white rounded-xl p-6 lg:p-8 border border-slate-100 text-center cursor-default will-change-transform transition-all duration-300 flex flex-col justify-center items-center"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${c.gradient} flex items-center justify-center text-brand-500 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <IconRenderer icon={c.icon} size={28} />
+                <div className={`w-16 h-16 flex items-center justify-center text-[#8AA58A] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <IconRenderer icon={c.icon} size={48} />
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{c.name}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{c.desc}</p>
+                <h3 className="font-bold text-slate-900 text-[15px] sm:text-base leading-snug">{c.name}</h3>
+                {c.desc && <p className="text-slate-500 text-sm mt-3 opacity-80">{c.desc}</p>}
               </motion.div>
             </FadeUp>
           ))}

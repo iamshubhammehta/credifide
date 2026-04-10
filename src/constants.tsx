@@ -46,6 +46,8 @@ import {
   Mail,
   ChevronDown,
   Lock,
+  Rocket,
+  Building2,
   LucideIcon
 } from 'lucide-react';
 import logoMain from './assets/logo_main.png';
@@ -110,6 +112,8 @@ export const ASSETS = {
     dentistry: Smile,
     homeHealth: Home,
     pharmacy: Package,
+    rocket: Rocket,
+    hospital: Building2,
   },
 
   // UI Icons
