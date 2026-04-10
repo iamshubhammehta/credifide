@@ -251,39 +251,39 @@ const ProviderEnrollmentLP: React.FC = () => {
                  <p className="text-slate-500 font-medium max-w-xl mx-auto">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                 {[
-                   { name: 'Orthopedic', icon: Bone },
-                   { name: 'Mental Health', icon: Brain },
-                   { name: 'Tele Health', icon: Video },
-                   { name: 'Physical Therapy', icon: Accessibility },
-                   { name: 'Cardiology', icon: HeartPulse },
-                   { name: 'Internal Medicine', icon: Plus },
-                   { name: 'Dentistry', icon: Tooth },
-                   { name: 'Laboratory', icon: FlaskConical },
-                   { name: 'Urology', icon: Stethoscope },
-                   { name: 'Neurology', icon: Brain },
-                   { name: 'Lactation Consultant', icon: Baby },
-                   { name: 'Home Care', icon: Home },
-                   { name: 'Medical Equipment', icon: Stethoscope },
-                   { name: 'OBGYN', icon: User },
-                   { name: 'Urgent Care', icon: Heart }
-                 ].map((spec, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: idx * 0.05 }}
-                      whileHover={{ y: -10, borderColor: '#0B6B57' }}
-                      className="p-8 rounded-[2.5rem] border border-slate-100 bg-slate-50/50 flex flex-col items-center justify-center text-center gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-2xl hover:shadow-brand-deep/5"
-                    >
-                       <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:bg-brand-deep group-hover:text-white transition-all duration-500">
-                          <spec.icon size={24} />
-                       </div>
-                       <span className="text-sm font-black text-slate-900 tracking-tight">{spec.name}</span>
-                    </motion.div>
-                 ))}
-              </div>
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                  {[
+                    { name: 'Orthopedic', icon: Bone },
+                    { name: 'Mental Health', icon: Brain },
+                    { name: 'Tele Health', icon: Video },
+                    { name: 'Physical Therapy', icon: Accessibility },
+                    { name: 'Cardiology', icon: HeartPulse },
+                    { name: 'Internal Medicine', icon: Plus },
+                    { name: 'Dentistry', icon: Tooth },
+                    { name: 'Laboratory', icon: FlaskConical },
+                    { name: 'Urology', icon: Stethoscope },
+                    { name: 'Neurology', icon: Brain },
+                    { name: 'Lactation Consultant', icon: Baby },
+                    { name: 'Home Care', icon: Home },
+                    { name: 'Medical Equipment', icon: Stethoscope },
+                    { name: 'OBGYN', icon: User },
+                    { name: 'Urgent Care', icon: Heart }
+                  ].map((spec, idx) => (
+                     <motion.div 
+                       key={idx}
+                       initial={{ opacity: 0, scale: 0.95 }}
+                       whileInView={{ opacity: 1, scale: 1 }}
+                       transition={{ delay: idx * 0.05 }}
+                       whileHover={{ y: -5, borderColor: '#0B6B57', boxShadow: '0 20px 40px -15px rgba(11,107,87,0.1)' }}
+                       className="p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
+                     >
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep group-hover:bg-brand-deep group-hover:text-white transition-all duration-500 shrink-0">
+                           <spec.icon size={22} />
+                        </div>
+                        <span className="text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
+                     </motion.div>
+                  ))}
+               </div>
            </div>
         </section>
 
