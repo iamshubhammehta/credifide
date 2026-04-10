@@ -1630,11 +1630,6 @@ const Specialties = React.memo(() => {
             Specialties We Support
           </h2>
         </div>
-        <div>
-          <p className="max-w-2xl mx-auto text-xl transition-colors duration-1000 text-slate-500">
-            Supporting a vast, comprehensive range of medical disciplines and behavioral healthcare organizations.
-          </p>
-        </div>
       </div>
 
       <div className="flex flex-col gap-5 sm:gap-10 pause-on-hover px-4 sm:px-0">
