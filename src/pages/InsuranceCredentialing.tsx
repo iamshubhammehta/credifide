@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 
 const InsuranceCredentialing: React.FC = () => {
+  const progressRef = useRef<HTMLDivElement>(null);
+  const progressInView = useInView(progressRef, { once: true, margin: '-50px' });
   useSEO(
     'Insurance & Payer Credentialing Services | Credifide',
     'Stop losing revenue to enrollment delays. Our proactive credentialing infrastructure builds direct payer pathways for faster reimbursements.'
@@ -136,7 +138,8 @@ const InsuranceCredentialing: React.FC = () => {
                     key={i} 
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.1, margin: '-60px' }}
+                    transition={{ delay: i * 0.15, duration: 0.5 }}
                     className="flex gap-6 sm:gap-8 relative z-10"
                   >
                     <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-brand-light rounded-full flex items-center justify-center text-brand-deep font-bold shrink-0 shadow-sm">
@@ -151,7 +154,7 @@ const InsuranceCredentialing: React.FC = () => {
               </div>
             </div>
             
-            <div className="relative mt-12 lg:mt-0">
+            <div className="relative mt-12 lg:mt-0" ref={progressRef}>
                <div className="aspect-[4/5] bg-brand-deep rounded-[48px] overflow-hidden shadow-2xl relative">
                   <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
                   {/* Mock UI Element */}
@@ -162,15 +165,26 @@ const InsuranceCredentialing: React.FC = () => {
                            <div className="text-brand-deep text-xs sm:text-sm font-bold">84% Complete</div>
                         </div>
                         <div className="space-y-4">
-                           {[90, 65, 80, 40].map((w, i) => (
-                             <div key={i} className="h-1.5 sm:h-2 w-full bg-slate-50 rounded-full overflow-hidden">
+                           {[
+                             { w: 90, label: 'Smart Onboarding' },
+                             { w: 65, label: 'Validation' },
+                             { w: 80, label: 'Payer Submission' },
+                             { w: 40, label: 'Monitoring' }
+                           ].map((item, i) => (
+                             <div key={i}>
+                               <div className="flex justify-between items-center mb-1.5">
+                                 <span className="text-[10px] sm:text-xs text-slate-500 font-medium">{item.label}</span>
+                                 <span className="text-[10px] sm:text-xs text-brand-deep font-bold">{item.w}%</span>
+                               </div>
+                               <div className="h-1.5 sm:h-2 w-full bg-slate-100 rounded-full overflow-hidden">
                                  <motion.div 
-                                  initial={{ scaleX: 0 }}
-                                  whileInView={{ scaleX: 1 }}
-                                  transition={{ duration: 1.5, delay: 0.5 + i * 0.1 }}
-                                  className="h-full bg-brand-deep origin-left rounded-full will-change-transform" 
-                                  style={{ width: `${w}%` }} 
-                                />
+                                   initial={{ scaleX: 0 }}
+                                   animate={progressInView ? { scaleX: 1 } : { scaleX: 0 }}
+                                   transition={{ duration: 1.5, delay: 0.4 + i * 0.2, ease: 'easeOut' }}
+                                   className="h-full bg-brand-deep origin-left rounded-full will-change-transform" 
+                                   style={{ width: `${item.w}%` }} 
+                                 />
+                               </div>
                              </div>
                            ))}
                         </div>
