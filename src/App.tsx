@@ -202,7 +202,7 @@ const Navbar = React.memo(() => {
                       <IconRenderer icon={ASSETS.features.shield} size={20} />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Credentialing</div>
+                      <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Insurance Credentialing</div>
                       <p className="text-[11px] text-slate-500 leading-tight">Fast-tracked payer enrollment & compliance.</p>
                     </div>
                   </Link>
@@ -319,7 +319,7 @@ const Navbar = React.memo(() => {
               {servicesOpen && (
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-brand-light pl-4">
                   <Link to="/services/insurance-credentialing" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
-                    Credentialing
+                    Insurance Credentialing
                   </Link>
                   <Link to="/services/medical-billing" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
                     Medical Billing
