@@ -170,7 +170,7 @@ const MedicalBilling: React.FC = () => {
                { icon: ASSETS.ui.fileText, label: "Scrubbing", desc: "Claims are validated against thousands of specific payer rules." },
                { icon: ASSETS.features.shield, label: "Submission", desc: "Digital submission to clearinghouses with instant confirmation." },
                { icon: ASSETS.features.clock, label: "Tracking", desc: "Real-time adjudication updates directly in your portal." },
-               { icon: ASSETS.ui.dollar, label: "Posting", desc: "Automated ERA/EOB reconciliation with 99.8% precision." }
+               { icon: ASSETS.ui.dollar, label: "Posting", desc: "Automated ERA/EOB reconciliation with 99% precision." }
              ].map((node, i) => (
                 <motion.div 
                   key={i} 
