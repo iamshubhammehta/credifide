@@ -79,12 +79,13 @@ const ProviderEnrollmentV2: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full h-[600px] sm:h-[700px] lg:h-[850px] xl:h-[950px] max-h-[85vh] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] rounded-2xl md:rounded-[2rem] overflow-hidden bg-white"
+              className="relative w-full"
             >
                 <iframe 
                   aria-label='Book a Consultation with our experts' 
                   frameBorder="0" 
-                  style={{ height: '100%', width: '100%', border: 'none' }} 
+                  scrolling="no"
+                  style={{ height: '1050px', width: '100%', border: 'none', overflow: 'hidden' }} 
                   src='https://forms.zohopublic.com/credifide1/form/BookaConsultationwithourexperts1/formperma/RIFpP_m9bbkkzpYAcOVv811Nx32ooYsAE17hBbEAdVU'
                   title="Zoho Contact Form"
                 />

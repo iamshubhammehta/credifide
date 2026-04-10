@@ -92,18 +92,19 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* HERO FORM: REPLACED ANIMATION WITH FORM */}
+              {/* HERO FORM: REVERTED TO CLEAN PLACEMENT WITH NO SCROLLING */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative z-20 w-full h-[600px] sm:h-[700px] lg:h-[850px] xl:h-[950px] max-h-[85vh] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] rounded-2xl md:rounded-[2rem] overflow-hidden bg-white"
+                className="relative z-20 w-full"
                 id="form"
               >
                      <iframe 
                         aria-label='Book a Consultation With Our Experts' 
                         frameBorder="0" 
-                        style={{ height: '100%', width: '100%', border: 'none' }} 
+                        style={{ height: '1050px', width: '100%', border: 'none', overflow: 'hidden' }} 
+                        scrolling="no"
                         src='https://forms.zohopublic.com/credifide1/form/BookaConsultationwithourexperts1/formperma/RIFpP_m9bbkkzpYAcOVv811Nx32ooYsAE17hBbEAdVU'
                      ></iframe>
               </motion.div>
