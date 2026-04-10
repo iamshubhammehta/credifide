@@ -447,7 +447,7 @@ const StorySection: React.FC = () => {
   const statements = [
     {
       label: 'The Beginning',
-      title: 'Born from Frustration.',
+      title: 'Providers Deserved Better.',
       body: 'Healthcare providers were spending months waiting to get credentialed. Clinics were losing revenue not from bad medicine, but from broken administrative systems.',
       img: aboutBeginning
     },
@@ -489,14 +489,7 @@ const StorySection: React.FC = () => {
                   </div>
                   <h3 className="text-2xl sm:text-4xl lg:text-5xl font-display font-black text-slate-900 mb-6 sm:mb-8 leading-[1.1] tracking-tight">{s.title}</h3>
                   <p className="text-base sm:text-xl text-slate-500 leading-relaxed max-w-lg font-medium opacity-90">{s.body}</p>
-                  
-                  {/* Action Link for narrative flow */}
-                  <div className="mt-10 flex items-center gap-4 text-brand-deep font-bold group cursor-default">
-                    <div className="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-xs">
-                       0{i + 1}
-                    </div>
-                    <span className="tracking-wide">Core Milestone</span>
-                  </div>
+
                 </div>
 
                 <div className="w-full lg:w-1/2 h-full">
