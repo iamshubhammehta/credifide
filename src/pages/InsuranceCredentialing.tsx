@@ -215,29 +215,7 @@ const InsuranceCredentialing: React.FC = () => {
         </div>
       </section>
 
-      {/* ─── RESULTS SECTION ─── */}
-      <section className="py-16 bg-brand-deep text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-noise opacity-[0.03]" />
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
-          {[
-            { val: "35%", label: "Faster Approvals" },
-            { val: "99.8%", label: "Accuracy Rate" },
-            { val: "48 Hours", label: "Application Submission Timeline" },
-            { val: "300+", label: "Providers Managed" }
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-black mb-2">{stat.val}</div>
-              <div className="text-brand-light/60 font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
 
       {/* ─── CTA SECTION ─── */}
       <section className="py-12 lg:py-16 bg-white flex items-center justify-center text-center">
