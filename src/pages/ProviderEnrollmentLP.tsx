@@ -26,7 +26,20 @@ import {
   FileBarChart,
   Handshake,
   ClipboardList,
-  FileCheck
+  FileCheck,
+  Bone,
+  Brain,
+  Video,
+  Accessibility,
+  HeartPulse,
+  Plus,
+  Tooth,
+  FlaskConical,
+  Stethoscope,
+  Baby,
+  Home,
+  User,
+  Heart
 } from 'lucide-react';
 import { ASSETS, IconRenderer } from '../constants';
 import { useSEO } from '../hooks/useSEO';
@@ -240,21 +253,21 @@ const ProviderEnrollmentLP: React.FC = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                  {[
-                   { name: 'Orthopedic', icon: Shield },
-                   { name: 'Mental Health', icon: Activity },
-                   { name: 'Tele Health', icon: Zap },
-                   { name: 'Physical Therapy', icon: Activity },
-                   { name: 'Cardiology', icon: Activity },
-                   { name: 'Internal Medicine', icon: Search },
-                   { name: 'Dentistry', icon: Shield },
-                   { name: 'Laboratory', icon: Layers },
-                   { name: 'Urology', icon: Search },
-                   { name: 'Neurology', icon: Zap },
-                   { name: 'Lactation Consultant', icon: Users },
-                   { name: 'Home Care', icon: Clock },
-                   { name: 'Medical Equipment', icon: Layers },
-                   { name: 'OBGYN', icon: Users },
-                   { name: 'Urgent Care', icon: Clock }
+                   { name: 'Orthopedic', icon: Bone },
+                   { name: 'Mental Health', icon: Brain },
+                   { name: 'Tele Health', icon: Video },
+                   { name: 'Physical Therapy', icon: Accessibility },
+                   { name: 'Cardiology', icon: HeartPulse },
+                   { name: 'Internal Medicine', icon: Plus },
+                   { name: 'Dentistry', icon: Tooth },
+                   { name: 'Laboratory', icon: FlaskConical },
+                   { name: 'Urology', icon: Stethoscope },
+                   { name: 'Neurology', icon: Brain },
+                   { name: 'Lactation Consultant', icon: Baby },
+                   { name: 'Home Care', icon: Home },
+                   { name: 'Medical Equipment', icon: Stethoscope },
+                   { name: 'OBGYN', icon: User },
+                   { name: 'Urgent Care', icon: Heart }
                  ].map((spec, idx) => (
                     <motion.div 
                       key={idx}
