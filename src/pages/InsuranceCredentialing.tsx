@@ -13,25 +13,25 @@ const InsuranceCredentialing: React.FC = () => {
   );
 
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-0">
       {/* ─── HERO SECTION ─── */}
       <section className="relative flex flex-col justify-start pt-20 pb-24 overflow-hidden">
         {/* Animated Background Gradients */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-           <motion.div 
-             animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
-             transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-             className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full blur-[120px] bg-brand-light" 
-           />
-           <motion.div 
-             animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
-             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-             className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full blur-[140px] bg-brand-light/50" 
-           />
+          <motion.div
+            animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+            className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full blur-[120px] bg-brand-light"
+          />
+          <motion.div
+            animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full blur-[140px] bg-brand-light/50"
+          />
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -41,8 +41,8 @@ const InsuranceCredentialing: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
             Insurance Enrollment
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -51,16 +51,16 @@ const InsuranceCredentialing: React.FC = () => {
             Credentialing That <br />
             <span className="text-brand-deep">Actually Works.</span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            fdg transition={{ delay: 0.2, duration: 0.8 }}
             className="text-lg lg:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-12"
           >
             Credifide eliminates the invisible friction keeping providers away from patients. We manage processes with structured automation.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ const InsuranceCredentialing: React.FC = () => {
               <IconRenderer icon={ASSETS.nav.arrowRight} size={20} />
             </Link>
           </motion.div>
-          
+
         </div>
       </section>
 
@@ -83,7 +83,7 @@ const InsuranceCredentialing: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-6 text-slate-900 leading-tight">End-to-End Coverage</h2>
             <p className="text-base sm:text-lg text-slate-500">We handle the complexity so you can focus on care.</p>
           </div>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {[
               { title: "Primary Source Verification", icon: ASSETS.ui.clipboard },
@@ -107,11 +107,11 @@ const InsuranceCredentialing: React.FC = () => {
                 <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-brand-light shadow-sm hover:shadow-2xl hover:border-brand-accent transition-all duration-500 h-full relative overflow-hidden flex flex-col items-center text-center">
                   {/* Hover Glow */}
                   <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand-deep/5 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/30 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner transition-colors duration-500 group-hover:bg-brand-deep group-hover:text-white relative z-10 font-bold">
-                     <IconRenderer icon={item.icon} size={28} />
+                    <IconRenderer icon={item.icon} size={28} />
                   </div>
-                  
+
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors duration-500 relative z-10">
                     {item.title}
                   </h3>
@@ -126,12 +126,12 @@ const InsuranceCredentialing: React.FC = () => {
       <section className="py-12 lg:py-16 bg-brand-light/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 sm:mb-20">
-             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-6 leading-tight">Credentialing is Broken.</h2>
-             <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-               For most providers, credentialing is a fragmented nightmare of portals, paperwork, and manual follow-ups.
-             </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-6 leading-tight">Credentialing is Broken.</h2>
+            <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              For most providers, credentialing is a fragmented nightmare of portals, paperwork, and manual follow-ups.
+            </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
             {[
               { icon: ASSETS.features.clock, title: "Revenue Delays", desc: "Missing provider data costs groups thousands in daily lost revenue." },
@@ -147,7 +147,7 @@ const InsuranceCredentialing: React.FC = () => {
                 className="bg-white p-8 sm:p-10 rounded-[32px] border border-brand-light shadow-xl shadow-brand-deep/5 relative group overflow-hidden"
               >
                 <div className="w-14 h-14 bg-brand-light text-brand-deep rounded-2xl flex items-center justify-center mb-8 shadow-inner">
-                   <IconRenderer icon={item.icon} size={28} />
+                  <IconRenderer icon={item.icon} size={28} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{item.desc}</p>
@@ -169,19 +169,19 @@ const InsuranceCredentialing: React.FC = () => {
               <p className="text-lg sm:text-xl text-slate-500 mb-10 leading-relaxed">
                 Credifide treats credentialing as a governed system. Every workflow is structured, monitored, and automated from start to finish.
               </p>
-              
+
               <div className="space-y-10 sm:space-y-12 relative">
                 {/* Visual Line */}
                 <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-brand-light" />
-                
+
                 {[
                   { step: "01", title: "Smart Onboarding", desc: "Collect data once. Our system validates every field instantly." },
                   { step: "02", title: "Automated Validation", desc: "AI-assisted checks identify inconsistencies before submission." },
                   { step: "03", title: "Governed Submission", desc: "Direct integration with payer portals to eliminate manual error." },
                   { step: "04", title: "Proactive Monitoring", desc: "Live tracking with automated follow-ups every 72 hours." }
                 ].map((item, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.1, margin: '-60px' }}
@@ -199,46 +199,46 @@ const InsuranceCredentialing: React.FC = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="relative mt-12 lg:mt-0" ref={progressRef}>
-               <div className="aspect-[4/5] bg-brand-deep rounded-[48px] overflow-hidden shadow-2xl relative">
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-                  {/* Mock UI Element */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%]">
-                     <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6">
-                        <div className="flex justify-between items-center pb-4 border-b border-slate-50">
-                           <div className="font-bold text-slate-900 text-sm sm:text-base">Application Progress</div>
-                           <div className="text-brand-deep text-xs sm:text-sm font-bold">84% Complete</div>
+              <div className="aspect-[4/5] bg-brand-deep rounded-[48px] overflow-hidden shadow-2xl relative">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+                {/* Mock UI Element */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%]">
+                  <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6">
+                    <div className="flex justify-between items-center pb-4 border-b border-slate-50">
+                      <div className="font-bold text-slate-900 text-sm sm:text-base">Application Progress</div>
+                      <div className="text-brand-deep text-xs sm:text-sm font-bold">84% Complete</div>
+                    </div>
+                    <div className="space-y-4">
+                      {[
+                        { w: 90, label: 'Smart Onboarding' },
+                        { w: 65, label: 'Validation' },
+                        { w: 80, label: 'Payer Submission' },
+                        { w: 40, label: 'Monitoring' }
+                      ].map((item, i) => (
+                        <div key={i}>
+                          <div className="flex justify-between items-center mb-1.5">
+                            <span className="text-[10px] sm:text-xs text-slate-500 font-medium">{item.label}</span>
+                            <span className="text-[10px] sm:text-xs text-brand-deep font-bold">{item.w}%</span>
+                          </div>
+                          <div className="h-1.5 sm:h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ scaleX: 0 }}
+                              animate={progressInView ? { scaleX: 1 } : { scaleX: 0 }}
+                              transition={{ duration: 1.5, delay: 0.4 + i * 0.2, ease: 'easeOut' }}
+                              className="h-full bg-brand-deep origin-left rounded-full will-change-transform"
+                              style={{ width: `${item.w}%` }}
+                            />
+                          </div>
                         </div>
-                        <div className="space-y-4">
-                           {[
-                             { w: 90, label: 'Smart Onboarding' },
-                             { w: 65, label: 'Validation' },
-                             { w: 80, label: 'Payer Submission' },
-                             { w: 40, label: 'Monitoring' }
-                           ].map((item, i) => (
-                             <div key={i}>
-                               <div className="flex justify-between items-center mb-1.5">
-                                 <span className="text-[10px] sm:text-xs text-slate-500 font-medium">{item.label}</span>
-                                 <span className="text-[10px] sm:text-xs text-brand-deep font-bold">{item.w}%</span>
-                               </div>
-                               <div className="h-1.5 sm:h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                                 <motion.div 
-                                   initial={{ scaleX: 0 }}
-                                   animate={progressInView ? { scaleX: 1 } : { scaleX: 0 }}
-                                   transition={{ duration: 1.5, delay: 0.4 + i * 0.2, ease: 'easeOut' }}
-                                   className="h-full bg-brand-deep origin-left rounded-full will-change-transform" 
-                                   style={{ width: `${item.w}%` }} 
-                                 />
-                               </div>
-                             </div>
-                           ))}
-                        </div>
-                     </div>
+                      ))}
+                    </div>
                   </div>
-                  {/* Glow element */}
-                  <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
-               </div>
+                </div>
+                {/* Glow element */}
+                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
+              </div>
             </div>
           </div>
         </div>

@@ -105,7 +105,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* HERO FORM: REVERTED TO CLEAN PLACEMENT WITH NO SCROLLING */}
+              {/* HERO FORM: INTEGRATED & RESPONSIVE */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -113,13 +113,17 @@ const ProviderEnrollmentLP: React.FC = () => {
                 className="relative z-20 w-full"
                 id="form"
               >
+                  <div className="rounded-[2rem] md:rounded-[3rem] border border-slate-100 bg-white shadow-[0_50px_100px_-20px_rgba(11,107,87,0.15)] overflow-hidden h-[700px] md:h-[850px] relative group transition-all duration-700 hover:shadow-[0_60px_120px_-20px_rgba(11,107,87,0.2)]">
+                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-deep via-brand-accent to-brand-deep z-20 opacity-80" />
                      <iframe 
                         aria-label='Book a Consultation With Our Experts' 
                         frameBorder="0" 
-                        style={{ height: '1050px', width: '100%', border: 'none', overflow: 'hidden' }} 
-                        scrolling="no"
+                        style={{ height: '100%', width: '100%', border: 'none' }} 
+                        scrolling="auto"
                         src='https://forms.zohopublic.com/credifide1/form/BookaConsultationwithourexperts1/formperma/RIFpP_m9bbkkzpYAcOVv811Nx32ooYsAE17hBbEAdVU'
+                        className="w-full h-full"
                      ></iframe>
+                  </div>
               </motion.div>
             </div>
           </div>
@@ -574,24 +578,33 @@ const ProviderEnrollmentLP: React.FC = () => {
               ))}
             </motion.div>
 
-            {/* Calendar iframe wrapper */}
+            {/* Calendar iframe wrapper: PREMIMUM BROWSER FRAME */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: 0.3 }}
-              className="relative rounded-2xl md:rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] bg-white"
+              className="relative rounded-2xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] bg-white group"
             >
-              {/* Top bar decoration */}
-              <div className="flex items-center gap-2 px-5 py-3 bg-slate-50 border-b border-slate-100">
-                <div className="w-3 h-3 rounded-full bg-red-300" />
-                <div className="w-3 h-3 rounded-full bg-yellow-300" />
-                <div className="w-3 h-3 rounded-full bg-green-300" />
-                <span className="ml-3 text-xs font-bold text-slate-400 tracking-widest uppercase">Book a Consultation - Credifide</span>
+              {/* Top bar decoration - Sophisticated Browser Look */}
+              <div className="flex items-center justify-between px-6 py-4 bg-slate-50 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-400 opacity-80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400 opacity-80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400 opacity-80" />
+                </div>
+                <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm w-1/2 justify-center">
+                  <Lock size={10} className="text-slate-400" />
+                  <span className="text-[10px] font-bold text-slate-400 tracking-wider truncate">credifide.com/consultation</span>
+                </div>
+                <div className="flex gap-2">
+                  <div className="w-4 h-1 bg-slate-200 rounded-full" />
+                  <div className="w-4 h-1 bg-slate-200 rounded-full" />
+                </div>
               </div>
 
               {/* Responsive iframe container */}
-              <div className="w-full" style={{ minHeight: '600px' }}>
+              <div className="w-full relative bg-white" style={{ minHeight: '600px' }}>
                 <iframe
                   src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
                   title="Book a Consultation with Credifide"
@@ -599,14 +612,22 @@ const ProviderEnrollmentLP: React.FC = () => {
                   scrolling="yes"
                   style={{
                     width: '100%',
-                    minHeight: '600px',
-                    height: '700px',
+                    minHeight: '650px',
+                    height: '800px',
                     border: 'none',
                     display: 'block',
                   }}
                   className="w-full"
                   allow="camera; microphone; fullscreen"
                 />
+                
+                {/* Bottom integration bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-12 bg-white flex items-center justify-center px-6 border-t border-slate-50 z-20">
+                   <div className="flex items-center gap-2 opacity-30">
+                      <Zap size={10} />
+                      <span className="text-[8px] font-black uppercase tracking-[0.4em]">Powered by Credifide Secure Schedular</span>
+                   </div>
+                </div>
               </div>
             </motion.div>
 

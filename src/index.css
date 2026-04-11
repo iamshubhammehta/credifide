@@ -53,16 +53,17 @@
     text-size-adjust: 100%;
     /* Smooth scrolling but respect user preference */
     scroll-behavior: smooth;
-    /* Default root size */
-    font-size: 16px;
+    /* Default root size at 120% (16px * 1.2 = 19.2px) */
+    font-size: 19.2px;
+    overflow-x: hidden;
+    width: 100%;
   }
 
-  /* Automatically scale everything proportionally for laptops and desktops.
-     0.8333vw = 16px at 1920px width.
-     This enforces identical visual proportions and directly counters OS-level zoom (125%/150%). */
+  /* Automatically scale everything proportionally for laptops and desktops. */
   @media screen and (min-width: 1024px) {
     html {
-      font-size: clamp(10px, 0.8333vw, 24px);
+      /* Maintaining the 1.2x scale factor in the fluid calculation */
+      font-size: clamp(14px, 1.0vw, 28px);
     }
   }
 
@@ -89,6 +90,9 @@
     padding-right: env(safe-area-inset-right);
     /* Touch action for smooth scrolling */
     -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   #root {
