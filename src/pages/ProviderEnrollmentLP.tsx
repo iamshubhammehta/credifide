@@ -54,7 +54,7 @@ const ProviderEnrollmentLP: React.FC = () => {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
-        <section className="relative pt-12 pb-0 lg:pt-16 lg:pb-0 overflow-hidden flex flex-col justify-center gap-12 lg:gap-16">
+        <section className="relative pt-0 pb-0 overflow-hidden">
           {/* Dynamic Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-light/5 rounded-full blur-[160px]" />
@@ -62,50 +62,52 @@ const ProviderEnrollmentLP: React.FC = () => {
              <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(#11332E 1px, transparent 1px), linear-gradient(90deg, #11332E 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Text Side */}
-              <motion.div
-                initial={{ opacity: 0, x: -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-light/50 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-[0.2em] mb-8">
-                   <Zap size={14} />
-                   AI-Powered Enrollment Platform
-                </div>
-                <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-display font-black text-slate-950 leading-[1.05] mb-8">
-                   Payer & Provider <br />
-                   <span className="relative inline-block pl-0 py-2 mt-2">
-                      <span className="relative z-10">Enrollment.</span>
-                      <motion.div 
-                         initial={{ scaleX: 0 }}
-                         whileInView={{ scaleX: 1 }}
-                         transition={{ delay: 0.8, duration: 0.8, ease: "circOut" }}
-                         className="absolute -bottom-1 left-0 right-10 h-3 bg-brand-accent/40 -z-0 origin-left rounded-full"
-                      />
-                   </span>
-                </h1>
-                <p className="text-[clamp(1rem,1.5vw+0.5rem,1.25rem)] text-slate-500 mb-10 max-w-lg leading-relaxed font-bold">
-                   Experience 98% first-submission accuracy and 30% faster turnaround times. We treat credentialing as infrastructure, not administrative paperwork.
-                </p>
-                
-                <div className="hidden lg:flex flex-wrap gap-4 mt-8">
-                   {[
-                      { icon: Shield, text: 'HIPAA Compliant' },
-                      { icon: Clock, text: '30% Faster approvals' },
-                      { icon: Zap, text: 'AI Validation' }
-                   ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-black uppercase text-slate-500 tracking-widest">
-                         <item.icon size={12} className="text-brand-deep" />
-                         {item.text}
-                      </div>
-                   ))}
-                </div>
-              </motion.div>
+          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mt-[-2rem] lg:mt-[-4rem] mb-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[700px] md:min-h-[850px]">
+              {/* Text Side - Vertically Centered */}
+              <div className="flex flex-col justify-center h-full sm:py-12 lg:py-0">
+                <motion.div
+                  initial={{ opacity: 0, x: -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-light/50 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                     <Zap size={14} />
+                     AI-Powered Enrollment Platform
+                  </div>
+                  <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-display font-black text-slate-950 leading-[1.05] mb-8">
+                     Payer & Provider <br />
+                     <span className="relative inline-block pl-0 py-2 mt-2">
+                        <span className="relative z-10">Enrollment.</span>
+                        <motion.div 
+                           initial={{ scaleX: 0 }}
+                           whileInView={{ scaleX: 1 }}
+                           transition={{ delay: 0.8, duration: 0.8, ease: "circOut" }}
+                           className="absolute -bottom-1 left-0 right-10 h-3 bg-brand-accent/40 -z-0 origin-left rounded-full"
+                        />
+                     </span>
+                  </h1>
+                  <p className="text-[clamp(1rem,1.5vw+0.5rem,1.25rem)] text-slate-500 mb-10 max-w-lg leading-relaxed font-bold">
+                     Experience 98% first-submission accuracy and 30% faster turnaround times. We treat credentialing as infrastructure, not administrative paperwork.
+                  </p>
+                  
+                  <div className="hidden lg:flex flex-wrap gap-4 mt-8">
+                     {[
+                        { icon: Shield, text: 'HIPAA Compliant' },
+                        { icon: Clock, text: '30% Faster approvals' },
+                        { icon: Zap, text: 'AI Validation' }
+                     ].map((item, i) => (
+                        <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-black uppercase text-slate-500 tracking-widest">
+                           <item.icon size={12} className="text-brand-deep" />
+                           {item.text}
+                        </div>
+                     ))}
+                  </div>
+                </motion.div>
+              </div>
 
-              {/* HERO FORM: REPLICATING THE EXACT REFERENCE "CLEAN" LOOK */}
+              {/* HERO FORM: CLEAN FLOATING LOOK */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -113,7 +115,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                 className="relative z-20 w-full"
                 id="form"
               >
-                  <div className="rounded-[1.5rem] bg-white shadow-[0_15px_50px_rgba(0,0,0,0.12)] overflow-hidden h-[850px] md:h-[1050px] border border-slate-100 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
+                  <div className="overflow-hidden h-[750px] md:h-[850px] w-full transition-all duration-500">
                      <iframe 
                         aria-label='Book a Consultation With Our Experts' 
                         frameBorder="0" 
