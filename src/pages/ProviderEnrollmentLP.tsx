@@ -105,7 +105,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* HERO FORM: INTEGRATED & RESPONSIVE */}
+              {/* HERO FORM: REPLICATING THE EXACT REFERENCE "CLEAN" LOOK */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -113,15 +113,15 @@ const ProviderEnrollmentLP: React.FC = () => {
                 className="relative z-20 w-full"
                 id="form"
               >
-                  <div className="rounded-[2rem] md:rounded-[3rem] border border-slate-100 bg-white shadow-[0_50px_100px_-20px_rgba(11,107,87,0.15)] overflow-hidden h-[700px] md:h-[850px] relative group transition-all duration-700 hover:shadow-[0_60px_120px_-20px_rgba(11,107,87,0.2)]">
-                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-deep via-brand-accent to-brand-deep z-20 opacity-80" />
+                  <div className="rounded-[1.5rem] bg-white shadow-[0_15px_50px_rgba(0,0,0,0.12)] overflow-hidden h-[850px] md:h-[1050px] border border-slate-100 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
                      <iframe 
                         aria-label='Book a Consultation With Our Experts' 
                         frameBorder="0" 
                         style={{ height: '100%', width: '100%', border: 'none' }} 
-                        scrolling="auto"
+                        scrolling="no"
                         src='https://forms.zohopublic.com/credifide1/form/BookaConsultationwithourexperts1/formperma/RIFpP_m9bbkkzpYAcOVv811Nx32ooYsAE17hBbEAdVU'
                         className="w-full h-full"
+                        title="Zoho Contact Form"
                      ></iframe>
                   </div>
               </motion.div>
