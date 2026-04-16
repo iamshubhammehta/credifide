@@ -576,40 +576,27 @@ const ProviderEnrollmentLP: React.FC = () => {
                  <p className="text-slate-500 font-bold max-w-2xl mx-auto uppercase tracking-[0.4em] text-[10px]">Strategic Enrollment Infrastructure</p>
               </motion.div>
 
-              {/* Modern Squircle Logo Grid - Optimized for attractiveness */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {/* Premium Static Logo Grid - Optimized for clarity and elegance */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto py-12">
                  {PAYERS.map((payer, idx) => (
                     <motion.div
                        key={idx}
-                       initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                       whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       viewport={{ once: true }}
                        transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                       whileHover={{ 
-                          y: -12, 
-                          scale: 1.05,
-                          boxShadow: '0 40px 80px -20px rgba(11, 107, 87, 0.15)'
-                       }}
-                       className="group relative bg-white aspect-square md:aspect-auto md:h-full py-8 md:min-h-[160px] rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-6 gap-4 transition-all duration-700 cursor-default shadow-sm overflow-hidden"
+                       className="group relative bg-white aspect-square md:aspect-auto md:h-full py-8 md:min-h-[160px] rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-6 gap-4 hover:border-brand-deep/20 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] overflow-hidden"
                     >
-                       {/* Subtle Inner Glow */}
-                       <div 
-                         className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" 
-                         style={{ background: `radial-gradient(circle at center, ${payer.color}, transparent 70%)` }} 
-                       />
-                       
-                       <img 
-                          src={payer.logo} 
-                          alt={payer.name} 
-                          className="h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-700 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100" 
-                          onError={(e) => { e.currentTarget.src = defaultLogo; }}
-                       />
-                       
-                       <span className="text-xs font-black text-slate-700 uppercase tracking-widest leading-none group-hover:text-slate-900 transition-colors">
+                       <div className="relative w-full h-20 flex items-center justify-center overflow-hidden">
+                          <img 
+                             src={defaultLogo} 
+                             alt={payer.name} 
+                             className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
+                          />
+                       </div>
+                       <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] group-hover:text-slate-900 transition-colors">
                           {payer.name}
                        </span>
-
-                       {/* Interactive Badge */}
-                       <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-slate-100 group-hover:bg-brand-accent transition-colors" />
                     </motion.div>
                  ))}
               </div>
