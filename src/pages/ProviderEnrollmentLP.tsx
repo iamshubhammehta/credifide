@@ -589,9 +589,10 @@ const ProviderEnrollmentLP: React.FC = () => {
                     >
                        <div className="relative w-full h-20 flex items-center justify-center overflow-hidden">
                           <img 
-                             src={defaultLogo} 
+                             src={payer.logo} 
                              alt={payer.name} 
                              className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
+                             onError={(e) => { e.currentTarget.src = defaultLogo; }}
                           />
                        </div>
                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] group-hover:text-slate-900 transition-colors">
