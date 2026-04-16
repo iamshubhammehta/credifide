@@ -1,0 +1,344 @@
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'motion/react';
+import { ASSETS, IconRenderer } from '../constants';
+import { Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
+
+const InsuranceCredentialing: React.FC = () => {
+  const progressRef = useRef<HTMLDivElement>(null);
+  const progressInView = useInView(progressRef, { once: true, margin: '-50px' });
+  useSEO(
+    'Insurance & Payer Credentialing Services | Credifide',
+    'Stop losing revenue to enrollment delays. Our proactive credentialing infrastructure builds direct payer pathways for faster reimbursements.'
+  );
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="bg-white min-h-screen font-sans selection:bg-brand-light selection:text-brand-deep overflow-x-hidden pt-0">
+      {/* ─── HERO SECTION ─── */}
+      <section className="relative flex flex-col justify-start pt-20 pb-24 overflow-hidden">
+        {/* Animated Background Gradients */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div
+            animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+            className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full blur-[120px] bg-brand-light"
+          />
+          <motion.div
+            animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full blur-[140px] bg-brand-light/50"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-sm font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
+          >
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
+            Insurance Credentialing
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl sm:text-7xl lg:text-8xl font-display font-extrabold text-slate-950 leading-tight tracking-tighter mb-8"
+          >
+            Credentialing That <br />
+            <span className="text-brand-deep">Actually Works.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            fdg transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-lg lg:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-12"
+          >
+            Credifide eliminates the invisible friction keeping providers away from patients. We manage processes with structured automation.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+          >
+            <Link to="/contact" className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-2xl shadow-brand-deep/20 hover:scale-[1.03] transition-all flex items-center gap-2 w-full sm:w-auto justify-center">
+              Book a Consultation
+              <IconRenderer icon={ASSETS.nav.arrowRight} size={20} />
+            </Link>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ─── SERVICES BREAKDOWN ─── */}
+      <section className="py-12 lg:py-16 bg-brand-light/20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-6 text-slate-900 leading-tight">End-to-End Coverage</h2>
+            <p className="text-base sm:text-lg text-slate-500">We handle the complexity so you can focus on care.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            {[
+              { title: "Primary Source Verification", icon: ASSETS.ui.clipboard },
+              { title: "Payer Enrollment", icon: ASSETS.ui.userPlus },
+              { title: "CAQH Profile Management", icon: ASSETS.ui.smartphone },
+              { title: "Initial Provider Credentialing", icon: ASSETS.ui.award },
+              { title: "Recredentialing Management", icon: ASSETS.ui.refresh },
+              { title: "Insurance Contracting Coordination", icon: ASSETS.ui.chart },
+              { title: "Contract Rate Negotiation", icon: ASSETS.ui.handshake },
+              { title: "NPI Registration", icon: ASSETS.ui.list }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                whileHover={{ y: -10 }}
+                className="group relative"
+              >
+                <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-brand-light shadow-sm hover:shadow-2xl hover:border-brand-accent transition-all duration-500 h-full relative overflow-hidden flex flex-col items-center text-center">
+                  {/* Hover Glow */}
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand-deep/5 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-light/30 rounded-2xl flex items-center justify-center text-brand-deep mb-6 shadow-inner transition-colors duration-500 group-hover:bg-brand-deep group-hover:text-white relative z-10 font-bold">
+                    <IconRenderer icon={item.icon} size={28} />
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors duration-500 relative z-10">
+                    {item.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PROBLEM SECTION ─── */}
+      <section className="py-12 lg:py-16 bg-brand-light/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-6 leading-tight">Credentialing is Broken.</h2>
+            <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              For most providers, credentialing is a fragmented nightmare of portals, paperwork, and manual follow-ups.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
+            {[
+              { icon: ASSETS.features.clock, title: "Revenue Delays", desc: "Missing provider data costs groups thousands in daily lost revenue." },
+              { icon: ASSETS.ui.alert, title: "Process Churn", desc: "Fragmented systems lead to stalled applications and missed deadlines." },
+              { icon: ASSETS.ui.target, title: "Zero Visibility", desc: "Most providers don't know where their applications stand until they fail." }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-8 sm:p-10 rounded-[32px] border border-brand-light shadow-xl shadow-brand-deep/5 relative group overflow-hidden"
+              >
+                <div className="w-14 h-14 bg-brand-light text-brand-deep rounded-2xl flex items-center justify-center mb-8 shadow-inner">
+                  <IconRenderer icon={item.icon} size={28} />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SOLUTION SECTION ─── */}
+      <section className="py-12 lg:py-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            <div>
+              <span className="text-brand-deep/60 font-bold tracking-widest uppercase text-xs sm:text-sm mb-4 block">The Solution</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-slate-950 mb-8 leading-tight">
+                We Build Operational <span className="text-brand-deep">Infrastructure</span>, Not Paperwork.
+              </h2>
+              <p className="text-lg sm:text-xl text-slate-500 mb-10 leading-relaxed">
+                Credifide treats credentialing as a governed system. Every workflow is structured, monitored, and automated from start to finish.
+              </p>
+
+              <div className="space-y-10 sm:space-y-12 relative">
+                {/* Visual Line */}
+                <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-brand-light" />
+
+                {[
+                  { step: "01", title: "Smart Onboarding", desc: "Collect data once. Our system validates every field instantly." },
+                  { step: "02", title: "Automated Validation", desc: "AI-assisted checks identify inconsistencies before submission." },
+                  { step: "03", title: "Governed Submission", desc: "Direct integration with payer portals to eliminate manual error." },
+                  { step: "04", title: "Proactive Monitoring", desc: "Live tracking with automated follow-ups every 72 hours." }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.1, margin: '-60px' }}
+                    transition={{ delay: i * 0.15, duration: 0.5 }}
+                    className="flex gap-6 sm:gap-8 relative z-10"
+                  >
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-brand-light rounded-full flex items-center justify-center text-brand-deep font-bold shrink-0 shadow-sm">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
+                      <p className="text-slate-500 leading-relaxed text-sm sm:text-base">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative mt-12 lg:mt-0" ref={progressRef}>
+              <div className="aspect-[4/5] bg-brand-deep rounded-[48px] overflow-hidden shadow-2xl relative">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+                {/* Mock UI Element */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%]">
+                  <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6">
+                    <div className="flex justify-between items-center pb-4 border-b border-slate-50">
+                      <div className="font-bold text-slate-900 text-sm sm:text-base">Application Progress</div>
+                      <div className="text-brand-deep text-xs sm:text-sm font-bold">84% Complete</div>
+                    </div>
+                    <div className="space-y-4">
+                      {[
+                        { w: 90, label: 'Smart Onboarding' },
+                        { w: 65, label: 'Validation' },
+                        { w: 80, label: 'Payer Submission' },
+                        { w: 40, label: 'Monitoring' }
+                      ].map((item, i) => (
+                        <div key={i}>
+                          <div className="flex justify-between items-center mb-1.5">
+                            <span className="text-[10px] sm:text-xs text-slate-500 font-medium">{item.label}</span>
+                            <span className="text-[10px] sm:text-xs text-brand-deep font-bold">{item.w}%</span>
+                          </div>
+                          <div className="h-1.5 sm:h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ scaleX: 0 }}
+                              animate={progressInView ? { scaleX: 1 } : { scaleX: 0 }}
+                              transition={{ duration: 1.5, delay: 0.4 + i * 0.2, ease: 'easeOut' }}
+                              className="h-full bg-brand-deep origin-left rounded-full will-change-transform"
+                              style={{ width: `${item.w}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                {/* Glow element */}
+                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      {/* ─── CTA SECTION ─── */}
+      <section className="py-12 lg:py-16 bg-transparent relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <div className="relative rounded-[32px] sm:rounded-[48px] overflow-hidden">
+            {/* Animated gradient BG */}
+            <motion.div
+              animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, #0B6B57, #095646, #074235, #0B6B57)',
+                backgroundSize: '300% 300%',
+              }}
+            />
+
+            {/* Floating Orbs */}
+            <motion.div
+              animate={{ x: [0, 20, 0], y: [0, 15, 0] }}
+              transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+              style={{ willChange: 'transform' }}
+              className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-[70px]"
+            />
+            <motion.div
+              animate={{ x: [0, -15, 0], y: [0, -20, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+              style={{ willChange: 'transform' }}
+              className="absolute bottom-[-20%] right-[-10%] w-80 h-80 bg-brand-accent/15 rounded-full blur-[60px]"
+            />
+
+            {/* Grid Overlay */}
+            <div className="absolute inset-0 opacity-[0.04]" style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+            }} />
+
+            <div className="relative z-10 py-16 sm:py-24 px-6 sm:px-8 lg:px-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-white text-sm font-semibold mb-8"
+              >
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-2 h-2 rounded-full bg-brand-400"
+                />
+                Start Your Journey
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-[2.2rem] sm:text-5xl lg:text-7xl font-display font-bold text-white leading-tight mb-6"
+              >
+                Ready to Optimize Your <br />
+                <span className="text-brand-400">Enrollment?</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-slate-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
+              >
+                Join hundreds of medical groups using Credifide to reduce overhead and focus on patient care.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex items-center justify-center"
+              >
+                <Link
+                  to="/contact"
+                  className="px-10 py-5 bg-brand-accent text-brand-deep rounded-2xl font-bold text-lg shadow-2xl shadow-black/10 hover:scale-105 transition-all flex items-center gap-3 w-full sm:w-auto justify-center"
+                >
+                  Book a Consultation
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default InsuranceCredentialing;
