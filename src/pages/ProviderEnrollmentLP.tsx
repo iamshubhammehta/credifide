@@ -155,20 +155,15 @@ const ProviderEnrollmentLP: React.FC = () => {
        if (!el) return;
        const { scrollLeft, scrollWidth, clientWidth } = el;
        
-       // SEAMLESS LOOP LOGIC: 
-       // If we've scrolled past the first set of items (midpoint),
-       // instantly teleport back to the equivalent position in the first set.
-       const rowWidth = scrollWidth / 2;
-       if (scrollLeft >= rowWidth - 5) {
-         el.scrollTo({ left: scrollLeft - rowWidth, behavior: 'auto' });
-       }
-       
-       // Small delay to let the teleport settle, then scroll forward
-       setTimeout(() => {
+       // LOOP LOGIC: 
+       // If we're near the end, reset to the beginning.
+       if (scrollLeft >= scrollWidth - clientWidth - 20) {
+         el.scrollTo({ left: 0, behavior: 'smooth' });
+       } else {
          const moveAmount = clientWidth * 0.85 + 16;
          el.scrollBy({ left: moveAmount, behavior: 'smooth' });
-       }, 50);
-    }, 2000);
+       }
+    }, 2500); // Increased interval slightly for better readability
     return () => clearInterval(interval);
   }, [isServicesPaused]);
 
@@ -306,15 +301,6 @@ const ProviderEnrollmentLP: React.FC = () => {
                 className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6"
               >
                  {[
-                    { title: 'Primary Source Verification', icon: FileCheck },
-                    { title: 'Payer Enrollment', icon: UserPlus },
-                    { title: 'CAQH Profile Management', icon: Layers },
-                    { title: 'Initial Provider Credentialing', icon: Award },
-                    { title: 'Recredentialing Management', icon: RefreshCw },
-                    { title: 'Insurance Contracting Coordination', icon: FileBarChart },
-                    { title: 'Contract Rate Negotiation', icon: Handshake },
-                    { title: 'NPI Registration', icon: ClipboardList },
-                    // Seamless Loop Duplicate
                     { title: 'Primary Source Verification', icon: FileCheck },
                     { title: 'Payer Enrollment', icon: UserPlus },
                     { title: 'CAQH Profile Management', icon: Layers },
