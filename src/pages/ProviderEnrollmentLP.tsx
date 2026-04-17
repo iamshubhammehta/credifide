@@ -237,7 +237,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
+              <div className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6">
                  {[
                     { title: 'Primary Source Verification', icon: FileCheck },
                     { title: 'Payer Enrollment', icon: UserPlus },
@@ -255,7 +255,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.05 }}
                        whileHover={{ y: -10 }}
-                       className="p-6 md:p-8 sm:p-10 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                       className="min-w-[85vw] sm:min-w-0 snap-center p-8 sm:p-10 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
                        {/* Subtle hover gradient */}
                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
