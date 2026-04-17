@@ -316,7 +316,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                 onMouseLeave={() => setIsServicesPaused(false)}
                 onTouchStart={() => setIsServicesPaused(true)}
                 onTouchEnd={() => setIsServicesPaused(false)}
-                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6"
+                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 items-stretch"
               >
                  {[
                     { title: 'Primary Source Verification', icon: FileCheck },
@@ -335,7 +335,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.05 }}
                        whileHover={{ y: -10 }}
-                       className="min-w-[85vw] sm:min-w-0 snap-center p-8 sm:p-10 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                       className="min-w-[85vw] sm:min-w-0 min-h-[220px] sm:min-h-0 snap-center p-8 sm:p-10 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
                        {/* Subtle hover gradient */}
                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
@@ -506,7 +506,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                       {row.map((spec, idx) => (
                         <div 
                           key={idx}
-                          className="min-w-[70vw] snap-center p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 shadow-sm"
+                          className="min-w-[70vw] min-h-[84px] snap-center p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 shadow-sm"
                         >
                           <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep shrink-0">
                             <spec.icon size={22} />
@@ -605,7 +605,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                 onMouseLeave={() => setIsWhyChoosePaused(false)}
                 onTouchStart={() => setIsWhyChoosePaused(true)}
                 onTouchEnd={() => setIsWhyChoosePaused(false)}
-                className="flex md:grid flex-nowrap md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6"
+                className="flex md:grid flex-nowrap md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 items-stretch"
               >
                  {[
                     { 
@@ -652,7 +652,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.1 }}
                        whileHover={{ y: -12, scale: 1.02 }}
-                       className="min-w-[85vw] md:min-w-0 snap-center group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden"
+                       className="min-w-[85vw] md:min-w-0 min-h-[280px] md:min-h-0 snap-center group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full"
                     >
                        {/* Subtle Background Glow */}
                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-light/10 transition-colors duration-1000" />
@@ -880,5 +880,6 @@ const ProviderEnrollmentLP: React.FC = () => {
 };
 
 export default ProviderEnrollmentLP;
+
 
 
