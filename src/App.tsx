@@ -201,7 +201,7 @@ const Navbar = React.memo(() => {
               {/* Dropdown */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
                 <div className="bg-white/70 border border-white/40 rounded-2xl shadow-2xl p-4 w-72 backdrop-blur-xl">
-                  <a href="https://credifide.com/insurance-credentialing/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <Link to="/services/insurance-credentialing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
                     <div className="w-10 h-10 rounded-lg bg-brand-deep/10 text-brand-deep flex items-center justify-center shrink-0">
                       <IconRenderer icon={ASSETS.features.shield} size={20} />
                     </div>
@@ -209,7 +209,7 @@ const Navbar = React.memo(() => {
                       <div className="font-bold text-slate-900 text-sm mb-1 group-hover/item:text-brand-deep">Insurance Credentialing</div>
                       <p className="text-[11px] text-slate-500 leading-tight">Fast-tracked payer enrollment & compliance.</p>
                     </div>
-                  </a>
+                  </Link>
                   <Link to="/services/medical-billing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
                       <IconRenderer icon={ASSETS.ui.dollar} size={20} />
@@ -322,9 +322,9 @@ const Navbar = React.memo(() => {
               </button>
               {servicesOpen && (
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-brand-light pl-4">
-                  <a href="https://credifide.com/insurance-credentialing/" target="_blank" rel="noopener noreferrer" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
+                  <Link to="/services/insurance-credentialing" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
                     Insurance Credentialing
-                  </a>
+                  </Link>
                   <Link to="/services/medical-billing" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
                     Medical Billing
                   </Link>
@@ -709,25 +709,13 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
           </div>
 
           <div>
-            {service.path?.startsWith('http') ? (
-              <a
-                href={service.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-brand-deep font-bold text-base lg:text-lg hover:gap-4 transition-all group will-change-transform"
-              >
-                Learn more about this service
-                <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover:translate-x-2 transition-transform" />
-              </a>
-            ) : (
-              <Link
-                to={service.path || "/contact"}
-                className="flex items-center gap-2 text-brand-deep font-bold text-base lg:text-lg hover:gap-4 transition-all group will-change-transform"
-              >
-                Learn more about this service
-                <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover:translate-x-2 transition-transform" />
-              </Link>
-            )}
+            <Link
+              to={service.path || "/contact"}
+              className="flex items-center gap-2 text-brand-deep font-bold text-base lg:text-lg hover:gap-4 transition-all group will-change-transform"
+            >
+              Learn more about this service
+              <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover:translate-x-2 transition-transform" />
+            </Link>
           </div>
         </div>
 
@@ -970,7 +958,7 @@ const Features = React.memo(() => {
       icon: ASSETS.features.shield,
       title: "Provider Credentialing",
       desc: "Our automated systems handle the entire enrollment process, ensuring your providers are credentialed and contracted with payers faster than ever.",
-      path: "https://credifide.com/insurance-credentialing/",
+      path: "/services/insurance-credentialing",
       color: "bg-white"
     },
     {
