@@ -178,18 +178,16 @@ const ProviderEnrollmentLP: React.FC = () => {
         if (!el) return;
         
         const { scrollLeft, scrollWidth, clientWidth } = el;
-        const rowWidth = scrollWidth / 2;
         
-        // SEAMLESS LOOP LOGIC
-        if (scrollLeft >= rowWidth - 5) {
-          el.scrollTo({ left: scrollLeft - rowWidth, behavior: 'auto' });
-        }
-
-        setTimeout(() => {
+        // LOOP LOGIC: 
+        // If we're near the end, reset to the beginning.
+        if (scrollLeft >= scrollWidth - clientWidth - 20) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
           el.scrollBy({ left: clientWidth * 0.7 + 12, behavior: 'smooth' });
-        }, 50);
+        }
       });
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [activePausedSpecRows]);
@@ -453,14 +451,8 @@ const ProviderEnrollmentLP: React.FC = () => {
 
                {/* SPECIALTIES CAROUSEL: MOBILE (3 ROWS x 5 ITEMS) */}
                <div className="flex flex-col gap-4 sm:hidden -mx-6">
-                  {[
+                   {[
                     [
-                      { name: 'Orthopedic', icon: Bone },
-                      { name: 'Mental Health', icon: Brain },
-                      { name: 'Tele Health', icon: Video },
-                      { name: 'Physical Therapy', icon: Accessibility },
-                      { name: 'Cardiology', icon: HeartPulse },
-                      // Clone
                       { name: 'Orthopedic', icon: Bone },
                       { name: 'Mental Health', icon: Brain },
                       { name: 'Tele Health', icon: Video },
@@ -472,21 +464,9 @@ const ProviderEnrollmentLP: React.FC = () => {
                       { name: 'Dentistry', icon: Smile },
                       { name: 'Laboratory', icon: FlaskConical },
                       { name: 'Urology', icon: Stethoscope },
-                      { name: 'Neurology', icon: Brain },
-                      // Clone
-                      { name: 'Internal Medicine', icon: Plus },
-                      { name: 'Dentistry', icon: Smile },
-                      { name: 'Laboratory', icon: FlaskConical },
-                      { name: 'Urology', icon: Stethoscope },
                       { name: 'Neurology', icon: Brain }
                     ],
                     [
-                      { name: 'Lactation Consultant', icon: Baby },
-                      { name: 'Home Care', icon: Home },
-                      { name: 'Medical Equipment', icon: Stethoscope },
-                      { name: 'OBGYN', icon: User },
-                      { name: 'Urgent Care', icon: Heart },
-                      // Clone
                       { name: 'Lactation Consultant', icon: Baby },
                       { name: 'Home Care', icon: Home },
                       { name: 'Medical Equipment', icon: Stethoscope },
