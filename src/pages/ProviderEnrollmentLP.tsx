@@ -139,32 +139,50 @@ const ResponsiveZohoForm = () => {
 const ProviderEnrollmentLP: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [isServicesPaused, setIsServicesPaused] = React.useState(false);
+  const [activePausedSpecRows, setActivePausedSpecRows] = React.useState<number[]>([]);
   const servicesScrollRef = React.useRef<HTMLDivElement>(null);
+  const specScrollRefs = [
+    React.useRef<HTMLDivElement>(null),
+    React.useRef<HTMLDivElement>(null),
+    React.useRef<HTMLDivElement>(null)
+  ];
 
   // Auto-swipe for Services Carousel (Mobile Only)
   React.useEffect(() => {
-    // Only run on mobile, and only if not paused by interaction
     if (window.innerWidth >= 640 || isServicesPaused) return;
-
     const interval = setInterval(() => {
-      const el = servicesScrollRef.current;
-      if (!el) return;
-
-      const { scrollLeft, scrollWidth, clientWidth } = el;
-      // If we're at the end (with a small buffer), reset to start
-      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 20;
-
-      if (isAtEnd) {
-        el.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        // Move by roughly one card width (85vw) + some gap
-        const moveAmount = clientWidth * 0.85 + 16;
-        el.scrollBy({ left: moveAmount, behavior: 'smooth' });
-      }
+       const el = servicesScrollRef.current;
+       if (!el) return;
+       const { scrollLeft, scrollWidth, clientWidth } = el;
+       if (scrollLeft + clientWidth >= scrollWidth - 20) {
+         el.scrollTo({ left: 0, behavior: 'smooth' });
+       } else {
+         el.scrollBy({ left: clientWidth * 0.85 + 16, behavior: 'smooth' });
+       }
     }, 2000);
-
     return () => clearInterval(interval);
   }, [isServicesPaused]);
+
+  // Auto-swipe for Specialties Rows (Mobile Only)
+  React.useEffect(() => {
+    if (window.innerWidth >= 640) return;
+
+    const intervals = specScrollRefs.map((ref, idx) => {
+      return setInterval(() => {
+        if (activePausedSpecRows.includes(idx)) return;
+        const el = ref.current;
+        if (!el) return;
+        const { scrollLeft, scrollWidth, clientWidth } = el;
+        if (scrollLeft + clientWidth >= scrollWidth - 20) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          el.scrollBy({ left: clientWidth * 0.7 + 12, behavior: 'smooth' });
+        }
+      }, 2000 + (idx * 200)); // Slight stagger
+    });
+
+    return () => intervals.forEach(clearInterval);
+  }, [activePausedSpecRows]);
 
   // Prevent body scroll when modal is open
   React.useEffect(() => {
@@ -380,7 +398,7 @@ const ProviderEnrollmentLP: React.FC = () => {
            <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-brand-light/20 rounded-full blur-[100px] -z-10" />
            
            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-24">
+              <div className="text-center mb-16 md:mb-24">
                  <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-8 tracking-tighter">
                     Expertise Across <br />
                     <span className="text-brand-deep font-black">Every Specialty.</span>
@@ -388,7 +406,8 @@ const ProviderEnrollmentLP: React.FC = () => {
                  <p className="text-slate-500 font-medium max-w-xl mx-auto">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
               </div>
 
-               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+               {/* SPECIALTIES GRID: DESKTOP */}
+               <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                   {[
                     { name: 'Orthopedic', icon: Bone },
                     { name: 'Mental Health', icon: Brain },
@@ -419,6 +438,55 @@ const ProviderEnrollmentLP: React.FC = () => {
                         </div>
                         <span className="text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
                      </motion.div>
+                  ))}
+               </div>
+
+               {/* SPECIALTIES CAROUSEL: MOBILE (3 ROWS x 5 ITEMS) */}
+               <div className="flex flex-col gap-4 sm:hidden -mx-6">
+                  {[
+                    [
+                      { name: 'Orthopedic', icon: Bone },
+                      { name: 'Mental Health', icon: Brain },
+                      { name: 'Tele Health', icon: Video },
+                      { name: 'Physical Therapy', icon: Accessibility },
+                      { name: 'Cardiology', icon: HeartPulse }
+                    ],
+                    [
+                      { name: 'Internal Medicine', icon: Plus },
+                      { name: 'Dentistry', icon: Smile },
+                      { name: 'Laboratory', icon: FlaskConical },
+                      { name: 'Urology', icon: Stethoscope },
+                      { name: 'Neurology', icon: Brain }
+                    ],
+                    [
+                      { name: 'Lactation Consultant', icon: Baby },
+                      { name: 'Home Care', icon: Home },
+                      { name: 'Medical Equipment', icon: Stethoscope },
+                      { name: 'OBGYN', icon: User },
+                      { name: 'Urgent Care', icon: Heart }
+                    ]
+                  ].map((row, rowIdx) => (
+                    <div 
+                      key={rowIdx}
+                      ref={specScrollRefs[rowIdx]}
+                      onMouseEnter={() => setActivePausedSpecRows(prev => [...prev, rowIdx])}
+                      onMouseLeave={() => setActivePausedSpecRows(prev => prev.filter(i => i !== rowIdx))}
+                      onTouchStart={() => setActivePausedSpecRows(prev => [...prev, rowIdx])}
+                      onTouchEnd={() => setActivePausedSpecRows(prev => prev.filter(i => i !== rowIdx))}
+                      className="flex flex-nowrap gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory px-6 scroll-smooth"
+                    >
+                      {row.map((spec, idx) => (
+                        <div 
+                          key={idx}
+                          className="min-w-[70vw] snap-center p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 shadow-sm"
+                        >
+                          <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep shrink-0">
+                            <spec.icon size={22} />
+                          </div>
+                          <span className="text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
+                        </div>
+                      ))}
+                    </div>
                   ))}
                </div>
            </div>
