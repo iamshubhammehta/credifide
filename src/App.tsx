@@ -156,7 +156,7 @@ const Navbar = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
   const isAboutPage = location.pathname === '/about-credifide/';
-  const isLandingPage = location.pathname.startsWith('/lp/');
+  const isLandingPage = location.pathname.startsWith('/lp/') || location.pathname === '/provider-enrollment/';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -1723,7 +1723,7 @@ const Home = React.memo(() => {
 
 export default function App() {
   const location = useLocation();
-  const isLandingPage = location.pathname.startsWith('/lp/');
+  const isLandingPage = location.pathname.startsWith('/lp/') || location.pathname === '/provider-enrollment/';
 
   return (
     <div className="min-h-screen bg-transparent text-slate-900 selection:bg-brand-100 selection:text-brand-700">
@@ -1753,7 +1753,7 @@ export default function App() {
               <Route path="/resources/white-papers" element={<WhitePapers />} />
               <Route path="/privacy/" element={<Privacy />} />
               <Route path="/terms/" element={<Terms />} />
-              <Route path="/lp/provider-enrollment-excellence" element={<ProviderEnrollmentLP />} />
+              <Route path="/provider-enrollment/" element={<ProviderEnrollmentLP />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </React.Suspense>
