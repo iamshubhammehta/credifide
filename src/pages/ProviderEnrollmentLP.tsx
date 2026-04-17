@@ -139,8 +139,10 @@ const ResponsiveZohoForm = () => {
 const ProviderEnrollmentLP: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [isServicesPaused, setIsServicesPaused] = React.useState(false);
+  const [isWhyChoosePaused, setIsWhyChoosePaused] = React.useState(false);
   const [activePausedSpecRows, setActivePausedSpecRows] = React.useState<number[]>([]);
   const servicesScrollRef = React.useRef<HTMLDivElement>(null);
+  const whyChooseScrollRef = React.useRef<HTMLDivElement>(null);
   const specScrollRefs = [
     React.useRef<HTMLDivElement>(null),
     React.useRef<HTMLDivElement>(null),
@@ -166,6 +168,24 @@ const ProviderEnrollmentLP: React.FC = () => {
     }, 2500); // Increased interval slightly for better readability
     return () => clearInterval(interval);
   }, [isServicesPaused]);
+
+  // Auto-swipe for Why Choose Carousel (Mobile Only)
+  React.useEffect(() => {
+    if (window.innerWidth >= 640 || isWhyChoosePaused) return;
+    const interval = setInterval(() => {
+       const el = whyChooseScrollRef.current;
+       if (!el) return;
+       const { scrollLeft, scrollWidth, clientWidth } = el;
+       
+       if (scrollLeft >= scrollWidth - clientWidth - 20) {
+         el.scrollTo({ left: 0, behavior: 'smooth' });
+       } else {
+         const moveAmount = clientWidth * 0.85 + 16;
+         el.scrollBy({ left: moveAmount, behavior: 'smooth' });
+       }
+    }, 2800); // Slightly slower for readability
+    return () => clearInterval(interval);
+  }, [isWhyChoosePaused]);
 
   // Auto-swipe for Specialties Rows (Mobile Only)
   React.useEffect(() => {
@@ -579,7 +599,14 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
+              <div 
+                ref={whyChooseScrollRef}
+                onMouseEnter={() => setIsWhyChoosePaused(true)}
+                onMouseLeave={() => setIsWhyChoosePaused(false)}
+                onTouchStart={() => setIsWhyChoosePaused(true)}
+                onTouchEnd={() => setIsWhyChoosePaused(false)}
+                className="flex md:grid flex-nowrap md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6"
+              >
                  {[
                     { 
                        title: 'AI-Driven Precision', 
@@ -625,7 +652,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.1 }}
                        whileHover={{ y: -12, scale: 1.02 }}
-                       className="group p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden"
+                       className="min-w-[85vw] md:min-w-0 snap-center group p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden"
                     >
                        {/* Subtle Background Glow */}
                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-light/10 transition-colors duration-1000" />
