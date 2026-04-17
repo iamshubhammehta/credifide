@@ -154,11 +154,20 @@ const ProviderEnrollmentLP: React.FC = () => {
        const el = servicesScrollRef.current;
        if (!el) return;
        const { scrollLeft, scrollWidth, clientWidth } = el;
-       if (scrollLeft + clientWidth >= scrollWidth - 20) {
-         el.scrollTo({ left: 0, behavior: 'smooth' });
-       } else {
-         el.scrollBy({ left: clientWidth * 0.85 + 16, behavior: 'smooth' });
+       
+       // SEAMLESS LOOP LOGIC: 
+       // If we've scrolled past the first set of items (midpoint),
+       // instantly teleport back to the equivalent position in the first set.
+       const rowWidth = scrollWidth / 2;
+       if (scrollLeft >= rowWidth - 5) {
+         el.scrollTo({ left: scrollLeft - rowWidth, behavior: 'auto' });
        }
+       
+       // Small delay to let the teleport settle, then scroll forward
+       setTimeout(() => {
+         const moveAmount = clientWidth * 0.85 + 16;
+         el.scrollBy({ left: moveAmount, behavior: 'smooth' });
+       }, 50);
     }, 2000);
     return () => clearInterval(interval);
   }, [isServicesPaused]);
@@ -169,18 +178,21 @@ const ProviderEnrollmentLP: React.FC = () => {
 
     const interval = setInterval(() => {
       specScrollRefs.forEach((ref, idx) => {
-        // Only scroll if this specific row is not being touched/interacted with
         if (activePausedSpecRows.includes(idx)) return;
-        
         const el = ref.current;
         if (!el) return;
         
         const { scrollLeft, scrollWidth, clientWidth } = el;
-        if (scrollLeft + clientWidth >= scrollWidth - 20) {
-          el.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          el.scrollBy({ left: clientWidth * 0.7 + 12, behavior: 'smooth' });
+        const rowWidth = scrollWidth / 2;
+        
+        // SEAMLESS LOOP LOGIC
+        if (scrollLeft >= rowWidth - 5) {
+          el.scrollTo({ left: scrollLeft - rowWidth, behavior: 'auto' });
         }
+
+        setTimeout(() => {
+          el.scrollBy({ left: clientWidth * 0.7 + 12, behavior: 'smooth' });
+        }, 50);
       });
     }, 2000);
 
@@ -285,15 +297,24 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </h2>
               </div>
 
-              <div 
+               <div 
                 ref={servicesScrollRef}
                 onMouseEnter={() => setIsServicesPaused(true)}
                 onMouseLeave={() => setIsServicesPaused(false)}
                 onTouchStart={() => setIsServicesPaused(true)}
                 onTouchEnd={() => setIsServicesPaused(false)}
-                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 scroll-smooth"
+                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6"
               >
                  {[
+                    { title: 'Primary Source Verification', icon: FileCheck },
+                    { title: 'Payer Enrollment', icon: UserPlus },
+                    { title: 'CAQH Profile Management', icon: Layers },
+                    { title: 'Initial Provider Credentialing', icon: Award },
+                    { title: 'Recredentialing Management', icon: RefreshCw },
+                    { title: 'Insurance Contracting Coordination', icon: FileBarChart },
+                    { title: 'Contract Rate Negotiation', icon: Handshake },
+                    { title: 'NPI Registration', icon: ClipboardList },
+                    // Seamless Loop Duplicate
                     { title: 'Primary Source Verification', icon: FileCheck },
                     { title: 'Payer Enrollment', icon: UserPlus },
                     { title: 'CAQH Profile Management', icon: Layers },
@@ -452,6 +473,12 @@ const ProviderEnrollmentLP: React.FC = () => {
                       { name: 'Mental Health', icon: Brain },
                       { name: 'Tele Health', icon: Video },
                       { name: 'Physical Therapy', icon: Accessibility },
+                      { name: 'Cardiology', icon: HeartPulse },
+                      // Clone
+                      { name: 'Orthopedic', icon: Bone },
+                      { name: 'Mental Health', icon: Brain },
+                      { name: 'Tele Health', icon: Video },
+                      { name: 'Physical Therapy', icon: Accessibility },
                       { name: 'Cardiology', icon: HeartPulse }
                     ],
                     [
@@ -459,9 +486,21 @@ const ProviderEnrollmentLP: React.FC = () => {
                       { name: 'Dentistry', icon: Smile },
                       { name: 'Laboratory', icon: FlaskConical },
                       { name: 'Urology', icon: Stethoscope },
+                      { name: 'Neurology', icon: Brain },
+                      // Clone
+                      { name: 'Internal Medicine', icon: Plus },
+                      { name: 'Dentistry', icon: Smile },
+                      { name: 'Laboratory', icon: FlaskConical },
+                      { name: 'Urology', icon: Stethoscope },
                       { name: 'Neurology', icon: Brain }
                     ],
                     [
+                      { name: 'Lactation Consultant', icon: Baby },
+                      { name: 'Home Care', icon: Home },
+                      { name: 'Medical Equipment', icon: Stethoscope },
+                      { name: 'OBGYN', icon: User },
+                      { name: 'Urgent Care', icon: Heart },
+                      // Clone
                       { name: 'Lactation Consultant', icon: Baby },
                       { name: 'Home Care', icon: Home },
                       { name: 'Medical Equipment', icon: Stethoscope },
