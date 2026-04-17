@@ -682,9 +682,9 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
         boxShadow: `0 ${20 + index * 6}px ${50 + index * 15}px rgba(0,0,0,${0.06 + index * 0.02})`,
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 w-full grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 w-full grid lg:grid-cols-2 gap-2 md:gap-8 sm:gap-12 lg:gap-24 items-center relative z-10">
         <div className="text-left order-2 lg:order-1">
-          <div className="inline-block mb-4 md:mb-8">
+          <div className="inline-block mb-1 md:mb-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -738,12 +738,12 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative aspect-square w-full max-w-[min(400px,80vw)] mx-auto will-change-transform"
+              className="relative aspect-video md:aspect-square w-full max-w-[min(400px,80vw)] mx-auto will-change-transform"
             >
               <div className="relative h-full w-full group/card">
                 {/* Main Card with Green Shadow */}
                 <motion.div
-                  className="saas-card p-6 lg:p-10 flex flex-col items-center justify-center text-center h-full relative shadow-2xl shadow-brand-deep/10 overflow-hidden group-hover/card:shadow-brand-deep/25 transition-all duration-500 bg-white border-brand-light"
+                  className="saas-card p-4 md:p-6 lg:p-10 flex flex-col items-center justify-center text-center h-full relative shadow-2xl shadow-brand-deep/10 overflow-hidden group-hover/card:shadow-brand-deep/25 transition-all duration-500 bg-white border-brand-light"
                 >
                   <div className="absolute inset-0 opacity-100 transition-colors duration-1000 bg-gradient-to-br from-white via-brand-light/20 to-brand-light/40" />
                   <div className="saas-card-glow" />
@@ -785,14 +785,14 @@ const ApproachCard = React.memo(({ card, index, scrollYProgress }: { card: any, 
     return (
       <div className="w-full mb-6">
         <PhysicsBody id={card.id} className="w-full h-full">
-          <div className="saas-card p-8 bg-white border-slate-200 shadow-2xl relative overflow-hidden h-full group flex flex-col">
+          <div className="saas-card p-5 md:p-8 bg-white border-slate-200 shadow-2xl relative overflow-hidden h-full group flex flex-col">
             <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60`} />
             <div className="relative z-10 flex flex-col flex-1">
-              <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-6 border border-brand-deep/20">
+              <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-3 md:mb-6 border border-brand-deep/20">
                 <IconRenderer icon={card.icon} size={22} className="stroke-[1.5px]" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">{card.title}</h3>
-              <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{card.desc}</p>
+              <h3 className="text-2xl font-bold text-slate-900 mb-2 md:mb-4">{card.title}</h3>
+              <p className="text-slate-600 text-base leading-relaxed mb-4 md:mb-8 flex-1">{card.desc}</p>
 
               <div className="pt-6 border-t border-slate-100 mt-auto">
                 <p className="font-bold text-sm text-slate-900 leading-snug">
@@ -820,7 +820,7 @@ const ApproachCard = React.memo(({ card, index, scrollYProgress }: { card: any, 
           <div className={`${card.gradient} absolute inset-0 pointer-events-none opacity-60 transition-opacity duration-500 group-hover/approach:opacity-90`} />
 
           <div className="relative z-10 flex flex-col w-full flex-1">
-            <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-6 border border-brand-deep/20 group-hover/approach:scale-110 transition-transform duration-500 will-change-transform mx-auto">
+            <div className="w-12 h-12 bg-brand-deep/10 rounded-xl flex items-center justify-center text-brand-deep mb-3 md:mb-6 border border-brand-deep/20 group-hover/approach:scale-110 transition-transform duration-500 will-change-transform mx-auto">
               <IconRenderer icon={card.icon} size={22} className="stroke-[1.5px]" />
             </div>
 
@@ -1854,5 +1854,6 @@ export default function App() {
     </div>
   );
 }
+
 
 
