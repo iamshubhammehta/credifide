@@ -138,6 +138,33 @@ const ResponsiveZohoForm = () => {
 
 const ProviderEnrollmentLP: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isServicesPaused, setIsServicesPaused] = React.useState(false);
+  const servicesScrollRef = React.useRef<HTMLDivElement>(null);
+
+  // Auto-swipe for Services Carousel (Mobile Only)
+  React.useEffect(() => {
+    // Only run on mobile, and only if not paused by interaction
+    if (window.innerWidth >= 640 || isServicesPaused) return;
+
+    const interval = setInterval(() => {
+      const el = servicesScrollRef.current;
+      if (!el) return;
+
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      // If we're at the end (with a small buffer), reset to start
+      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 20;
+
+      if (isAtEnd) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        // Move by roughly one card width (85vw) + some gap
+        const moveAmount = clientWidth * 0.85 + 16;
+        el.scrollBy({ left: moveAmount, behavior: 'smooth' });
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [isServicesPaused]);
 
   // Prevent body scroll when modal is open
   React.useEffect(() => {
@@ -237,7 +264,14 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </h2>
               </div>
 
-              <div className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6">
+              <div 
+                ref={servicesScrollRef}
+                onMouseEnter={() => setIsServicesPaused(true)}
+                onMouseLeave={() => setIsServicesPaused(false)}
+                onTouchStart={() => setIsServicesPaused(true)}
+                onTouchEnd={() => setIsServicesPaused(false)}
+                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 scroll-smooth"
+              >
                  {[
                     { title: 'Primary Source Verification', icon: FileCheck },
                     { title: 'Payer Enrollment', icon: UserPlus },
