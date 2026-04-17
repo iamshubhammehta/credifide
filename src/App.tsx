@@ -674,7 +674,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
 
   return (
     <section
-      className={`${animations.isMobile ? 'relative h-auto py-16' : 'min-h-[70vh] lg:min-h-[80vh] sticky'} flex items-center ${color} border-t border-slate-200/30 lg:py-12 rounded-[32px] lg:rounded-[60px] mx-3 lg:mx-8 overflow-hidden`}
+      className={`${animations.isMobile ? 'relative h-auto pt-10 pb-0' : 'min-h-[70vh] lg:min-h-[80vh] sticky'} flex items-center ${color} border-t border-slate-200/30 lg:py-12 rounded-[32px] lg:rounded-[60px] mx-3 lg:mx-8 overflow-hidden`}
       style={animations.isMobile ? {} : {
         zIndex: index + 10,
         top: `calc(4vh + ${index * 3}vh)`,
@@ -882,7 +882,7 @@ const OurApproach = React.memo(() => {
 
   if (animations.isMobile) {
     return (
-      <section id="approach" className="py-10 px-6 bg-transparent relative z-10">
+      <section id="approach" className="pt-2 pb-10 px-6 bg-transparent relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <span className="text-brand-deep font-bold tracking-wider uppercase text-xs">Our Methodology</span>
