@@ -398,7 +398,7 @@ const Hero = React.memo(() => {
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-0 pb-10 lg:pt-4 lg:pb-12">
-        <PhysicsBody id="hero-badge" className="inline-block mb-6">
+        <PhysicsBody id="hero-badge" className="inline-block mb-2 md:mb-6">
           <motion.span
             initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
             className="inline-flex flex-row flex-wrap justify-center items-center gap-1 sm:gap-2.5 px-3 py-1.5 sm:px-5 sm:py-2 rounded-[2rem] border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-[9px] min-[380px]:text-[10px] sm:text-sm font-black uppercase tracking-widest sm:tracking-[0.2em] backdrop-blur-md shadow-sm mb-4 leading-relaxed max-w-full"
@@ -408,7 +408,7 @@ const Hero = React.memo(() => {
           </motion.span>
         </PhysicsBody>
 
-        <PhysicsBody id="hero-title" className="mb-10">
+        <PhysicsBody id="hero-title" className="mb-6 md:mb-10">
           <h1 className="text-[clamp(2.25rem,10vw,5.5rem)] sm:text-[clamp(3rem,6vw+0.5rem,5.5rem)] font-display font-black tracking-tighter leading-[0.95] text-slate-900 break-words">
             <motion.div
               initial="hidden"
@@ -451,7 +451,7 @@ const Hero = React.memo(() => {
           </h1>
         </PhysicsBody>
 
-        <PhysicsBody id="hero-desc" className="mb-12">
+        <PhysicsBody id="hero-desc" className="mb-6 md:mb-12">
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
             className="text-base sm:text-[clamp(1rem,1.5vw+0.5rem,1.5rem)] leading-relaxed max-w-3xl mx-auto text-slate-500 px-2 sm:px-4 break-words">
             Credifide helps healthcare providers get credentialed, contracted, and reimbursed faster without delays or confusion.
@@ -684,7 +684,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = React.memo(({ service, ind
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 w-full grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center relative z-10">
         <div className="text-left order-2 lg:order-1">
-          <div className="inline-block mb-8">
+          <div className="inline-block mb-4 md:mb-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -882,9 +882,9 @@ const OurApproach = React.memo(() => {
 
   if (animations.isMobile) {
     return (
-      <section id="approach" className="py-20 px-6 bg-transparent relative z-10">
+      <section id="approach" className="py-10 px-6 bg-transparent relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <span className="text-brand-deep font-bold tracking-wider uppercase text-xs">Our Methodology</span>
             <h2 className="text-3xl font-display font-black text-slate-900 mt-4 mb-4">Our Approach</h2>
             <p className="max-w-2xl mx-auto text-base text-slate-500 font-medium">
@@ -994,7 +994,7 @@ const Features = React.memo(() => {
   return (
     <div id="features" className="relative">
       {/* Intro section for services */}
-      <section className="py-12 lg:py-16 bg-transparent border-b transition-colors duration-1000 border-slate-100/30">
+      <section className="py-8 lg:py-16 bg-transparent border-b transition-colors duration-1000 border-slate-100/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <PhysicsBody id="features-badge" className="inline-block mb-4">
             <span className="font-bold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full border transition-colors duration-1000 bg-brand-light border-brand-deep/10 text-brand-deep">
@@ -1179,7 +1179,7 @@ const ReviewsSection = React.memo(() => {
   }, [reviews, isLoading]);
 
   return (
-    <section id="reviews" className="bg-transparent py-12 lg:py-16 relative overflow-hidden">
+    <section id="reviews" className="bg-transparent py-8 lg:py-16 relative overflow-hidden">
       {/* SaaS Background Pattern */}
       <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] opacity-40" />
 
@@ -1212,7 +1212,7 @@ const ReviewsSection = React.memo(() => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl lg:text-5xl font-display font-bold text-slate-900 mb-8 tracking-tight"
+            className="text-3xl lg:text-5xl font-display font-bold text-slate-900 mb-4 md:mb-8 tracking-tight"
           >
             Review us on Trustpilot
           </motion.h2>
@@ -1251,7 +1251,7 @@ const ReviewsSection = React.memo(() => {
           <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-slate-50/50 to-transparent pointer-events-none z-10" />
         </div>
 
-        <div className="text-center mt-24 relative z-10">
+        <div className="text-center mt-12 md:mt-24 relative z-10">
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-3">
               <div className="flex gap-1.5">
@@ -1320,7 +1320,7 @@ const ContactSection = React.memo(() => {
   const services = ["Credentialing", "RCM", "Both"];
 
   return (
-    <section id="contact" className="relative py-12 lg:py-16 overflow-hidden bg-transparent">
+    <section id="contact" className="relative py-8 lg:py-16 overflow-hidden bg-transparent">
       {/* Futuristic Background */}
       <div className="absolute inset-0 transition-colors duration-1000 bg-transparent" />
       <div className="absolute inset-0 transition-opacity duration-1000 opacity-5">
@@ -1336,11 +1336,11 @@ const ContactSection = React.memo(() => {
           transition={{ duration: 0.8 }}
           className="rounded-[40px] overflow-hidden shadow-2xl border transition-colors duration-1000 bg-white/50 backdrop-blur-md border-slate-200"
         >
-          <div className="grid lg:grid-cols-2">
+          <div className="grid lg:grid-cols-2 overflow-hidden">
             {/* Left Side: Content */}
-            <div className="p-8 sm:p-12 lg:p-20 flex flex-col border-b lg:border-b-0 lg:border-r transition-colors duration-1000 border-slate-100 bg-transparent">
+            <div className="p-6 sm:p-12 lg:p-20 flex flex-col border-b lg:border-b-0 lg:border-r transition-colors duration-1000 border-slate-100 bg-transparent">
               <div className="w-full">
-                <PhysicsBody id="contact-badge" className="inline-block mb-6">
+                <PhysicsBody id="contact-badge" className="inline-block mb-2 md:mb-6">
                   <div className="flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-1000 bg-brand-light border-brand-deep/10 text-brand-deep w-fit font-bold">
                     <IconRenderer icon={ASSETS.ui.sparkles} size={14} />
                     <span className="text-xs tracking-wider uppercase">Get Started</span>
@@ -1649,12 +1649,12 @@ const Specialties = React.memo(() => {
   ];
 
   return (
-    <section className="py-12 lg:py-16 bg-transparent relative overflow-hidden">
+    <section className="py-8 lg:py-16 bg-transparent relative overflow-hidden">
       {/* Edge Fades - Desktop Only */}
       <div className="hidden lg:block absolute inset-y-0 left-0 w-40 z-10 pointer-events-none transition-colors duration-1000 bg-gradient-to-r from-slate-50 to-transparent" />
       <div className="hidden lg:block absolute inset-y-0 right-0 w-40 z-10 pointer-events-none transition-colors duration-1000 bg-gradient-to-l from-slate-50 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 md:mb-20 text-center">
         <div className="inline-block mb-4">
           <span className="text-brand-600 font-bold tracking-wider uppercase text-xs">Our Coverage</span>
         </div>
@@ -1854,4 +1854,5 @@ export default function App() {
     </div>
   );
 }
+
 
