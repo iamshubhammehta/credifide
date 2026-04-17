@@ -534,17 +534,16 @@ const ProviderEnrollmentLP: React.FC = () => {
 
               <div className="grid md:grid-cols-4 gap-0 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl">
                  {[
-                    { step: '01', title: 'Review', content: 'We analyze your data for gaps and misalignments.', icon: Search },
-                    { step: '02', title: 'Submission', content: 'Handled entirely by us, adhering to health plan specs.', icon: FileText },
-                    { step: '03', title: 'Contracting', content: 'Assisting in optimal reimbursement rate negotiation.', icon: Gavel },
-                    { step: '04', title: 'Ongoing', content: 'Assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
+                    { title: 'Review', content: 'We analyze your data for gaps and misalignments.', icon: Search },
+                    { title: 'Submission', content: 'Handled entirely by us, adhering to health plan specs.', icon: FileText },
+                    { title: 'Contracting', content: 'Assisting in optimal reimbursement rate negotiation.', icon: Gavel },
+                    { title: 'Ongoing', content: 'Assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
                  ].map((p, i) => (
                     <motion.div 
                        key={i} 
                        whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
                        className="bg-white/5 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative"
                     >
-                       <div className="text-[#A3BD6A] font-black text-5xl mb-8 opacity-20 group-hover:opacity-100 transition-opacity tracking-tighter">{p.step}</div>
                        <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
                           {p.title}
                           <ArrowRight size={20} className="text-[#A3BD6A] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
