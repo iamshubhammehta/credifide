@@ -14,7 +14,7 @@ const ServicesHub: React.FC = () => {
     {
       title: "Insurance Credentialing",
       desc: "Comprehensive provider enrollment, CAQH management, and proactive re-credentialing infrastructure.",
-      link: "/services/insurance-credentialing",
+      link: "/insurance-credentialing/",
       icon: ASSETS.features.shield,
       color: "bg-brand-deep",
       badge: "Enrollment"
@@ -22,7 +22,7 @@ const ServicesHub: React.FC = () => {
     {
       title: "Medical Billing",
       desc: "End-to-end revenue cycle management focused on claim recovery, denial reduction, and cashflow stability.",
-      link: "/services/medical-billing",
+      link: "/medical-billing/",
       icon: ASSETS.ui.dollar,
       color: "bg-brand-deep",
       badge: "Revenue"
@@ -116,3 +116,4 @@ const ServicesHub: React.FC = () => {
 };
 
 export default ServicesHub;
+

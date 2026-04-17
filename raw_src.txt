@@ -1,0 +1,40 @@
+﻿                 </h2>
+                 <p className="text-slate-500 font-bold max-w-2xl mx-auto uppercase tracking-[0.4em] text-[10px]">Strategic Enrollment Infrastructure</p>
+              </motion.div>
+
+              {/* Premium Static Logo Grid - Optimized for clarity and elegance */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto py-12">
+                 {PAYERS.map((payer, idx) => (
+                    <motion.div
+                       key={idx}
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       viewport={{ once: true }}
+                       transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                       className="group relative bg-white aspect-square md:aspect-auto md:h-full py-8 md:min-h-[160px] rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-6 gap-4 hover:border-brand-deep/20 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] overflow-hidden"
+                    >
+                       <div className="relative w-full h-20 flex items-center justify-center overflow-hidden">
+                          <img 
+                             src={payer.logo} 
+                             alt={payer.name} 
+                             className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
+                             onError={(e) => { e.currentTarget.src = defaultLogo; }}
+                          />
+                       </div>
+                       <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] group-hover:text-slate-900 transition-colors">
+                          {payer.name}
+                       </span>
+                    </motion.div>
+                 ))}
+              </div>
+           </div>
+        </section>
+
+        {/* FINAL CONVERSION: GOOGLE CALENDAR BOOKING */}
+        <section id="footer-form" className="py-16 md:py-32 bg-[#0f2e2a] relative overflow-hidden">
+          {/* Background accents */}
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-light/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 30px, #A3BD6A 30px, #A3BD6A 31px)" }} />
+
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">

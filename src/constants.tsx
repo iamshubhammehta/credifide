@@ -195,3 +195,4 @@ export const IconRenderer: React.FC<IconRendererProps> = React.memo(({
 
   return null;
 });
+

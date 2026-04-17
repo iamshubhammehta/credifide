@@ -90,7 +90,7 @@ export const WhoWeAreCTA: React.FC = () => {
           >
             {/* The Reference-Style Green Button */}
             <Link
-              to="/about"
+              to="/about-credifide/"
               className="flex items-center justify-center gap-4 px-10 py-6 bg-brand-accent text-[#06241f] rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-[0_20px_40px_-15px_rgba(163,189,106,0.3)] hover:bg-white transition-all duration-500 relative overflow-hidden group-hover:shadow-[0_25px_50px_-12px_rgba(163,189,106,0.5)]"
             >
               <span className="relative z-10">Discover Our Story</span>
@@ -107,3 +107,4 @@ export const WhoWeAreCTA: React.FC = () => {
     </section>
   );
 };
+

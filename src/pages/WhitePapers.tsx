@@ -236,3 +236,4 @@ const WhitePapers = () => {
 };
 
 export default WhitePapers;
+

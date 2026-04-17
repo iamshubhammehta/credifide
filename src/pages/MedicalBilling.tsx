@@ -348,3 +348,4 @@ const MedicalBilling: React.FC = () => {
 };
 
 export default MedicalBilling;
+

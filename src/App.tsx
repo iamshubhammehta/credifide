@@ -143,7 +143,7 @@ const Background = React.memo(() => {
 const Navbar = React.memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isAboutPage = location.pathname === '/about';
+  const isAboutPage = location.pathname === '/about-credifide/';
   const isLandingPage = location.pathname.startsWith('/lp/');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -191,7 +191,7 @@ const Navbar = React.memo(() => {
           </Link>          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8 font-medium transition-colors duration-500 text-slate-600">
             <Link to="/" className={`hover:text-brand-deep transition-colors ${location.pathname === '/' ? 'text-brand-deep font-bold' : ''}`}>Home</Link>
-            <Link to="/about" className={`underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname === '/about' ? 'text-brand-deep font-bold' : ''}`}>About Us</Link>
+            <Link to="/about-credifide/" className={`underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname === '/about-credifide/' ? 'text-brand-deep font-bold' : ''}`}>About Us</Link>
             <div className="relative group/nav">
               <Link to="/services" className={`flex items-center gap-1 underline-offset-4 hover:underline hover:text-brand-deep transition-colors ${location.pathname.startsWith('/services') ? 'text-brand-deep font-bold' : ''}`}>
                 Services
@@ -201,7 +201,7 @@ const Navbar = React.memo(() => {
               {/* Dropdown */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
                 <div className="bg-white/70 border border-white/40 rounded-2xl shadow-2xl p-4 w-72 backdrop-blur-xl">
-                  <Link to="/services/insurance-credentialing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <Link to="/insurance-credentialing/" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
                     <div className="w-10 h-10 rounded-lg bg-brand-deep/10 text-brand-deep flex items-center justify-center shrink-0">
                       <IconRenderer icon={ASSETS.features.shield} size={20} />
                     </div>
@@ -210,7 +210,7 @@ const Navbar = React.memo(() => {
                       <p className="text-[11px] text-slate-500 leading-tight">Fast-tracked payer enrollment & compliance.</p>
                     </div>
                   </Link>
-                  <Link to="/services/medical-billing" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                  <Link to="/medical-billing/" className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group/item">
                     <div className="w-10 h-10 rounded-lg bg-brand-light text-brand-deep flex items-center justify-center shrink-0">
                       <IconRenderer icon={ASSETS.ui.dollar} size={20} />
                     </div>
@@ -307,7 +307,7 @@ const Navbar = React.memo(() => {
             <Link to="/" className={`block px-4 py-3.5 rounded-xl font-semibold text-base transition-colors ${location.pathname === '/' ? 'text-brand-deep bg-brand-light/50' : 'text-slate-700 hover:bg-slate-50'}`}>
               Home
             </Link>
-            <Link to="/about" className={`block px-4 py-3.5 rounded-xl font-semibold text-base transition-colors ${location.pathname === '/about' ? 'text-brand-deep bg-brand-light/50' : 'text-slate-700 hover:bg-slate-50'}`}>
+            <Link to="/about-credifide/" className={`block px-4 py-3.5 rounded-xl font-semibold text-base transition-colors ${location.pathname === '/about-credifide/' ? 'text-brand-deep bg-brand-light/50' : 'text-slate-700 hover:bg-slate-50'}`}>
               About Us
             </Link>
 
@@ -322,10 +322,10 @@ const Navbar = React.memo(() => {
               </button>
               {servicesOpen && (
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-brand-light pl-4">
-                  <Link to="/services/insurance-credentialing" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
+                  <Link to="/insurance-credentialing/" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
                     Insurance Credentialing
                   </Link>
-                  <Link to="/services/medical-billing" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
+                  <Link to="/medical-billing/" className="block px-3 py-3 rounded-lg text-sm font-medium text-slate-500 hover:text-brand-deep hover:bg-slate-50 transition-colors">
                     Medical Billing
                   </Link>
                 </div>
@@ -892,7 +892,7 @@ const OurApproach = React.memo(() => {
           </div>
 
           <div className="flex justify-center mt-12">
-            <Link to="/about" className="px-8 py-4 bg-brand-deep text-white rounded-2xl font-bold text-base shadow-xl shadow-brand-deep/20 hover:bg-brand-600 active:scale-[0.97] transition-all flex items-center gap-2 group">
+            <Link to="/about-credifide/" className="px-8 py-4 bg-brand-deep text-white rounded-2xl font-bold text-base shadow-xl shadow-brand-deep/20 hover:bg-brand-600 active:scale-[0.97] transition-all flex items-center gap-2 group">
               Who We Are
               <IconRenderer icon={ASSETS.nav.arrowRight} size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -938,7 +938,7 @@ const OurApproach = React.memo(() => {
           </div>
 
           <div className="flex justify-center mt-16 sm:mt-20">
-            <Link to="/about" className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-deep/20 hover:bg-brand-600 active:scale-[0.97] transition-all flex items-center gap-3 group">
+            <Link to="/about-credifide/" className="px-10 py-5 bg-brand-deep text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-deep/20 hover:bg-brand-600 active:scale-[0.97] transition-all flex items-center gap-3 group">
               Who We Are
               <IconRenderer icon={ASSETS.nav.arrowRight} size={22} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -958,7 +958,7 @@ const Features = React.memo(() => {
       icon: ASSETS.features.shield,
       title: "Provider Credentialing",
       desc: "Our automated systems handle the entire enrollment process, ensuring your providers are credentialed and contracted with payers faster than ever.",
-      path: "/services/insurance-credentialing",
+      path: "/insurance-credentialing/",
       color: "bg-white"
     },
     {
@@ -966,7 +966,7 @@ const Features = React.memo(() => {
       icon: ASSETS.ui.activity,
       title: "Revenue Cycle Management",
       desc: "Maximize your revenue with our AI-driven RCM solutions. We identify gaps, reduce denials, and accelerate your reimbursement cycles.",
-      path: "/services/medical-billing",
+      path: "/medical-billing/",
       color: "bg-white"
     },
     {
@@ -974,7 +974,7 @@ const Features = React.memo(() => {
       icon: ASSETS.features.clock,
       title: "Billing Assessments",
       desc: "Stay compliant and secure with focused billing assessments. We uncover hidden risks and provide actionable insights for financial stability.",
-      path: "/services/medical-billing",
+      path: "/medical-billing/",
       color: "bg-white"
     }
   ];
@@ -1555,7 +1555,7 @@ const ContactSection = React.memo(() => {
                           {/* Disclaimer Box */}
                           <div className="p-5 bg-slate-50 border border-slate-200 rounded-2xl text-[10px] text-slate-500 leading-relaxed font-medium">
                             By providing your phone number, you agree to receive a text message from Credifide. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply 'STOP' at any time. For more information, reply 'HELP'.{' '}
-                            <Link to="/privacy" className="text-brand-deep hover:underline font-bold">Privacy Policy</Link> | <Link to="/terms" className="text-brand-deep hover:underline font-bold">Terms and Conditions</Link>
+                            <Link to="/privacy/" className="text-brand-deep hover:underline font-bold">Privacy Policy</Link> | <Link to="/terms/" className="text-brand-deep hover:underline font-bold">Terms and Conditions</Link>
                           </div>
 
                           {/* Acceptance Checkbox */}
@@ -1569,7 +1569,7 @@ const ContactSection = React.memo(() => {
                               <IconRenderer icon={ASSETS.ui.check} size={14} className="pointer-events-none absolute text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
                             </div>
                             <span className="text-xs text-slate-600 font-medium select-none group-hover:text-slate-900 transition-colors">
-                              I accept the <Link to="/terms" className="text-brand-deep font-bold hover:underline">Terms and Conditions</Link>.
+                              I accept the <Link to="/terms/" className="text-brand-deep font-bold hover:underline">Terms and Conditions</Link>.
                             </span>
                           </label>
 
@@ -1730,17 +1730,17 @@ export default function App() {
           }>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/about-credifide/" element={<About />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/services/insurance-credentialing" element={<InsuranceCredentialing />} />
-              <Route path="/services/medical-billing" element={<MedicalBilling />} />
+              <Route path="/insurance-credentialing/" element={<InsuranceCredentialing />} />
+              <Route path="/medical-billing/" element={<MedicalBilling />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/resources/blog" element={<Blog />} />
               <Route path="/resources/blog/:slug" element={<BlogPost />} />
               <Route path="/resources/white-papers" element={<WhitePapers />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy/" element={<Privacy />} />
+              <Route path="/terms/" element={<Terms />} />
               <Route path="/lp/provider-enrollment-excellence" element={<ProviderEnrollmentLP />} />
               <Route path="*" element={<Home />} />
             </Routes>
@@ -1764,17 +1764,17 @@ export default function App() {
 
               {/* Navigation with dashes */}
               <nav className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 gap-y-0.5 mb-2 sm:mb-3 md:mb-5 text-xs md:text-sm lg:text-base font-bold text-white/90 px-1">
-                <Link to="/about" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">About Us</Link>
+                <Link to="/about-credifide/" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">About Us</Link>
                 <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/resources/blog" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Blog</Link>
                 <span className="text-white/20 hidden sm:inline">-</span>
-                <Link to="/privacy" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Privacy Policy</Link>
+                <Link to="/privacy/" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Privacy Policy</Link>
                 <span className="text-white/20 hidden sm:inline">-</span>
-                <Link to="/terms" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Terms</Link>
+                <Link to="/terms/" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Terms</Link>
                 <span className="text-white/20 hidden sm:inline">-</span>
                 <Link to="/contact" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Contact</Link>
                 <span className="text-white/20 hidden sm:inline">-</span>
-                <Link to="/about" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Unsubscribe</Link>
+                <Link to="/about-credifide/" className="hover:text-brand-accent transition-colors py-1 px-0.5 md:py-1.5 md:px-2">Unsubscribe</Link>
               </nav>
 
               {/* Bottom Row: Phone | Socials | Email */}
@@ -1842,3 +1842,4 @@ export default function App() {
     </div>
   );
 }
+
