@@ -167,21 +167,24 @@ const ProviderEnrollmentLP: React.FC = () => {
   React.useEffect(() => {
     if (window.innerWidth >= 640) return;
 
-    const intervals = specScrollRefs.map((ref, idx) => {
-      return setInterval(() => {
+    const interval = setInterval(() => {
+      specScrollRefs.forEach((ref, idx) => {
+        // Only scroll if this specific row is not being touched/interacted with
         if (activePausedSpecRows.includes(idx)) return;
+        
         const el = ref.current;
         if (!el) return;
+        
         const { scrollLeft, scrollWidth, clientWidth } = el;
         if (scrollLeft + clientWidth >= scrollWidth - 20) {
           el.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
           el.scrollBy({ left: clientWidth * 0.7 + 12, behavior: 'smooth' });
         }
-      }, 2000 + (idx * 200)); // Slight stagger
-    });
+      });
+    }, 2000);
 
-    return () => intervals.forEach(clearInterval);
+    return () => clearInterval(interval);
   }, [activePausedSpecRows]);
 
   // Prevent body scroll when modal is open
