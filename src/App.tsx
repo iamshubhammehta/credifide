@@ -24,12 +24,24 @@ import logoMain from './assets/logo_main.png';
 import footerLogo from './assets/footer_logo.png';
 
 
-// Scroll to top on route change
+// Scroll to top and track pageview on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  
   useEffect(() => {
+    // Scroll to top
     window.scrollTo(0, 0);
+    
+    // GTM Virtual Page View
+    if ((window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: 'pageview',
+        page: pathname,
+        title: document.title
+      });
+    }
   }, [pathname]);
+  
   return null;
 };
 
