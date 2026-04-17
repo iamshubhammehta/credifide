@@ -14,7 +14,7 @@ const ServicesHub: React.FC = () => {
     {
       title: "Insurance Credentialing",
       desc: "Comprehensive provider enrollment, CAQH management, and proactive re-credentialing infrastructure.",
-      link: "/services/insurance-credentialing",
+      link: "https://credifide.com/insurance-credentialing/",
       icon: ASSETS.features.shield,
       color: "bg-brand-deep",
       badge: "Enrollment"
@@ -79,7 +79,7 @@ const ServicesHub: React.FC = () => {
               whileHover={{ y: -16 }}
               className="group"
             >
-              <Link to={service.link} className="block relative">
+              <a href={service.link} target="_blank" rel="noopener noreferrer" className="block relative">
                   <div className="bg-white rounded-[44px] p-10 lg:p-14 border border-brand-light shadow-2xl shadow-brand-deep/5 transition-all duration-500 hover:border-brand-accent hover:shadow-brand-deep/10 h-full relative overflow-hidden">
                      {/* Hover Glow */}
                      <div className={`absolute -top-20 -right-20 w-40 h-40 ${service.color}/10 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity`} />
@@ -104,7 +104,7 @@ const ServicesHub: React.FC = () => {
                        <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover/link:translate-x-2 transition-transform" />
                     </div>
                  </div>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>
