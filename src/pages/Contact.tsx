@@ -32,7 +32,28 @@ const ResponsiveZohoForm = () => {
         return () => { obs.disconnect(); window.removeEventListener('resize', update); };
     }, []);
 
-    // DESKTOP & MOBILE SCALE-SYNC: Locked-in Perfect Centering & Consistent Layout
+    // MOBILE VIEW: Straight vertical, 100% width, no scaling
+    if (isMobileViewport) {
+        return (
+            <div className="w-full">
+                <iframe
+                    aria-label="Book a Consultation With Our Experts"
+                    frameBorder="0"
+                    scrolling="no"
+                    src="https://forms.zohopublic.com/credifide1/form/ContactUs/formperma/ZDDEBbMJZkGQIs1IZUbui03XYog-87YFzvjNe-sR628?zf_rszfm=1"
+                    title="Zoho Contact Form"
+                    style={{
+                        width: '100%',
+                        height: '1250px', 
+                        border: 'none',
+                        backgroundColor: 'transparent'
+                    }}
+                />
+            </div>
+        );
+    }
+
+    // DESKTOP VIEW: Locked-in Perfect Centering
     const scale = Math.min(1, containerWidth / BASE_WIDTH);
     const isDesktop = scale === 1;
 
@@ -41,7 +62,7 @@ const ResponsiveZohoForm = () => {
             <div
                 style={{
                     width: BASE_WIDTH * scale,
-                    height: (window.innerWidth < 768 ? 1250 : BASE_HEIGHT) * scale,
+                    height: BASE_HEIGHT * scale,
                     position: 'relative',
                     overflow: 'hidden',
                     borderRadius: isDesktop ? '0' : '1.5rem',
@@ -58,7 +79,7 @@ const ResponsiveZohoForm = () => {
                     title="Zoho Contact Form"
                     style={{
                         width: BASE_WIDTH,
-                        height: window.innerWidth < 768 ? 1250 : BASE_HEIGHT,
+                        height: BASE_HEIGHT,
                         position: 'absolute',
                         top: 0,
                         left: '50%',
