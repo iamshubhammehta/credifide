@@ -713,30 +713,30 @@ const ProviderEnrollmentLP: React.FC = () => {
               </motion.div>
 
               {/* Premium Static Logo Grid - Optimized for clarity and elegance */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto py-12">
-                 {PAYERS.map((payer, idx) => (
-                    <motion.div
-                       key={idx}
-                       initial={{ opacity: 0, y: 20 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                       className="group relative bg-white aspect-square md:aspect-auto md:h-full py-8 md:min-h-[160px] rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-6 gap-4 hover:border-brand-deep/20 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] overflow-hidden"
-                    >
-                       <div className="relative w-full h-20 flex items-center justify-center overflow-hidden">
-                          <img 
-                             src={payer.logo} 
-                             alt={payer.name} 
-                             className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
-                             onError={(e) => { e.currentTarget.src = defaultLogo; }}
-                          />
-                       </div>
-                       <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] group-hover:text-slate-900 transition-colors">
-                          {payer.name}
-                       </span>
-                    </motion.div>
-                 ))}
-              </div>
+               <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 max-w-6xl mx-auto py-8 md:py-12 px-2 md:px-0">
+                  {PAYERS.map((payer, idx) => (
+                     <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className="group relative bg-white aspect-square md:aspect-auto md:h-full py-4 md:py-8 md:min-h-[160px] rounded-2xl md:rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-3 md:p-6 gap-2 md:gap-4 hover:border-brand-deep/20 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] overflow-hidden"
+                     >
+                        <div className="relative w-full h-12 md:h-20 flex items-center justify-center overflow-hidden">
+                           <img 
+                              src={payer.logo} 
+                              alt={payer.name} 
+                              className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
+                              onError={(e) => { e.currentTarget.src = defaultLogo; }}
+                           />
+                        </div>
+                        <span className="text-[8px] md:text-[10px] font-black text-slate-500 uppercase tracking-[0.1em] md:tracking-[0.2em] group-hover:text-slate-900 transition-colors text-center px-1">
+                           {payer.name}
+                        </span>
+                     </motion.div>
+                  ))}
+               </div>
            </div>
         </section>
 
