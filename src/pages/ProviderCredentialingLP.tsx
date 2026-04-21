@@ -446,12 +446,12 @@ const ProviderCredentialingLP: React.FC = () => {
                        whileInView={{ opacity: 1, scale: 1 }}
                        transition={{ delay: idx * 0.05 }}
                        whileHover={{ y: -5, borderColor: '#0B6B57', boxShadow: '0 20px 40px -15px rgba(11,107,87,0.1)' }}
-                       className="p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
+                       className="p-4 md:p-5 rounded-2xl border border-slate-100 bg-white flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-3 md:gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
                      >
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep group-hover:bg-brand-deep group-hover:text-white transition-all duration-500 shrink-0">
-                           <spec.icon size={22} />
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep group-hover:bg-brand-deep group-hover:text-white transition-all duration-500 shrink-0">
+                           <spec.icon className="w-5 h-5 md:w-[22px] md:h-[22px]" />
                         </div>
-                        <span className="text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
+                        <span className="text-[12px] md:text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
                      </motion.div>
                   ))}
                </div>
