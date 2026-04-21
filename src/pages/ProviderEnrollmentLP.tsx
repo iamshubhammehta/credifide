@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   ChevronRight, 
@@ -211,18 +211,6 @@ const ProviderEnrollmentLP: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [activePausedSpecRows]);
-
-  // Prevent body scroll when modal is open
-  React.useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isModalOpen]);
 
   useSEO(
     'Healthcare Provider Enrollment & Payer Credentialing | Credifide',
