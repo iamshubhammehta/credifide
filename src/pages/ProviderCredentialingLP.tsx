@@ -683,10 +683,11 @@ const ProviderCredentialingLP: React.FC = () => {
                   {PAYERS.map((payer, idx) => (
                      <motion.div
                         key={idx}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
                         className="group relative bg-white aspect-square md:aspect-auto md:h-full py-4 md:py-8 md:min-h-[160px] rounded-2xl md:rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-3 md:p-6 gap-2 md:gap-4 hover:border-brand-deep/20 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] overflow-hidden"
                      >
                         <div className="relative w-full h-12 md:h-20 flex items-center justify-center overflow-hidden">
