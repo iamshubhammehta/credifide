@@ -246,7 +246,7 @@ const ProviderCredentialingLP: React.FC = () => {
           <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mb-6 md:mb-12">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center min-h-[auto] lg:min-h-[calc(100vh-120px)]">
               {/* Text Side - Vertically Centered */}
-              <div className="flex flex-col justify-center lg:sticky lg:top-24 sm:py-12 lg:py-0">
+              <div className="flex flex-col justify-center lg:sticky lg:top-24 sm:py-12 lg:py-0 order-2 lg:order-1">
                 <motion.div
                   initial={{ opacity: 0, x: -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -294,7 +294,7 @@ const ProviderCredentialingLP: React.FC = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative z-20 w-full"
+                className="relative z-20 w-full order-1 lg:order-2"
                 id="form"
               >
                   <ResponsiveZohoForm />
