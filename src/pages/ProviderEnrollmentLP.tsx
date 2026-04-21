@@ -330,15 +330,9 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </h2>
               </div>
 
-               <div 
-                onMouseEnter={() => setIsServicesPaused(true)}
-                onMouseLeave={() => setIsServicesPaused(false)}
-                onTouchStart={() => setIsServicesPaused(true)}
-                onTouchEnd={() => setIsServicesPaused(false)}
-                className="w-full"
-              >
-                {/* DESKTOP VIEW: Static 4-Column Grid */}
-                <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+               <div className="w-full">
+                {/* UNIFIED VIEW: Static Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
                   {SERVICES_LIST.map((s, i) => (
                     <motion.div 
                       key={i} 
@@ -346,47 +340,19 @@ const ProviderEnrollmentLP: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      whileHover={{ y: -10 }}
-                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default"
+                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
-                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
+                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
                         <s.icon size={26} />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
+                      <h4 className="text-xl font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
                       <div className="mt-auto flex items-center gap-2">
-                        <div className="w-8 h-1 bg-brand-light/30 rounded-full group-hover:w-12 group-hover:bg-brand-accent transition-all duration-700" />
-                        <div className="w-1 h-1 bg-brand-light/30 rounded-full group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-8 h-1 bg-brand-light/30 rounded-full md:group-hover:w-12 md:group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-1 h-1 bg-brand-light/30 rounded-full md:group-hover:bg-brand-accent transition-all duration-700" />
                       </div>
                     </motion.div>
                   ))}
-                </div>
-
-                {/* MOBILE VIEW: 2x2 Flip Grid */}
-                <div className="sm:hidden relative [perspective:1000px] min-h-[460px] flex items-center justify-center px-2">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={servicePage}
-                      initial={{ rotateY: -90, opacity: 0 }}
-                      animate={{ rotateY: 0, opacity: 1 }}
-                      exit={{ rotateY: 90, opacity: 0 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="grid grid-cols-2 gap-4 w-full"
-                    >
-                      {SERVICES_LIST.slice(servicePage * 4, (servicePage * 4) + 4).map((s, i) => (
-                        <div 
-                          key={i} 
-                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center h-full active:bg-slate-50 transition-colors"
-                        >
-                          <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep mb-4 shadow-sm shrink-0">
-                            <s.icon size={24} />
-                          </div>
-                          <h4 className="text-[13px] font-bold text-slate-900 leading-[1.3] mb-2">{s.title}</h4>
-                          <div className="mt-auto w-10 h-1 bg-slate-100 rounded-full" />
-                        </div>
-                      ))}
-                    </motion.div>
-                  </AnimatePresence>
                 </div>
               </div>
 
@@ -445,6 +411,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   className="bg-white p-6 sm:p-10 rounded-3xl md:rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col items-center group cursor-default h-full justify-center"
                 >
@@ -471,8 +438,8 @@ const ProviderEnrollmentLP: React.FC = () => {
                  <p className="text-slate-500 font-medium max-w-xl mx-auto">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
               </div>
 
-               {/* SPECIALTIES GRID: DESKTOP */}
-               <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+               {/* SPECIALTIES GRID: UNIFIED */}
+               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {[
                     { name: 'Orthopedic', icon: Bone },
                     { name: 'Mental Health', icon: Brain },
@@ -494,64 +461,15 @@ const ProviderEnrollmentLP: React.FC = () => {
                        key={idx}
                        initial={{ opacity: 0, scale: 0.95 }}
                        whileInView={{ opacity: 1, scale: 1 }}
+                       viewport={{ once: true }}
                        transition={{ delay: idx * 0.05 }}
-                       whileHover={{ y: -5, borderColor: '#0B6B57', boxShadow: '0 20px 40px -15px rgba(11,107,87,0.1)' }}
-                       className="p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
+                       className="p-4 md:p-5 rounded-2xl border border-slate-100 bg-white flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-3 md:gap-4 group transition-all duration-500 cursor-default shadow-sm md:hover:-translate-y-1 md:hover:border-[#0B6B57] md:hover:shadow-[0_20px_40px_-15px_rgba(11,107,87,0.1)]"
                      >
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep group-hover:bg-brand-deep group-hover:text-white transition-all duration-500 shrink-0">
-                           <spec.icon size={22} />
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-500 shrink-0">
+                           <spec.icon className="w-5 h-5 md:w-[22px] md:h-[22px]" />
                         </div>
-                        <span className="text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
+                        <span className="text-[12px] md:text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
                      </motion.div>
-                  ))}
-               </div>
-
-               {/* SPECIALTIES CAROUSEL: MOBILE (3 ROWS x 5 ITEMS) */}
-               <div className="flex flex-col gap-4 sm:hidden -mx-6">
-                   {[
-                    [
-                      { name: 'Orthopedic', icon: Bone },
-                      { name: 'Mental Health', icon: Brain },
-                      { name: 'Tele Health', icon: Video },
-                      { name: 'Physical Therapy', icon: Accessibility },
-                      { name: 'Cardiology', icon: HeartPulse }
-                    ],
-                    [
-                      { name: 'Internal Medicine', icon: Plus },
-                      { name: 'Dentistry', icon: Smile },
-                      { name: 'Laboratory', icon: FlaskConical },
-                      { name: 'Urology', icon: Stethoscope },
-                      { name: 'Neurology', icon: Brain }
-                    ],
-                    [
-                      { name: 'Lactation Consultant', icon: Baby },
-                      { name: 'Home Care', icon: Home },
-                      { name: 'Medical Equipment', icon: Stethoscope },
-                      { name: 'OBGYN', icon: User },
-                      { name: 'Urgent Care', icon: Heart }
-                    ]
-                  ].map((row, rowIdx) => (
-                    <div 
-                      key={rowIdx}
-                      ref={specScrollRefs[rowIdx]}
-                      onMouseEnter={() => setActivePausedSpecRows(prev => [...prev, rowIdx])}
-                      onMouseLeave={() => setActivePausedSpecRows(prev => prev.filter(i => i !== rowIdx))}
-                      onTouchStart={() => setActivePausedSpecRows(prev => [...prev, rowIdx])}
-                      onTouchEnd={() => setActivePausedSpecRows(prev => prev.filter(i => i !== rowIdx))}
-                      className="flex flex-nowrap gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory px-6 scroll-smooth"
-                    >
-                      {row.map((spec, idx) => (
-                        <div 
-                          key={idx}
-                          className="min-w-[70vw] min-h-[84px] snap-center p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 shadow-sm"
-                        >
-                          <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep shrink-0">
-                            <spec.icon size={22} />
-                          </div>
-                          <span className="text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
-                        </div>
-                      ))}
-                    </div>
                   ))}
                </div>
            </div>
@@ -578,8 +496,10 @@ const ProviderEnrollmentLP: React.FC = () => {
                  ].map((p, i) => (
                     <motion.div 
                        key={i} 
-                       whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
-                       className="bg-white/5 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative"
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       viewport={{ once: true }}
+                       className="bg-white/5 md:hover:bg-white/10 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative"
                     >
                        <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
                           {p.title}
@@ -636,14 +556,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </p>
               </div>
 
-              <div 
-                ref={whyChooseScrollRef}
-                onMouseEnter={() => setIsWhyChoosePaused(true)}
-                onMouseLeave={() => setIsWhyChoosePaused(false)}
-                onTouchStart={() => setIsWhyChoosePaused(true)}
-                onTouchEnd={() => setIsWhyChoosePaused(false)}
-                className="flex md:grid flex-nowrap md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 items-stretch"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-visible">
                  {[
                     { 
                        title: 'AI-Driven Precision', 
@@ -688,23 +601,22 @@ const ProviderEnrollmentLP: React.FC = () => {
                        whileInView={{ opacity: 1, y: 0 }}
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.1 }}
-                       whileHover={{ y: -12, scale: 1.02 }}
-                       className="min-w-[85vw] md:min-w-0 min-h-[280px] md:min-h-0 snap-center group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full"
+                       className="group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 md:hover:-translate-y-3 md:hover:scale-[1.02] md:hover:border-brand-deep/30 shadow-sm md:hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full cursor-default"
                     >
                        {/* Subtle Background Glow */}
-                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-light/10 transition-colors duration-1000" />
+                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-light/10 transition-colors duration-1000" />
                        
-                       <div className="text-brand-deep/40 text-[9px] font-black uppercase tracking-[0.5em] mb-6 block group-hover:text-brand-accent transition-colors">{w.tag}</div>
+                       <div className="text-brand-deep/40 text-[9px] font-black uppercase tracking-[0.5em] mb-6 block md:group-hover:text-brand-accent transition-colors">{w.tag}</div>
                        
-                       <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-brand-deep mb-8 group-hover:bg-brand-deep group-hover:text-white transition-all duration-700 shadow-sm">
+                       <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-brand-deep mb-8 md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-700 shadow-sm">
                           <w.icon size={24} />
                        </div>
                        
-                       <h4 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-brand-deep transition-colors">{w.title}</h4>
-                       <p className="text-slate-500 text-sm leading-relaxed font-bold group-hover:text-slate-600 transition-colors">{w.desc}</p>
+                       <h4 className="text-xl font-bold text-slate-900 mb-4 md:group-hover:text-brand-deep transition-colors">{w.title}</h4>
+                       <p className="text-slate-500 text-sm leading-relaxed font-bold md:group-hover:text-slate-600 transition-colors">{w.desc}</p>
                        
                        {/* Interactive Bottom Glow */}
-                       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                       <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-deep/5 md:group-hover:bg-brand-accent transition-colors duration-700" />
                     </motion.div>
                  ))}
               </div>
@@ -917,6 +829,7 @@ const ProviderEnrollmentLP: React.FC = () => {
 };
 
 export default ProviderEnrollmentLP;
+
 
 
 

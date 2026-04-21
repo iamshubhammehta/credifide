@@ -322,18 +322,17 @@ const ProviderCredentialingLP: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      whileHover={{ y: -10 }}
-                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
-                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
+                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
                         <s.icon size={26} />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
+                      <h4 className="text-xl font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
                       <p className="text-slate-500 text-sm leading-relaxed font-bold">{s.desc}</p>
                       <div className="mt-auto pt-6 flex items-center gap-2">
-                        <div className="w-8 h-1 bg-brand-light/30 rounded-full group-hover:w-12 group-hover:bg-brand-accent transition-all duration-700" />
-                        <div className="w-1 h-1 bg-brand-light/30 rounded-full group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-8 h-1 bg-brand-light/30 rounded-full md:group-hover:w-12 md:group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-1 h-1 bg-brand-light/30 rounded-full md:group-hover:bg-brand-accent transition-all duration-700" />
                       </div>
                     </motion.div>
                   ))}
@@ -395,10 +394,11 @@ const ProviderCredentialingLP: React.FC = () => {
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white p-6 sm:p-10 rounded-3xl md:rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col items-center group cursor-default h-full justify-center"
+                  className="bg-white p-6 sm:p-10 rounded-3xl md:rounded-[3rem] border border-slate-100 shadow-sm md:hover:shadow-2xl transition-all duration-700 flex flex-col items-center group cursor-default h-full justify-center"
                 >
-                   <div className={`${m.color} bg-slate-50 w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center mb-2 md:mb-6 group-hover:scale-110 transition-transform`}>
+                   <div className={`${m.color} bg-slate-50 w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center mb-2 md:mb-6 md:group-hover:scale-110 transition-transform`}>
                       <m.icon size={20} className="md:w-[28px] md:h-[28px]" />
                    </div>
                    <div className="text-2xl md:text-4xl font-display font-black text-slate-900 mb-1 md:mb-2">{m.value}</div>
@@ -444,11 +444,11 @@ const ProviderCredentialingLP: React.FC = () => {
                        key={idx}
                        initial={{ opacity: 0, scale: 0.95 }}
                        whileInView={{ opacity: 1, scale: 1 }}
+                       viewport={{ once: true }}
                        transition={{ delay: idx * 0.05 }}
-                       whileHover={{ y: -5, borderColor: '#0B6B57', boxShadow: '0 20px 40px -15px rgba(11,107,87,0.1)' }}
-                       className="p-4 md:p-5 rounded-2xl border border-slate-100 bg-white flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-3 md:gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
+                       className="p-4 md:p-5 rounded-2xl border border-slate-100 bg-white flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-3 md:gap-4 group transition-all duration-500 cursor-default shadow-sm md:hover:-translate-y-1 md:hover:border-[#0B6B57] md:hover:shadow-[0_20px_40px_-15px_rgba(11,107,87,0.1)]"
                      >
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep group-hover:bg-brand-deep group-hover:text-white transition-all duration-500 shrink-0">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-500 shrink-0">
                            <spec.icon className="w-5 h-5 md:w-[22px] md:h-[22px]" />
                         </div>
                         <span className="text-[12px] md:text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
@@ -479,8 +479,10 @@ const ProviderCredentialingLP: React.FC = () => {
                  ].map((p, i) => (
                     <motion.div 
                        key={i} 
-                       whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
-                       className="bg-white/5 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative"
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       viewport={{ once: true }}
+                       className="bg-white/5 md:hover:bg-white/10 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative"
                     >
                        <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
                           {p.title}
@@ -582,23 +584,22 @@ const ProviderCredentialingLP: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        whileHover={{ y: -12, scale: 1.02 }}
-                        className="group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full cursor-default"
+                        className="group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 md:hover:-translate-y-3 md:hover:scale-[1.02] md:hover:border-brand-deep/30 shadow-sm md:hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full cursor-default"
                      >
                         {/* Subtle Background Glow */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-light/10 transition-colors duration-1000" />
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-light/10 transition-colors duration-1000" />
                         
-                        <div className="text-brand-deep/40 text-[9px] font-black uppercase tracking-[0.5em] mb-6 block group-hover:text-brand-accent transition-colors">{w.tag}</div>
+                        <div className="text-brand-deep/40 text-[9px] font-black uppercase tracking-[0.5em] mb-6 block md:group-hover:text-brand-accent transition-colors">{w.tag}</div>
                         
-                        <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-brand-deep mb-8 group-hover:bg-brand-deep group-hover:text-white transition-all duration-700 shadow-sm">
+                        <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-brand-deep mb-8 md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-700 shadow-sm">
                            <w.icon size={24} />
                         </div>
                         
-                        <h4 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-brand-deep transition-colors">{w.title}</h4>
-                        <p className="text-slate-500 text-sm leading-relaxed font-bold group-hover:text-slate-600 transition-colors">{w.desc}</p>
+                        <h4 className="text-xl font-bold text-slate-900 mb-4 md:group-hover:text-brand-deep transition-colors">{w.title}</h4>
+                        <p className="text-slate-500 text-sm leading-relaxed font-bold md:group-hover:text-slate-600 transition-colors">{w.desc}</p>
                         
                         {/* Interactive Bottom Glow */}
-                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                        <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-deep/5 md:group-hover:bg-brand-accent transition-colors duration-700" />
                      </motion.div>
                   ))}
                </div>
