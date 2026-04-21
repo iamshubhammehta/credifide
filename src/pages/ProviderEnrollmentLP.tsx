@@ -219,12 +219,19 @@ const ProviderEnrollmentLP: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
-      {/* 3D Flip Styles */}
+      {/* 3D Flip Styles & iPhone Flicker Fix */}
       <style>{`
-        .perspective-1000 { perspective: 1000px; }
-        .preserve-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
+        .perspective-1000 { perspective: 1000px; -webkit-perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+        .backface-hidden { 
+          backface-visibility: hidden; 
+          -webkit-backface-visibility: hidden; 
+          transform: translate3d(0,0,0);
+          -webkit-transform: translate3d(0,0,0);
+        }
+        .rotate-y-180 { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); }
+        .no-tap-highlight { -webkit-tap-highlight-color: transparent; }
+        .will-change-transform { will-change: transform; }
       `}</style>
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
@@ -306,11 +313,11 @@ const ProviderEnrollmentLP: React.FC = () => {
               </div>
 
                {/* MOBILE: Flip Grid (4x4) */}
-               <div className="block sm:hidden w-full px-2 mb-8 h-[520px] perspective-1000">
+               <div className="block sm:hidden w-full px-2 mb-8 h-[520px] perspective-1000 no-tap-highlight">
                   <motion.div
                     animate={{ rotateY: servicePage === 0 ? 0 : 180 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative w-full h-full preserve-3d"
+                    className="relative w-full h-full preserve-3d will-change-transform"
                   >
                     {/* Front Side (First 4) */}
                     <div className="absolute inset-0 backface-hidden grid grid-cols-2 gap-3">
@@ -322,7 +329,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                       ].map((s, i) => (
                         <div 
                           key={i}
-                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px]"
+                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px] backface-hidden"
                         >
                            <div className="w-10 h-10 rounded-xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-4 shrink-0">
                               <s.icon size={20} />
@@ -345,7 +352,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                       ].map((s, i) => (
                         <div 
                           key={i}
-                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px]"
+                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px] backface-hidden"
                         >
                            <div className="w-10 h-10 rounded-xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-4 shrink-0">
                               <s.icon size={20} />
