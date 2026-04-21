@@ -708,10 +708,11 @@ const ProviderEnrollmentLP: React.FC = () => {
                  ].map((w, i) => (
                     <motion.div 
                        key={i}
-                       initial={{ opacity: 0, y: 30 }}
-                       whileInView={{ opacity: 1, y: 0 }}
+                       initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                       whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.1 }}
+                       style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
                        whileHover={{ y: -12, scale: 1.02 }}
                        className="min-w-[85vw] md:min-w-0 min-h-[280px] md:min-h-0 snap-center group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 hover:border-brand-deep/30 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full"
                     >
