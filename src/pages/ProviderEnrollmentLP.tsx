@@ -169,6 +169,19 @@ const ProviderEnrollmentLP: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
+      {/* Mobile flip card styles */}
+      <style>{`
+        .flip-card { perspective: 1000px; }
+        .flip-card-inner { transition: transform 0.55s cubic-bezier(0.16,1,0.3,1); transform-style: preserve-3d; position: relative; width: 100%; height: 100%; }
+        .flip-card:active .flip-card-inner, .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; position: absolute; inset: 0; border-radius: 2rem; }
+        .flip-card-back { transform: rotateY(180deg); }
+        @media (min-width: 640px) {
+          .flip-card:active .flip-card-inner, .flip-card.flipped .flip-card-inner { transform: none; }
+        }
+        .mobile-carousel { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-carousel::-webkit-scrollbar { display: none; }
+      `}</style>
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
         <section className="relative pt-8 lg:pt-12 pb-0 overflow-x-hidden">
@@ -240,17 +253,43 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* SERVICES: THE INFRASTRUCTURE */}
-        <section className="pt-2 md:pt-10 pb-6 md:pb-20 bg-white flex flex-col items-center">
-           <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="text-center mb-4 md:mb-10 text-slate-900">
-                 <h2 className="text-3xl md:text-6xl font-display font-black leading-tight">
+        <section className="pt-2 md:pt-10 pb-4 md:pb-20 bg-white flex flex-col items-center">
+           <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+              <div className="text-center mb-3 md:mb-10 text-slate-900">
+                 <h2 className="text-2xl md:text-6xl font-display font-black leading-tight">
                     Our Services
                  </h2>
               </div>
 
                <div className="w-full">
-                {/* UNIFIED VIEW: Static Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
+                {/* MOBILE: Horizontal flip-card carousel */}
+                <div className="flex sm:hidden gap-3 overflow-x-auto mobile-carousel pb-3">
+                  {SERVICES_LIST.map((s, i) => (
+                    <div key={i} className="flip-card shrink-0 w-[200px] h-[160px]">
+                      <div className="flip-card-inner w-full h-full">
+                        {/* Front */}
+                        <div className="flip-card-front bg-white border border-slate-100 shadow-sm flex flex-col items-start justify-between p-5">
+                          <div className="w-10 h-10 rounded-xl bg-brand-light/20 flex items-center justify-center text-brand-deep shrink-0">
+                            <s.icon size={20} />
+                          </div>
+                          <h4 className="text-[13px] font-black text-slate-900 leading-tight mt-2">{s.title}</h4>
+                          <div className="text-[9px] text-brand-deep/50 font-black uppercase tracking-wider mt-1">Tap to flip ↺</div>
+                        </div>
+                        {/* Back */}
+                        <div className="flip-card-back bg-brand-deep flex flex-col items-start justify-center p-5">
+                          <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-white mb-3 shrink-0">
+                            <s.icon size={16} />
+                          </div>
+                          <h4 className="text-[13px] font-black text-white leading-tight">{s.title}</h4>
+                          <div className="w-8 h-0.5 bg-brand-accent mt-2 rounded-full" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* DESKTOP: Static grid */}
+                <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
                   {SERVICES_LIST.map((s, i) => (
                     <motion.div 
                       key={i} 
@@ -258,16 +297,16 @@ const ProviderEnrollmentLP: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 hover:-translate-y-2 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
-                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
+                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
                         <s.icon size={26} />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
+                      <h4 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
                       <div className="mt-auto flex items-center gap-2">
-                        <div className="w-8 h-1 bg-brand-light/30 rounded-full md:group-hover:w-12 md:group-hover:bg-brand-accent transition-all duration-700" />
-                        <div className="w-1 h-1 bg-brand-light/30 rounded-full md:group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-8 h-1 bg-brand-light/30 rounded-full group-hover:w-12 group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-1 h-1 bg-brand-light/30 rounded-full group-hover:bg-brand-accent transition-all duration-700" />
                       </div>
                     </motion.div>
                   ))}
@@ -275,7 +314,7 @@ const ProviderEnrollmentLP: React.FC = () => {
               </div>
 
               {/* GOOGLE CALENDAR EMBED */}
-              <div className="mt-8 md:mt-14 w-full bg-white rounded-[3rem] shadow-xl overflow-hidden border border-slate-100 p-2 md:p-4">
+              <div className="mt-4 md:mt-14 w-full bg-white rounded-[3rem] shadow-xl overflow-hidden border border-slate-100 p-2 md:p-4">
                 <iframe
                   src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
                   title="Book a Consultation with Credifide"
@@ -295,8 +334,8 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* METRICS SECTION */}
-        <section className="py-12 md:py-24 bg-slate-50/50 relative">
-           <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+        <section className="py-6 md:py-24 bg-slate-50/50 relative">
+           <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 text-center">
               {[
                 { label: 'Submission Accuracy', value: '98%', icon: Shield, color: 'text-brand-deep' },
                 { label: 'Faster Turnaround', value: '30%', icon: Zap, color: 'text-brand-accent' },
@@ -321,21 +360,21 @@ const ProviderEnrollmentLP: React.FC = () => {
            </div>
         </section>
 
-        {/* SPECIALTIES: ANIMATED EXPERIENCE (COOLER) */}
-        <section id="specialties-lp" className="py-10 md:py-32 bg-white relative overflow-hidden">
+        {/* SPECIALTIES: ANIMATED EXPERIENCE */}
+        <section id="specialties-lp" className="py-6 md:py-32 bg-white relative overflow-hidden">
            <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-brand-light/20 rounded-full blur-[100px] -z-10" />
            
            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-8 md:mb-24">
-                 <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-4 md:mb-8 tracking-tighter">
+              <div className="text-center mb-4 md:mb-24">
+                 <h2 className="text-2xl md:text-6xl font-display font-black text-slate-900 mb-2 md:mb-8 tracking-tighter">
                     Expertise Across <br />
                     <span className="text-brand-deep font-black">Every Specialty.</span>
                  </h2>
-                 <p className="text-slate-500 font-medium max-w-xl mx-auto">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
+                 <p className="text-slate-500 font-medium max-w-xl mx-auto text-sm md:text-base">From high-stakes Internal Medicine to specialized Mental Health services, we speak your clinical language.</p>
               </div>
 
-               {/* SPECIALTIES GRID: UNIFIED */}
-               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+               {/* SPECIALTIES GRID: 3 cols on mobile, 5 on desktop */}
+               <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4">
                   {[
                     { name: 'Orthopedic', icon: Bone },
                     { name: 'Mental Health', icon: Brain },
@@ -358,13 +397,13 @@ const ProviderEnrollmentLP: React.FC = () => {
                        initial={{ opacity: 0, scale: 0.95 }}
                        whileInView={{ opacity: 1, scale: 1 }}
                        viewport={{ once: true }}
-                       transition={{ delay: idx * 0.05 }}
-                       className="p-4 md:p-5 rounded-2xl border border-slate-100 bg-white flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-3 md:gap-4 group transition-all duration-500 cursor-default shadow-sm md:hover:-translate-y-1 md:hover:border-[#0B6B57] md:hover:shadow-[0_20px_40px_-15px_rgba(11,107,87,0.1)]"
+                       transition={{ delay: idx * 0.03 }}
+                       className="p-3 md:p-5 rounded-xl md:rounded-2xl border border-slate-100 bg-white flex flex-col items-center justify-center text-center gap-2 md:gap-4 group transition-all duration-500 cursor-default shadow-sm md:hover:-translate-y-1 md:hover:border-[#0B6B57] md:hover:shadow-[0_20px_40px_-15px_rgba(11,107,87,0.1)]"
                      >
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-500 shrink-0">
-                           <spec.icon className="w-5 h-5 md:w-[22px] md:h-[22px]" />
+                        <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-500 shrink-0">
+                           <spec.icon className="w-4 h-4 md:w-[22px] md:h-[22px]" />
                         </div>
-                        <span className="text-[12px] md:text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
+                        <span className="text-[10px] md:text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
                      </motion.div>
                   ))}
                </div>
@@ -372,7 +411,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* PROCESS: THE FLOW GRID */}
-        <section id="how-it-works" className="py-10 md:py-32 bg-[#0f3d3a] relative overflow-hidden">
+        <section id="how-it-works" className="py-6 md:py-32 bg-[#0f3d3a] relative overflow-hidden">
            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
            {/* Animated flow backdrop */}
            <div className="absolute inset-0 opacity-[0.1] -z-10 bg-[radial-gradient(circle_at_center,_#A3BD6A_1px,_transparent_1px)] bg-[length:32px_32px]" />
@@ -412,7 +451,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* WHY CREDIFIDE: THE TECH-CENTRIC ADVANTAGE (THEME SYNCED) */}
-        <section className="py-10 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-6 md:py-32 bg-white relative overflow-hidden">
            {/* Floating Theme Accents */}
            <div className="absolute inset-0 pointer-events-none overflow-hidden">
               <motion.div 
