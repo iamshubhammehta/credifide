@@ -144,6 +144,34 @@ const ProviderEnrollmentLP: React.FC = () => {
     React.useRef<HTMLDivElement>(null)
   ];
 
+  // SEO Optimization
+  useSEO(
+    "Provider Enrollment Excellence | Credifide",
+    "Expert healthcare provider enrollment and insurance credentialing services. Maximize practice revenue and eliminate administrative friction with Credifide's AI-powered enrollment core.",
+    "/provider-enrollment/",
+    undefined,
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Healthcare Provider Enrollment",
+      "provider": {
+        "@type": "Organization",
+        "name": "Credifide"
+      },
+      "description": "Professional managed provider enrollment and insurance credentialing for medical practices.",
+      "areaServed": "US",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Enrollment Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Insurance Credentialing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medicare/Medicaid Enrollment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CAQH Profile Management" } }
+        ]
+      }
+    }
+  );
+
   // Auto-flip for Services (Mobile Only)
   React.useEffect(() => {
     if (window.innerWidth >= 640 || isServicesPaused) return;

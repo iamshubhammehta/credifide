@@ -184,6 +184,33 @@ const SERVICES_LIST = [
 ];
 
 const ProviderCredentialingLP: React.FC = () => {
+  // SEO Optimization
+  useSEO(
+    "Provider Credentialing & Contracting | Credifide",
+    "Professional healthcare provider credentialing and insurance contracting. Optimize your payer mix and maximize reimbursements with Credifide's expert managed services.",
+    "/provider-credentialing/",
+    undefined,
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Provider Credentialing & Contracting",
+      "provider": {
+        "@type": "Organization",
+        "name": "Credifide"
+      },
+      "description": "Expert insurance contracting and credentialing for healthcare providers and clinical practices.",
+      "areaServed": "US",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Credentialing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Insurance Contracting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Payer Mix Optimization" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RCM Integration" } }
+        ]
+      }
+    }
+  );
   const [isCalendarOpen, setIsCalendarOpen] = React.useState(false);
 
   React.useEffect(() => {
