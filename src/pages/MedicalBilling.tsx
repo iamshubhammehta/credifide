@@ -280,22 +280,7 @@ const MedicalBilling: React.FC = () => {
 
       {/* ─── CTA SECTION ─── */}
       <section className="py-12 lg:py-16 bg-transparent relative overflow-hidden">
-        {/* Contextual Internal Linking for SEO */}
-        <div className="max-w-5xl mx-auto px-6 mb-12">
-          <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Build a Complete Revenue Engine</h3>
-              <p className="text-slate-500 text-sm">Efficient billing starts with proactive provider credentialing.</p>
-            </div>
-            <Link 
-              to="/insurance-credentialing/" 
-              className="group flex items-center gap-2 text-brand-deep font-bold hover:text-brand-accent transition-colors"
-            >
-              Explore Credentialing Solutions
-              <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
+
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <div className="relative rounded-[32px] sm:rounded-[48px] overflow-hidden">

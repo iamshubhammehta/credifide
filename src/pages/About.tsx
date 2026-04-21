@@ -62,6 +62,11 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-[1.85rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-slate-900 leading-[1.05] tracking-tight mb-4 sm:mb-6"
         >
+          We Build the{' '}
+          <span className="text-brand-400">Infrastructure</span>
+          <br />
+          Healthcare Deserves
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
