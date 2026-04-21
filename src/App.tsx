@@ -1736,6 +1736,47 @@ const Home = React.memo(() => {
   );
 });
 
+// Modern Persistent Call Bar (Right Side)
+const PersistentCallBar = React.memo(() => {
+  return (
+    <motion.div
+      initial={{ x: 100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: 2.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed right-3 sm:right-6 top-[60%] sm:top-1/2 -translate-y-1/2 z-[9999] flex flex-col items-center"
+    >
+      <a
+        href="tel:3215240606"
+        className="group relative flex items-center justify-center no-tap-highlight"
+      >
+        {/* Modern tooltip on hover (Desktop) */}
+        <div className="hidden lg:block absolute right-full mr-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0 pointer-events-none">
+          <div className="bg-[#0f2e2a] text-white px-5 py-3 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl border border-white/5 flex items-center gap-3 backdrop-blur-xl">
+            <div className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+            (321) 524-0606
+          </div>
+        </div>
+
+        {/* The Button */}
+        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl sm:rounded-3xl bg-[#0f2e2a] flex items-center justify-center text-brand-accent shadow-[0_20px_50px_rgba(15,46,42,0.4)] hover:shadow-[0_20px_60px_rgba(163,189,106,0.3)] hover:bg-brand-deep hover:scale-110 transition-all duration-700 border border-white/5 group-hover:rounded-[2rem] overflow-hidden relative">
+           {/* Animated Background Mesh */}
+           <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-brand-accent" />
+           
+           <IconRenderer icon={ASSETS.nav.phone} size={24} className="sm:w-[28px] sm:h-[28px] group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-500 relative z-10" />
+           
+           {/* Animated ripple/ping */}
+           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-brand-accent/30 animate-ping -z-0 opacity-40" />
+           
+           {/* Mobile "Call" Label (Tiny) */}
+           <div className="absolute bottom-1.5 left-0 right-0 text-center lg:hidden">
+              <span className="text-[7px] font-black uppercase tracking-widest text-brand-accent/70">Call</span>
+           </div>
+        </div>
+      </a>
+    </motion.div>
+  );
+});
+
 export default function App() {
   const location = useLocation();
   const isLandingPage = location.pathname.startsWith('/lp/') || location.pathname === '/provider-enrollment/';
@@ -1868,6 +1909,7 @@ export default function App() {
 
         </div>
       </PhysicsWorld>
+      <PersistentCallBar />
     </div>
   );
 }
