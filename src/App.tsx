@@ -1736,7 +1736,7 @@ const Home = React.memo(() => {
   );
 });
 
-// Modern Persistent Call Bar (Vertical Red Nob on Right Side)
+// Modern Persistent Call Bar (Vertical Green Nob on Right Side)
 const PersistentCallBar = React.memo(() => {
   return (
     <motion.div
@@ -1750,27 +1750,27 @@ const PersistentCallBar = React.memo(() => {
         className="group relative flex items-center no-tap-highlight"
       >
         {/* The Vertical Nob */}
-        <div className="bg-red-600 hover:bg-red-700 text-white py-6 px-2.5 sm:px-3 rounded-l-2xl shadow-[0_10px_30px_rgba(220,38,38,0.3)] transition-all duration-500 flex flex-col items-center gap-4 group-hover:pl-4 border-l border-t border-b border-white/20 relative overflow-hidden">
+        <div className="bg-brand-deep hover:bg-brand-600 text-white py-4 sm:py-6 px-2 sm:px-3 rounded-l-xl sm:rounded-l-2xl shadow-[0_10px_30px_rgba(11,107,87,0.3)] transition-all duration-500 flex flex-col items-center gap-2 sm:gap-4 group-hover:pl-4 border-l border-t border-b border-white/20 relative overflow-hidden">
            {/* Animated Background Pulse */}
            <div className="absolute inset-0 bg-white/20 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity" />
            
            {/* Phone Icon */}
            <div className="relative z-10">
-              <IconRenderer icon={ASSETS.nav.phone} size={20} className="animate-bounce group-hover:scale-125 transition-transform" />
+              <IconRenderer icon={ASSETS.nav.phone} size={16} className="animate-bounce group-hover:scale-125 transition-transform sm:w-[20px] sm:h-[20px]" />
            </div>
 
            {/* Vertical Text */}
-           <div className="[writing-mode:vertical-lr] rotate-180 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] relative z-10">
-              Call Us Now
+           <div className="[writing-mode:vertical-lr] rotate-180 text-[8px] sm:text-xs font-black uppercase tracking-[0.2em] relative z-10">
+              Call Us
            </div>
 
            {/* Animated ripple/ping below icon */}
-           <div className="absolute top-5 left-1/2 -translate-x-1/2 w-8 h-8 bg-white/30 rounded-full animate-ping opacity-20" />
+           <div className="absolute top-3 sm:top-5 left-1/2 -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 bg-white/30 rounded-full animate-ping opacity-20" />
         </div>
 
         {/* Hover Slide-out Phone Number (Desktop) */}
         <div className="hidden lg:block absolute right-full mr-0 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-10 group-hover:translate-x-0 pointer-events-none">
-          <div className="bg-red-700 text-white px-6 py-4 rounded-l-2xl text-sm font-black tracking-widest shadow-2xl border-l border-t border-b border-white/10 backdrop-blur-xl whitespace-nowrap">
+          <div className="bg-brand-deep text-white px-6 py-4 rounded-l-2xl text-sm font-black tracking-widest shadow-2xl border-l border-t border-b border-white/10 backdrop-blur-xl whitespace-nowrap">
             (321) 524-0606
           </div>
         </div>
