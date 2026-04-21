@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -132,10 +132,11 @@ const ResponsiveZohoForm = () => {
 
 const ProviderEnrollmentLP: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [servicePage, setServicePage] = React.useState(0);
+  const [serviceFlipping, setServiceFlipping] = React.useState(false);
   const [isServicesPaused, setIsServicesPaused] = React.useState(false);
   const [isWhyChoosePaused, setIsWhyChoosePaused] = React.useState(false);
   const [activePausedSpecRows, setActivePausedSpecRows] = React.useState<number[]>([]);
-  const servicesScrollRef = React.useRef<HTMLDivElement>(null);
   const whyChooseScrollRef = React.useRef<HTMLDivElement>(null);
   const specScrollRefs = [
     React.useRef<HTMLDivElement>(null),
@@ -143,23 +144,16 @@ const ProviderEnrollmentLP: React.FC = () => {
     React.useRef<HTMLDivElement>(null)
   ];
 
-  // Auto-swipe for Services Carousel (Mobile Only)
+  // Auto-flip for Services (Mobile Only)
   React.useEffect(() => {
     if (window.innerWidth >= 640 || isServicesPaused) return;
     const interval = setInterval(() => {
-       const el = servicesScrollRef.current;
-       if (!el) return;
-       const { scrollLeft, scrollWidth, clientWidth } = el;
-       
-       // LOOP LOGIC: 
-       // If we're near the end, reset to the beginning.
-       if (scrollLeft >= scrollWidth - clientWidth - 20) {
-         el.scrollTo({ left: 0, behavior: 'smooth' });
-       } else {
-         const moveAmount = clientWidth * 0.85 + 16;
-         el.scrollBy({ left: moveAmount, behavior: 'smooth' });
-       }
-    }, 2500); // Increased interval slightly for better readability
+      setServiceFlipping(true);
+      setTimeout(() => {
+        setServicePage(prev => (prev === 0 ? 1 : 0));
+        setServiceFlipping(false);
+      }, 600);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isServicesPaused]);
 
@@ -225,6 +219,13 @@ const ProviderEnrollmentLP: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
+      {/* 3D Flip Styles */}
+      <style>{`
+        .perspective-1000 { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+      `}</style>
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
         <section className="relative pt-8 lg:pt-12 pb-0 overflow-x-hidden">
@@ -304,13 +305,70 @@ const ProviderEnrollmentLP: React.FC = () => {
                  </h2>
               </div>
 
+               {/* MOBILE: Flip Grid (4x4) */}
+               <div className="block sm:hidden w-full px-2 mb-8 h-[520px] perspective-1000">
+                  <motion.div
+                    animate={{ rotateY: servicePage === 0 ? 0 : 180 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative w-full h-full preserve-3d"
+                  >
+                    {/* Front Side (First 4) */}
+                    <div className="absolute inset-0 backface-hidden grid grid-cols-2 gap-3">
+                      {[
+                        { title: 'Primary Source Verification', icon: FileCheck },
+                        { title: 'Payer Enrollment', icon: UserPlus },
+                        { title: 'CAQH Profile Management', icon: Layers },
+                        { title: 'Initial Provider Credentialing', icon: Award },
+                      ].map((s, i) => (
+                        <div 
+                          key={i}
+                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px]"
+                        >
+                           <div className="w-10 h-10 rounded-xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-4 shrink-0">
+                              <s.icon size={20} />
+                           </div>
+                           <h4 className="text-[15px] font-bold text-slate-900 leading-tight mb-2">{s.title}</h4>
+                           <div className="mt-auto flex items-center gap-2">
+                              <div className="w-6 h-1 bg-brand-light/30 rounded-full" />
+                           </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Back Side (Next 4) */}
+                    <div className="absolute inset-0 backface-hidden rotate-y-180 grid grid-cols-2 gap-3">
+                      {[
+                        { title: 'Recredentialing Management', icon: RefreshCw },
+                        { title: 'Insurance Contracting Coordination', icon: FileBarChart },
+                        { title: 'Contract Rate Negotiation', icon: Handshake },
+                        { title: 'NPI Registration', icon: ClipboardList },
+                      ].map((s, i) => (
+                        <div 
+                          key={i}
+                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px] rotate-y-180"
+                        >
+                           <div className="w-10 h-10 rounded-xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-4 shrink-0">
+                              <s.icon size={20} />
+                           </div>
+                           <h4 className="text-[15px] font-bold text-slate-900 leading-tight mb-2">{s.title}</h4>
+                           <div className="mt-auto flex items-center gap-2">
+                              <div className="w-6 h-1 bg-brand-light/30 rounded-full" />
+                           </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                  
+                  {/* Page Indicator */}
+                  <div className="flex justify-center gap-2 mt-4">
+                    <div className={`w-8 h-1 rounded-full transition-all duration-300 ${servicePage === 0 ? 'bg-brand-deep w-12' : 'bg-slate-200'}`} />
+                    <div className={`w-8 h-1 rounded-full transition-all duration-300 ${servicePage === 1 ? 'bg-brand-deep w-12' : 'bg-slate-200'}`} />
+                  </div>
+               </div>
+
+               {/* DESKTOP: Static Grid */}
                <div 
-                ref={servicesScrollRef}
-                onMouseEnter={() => setIsServicesPaused(true)}
-                onMouseLeave={() => setIsServicesPaused(false)}
-                onTouchStart={() => setIsServicesPaused(true)}
-                onTouchEnd={() => setIsServicesPaused(false)}
-                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 items-stretch"
+                className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16 items-stretch"
               >
                  {[
                     { title: 'Primary Source Verification', icon: FileCheck },
@@ -329,7 +387,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.05 }}
                        whileHover={{ y: -10 }}
-                       className="min-w-[85vw] sm:min-w-0 min-h-[220px] sm:min-h-0 snap-center p-8 sm:p-10 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                       className="p-8 sm:p-10 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
                        {/* Subtle hover gradient */}
                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
