@@ -2,24 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  ChevronRight, 
   Shield, 
   Zap, 
   Activity, 
   Clock, 
   CheckCircle2, 
   ArrowRight,
-  TrendingUp,
-  Fingerprint,
   Layers,
   Sparkles,
   Users,
   Search,
   FileText,
   Gavel,
-  Scale,
   Lock,
-  Check,
   UserPlus,
   Award,
   RefreshCw,
@@ -41,7 +36,6 @@ import {
   User,
   Heart
 } from 'lucide-react';
-import { ASSETS, IconRenderer } from '../constants';
 import defaultLogo from '../assets/logo_main.png';
 import { PAYERS } from '../data/payers';
 import { useSEO } from '../hooks/useSEO';
@@ -148,69 +142,6 @@ const SERVICES_LIST = [
 ];
 
 const ProviderEnrollmentLP: React.FC = () => {
-  const [isServicesPaused, setIsServicesPaused] = React.useState(false);
-  const [servicePage, setServicePage] = React.useState(0);
-  const [isWhyChoosePaused, setIsWhyChoosePaused] = React.useState(false);
-  const [activePausedSpecRows, setActivePausedSpecRows] = React.useState<number[]>([]);
-  const servicesScrollRef = React.useRef<HTMLDivElement>(null);
-  const whyChooseScrollRef = React.useRef<HTMLDivElement>(null);
-  const specScrollRefs = [
-    React.useRef<HTMLDivElement>(null),
-    React.useRef<HTMLDivElement>(null),
-    React.useRef<HTMLDivElement>(null)
-  ];
-
-  // Auto-flip for Services Grid (Mobile Only)
-  React.useEffect(() => {
-    if (window.innerWidth >= 640 || isServicesPaused) return;
-    const interval = setInterval(() => {
-      setServicePage(prev => (prev === 0 ? 1 : 0));
-    }, 4000); 
-    return () => clearInterval(interval);
-  }, [isServicesPaused]);
-
-  // Auto-swipe for Why Choose Carousel (Mobile Only)
-  React.useEffect(() => {
-    if (window.innerWidth >= 640 || isWhyChoosePaused) return;
-    const interval = setInterval(() => {
-       const el = whyChooseScrollRef.current;
-       if (!el) return;
-       const { scrollLeft, scrollWidth, clientWidth } = el;
-       
-       if (scrollLeft >= scrollWidth - clientWidth - 20) {
-         el.scrollTo({ left: 0, behavior: 'smooth' });
-       } else {
-         const moveAmount = clientWidth * 0.85 + 16;
-         el.scrollBy({ left: moveAmount, behavior: 'smooth' });
-       }
-    }, 2800); // Slightly slower for readability
-    return () => clearInterval(interval);
-  }, [isWhyChoosePaused]);
-
-  // Auto-swipe for Specialties Rows (Mobile Only)
-  React.useEffect(() => {
-    if (window.innerWidth >= 640) return;
-
-    const interval = setInterval(() => {
-      specScrollRefs.forEach((ref, idx) => {
-        if (activePausedSpecRows.includes(idx)) return;
-        const el = ref.current;
-        if (!el) return;
-        
-        const { scrollLeft, scrollWidth, clientWidth } = el;
-        
-        // LOOP LOGIC: 
-        // If we're near the end, reset to the beginning.
-        if (scrollLeft >= scrollWidth - clientWidth - 20) {
-          el.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          el.scrollBy({ left: clientWidth * 0.7 + 12, behavior: 'smooth' });
-        }
-      });
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, [activePausedSpecRows]);
 
   useSEO(
     'Healthcare Provider Enrollment & Payer Credentialing | Credifide',

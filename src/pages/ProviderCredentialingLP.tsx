@@ -2,24 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  ChevronRight, 
   Shield, 
   Zap, 
   Activity, 
   Clock, 
   CheckCircle2, 
   ArrowRight,
-  TrendingUp,
-  Fingerprint,
   Layers,
   Sparkles,
   Users,
   Search,
   FileText,
   Gavel,
-  Scale,
   Lock,
-  Check,
   UserPlus,
   Award,
   RefreshCw,
@@ -40,14 +35,9 @@ import {
   Home,
   User,
   Heart,
-  Globe,
-  Database,
-  Cpu,
-  LineChart,
   ShieldCheck,
-  Smartphone
+  Database
 } from 'lucide-react';
-import { ASSETS, IconRenderer } from '../constants';
 import defaultLogo from '../assets/logo_main.png';
 import { PAYERS } from '../data/payers';
 import { useSEO } from '../hooks/useSEO';
