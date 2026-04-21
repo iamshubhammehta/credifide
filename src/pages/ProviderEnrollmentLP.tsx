@@ -465,9 +465,10 @@ const ProviderEnrollmentLP: React.FC = () => {
               ].map((m, i) => (
                 <motion.div 
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
+                  style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
                   className="bg-white p-6 sm:p-10 rounded-3xl md:rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col items-center group cursor-default h-full justify-center"
                 >
                    <div className={`${m.color} bg-slate-50 w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center mb-2 md:mb-6 group-hover:scale-110 transition-transform`}>
@@ -514,9 +515,10 @@ const ProviderEnrollmentLP: React.FC = () => {
                   ].map((spec, idx) => (
                      <motion.div 
                        key={idx}
-                       initial={{ opacity: 0, scale: 0.95 }}
-                       whileInView={{ opacity: 1, scale: 1 }}
+                       initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                       whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
                        transition={{ delay: idx * 0.05 }}
+                       style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
                        whileHover={{ y: -5, borderColor: '#0B6B57', boxShadow: '0 20px 40px -15px rgba(11,107,87,0.1)' }}
                        className="p-5 rounded-2xl border border-slate-100 bg-white flex items-center gap-4 group transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
                      >
@@ -810,10 +812,11 @@ const ProviderEnrollmentLP: React.FC = () => {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
             {/* Header */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
               className="text-center mb-6 md:mb-14"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-[9px] font-black uppercase tracking-[0.3em] mb-4 sm:mb-6 animate-pulse">
