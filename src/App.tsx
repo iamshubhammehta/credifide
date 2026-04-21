@@ -23,6 +23,7 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import logoMain from './assets/logo_main.png';
 import footerLogo from './assets/footer_logo.png';
+import BrandAssets from './pages/BrandAssets';
 
 
 // Scroll to top and track pageview on route change
@@ -1769,6 +1770,7 @@ export default function App() {
               <Route path="/terms/" element={<Terms />} />
               <Route path="/provider-enrollment/" element={<ProviderEnrollmentLP />} />
               <Route path="/provider-credentialing/" element={<ProviderCredentialingLP />} />
+              <Route path="/brand-assets" element={<BrandAssets />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </React.Suspense>
