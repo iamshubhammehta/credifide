@@ -322,9 +322,9 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* SERVICES: THE INFRASTRUCTURE */}
-        <section className="pt-6 md:pt-20 pb-12 md:pb-32 bg-white flex flex-col items-center">
+        <section className="pt-2 md:pt-10 pb-6 md:pb-20 bg-white flex flex-col items-center">
            <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="text-center mb-6 md:mb-20 text-slate-900">
+              <div className="text-center mb-4 md:mb-10 text-slate-900">
                  <h2 className="text-3xl md:text-6xl font-display font-black leading-tight">
                     Our Services
                  </h2>
@@ -391,7 +391,7 @@ const ProviderEnrollmentLP: React.FC = () => {
               </div>
 
               {/* MODERN SERVICE CTA CENTER */}
-              <div className="mt-16">
+              <div className="mt-8 md:mt-14">
                  <div className="bg-[#0f2e2a] rounded-[3.5rem] p-6 md:p-16 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(15,46,42,0.3)] group cursor-default">
                     {/* Animated Accents */}
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px] -mr-100 -mt-100 group-hover:opacity-40 transition-opacity duration-1000" />
