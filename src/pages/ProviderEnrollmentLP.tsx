@@ -345,7 +345,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                       ].map((s, i) => (
                         <div 
                           key={i}
-                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px] rotate-y-180"
+                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-start h-[240px]"
                         >
                            <div className="w-10 h-10 rounded-xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-4 shrink-0">
                               <s.icon size={20} />
