@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   ChevronRight, 
@@ -136,9 +136,21 @@ const ResponsiveZohoForm = () => {
     );
 };
 
+const SERVICES_LIST = [
+  { title: 'Primary Source Verification', icon: FileCheck },
+  { title: 'Payer Enrollment', icon: UserPlus },
+  { title: 'CAQH Profile Management', icon: Layers },
+  { title: 'Initial Provider Credentialing', icon: Award },
+  { title: 'Recredentialing Management', icon: RefreshCw },
+  { title: 'Insurance Contracting Coordination', icon: FileBarChart },
+  { title: 'Contract Rate Negotiation', icon: Handshake },
+  { title: 'NPI Registration', icon: ClipboardList },
+];
+
 const ProviderEnrollmentLP: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [isServicesPaused, setIsServicesPaused] = React.useState(false);
+  const [servicePage, setServicePage] = React.useState(0);
   const [isWhyChoosePaused, setIsWhyChoosePaused] = React.useState(false);
   const [activePausedSpecRows, setActivePausedSpecRows] = React.useState<number[]>([]);
   const servicesScrollRef = React.useRef<HTMLDivElement>(null);
@@ -149,23 +161,12 @@ const ProviderEnrollmentLP: React.FC = () => {
     React.useRef<HTMLDivElement>(null)
   ];
 
-  // Auto-swipe for Services Carousel (Mobile Only)
+  // Auto-flip for Services Grid (Mobile Only)
   React.useEffect(() => {
     if (window.innerWidth >= 640 || isServicesPaused) return;
     const interval = setInterval(() => {
-       const el = servicesScrollRef.current;
-       if (!el) return;
-       const { scrollLeft, scrollWidth, clientWidth } = el;
-       
-       // LOOP LOGIC: 
-       // If we're near the end, reset to the beginning.
-       if (scrollLeft >= scrollWidth - clientWidth - 20) {
-         el.scrollTo({ left: 0, behavior: 'smooth' });
-       } else {
-         const moveAmount = clientWidth * 0.85 + 16;
-         el.scrollBy({ left: moveAmount, behavior: 'smooth' });
-       }
-    }, 2500); // Increased interval slightly for better readability
+      setServicePage(prev => (prev === 0 ? 1 : 0));
+    }, 4000); 
     return () => clearInterval(interval);
   }, [isServicesPaused]);
 
@@ -330,48 +331,63 @@ const ProviderEnrollmentLP: React.FC = () => {
               </div>
 
                <div 
-                ref={servicesScrollRef}
                 onMouseEnter={() => setIsServicesPaused(true)}
                 onMouseLeave={() => setIsServicesPaused(false)}
                 onTouchStart={() => setIsServicesPaused(true)}
                 onTouchEnd={() => setIsServicesPaused(false)}
-                className="flex sm:grid flex-nowrap sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16 overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 items-stretch"
+                className="w-full"
               >
-                 {[
-                    { title: 'Primary Source Verification', icon: FileCheck },
-                    { title: 'Payer Enrollment', icon: UserPlus },
-                    { title: 'CAQH Profile Management', icon: Layers },
-                    { title: 'Initial Provider Credentialing', icon: Award },
-                    { title: 'Recredentialing Management', icon: RefreshCw },
-                    { title: 'Insurance Contracting Coordination', icon: FileBarChart },
-                    { title: 'Contract Rate Negotiation', icon: Handshake },
-                    { title: 'NPI Registration', icon: ClipboardList },
-                 ].map((s, i) => (
+                {/* DESKTOP VIEW: Static 4-Column Grid */}
+                <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                  {SERVICES_LIST.map((s, i) => (
                     <motion.div 
-                       key={i} 
-                       initial={{ opacity: 0, y: 30 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ delay: i * 0.05 }}
-                       whileHover={{ y: -10 }}
-                       className="min-w-[85vw] sm:min-w-0 min-h-[220px] sm:min-h-0 snap-center p-8 sm:p-10 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                      key={i} 
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      whileHover={{ y: -10 }}
+                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 hover:border-brand-deep/20 hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default"
                     >
-                       {/* Subtle hover gradient */}
-                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
-                       
-                       <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
-                          <s.icon size={26} />
-                       </div>
-                       
-                       <h4 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
-                       
-                       {/* Creative Accent Bar */}
-                       <div className="mt-auto flex items-center gap-2">
-                          <div className="w-8 h-1 bg-brand-light/30 rounded-full group-hover:w-12 group-hover:bg-brand-accent transition-all duration-700" />
-                          <div className="w-1 h-1 bg-brand-light/30 rounded-full group-hover:bg-brand-accent transition-all duration-700" />
-                       </div>
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-deep/5 transition-colors duration-1000" />
+                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
+                        <s.icon size={26} />
+                      </div>
+                      <h4 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
+                      <div className="mt-auto flex items-center gap-2">
+                        <div className="w-8 h-1 bg-brand-light/30 rounded-full group-hover:w-12 group-hover:bg-brand-accent transition-all duration-700" />
+                        <div className="w-1 h-1 bg-brand-light/30 rounded-full group-hover:bg-brand-accent transition-all duration-700" />
+                      </div>
                     </motion.div>
-                 ))}
+                  ))}
+                </div>
+
+                {/* MOBILE VIEW: 2x2 Flip Grid */}
+                <div className="sm:hidden relative [perspective:1000px] min-h-[460px] flex items-center justify-center px-2">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={servicePage}
+                      initial={{ rotateX: -90, opacity: 0 }}
+                      animate={{ rotateX: 0, opacity: 1 }}
+                      exit={{ rotateX: 90, opacity: 0 }}
+                      transition={{ duration: 1, ease: "easeInOut" }}
+                      className="grid grid-cols-2 gap-4 w-full"
+                    >
+                      {SERVICES_LIST.slice(servicePage * 4, (servicePage * 4) + 4).map((s, i) => (
+                        <div 
+                          key={i} 
+                          className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center h-full active:bg-slate-50 transition-colors"
+                        >
+                          <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep mb-4 shadow-sm shrink-0">
+                            <s.icon size={24} />
+                          </div>
+                          <h4 className="text-xs font-bold text-slate-900 leading-tight mb-2 line-clamp-2">{s.title}</h4>
+                          <div className="mt-auto w-10 h-1 bg-slate-100 rounded-full" />
+                        </div>
+                      ))}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
 
               {/* MODERN SERVICE CTA CENTER */}
