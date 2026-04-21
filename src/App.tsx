@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useSpring, useMotionValue, useScroll, useTransform } from 'motion/react';
 import ProviderEnrollmentLP from './pages/ProviderEnrollmentLP';
+import ProviderCredentialingLP from './pages/ProviderCredentialingLP';
 import { ASSETS, IconRenderer } from './constants';
 import { PhysicsWorld, PhysicsBody } from './components/PhysicsEngine';
 import About from './pages/About';
@@ -1767,6 +1768,7 @@ export default function App() {
               <Route path="/privacy/" element={<Privacy />} />
               <Route path="/terms/" element={<Terms />} />
               <Route path="/provider-enrollment/" element={<ProviderEnrollmentLP />} />
+              <Route path="/provider-credentialing/" element={<ProviderCredentialingLP />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </React.Suspense>
