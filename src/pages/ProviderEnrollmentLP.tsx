@@ -626,6 +626,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                     </div>
            </div>
         </section>
+      </main>
     </div>
   );
 };
