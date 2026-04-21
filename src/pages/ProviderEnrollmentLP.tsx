@@ -142,19 +142,6 @@ const SERVICES_LIST = [
 ];
 
 const ProviderEnrollmentLP: React.FC = () => {
-  const [isCalendarOpen, setIsCalendarOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsCalendarOpen(false); };
-    if (isCalendarOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', onKey);
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); };
-  }, [isCalendarOpen]);
-
 
   useSEO(
     'Healthcare Provider Enrollment & Payer Credentialing | Credifide',
@@ -182,51 +169,6 @@ const ProviderEnrollmentLP: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
-
-      {/* CALENDAR MODAL */}
-      {isCalendarOpen && (
-        <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-          onClick={() => setIsCalendarOpen(false)}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-3xl bg-white rounded-[2rem] shadow-2xl overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white">
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-deep/60 mb-0.5">Credifide</p>
-                <h3 className="text-lg font-black text-slate-900">Schedule a Consultation</h3>
-              </div>
-              <button
-                onClick={() => setIsCalendarOpen(false)}
-                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-                aria-label="Close"
-              >
-                <span className="text-slate-500 text-lg font-bold leading-none">&times;</span>
-              </button>
-            </div>
-            {/* Calendar iframe */}
-            <iframe
-              src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
-              title="Book a Consultation with Credifide"
-              frameBorder="0"
-              scrolling="yes"
-              style={{ width: '100%', height: '600px', border: 'none', display: 'block' }}
-              allow="camera; microphone; fullscreen"
-            />
-          </motion.div>
-        </div>
-      )}
-
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
         <section className="relative pt-8 lg:pt-12 pb-0 overflow-x-hidden">
@@ -332,47 +274,23 @@ const ProviderEnrollmentLP: React.FC = () => {
                 </div>
               </div>
 
-              {/* SCHEDULE CONSULTATION: BUTTON → POPUP */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="mt-8 md:mt-14 w-full"
-              >
-                <div className="bg-gradient-to-br from-[#0f3d3a] to-[#0B6B57] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[120px] -mr-20 -mt-20 pointer-events-none" />
-                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(90deg,transparent,transparent 20px,#fff 20px,#fff 21px)' }} />
-
-                  <div className="relative z-10 text-center md:text-left">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-[9px] font-black uppercase tracking-[0.4em] mb-5 animate-pulse">
-                      <Sparkles size={11} />
-                      Free · No Obligation
-                    </div>
-                    <h3 className="text-2xl md:text-4xl font-display font-black text-white leading-tight mb-3">
-                      Schedule a Direct <br className="hidden md:block" />
-                      <span className="text-brand-accent">Consultation.</span>
-                    </h3>
-                    <p className="text-white/50 text-sm font-bold max-w-sm">
-                      Pick a time that works — meet our enrollment specialists in minutes.
-                    </p>
-                  </div>
-
-                  <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 shrink-0">
-                    <div className="text-center p-4 rounded-2xl bg-white/5 border border-white/10">
-                      <div className="text-white/40 text-[8px] font-black uppercase tracking-widest mb-1">Direct Line</div>
-                      <a href="tel:3215240606" className="text-xl font-black text-white hover:text-brand-accent transition-colors">(321) 524-0606</a>
-                    </div>
-                    <button
-                      onClick={() => setIsCalendarOpen(true)}
-                      className="group/btn flex items-center gap-3 bg-brand-accent text-[#0f2e2a] px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.15em] hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl"
-                    >
-                      <span>Book a Time Slot</span>
-                      <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
+              {/* GOOGLE CALENDAR EMBED */}
+              <div className="mt-8 md:mt-14 w-full bg-white rounded-[3rem] shadow-xl overflow-hidden border border-slate-100 p-2 md:p-4">
+                <iframe
+                  src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
+                  title="Book a Consultation with Credifide"
+                  frameBorder="0"
+                  scrolling="yes"
+                  style={{
+                    width: '100%',
+                    minHeight: '650px',
+                    height: '100%',
+                    border: 'none',
+                    display: 'block',
+                  }}
+                  allow="camera; microphone; fullscreen"
+                />
+              </div>
               </div>
         </section>
 
