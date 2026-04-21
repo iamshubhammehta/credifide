@@ -263,10 +263,10 @@ const Navbar = React.memo(() => {
           </div>
 
           <div className="hidden lg:flex items-center gap-6">
-            <div className="flex items-center gap-2 font-medium transition-colors duration-500 text-slate-600 text-sm xl:text-base">
+            <a href="tel:3215240606" className="flex items-center gap-2 font-medium transition-colors duration-500 text-slate-600 hover:text-brand-deep text-sm xl:text-base">
               <IconRenderer icon={ASSETS.nav.phone} size={18} className="text-brand-deep" />
               <span>(321) 524-0606</span>
-            </div>
+            </a>
             <Link to="/contact" className="bg-brand-deep text-white px-6 py-2.5 rounded-xl font-bold hover:bg-brand-600 transition-all shadow-lg shadow-brand-deep/20 flex items-center gap-2 group text-sm xl:text-base">
               Book a Consultation
               <IconRenderer icon={ASSETS.nav.arrowRight} size={18} className="group-hover:translate-x-1 transition-transform" />

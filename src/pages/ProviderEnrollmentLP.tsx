@@ -399,7 +399,9 @@ const ProviderEnrollmentLP: React.FC = () => {
                           <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-8 shrink-0 w-full sm:w-auto">
                              <div className="flex flex-col items-center lg:items-end p-4 md:p-4 rounded-2xl md:rounded-3xl bg-white/5 border border-white/5 backdrop-blur-sm shadow-xl w-full sm:w-auto">
                                 <div className="text-white/40 text-[8px] md:text-[9px] font-black uppercase tracking-widest md:tracking-[0.4em] mb-1">Direct Priority Access</div>
-                                <div className="text-xl md:text-2xl font-black text-white">(321) 524-0606</div>
+                                <a href="tel:3215240606" className="text-xl md:text-2xl font-black text-white hover:text-brand-accent transition-colors">
+                                  (321) 524-0606
+                                </a>
                              </div>
                              
                              <Link to="/contact" className="w-full sm:w-auto justify-center bg-[#A3BD6A] text-[#0f2e2a] px-6 md:px-10 py-5 md:py-7 rounded-xl md:rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] flex items-center gap-2 md:gap-3 hover:bg-white hover:scale-105 transition-all shadow-xl shadow-brand-deep/30 group/btn relative overflow-hidden">
