@@ -194,18 +194,6 @@ const SERVICES_LIST = [
 ];
 
 const ProviderCredentialingLP: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  // Prevent body scroll when modal is open
-  React.useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isModalOpen]);
 
   useSEO(
     'Healthcare Provider Credentialing & Payer Credentialing | Credifide',
@@ -339,45 +327,23 @@ const ProviderCredentialingLP: React.FC = () => {
                 </div>
               </div>
 
-              {/* MODERN SERVICE CTA CENTER */}
-              <div className="mt-8 md:mt-14">
-                 <div className="bg-[#0f2e2a] rounded-[3.5rem] p-6 md:p-16 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(15,46,42,0.3)] group cursor-default">
-                    {/* Animated Accents */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px] -mr-100 -mt-100 group-hover:opacity-40 transition-opacity duration-1000" />
-                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-light/5 rounded-full blur-[100px] -ml-40 -mb-40 group-hover:opacity-40 transition-opacity duration-1000" />
-                       <div className="absolute inset-0 opacity-[0.03] pointer-events-none group-hover:opacity-[0.05] transition-opacity duration-1000" 
-                            style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 15px, #fff 15px, #fff 16px)" }} />
-                       
-                       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 text-center lg:text-left">
-                          <div className="max-w-xl">
-                             <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-1.5 md:py-2 rounded-full bg-brand-accent/20 text-brand-accent text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] mb-4 md:mb-8 border border-brand-accent/30 animate-pulse">
-                                <Sparkles size={12} className="md:w-[14px] md:h-[14px]" />
-                                Instant Credentialing Support
-                             </div>
-                             <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-black text-white leading-[1.1] mb-2 md:mb-6">
-                                Schedule a Direct <br className="hidden md:block" />
-                                <span className="text-brand-accent">Consultation.</span>
-                             </h3>
-                             <p className="text-white/40 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Strategic Revenue Infrastructure</p>
-                          </div>
-
-                          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-8 shrink-0 w-full sm:w-auto">
-                             <div className="flex flex-col items-center lg:items-end p-4 md:p-4 rounded-2xl md:rounded-3xl bg-white/5 border border-white/5 backdrop-blur-sm shadow-xl w-full sm:w-auto">
-                                <div className="text-white/40 text-[8px] md:text-[9px] font-black uppercase tracking-widest md:tracking-[0.4em] mb-1">Direct Priority Access</div>
-                                <a href="tel:3215240606" className="text-xl md:text-2xl font-black text-white hover:text-brand-accent transition-colors">
-                                  (321) 524-0606
-                                </a>
-                             </div>
-                             
-                             <Link to="/contact" className="w-full sm:w-auto justify-center bg-[#A3BD6A] text-[#0f2e2a] px-6 md:px-10 py-5 md:py-7 rounded-xl md:rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] flex items-center gap-2 md:gap-3 hover:bg-white hover:scale-105 transition-all shadow-xl shadow-brand-deep/30 group/btn relative overflow-hidden">
-                                <span className="relative z-10">Book Strategy Call</span>
-                                <ArrowRight size={18} className="md:w-[20px] md:h-[20px] relative z-10 group-hover/btn:translate-x-1 transition-transform duration-500" />
-                                <div className="absolute inset-0 bg-white translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
-                             </Link>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
+              {/* GOOGLE CALENDAR EMBED (Replaces Modern CTA) */}
+              <div className="mt-8 md:mt-14 w-full bg-white rounded-[3rem] shadow-xl overflow-hidden border border-slate-100 p-2 md:p-4">
+                 <iframe
+                   src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
+                   title="Book a Consultation with Credifide"
+                   frameBorder="0"
+                   scrolling="yes"
+                   style={{
+                     width: '100%',
+                     minHeight: '650px',
+                     height: '100%',
+                     border: 'none',
+                     display: 'block',
+                   }}
+                   allow="camera; microphone; fullscreen"
+                 />
+              </div>
               </div>
         </section>
 
@@ -672,141 +638,47 @@ const ProviderCredentialingLP: React.FC = () => {
            </div>
         </section>
 
-        {/* FINAL CONVERSION: GOOGLE CALENDAR BOOKING */}
-        <section id="footer-form" className="py-12 md:py-32 bg-[#0f2e2a] relative overflow-hidden">
-          {/* Background accents */}
-          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-light/5 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 30px, #A3BD6A 30px, #A3BD6A 31px)" }} />
- 
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-6 md:mb-14"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-[9px] font-black uppercase tracking-[0.3em] mb-4 sm:mb-6 animate-pulse">
-                <Sparkles size={12} />
-                Book Your Strategy Call
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white mb-4 leading-tight">
-                Schedule a Direct <br className="hidden sm:block" />
-                <span className="text-brand-accent">Consultation.</span>
-              </h2>
-              <p className="text-white/50 font-bold max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-                Pick a time that works for you. Our Credentialing specialists will walk you through a personalized credentialing strategy.
-              </p>
-            </motion.div>
+        {/* FINAL CONVERSION: MODERN SERVICE CTA CENTER (Moved to Bottom) */}
+        <section className="py-12 md:py-24 bg-white flex flex-col items-center">
+           <div className="max-w-7xl mx-auto px-6 w-full">
+                 <div className="bg-[#0f2e2a] rounded-[3.5rem] p-6 md:p-16 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(15,46,42,0.3)] group cursor-default">
+                    {/* Animated Accents */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px] -mr-100 -mt-100 group-hover:opacity-40 transition-opacity duration-1000" />
+                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-light/5 rounded-full blur-[100px] -ml-40 -mb-40 group-hover:opacity-40 transition-opacity duration-1000" />
+                       <div className="absolute inset-0 opacity-[0.03] pointer-events-none group-hover:opacity-[0.05] transition-opacity duration-1000" 
+                            style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 15px, #fff 15px, #fff 16px)" }} />
+                       
+                       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 text-center lg:text-left">
+                          <div className="max-w-xl">
+                             <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-1.5 md:py-2 rounded-full bg-brand-accent/20 text-brand-accent text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] mb-4 md:mb-8 border border-brand-accent/30 animate-pulse">
+                                <Sparkles size={12} className="md:w-[14px] md:h-[14px]" />
+                                Instant Credentialing Support
+                             </div>
+                             <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-black text-white leading-[1.1] mb-2 md:mb-6">
+                                Schedule a Direct <br className="hidden md:block" />
+                                <span className="text-brand-accent">Consultation.</span>
+                             </h3>
+                             <p className="text-white/40 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Strategic Revenue Infrastructure</p>
+                          </div>
 
-            {/* Trust badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10"
-            >
-              {[
-                { icon: Shield, text: 'HIPAA Compliant' },
-                { icon: Clock, text: 'Same-Day Response' },
-                { icon: CheckCircle2, text: 'No Obligation' },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest">
-                  <item.icon size={12} className="text-brand-accent" />
-                  {item.text}
-                </div>
-              ))}
-            </motion.div>
-
-            {/* CTA Button replacing iframe */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.3 }}
-              className="flex justify-center"
-            >
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto justify-center bg-[#A3BD6A] text-[#0f2e2a] px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-white hover:scale-105 transition-all shadow-xl shadow-brand-deep/30 group"
-              >
-                Open Scheduling Calendar
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-
-            {/* Bottom CTA line */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="text-center text-white/30 text-xs font-bold uppercase tracking-widest mt-8"
-            >
-              Prefer to call? Reach us directly at{' '}
-              <a href="tel:+13215240606" className="text-brand-accent hover:text-white transition-colors">
-                (321) 524-0606
-              </a>
-            </motion.p>
-          </div>
+                          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-8 shrink-0 w-full sm:w-auto">
+                             <div className="flex flex-col items-center lg:items-end p-4 md:p-4 rounded-2xl md:rounded-3xl bg-white/5 border border-white/5 backdrop-blur-sm shadow-xl w-full sm:w-auto">
+                                <div className="text-white/40 text-[8px] md:text-[9px] font-black uppercase tracking-widest md:tracking-[0.4em] mb-1">Direct Priority Access</div>
+                                <a href="tel:3215240606" className="text-xl md:text-2xl font-black text-white hover:text-brand-accent transition-colors">
+                                  (321) 524-0606
+                                </a>
+                             </div>
+                             
+                             <Link to="/contact" className="w-full sm:w-auto justify-center bg-[#A3BD6A] text-[#0f2e2a] px-6 md:px-10 py-5 md:py-7 rounded-xl md:rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] flex items-center gap-2 md:gap-3 hover:bg-white hover:scale-105 transition-all shadow-xl shadow-brand-deep/30 group/btn relative overflow-hidden">
+                                <span className="relative z-10">Book Strategy Call</span>
+                                <ArrowRight size={18} className="md:w-[20px] md:h-[20px] relative z-10 group-hover/btn:translate-x-1 transition-transform duration-500" />
+                                <div className="absolute inset-0 bg-white translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
+                             </Link>
+                          </div>
+                       </div>
+                    </div>
+           </div>
         </section>
-      </main>
-
-      {/* Calendar Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#0f2e2a]/80 backdrop-blur-sm">
-          <div className="absolute inset-0 cursor-pointer" onClick={() => setIsModalOpen(false)} />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="relative w-full max-w-5xl bg-white rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] flex flex-col"
-            style={{ maxHeight: '90vh' }}
-          >
-            {/* Top bar decoration */}
-            <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 border-b border-slate-100 shrink-0">
-               <div className="flex items-center gap-2">
-                 <div className="w-3 h-3 rounded-full bg-red-400 opacity-80" onClick={() => setIsModalOpen(false)} style={{ cursor: 'pointer' }} />
-                 <div className="w-3 h-3 rounded-full bg-yellow-400 opacity-80" />
-                 <div className="w-3 h-3 rounded-full bg-green-400 opacity-80" />
-               </div>
-               <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm w-[60%] sm:w-1/2 justify-center">
-                 <Lock size={10} className="text-slate-400" />
-                 <span className="text-[10px] font-bold text-slate-400 tracking-wider truncate">credifide.com/consultation</span>
-               </div>
-               <button onClick={() => setIsModalOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-200 transition-colors text-slate-500 font-bold text-xl leading-none">
-                  &times;
-               </button>
-            </div>
-            
-            <div className="flex-1 overflow-y-auto overflow-x-hidden relative bg-white" style={{ minHeight: '600px' }}>
-               <iframe
-                 src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
-                 title="Book a Consultation with Credifide"
-                 frameBorder="0"
-                 scrolling="yes"
-                 style={{
-                   width: '100%',
-                   minHeight: '650px',
-                   height: '100%',
-                   border: 'none',
-                   display: 'block',
-                 }}
-                 allow="camera; microphone; fullscreen"
-               />
-                {/* Bottom integration bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-10 sm:h-12 bg-white flex items-center justify-center px-6 border-t border-slate-50 z-20 pointer-events-none">
-                   <div className="flex items-center gap-2 opacity-30">
-                      <Zap size={10} />
-                      <span className="text-[8px] font-black uppercase tracking-[0.4em]">Powered by Credifide Secure Scheduler</span>
-                   </div>
-                </div>
-            </div>
-          </motion.div>
-        </div>
-      )}
     </div>
   );
 };
