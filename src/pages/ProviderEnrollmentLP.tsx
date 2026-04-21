@@ -367,21 +367,21 @@ const ProviderEnrollmentLP: React.FC = () => {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={servicePage}
-                      initial={{ rotateX: -90, opacity: 0 }}
-                      animate={{ rotateX: 0, opacity: 1 }}
-                      exit={{ rotateX: 90, opacity: 0 }}
-                      transition={{ duration: 1, ease: "easeInOut" }}
+                      initial={{ rotateY: -90, opacity: 0 }}
+                      animate={{ rotateY: 0, opacity: 1 }}
+                      exit={{ rotateY: 90, opacity: 0 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
                       className="grid grid-cols-2 gap-4 w-full"
                     >
                       {SERVICES_LIST.slice(servicePage * 4, (servicePage * 4) + 4).map((s, i) => (
                         <div 
                           key={i} 
-                          className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center h-full active:bg-slate-50 transition-colors"
+                          className="p-5 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center h-full active:bg-slate-50 transition-colors"
                         >
                           <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep mb-4 shadow-sm shrink-0">
                             <s.icon size={24} />
                           </div>
-                          <h4 className="text-xs font-bold text-slate-900 leading-tight mb-2 line-clamp-2">{s.title}</h4>
+                          <h4 className="text-[13px] font-bold text-slate-900 leading-[1.3] mb-2">{s.title}</h4>
                           <div className="mt-auto w-10 h-1 bg-slate-100 rounded-full" />
                         </div>
                       ))}
