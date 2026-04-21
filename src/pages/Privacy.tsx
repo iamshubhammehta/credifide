@@ -1,7 +1,21 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
+import { useSEO } from '../hooks/useSEO';
+
 const Privacy = () => {
+  useSEO(
+    'Privacy Policy | Credifide',
+    'Credifide\'s privacy policy outlines how we collect, use, and protect your personal information in compliance with healthcare regulations.',
+    '/privacy',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Privacy Policy — Credifide',
+      'url': 'https://credifide.com/privacy'
+    }
+  );
   return (
     <div className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 bg-white selection:bg-brand-light selection:text-brand-deep relative overflow-hidden">
       {/* Background Orbs */}

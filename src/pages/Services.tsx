@@ -6,8 +6,24 @@ import { useSEO } from '../hooks/useSEO';
 
 const ServicesHub: React.FC = () => {
   useSEO(
-    'Services & Solutions | Credifide',
-    'Explore Credifide\'s core services: Provider Enrollment, Medical Billing, and complete Revenue Cycle Management infrastructure for clinical success.'
+    'Healthcare Credentialing & Billing Services | Credifide',
+    'Explore Credifide\'s specialized healthcare services: insurance credentialing, payer enrollment, and medical billing — all designed for clinical operational excellence.',
+    '/services',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Healthcare Services — Credifide',
+      'description': 'Credifide offers insurance credentialing, payer enrollment, and medical billing services for healthcare providers across the United States.',
+      'url': 'https://credifide.com/services',
+      'breadcrumb': {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://credifide.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://credifide.com/services' }
+        ]
+      }
+    }
   );
 
   const services = [

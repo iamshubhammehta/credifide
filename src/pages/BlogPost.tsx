@@ -34,7 +34,30 @@ const BlogPost: React.FC = () => {
     );
   }
 
-  useSEO(`${post.title} | Credifide Journal`, post.excerpt);
+  useSEO(
+    `${post.title} | Credifide Journal`,
+    post.excerpt,
+    `/resources/blog/${post.slug}`,
+    post.image,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      'headline': post.title,
+      'description': post.excerpt,
+      'image': post.image,
+      'author': {
+        '@type': 'Person',
+        'name': post.author
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'logo': 'https://credifide.com/logo.png'
+      },
+      'datePublished': post.date,
+      'url': `https://credifide.com/resources/blog/${post.slug}`
+    }
+  );
 
   return (
     <div className="bg-white min-h-screen">

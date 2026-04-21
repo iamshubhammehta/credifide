@@ -62,11 +62,6 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-[1.85rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-slate-900 leading-[1.05] tracking-tight mb-4 sm:mb-6"
         >
-          We Build the{' '}
-          <span className="text-brand-400">Infrastructure</span>
-          <br />
-          Healthcare Deserves
-        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -1381,8 +1376,23 @@ const FinalCTA: React.FC = () => {
 // ─── Main About Page ───────────────────────────────────────────────────────────
 const About: React.FC = () => {
   useSEO(
-    'About Us | Credifide',
-    'Learn how Credifide is revolutionizing healthcare RCM. See our story, principles, and how we build enterprise-grade infrastructure for modern practices.'
+    'About Credifide | Our Mission & Healthcare Credentialing Team',
+    'Learn about Credifide\'s mission to simplify healthcare credentialing and provider enrollment for medical groups nationwide. We build the infrastructure healthcare deserves.',
+    '/about-credifide/',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      'name': 'About Credifide',
+      'description': 'Credifide was created to eliminate the invisible friction that keeps providers away from patients by replacing broken administrative systems with automation and intelligence.',
+      'url': 'https://credifide.com/about-credifide/',
+      'mainEntity': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'url': 'https://credifide.com',
+        'logo': 'https://credifide.com/logo.png'
+      }
+    }
   );
 
   useEffect(() => {

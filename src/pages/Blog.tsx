@@ -7,8 +7,22 @@ import { useSEO } from '../hooks/useSEO';
 
 const Blog = () => {
   useSEO(
-    'Blog | Credifide — Healthcare RCM & Credentialing Insights',
-    'Expert insights on healthcare revenue cycle management, provider credentialing, billing strategies, and industry trends from the Credifide team.'
+    'Healthcare Credentialing Blog | Credifide Insights',
+    'Read expert articles on provider enrollment, medical billing, RCM optimization, and healthcare credentialing trends from the Credifide team.',
+    '/resources/blog',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      'name': 'The Credifide Journal',
+      'description': 'Strategic intelligence for modern healthcare leaders and practice owners.',
+      'url': 'https://credifide.com/resources/blog',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'logo': 'https://credifide.com/logo.png'
+      }
+    }
   );
 
   const [searchTerm, setSearchTerm] = useState('');

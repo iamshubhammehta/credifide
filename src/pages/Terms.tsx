@@ -1,7 +1,21 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
+import { useSEO } from '../hooks/useSEO';
+
 const Terms = () => {
+  useSEO(
+    'Terms of Service | Credifide',
+    'Read Credifide\'s terms of service governing the use of our healthcare credentialing and medical billing platform and services.',
+    '/terms',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Terms of Service — Credifide',
+      'url': 'https://credifide.com/terms'
+    }
+  );
   return (
     <div className="pt-8 pb-32 px-4 sm:px-6 lg:px-8 bg-white selection:bg-brand-light selection:text-brand-deep relative overflow-hidden">
       {/* Background Orbs */}

@@ -97,8 +97,31 @@ const ResponsiveZohoForm = () => {
 const Contact = () => {
 
   useSEO(
-    'Contact Us | Credifide',
-    'Get in touch with Credifide. Book a strategy call or contact our team to build your revenue engine and simplify your provider enrollment.'
+    'Contact Credifide | Book a Healthcare Credentialing Consultation',
+    'Book a strategy call with Credifide. Our experts help healthcare providers navigate revenue cycle management, insurance credentialing, and payer enrollment.',
+    '/contact',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      'name': 'Contact Credifide',
+      'description': 'Contact Credifide to book a healthcare credentialing and medical billing consultation.',
+      'url': 'https://credifide.com/contact',
+      'mainEntity': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'telephone': '+13215240606',
+        'email': 'connect@credifide.com',
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': '407 E Ayre St #1480',
+          'addressLocality': 'Wilmington',
+          'addressRegion': 'DE',
+          'postalCode': '19804',
+          'addressCountry': 'US'
+        }
+      }
+    }
   );
 
   return (

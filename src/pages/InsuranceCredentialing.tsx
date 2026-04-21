@@ -8,8 +8,33 @@ const InsuranceCredentialing: React.FC = () => {
   const progressRef = useRef<HTMLDivElement>(null);
   const progressInView = useInView(progressRef, { once: true, margin: '-50px' });
   useSEO(
-    'Insurance & Payer Credentialing Services | Credifide',
-    'Stop losing revenue to enrollment delays. Our proactive credentialing infrastructure builds direct payer pathways for faster reimbursements.'
+    'Insurance Credentialing Services & Payer Enrollment | Credifide',
+    'Stop losing revenue to enrollment delays. Credifide\'s proactive insurance credentialing builds direct payer pathways for faster reimbursements and full CAQH compliance.',
+    '/insurance-credentialing/',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Insurance Credentialing & Payer Enrollment',
+      'description': 'Credifide provides end-to-end insurance credentialing services including primary source verification, payer enrollment, CAQH profile management, NPI registration, and recredentialing for healthcare providers.',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'url': 'https://credifide.com',
+        'telephone': '+13215240606',
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': '407 E Ayre St #1480',
+          'addressLocality': 'Wilmington',
+          'addressRegion': 'DE',
+          'postalCode': '19804',
+          'addressCountry': 'US'
+        }
+      },
+      'serviceType': 'Insurance Credentialing',
+      'areaServed': { '@type': 'Country', 'name': 'United States' },
+      'url': 'https://credifide.com/insurance-credentialing/'
+    }
   );
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -249,6 +274,23 @@ const InsuranceCredentialing: React.FC = () => {
 
       {/* ─── CTA SECTION ─── */}
       <section className="py-12 lg:py-16 bg-transparent relative overflow-hidden">
+        {/* Contextual Internal Linking for SEO */}
+        <div className="max-w-5xl mx-auto px-6 mb-12">
+          <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Maximize Your Practice Efficiency</h3>
+              <p className="text-slate-500 text-sm">Combine Credentialing with our enterprise Billing infrastructure.</p>
+            </div>
+            <Link 
+              to="/medical-billing/" 
+              className="group flex items-center gap-2 text-brand-deep font-bold hover:text-brand-accent transition-colors"
+            >
+              Explore Medical Billing Solutions
+              <IconRenderer icon={ASSETS.nav.arrowRight} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <div className="relative rounded-[32px] sm:rounded-[48px] overflow-hidden">
             {/* Animated gradient BG */}

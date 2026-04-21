@@ -2,7 +2,22 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ASSETS, IconRenderer } from '../constants';
 
+import { useSEO } from '../hooks/useSEO';
+
 const WhitePapers = () => {
+  useSEO(
+    'Healthcare White Papers & Research | Credifide',
+    'Download Credifide\'s research-backed white papers on credentialing best practices, payer strategies, and revenue cycle management optimization.',
+    '/resources/white-papers',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': 'Healthcare White Papers & Research',
+      'description': 'A collection of professional white papers and research reports from Credifide on healthcare administration and operations.',
+      'url': 'https://credifide.com/resources/white-papers'
+    }
+  );
   const [showModal, setShowModal] = useState(false);
   const [selectedPaper, setSelectedPaper] = useState<any>(null);
 

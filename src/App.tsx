@@ -1692,8 +1692,21 @@ const Home = React.memo(() => {
   const { hash } = useLocation();
 
   useSEO(
-    'Credifide - Modern Healthcare RCM & Provider Enrollment',
-    'Streamline your healthcare operations with Credifide. We specialize in Provider Enrollment, Insurance Credentialing, and Medical Billing for modern clinical success.'
+    'Credifide | Healthcare Credentialing, Contracting & Medical Billing',
+    'Credifide helps healthcare providers get credentialed, contracted, and paid faster. We build the infrastructure healthcare deserves with automated RCM and provider enrollment.',
+    '/',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': 'Credifide',
+      'url': 'https://credifide.com',
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': 'https://credifide.com/resources/blog?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    }
   );
 
   useEffect(() => {
