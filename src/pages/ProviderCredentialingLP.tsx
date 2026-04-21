@@ -194,6 +194,19 @@ const SERVICES_LIST = [
 ];
 
 const ProviderCredentialingLP: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  // Prevent body scroll when modal is open
+  React.useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
   useSEO(
     'Healthcare Provider Credentialing & Payer Credentialing | Credifide',
     'Experience 98% first-submission accuracy and 30% faster provider Credentialing turnaround times. Credifide treats credentialing as mission-critical infrastructure for healthcare practices.',
@@ -276,28 +289,15 @@ const ProviderCredentialingLP: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* HERO FORM: GOOGLE CALENDAR EMBED */}
+              {/* HERO FORM: CLEAN FLOATING LOOK */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative z-20 w-full bg-white rounded-[2rem] sm:rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden"
-                style={{ minHeight: '650px' }}
+                className="relative z-20 w-full"
                 id="form"
               >
-                  <iframe
-                    src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
-                    title="Book a Consultation with Credifide"
-                    frameBorder="0"
-                    scrolling="yes"
-                    style={{
-                      width: '100%',
-                      minHeight: '650px',
-                      height: '100%',
-                      border: 'none',
-                      display: 'block',
-                    }}
-                  />
+                  <ResponsiveZohoForm />
               </motion.div>
             </div>
           </div>
@@ -721,17 +721,21 @@ const ProviderCredentialingLP: React.FC = () => {
               ))}
             </motion.div>
 
-            {/* CTA ZOHO FORM EMBED */}
+            {/* CTA Button replacing iframe */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: 0.3 }}
-              className="flex justify-center w-full relative z-20 mt-8"
+              className="flex justify-center"
             >
-              <div className="w-full max-w-lg bg-white rounded-[3rem] p-4 sm:p-6 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)]">
-                 <ResponsiveZohoForm />
-              </div>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="w-full sm:w-auto justify-center bg-[#A3BD6A] text-[#0f2e2a] px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-white hover:scale-105 transition-all shadow-xl shadow-brand-deep/30 group"
+              >
+                Open Scheduling Calendar
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </button>
             </motion.div>
 
             {/* Bottom CTA line */}
@@ -750,6 +754,59 @@ const ProviderCredentialingLP: React.FC = () => {
           </div>
         </section>
       </main>
+
+      {/* Calendar Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#0f2e2a]/80 backdrop-blur-sm">
+          <div className="absolute inset-0 cursor-pointer" onClick={() => setIsModalOpen(false)} />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="relative w-full max-w-5xl bg-white rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] flex flex-col"
+            style={{ maxHeight: '90vh' }}
+          >
+            {/* Top bar decoration */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 border-b border-slate-100 shrink-0">
+               <div className="flex items-center gap-2">
+                 <div className="w-3 h-3 rounded-full bg-red-400 opacity-80" onClick={() => setIsModalOpen(false)} style={{ cursor: 'pointer' }} />
+                 <div className="w-3 h-3 rounded-full bg-yellow-400 opacity-80" />
+                 <div className="w-3 h-3 rounded-full bg-green-400 opacity-80" />
+               </div>
+               <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm w-[60%] sm:w-1/2 justify-center">
+                 <Lock size={10} className="text-slate-400" />
+                 <span className="text-[10px] font-bold text-slate-400 tracking-wider truncate">credifide.com/consultation</span>
+               </div>
+               <button onClick={() => setIsModalOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-200 transition-colors text-slate-500 font-bold text-xl leading-none">
+                  &times;
+               </button>
+            </div>
+            
+            <div className="flex-1 overflow-y-auto overflow-x-hidden relative bg-white" style={{ minHeight: '600px' }}>
+               <iframe
+                 src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3D5F20SvOKXIzMYIX4OP8KS6otyzOJSPro24KB_w5wuJmSGCyxElRRb581nJaPooOzcfb8CAnm?gv=true"
+                 title="Book a Consultation with Credifide"
+                 frameBorder="0"
+                 scrolling="yes"
+                 style={{
+                   width: '100%',
+                   minHeight: '650px',
+                   height: '100%',
+                   border: 'none',
+                   display: 'block',
+                 }}
+                 allow="camera; microphone; fullscreen"
+               />
+                {/* Bottom integration bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-10 sm:h-12 bg-white flex items-center justify-center px-6 border-t border-slate-50 z-20 pointer-events-none">
+                   <div className="flex items-center gap-2 opacity-30">
+                      <Zap size={10} />
+                      <span className="text-[8px] font-black uppercase tracking-[0.4em]">Powered by Credifide Secure Scheduler</span>
+                   </div>
+                </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
