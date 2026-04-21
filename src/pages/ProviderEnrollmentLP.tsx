@@ -225,8 +225,27 @@ const ProviderEnrollmentLP: React.FC = () => {
   }, [isModalOpen]);
 
   useSEO(
-    'Provider Enrollment Excellence | Credifide',
-    'Experience 98% first-submission accuracy and 30% faster provider enrollment turnaround times. We treat credentialing as infrastructure.'
+    'Healthcare Provider Enrollment & Payer Credentialing | Credifide',
+    'Experience 98% first-submission accuracy and 30% faster provider enrollment turnaround times. Credifide treats credentialing as mission-critical infrastructure for healthcare practices.',
+    '/provider-enrollment/',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Healthcare Provider Enrollment & Insurance Credentialing',
+      'description': 'End-to-end provider enrollment services, including primary source verification, payer application management, and CAQH maintenance with 98% first-submission accuracy.',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'url': 'https://credifide.com'
+      },
+      'serviceType': 'Healthcare Administrative Services',
+      'areaServed': 'US',
+      'offers': {
+        '@type': 'Offer',
+        'description': 'Expert provider enrollment and payer contracting coordination.'
+      }
+    }
   );
 
   return (
