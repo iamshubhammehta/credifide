@@ -405,7 +405,7 @@ const Hero = React.memo(() => {
             initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
             className="inline-flex flex-row flex-wrap justify-center items-center gap-1 sm:gap-2.5 px-3 py-1.5 sm:px-5 sm:py-2 rounded-[2rem] border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-[9px] min-[380px]:text-[10px] sm:text-sm font-black uppercase tracking-widest sm:tracking-[0.2em] backdrop-blur-md shadow-sm mb-4 leading-relaxed max-w-full"
           >
-            <img src={ASSETS.brand.badgeImage as string} alt="" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" />
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
             Trusted by 300+ Healthcare Providers
           </motion.span>
         </PhysicsBody>

@@ -59,7 +59,7 @@ const MedicalBilling: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 lg:gap-2.5 px-4 py-1.5 lg:px-5 lg:py-2 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-xs lg:text-sm font-black uppercase tracking-widest mb-6 lg:mb-10 backdrop-blur-sm"
           >
-            <img src={ASSETS.brand.badgeImage as string} alt="" className="w-4 h-4 object-contain" />
+            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
             Billing Solutions
           </motion.div>
           
@@ -118,7 +118,7 @@ const MedicalBilling: React.FC = () => {
                   Uncollected patient balances, ignored denials, and inefficient follow-up can drain up to 15% of your clinical revenue.
                 </p>
                 <div className="flex gap-4 items-center text-brand-deep font-bold bg-brand-light px-6 py-4 rounded-2xl w-fit text-sm sm:text-base">
-                  <img src={ASSETS.brand.badgeImage as string} alt="" className="w-4 h-4 object-contain" />
+                  <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
                   9.8% Average Loss to Billing Errors
                   <div className="w-24 h-1.5 bg-brand-deep/20 rounded-full overflow-hidden ml-2 hidden sm:block">
                       <motion.div animate={{ x: ['-100%', '100%'] }} transition={{ duration: 2, repeat: Infinity }} className="h-full bg-brand-deep" />

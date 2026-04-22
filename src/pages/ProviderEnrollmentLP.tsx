@@ -147,7 +147,7 @@ const ProviderEnrollmentLP: React.FC = () => {
   // SEO Optimization
   useSEO(
     "Provider Enrollment Excellence | Credifide",
-    "Expert healthcare provider enrollment and insurance credentialing services. Maximize practice revenue and eliminate administrative friction with Credifide's AI-powered enrollment core. Experience 98% first-submission accuracy and 30% faster provider enrollment turnaround times.",
+    "Expert healthcare provider enrollment and insurance credentialing services. Maximize practice revenue and eliminate administrative friction with Credifide's AI-powered enrollment core.",
     "/provider-enrollment/",
     undefined,
     {
@@ -240,6 +240,10 @@ const ProviderEnrollmentLP: React.FC = () => {
     };
   }, [isModalOpen]);
 
+  useSEO(
+    'Provider Enrollment Excellence | Credifide',
+    'Experience 98% first-submission accuracy and 30% faster provider enrollment turnaround times. We treat credentialing as infrastructure.'
+  );
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
@@ -814,7 +818,6 @@ const ProviderEnrollmentLP: React.FC = () => {
                            <img 
                               src={payer.logo} 
                               alt={payer.name} 
-                              loading="lazy"
                               className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
                               onError={(e) => { e.currentTarget.src = defaultLogo; }}
                            />

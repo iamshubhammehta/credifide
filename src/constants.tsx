@@ -62,7 +62,6 @@ import {
   LucideIcon
 } from 'lucide-react';
 import logoMain from './assets/logo_main.png';
-import logoBadge from './assets/logo_badge.png';
 
 /**
  * CONFIGURATION GUIDE:
@@ -77,9 +76,8 @@ export const ASSETS = {
   // Brand Assets
   brand: {
     name: "Credifide.",
-    logo: () => <img src={logoBadge} alt="CF" className="w-full h-full object-contain" />,
+    logo: HeartPulse, // Lucide icon or custom component
     logoImage: logoMain, // Set to a URL string to use an image instead of the icon
-    badgeImage: logoBadge,
   },
 
   // Navigation Icons

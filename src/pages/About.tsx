@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-light/30 text-brand-deep text-sm font-black uppercase tracking-[0.2em] mb-6 backdrop-blur-md shadow-sm"
         >
-          <img src={ASSETS.brand.badgeImage as string} alt="" className="w-4 h-4 object-contain" />
+          <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
           Our Story
         </motion.div>
 

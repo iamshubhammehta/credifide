@@ -186,22 +186,19 @@ const SERVICES_LIST = [
 const ProviderCredentialingLP: React.FC = () => {
   // SEO Optimization
   useSEO(
-    "Healthcare Provider Credentialing & Insurance Contracting | Credifide",
-    "Expert healthcare provider credentialing and insurance contracting. Optimize your payer mix and maximize reimbursements with Credifide's expert managed services. Experience 98% first-submission accuracy and 30% faster provider Credentialing turnaround times.",
+    "Provider Credentialing & Contracting | Credifide",
+    "Professional healthcare provider credentialing and insurance contracting. Optimize your payer mix and maximize reimbursements with Credifide's expert managed services.",
     "/provider-credentialing/",
     undefined,
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Healthcare Provider Credentialing & Insurance Credentialing",
-      "description": "End-to-end provider Credentialing services, including primary source verification, payer application management, and CAQH maintenance with 98% first-submission accuracy.",
+      "name": "Provider Credentialing & Contracting",
       "provider": {
         "@type": "Organization",
-        "name": "Credifide",
-        "url": "https://credifide.com",
-        "logo": "https://credifide.com/logo.png"
+        "name": "Credifide"
       },
-      "serviceType": "Healthcare Administrative Services",
+      "description": "Expert insurance contracting and credentialing for healthcare providers and clinical practices.",
       "areaServed": "US",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -228,6 +225,29 @@ const ProviderCredentialingLP: React.FC = () => {
   }, [isCalendarOpen]);
 
 
+  useSEO(
+    'Healthcare Provider Credentialing & Payer Credentialing | Credifide',
+    'Experience 98% first-submission accuracy and 30% faster provider Credentialing turnaround times. Credifide treats credentialing as mission-critical infrastructure for healthcare practices.',
+    '/provider-credentialing/',
+    undefined,
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Healthcare Provider Credentialing & Insurance Credentialing',
+      'description': 'End-to-end provider Credentialing services, including primary source verification, payer application management, and CAQH maintenance with 98% first-submission accuracy.',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'Credifide',
+        'url': 'https://credifide.com'
+      },
+      'serviceType': 'Healthcare Administrative Services',
+      'areaServed': 'US',
+      'offers': {
+        '@type': 'Offer',
+        'description': 'Expert provider Credentialing and payer contracting coordination.'
+      }
+    }
+  );
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-deep selection:text-white">
@@ -702,7 +722,6 @@ const ProviderCredentialingLP: React.FC = () => {
                            <img 
                               src={payer.logo} 
                               alt={payer.name} 
-                              loading="lazy"
                               className="h-full w-auto object-contain transition-transform group-hover:scale-110 duration-700 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" 
                               onError={(e) => { e.currentTarget.src = defaultLogo; }}
                            />

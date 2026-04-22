@@ -52,6 +52,12 @@ const BrandAssets: React.FC = () => {
           <div className="mb-6 flex flex-wrap gap-3">
             <span className="text-sm font-black text-slate-400 uppercase tracking-wider flex items-center mr-2">Quick Links:</span>
             <button 
+              onClick={() => setFilename('credifide-main-logo.png')}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${filename === 'credifide-main-logo.png' ? 'bg-brand-deep text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+            >
+              Main Wordmark Logo
+            </button>
+            <button 
               onClick={() => setFilename('operational-intelligence.png')}
               className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${filename === 'operational-intelligence.png' ? 'bg-brand-deep text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
             >
