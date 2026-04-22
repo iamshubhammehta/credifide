@@ -82,6 +82,45 @@ export const useSEO = (
     setMeta('meta[name="twitter:image"]', 'content', resolvedImage);
 
     // ── JSON-LD Structured Data
+    const generateBreadcrumbs = () => {
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      const items = [{
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': baseUrl
+      }];
+
+      pathSegments.forEach((segment, index) => {
+        const path = `/${pathSegments.slice(0, index + 1).join('/')}/`;
+        items.push({
+          '@type': 'ListItem',
+          'position': index + 2,
+          'name': segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
+          'item': `${baseUrl}${path}`
+        });
+      });
+
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': items
+      };
+    };
+
+    const breadcrumbs = generateBreadcrumbs();
+    
+    // Set breadcrumbs JSON-LD
+    const breadcrumbId = 'breadcrumb-jsonld';
+    let breadcrumbEl = document.getElementById(breadcrumbId);
+    if (!breadcrumbEl) {
+      breadcrumbEl = document.createElement('script');
+      breadcrumbEl.setAttribute('type', 'application/ld+json');
+      breadcrumbEl.id = breadcrumbId;
+      document.head.appendChild(breadcrumbEl);
+    }
+    breadcrumbEl.textContent = JSON.stringify(breadcrumbs);
+
     if (jsonLd) {
       setJsonLd(jsonLd);
     }

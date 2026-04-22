@@ -141,7 +141,7 @@ const Contact = () => {
         >
            {/* Refined Badge */}
            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-light bg-brand-light/30 text-brand-deep text-sm font-black uppercase tracking-[0.2em] mb-8 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse shadow-[0_0_8px_rgba(11,107,87,0.4)]" />
+              <img src={ASSETS.brand.badgeImage as string} alt="" className="w-4 h-4 object-contain" />
               Connect With Us
            </div>
 
@@ -275,7 +275,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[10px] font-black uppercase tracking-widest mb-8 backdrop-blur-md border border-white/20"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+                <img src={ASSETS.brand.badgeImage as string} alt="" className="w-3 h-3 object-contain" />
                 Ready to Optimize?
               </motion.div>
               

@@ -63,7 +63,7 @@ const InsuranceCredentialing: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-brand-deep/20 bg-brand-deep/5 text-brand-deep text-sm font-black uppercase tracking-widest mb-10 backdrop-blur-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-brand-deep animate-pulse" />
+            <img src={ASSETS.brand.badgeImage as string} alt="" className="w-4 h-4 object-contain" />
             Insurance Credentialing
           </motion.div>
 
