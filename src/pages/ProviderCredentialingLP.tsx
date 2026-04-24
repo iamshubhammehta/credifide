@@ -195,6 +195,18 @@ const REVIEWS = [
     role: 'Horizon Health',
     content: "As a small mental health practice owner, credentialing always ended up on the “I’ll deal with it later” list. It’s confusing and takes way more time than you think. I was emailing payers in between sessions, which wasn’t sustainable at all. Since working with Credifide, I’m not chasing updates anymore. They handle the back-and-forth and keep me informed, which has made a big difference.",
     initials: 'SJ'
+  },
+  {
+    name: 'Michael Henderson',
+    role: 'Apex Health Systems',
+    content: 'Life saver. Seriously. we had a new NP start and she was just doing paperwork for two months before we hired credifide. They got her billing in like 3 weeks. wish i would have known about them sooner because my staff was about to quit over the portal stress lol. Thanks guys!!!',
+    initials: 'MH'
+  },
+  {
+    name: 'Elizabeth Taylor - MD',
+    role: 'Oak Valley Medical Group',
+    content: 'Insurance credentialing was a nightmare for me. We had three new therapists just sitting around because we couldn’t get them enrolled. Credifide stepped in and fixed the mess in like 60 days. I wish i found them sooner because we lost a lot of money waiting on our old manual process. 5 stars.',
+    initials: 'ET'
   }
 ];
 
