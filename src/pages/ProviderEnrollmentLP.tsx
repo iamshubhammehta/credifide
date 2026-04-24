@@ -588,10 +588,9 @@ const ProviderEnrollmentLP: React.FC = () => {
                        key={i} 
                        className="bg-white/5 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative hover:bg-white/10"
                     >
-                       <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
-                          <span className="text-brand-accent/60 text-2xl font-black">{i + 1}.</span>
+                       <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center justify-between">
                           {p.title}
-                          <ArrowRight size={20} className="text-[#A3BD6A] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+                          <ArrowRight size={20} className="text-[#A3BD6A] transition-all group-hover:translate-x-1" />
                        </h4>
                        <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/80 transition-colors font-bold">{p.content}</p>
                       
