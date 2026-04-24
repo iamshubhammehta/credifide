@@ -130,8 +130,24 @@ const ResponsiveZohoForm = () => {
     );
 };
 
+const REVIEWS = [
+  {
+    name: 'David M',
+    role: 'Practice Administrator',
+    content: 'I have been very happy with Credifide so far. Initially I was clueless about the entire process and a bit hesitant but thanks to Tyler. The process has been smooth selling. They were able to get me 2 contracts within the first month of the engagement. I would highly recommend Credifide.',
+    initials: 'DM'
+  },
+  {
+    name: 'Sarah J',
+    role: 'Mental Health Practice Owner',
+    content: "As a small mental health practice owner, credentialing always ended up on the “I’ll deal with it later” list. It’s confusing and takes way more time than you think. I was emailing payers in between sessions, which wasn’t sustainable at all. Since working with Credifide, I’m not chasing updates anymore. They handle the back-and-forth and keep me informed, which has made a big difference.",
+    initials: 'SJ'
+  }
+];
+
 const ProviderEnrollmentLP: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [activeReview, setActiveReview] = React.useState(0);
   const [servicePage, setServicePage] = React.useState(0);
   const [serviceFlipping, setServiceFlipping] = React.useState(false);
   const [isServicesPaused, setIsServicesPaused] = React.useState(false);
@@ -716,32 +732,43 @@ const ProviderEnrollmentLP: React.FC = () => {
                  <span className="text-brand-deep">About Us.</span>
               </h2>
 
-              <div className="relative bg-white rounded-[3rem] p-8 md:p-16 shadow-xl border border-slate-100 group">
+              <div className="relative bg-white rounded-[3rem] p-8 md:p-16 shadow-xl border border-slate-100 group min-h-[400px] flex items-center">
                  {/* Navigation Arrows */}
-                 <button className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-deep hover:bg-brand-deep hover:text-white transition-all shadow-md z-20 group-hover:scale-110">
+                 <button 
+                  onClick={() => setActiveReview(prev => (prev === 0 ? REVIEWS.length - 1 : prev - 1))}
+                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-deep hover:bg-brand-deep hover:text-white transition-all shadow-md z-20 group-hover:scale-110"
+                 >
                     <ArrowRight size={20} className="rotate-180" />
                  </button>
-                 <button className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-deep hover:bg-brand-deep hover:text-white transition-all shadow-md z-20 group-hover:scale-110">
+                 <button 
+                  onClick={() => setActiveReview(prev => (prev === REVIEWS.length - 1 ? 0 : prev + 1))}
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-deep hover:bg-brand-deep hover:text-white transition-all shadow-md z-20 group-hover:scale-110"
+                 >
                     <ArrowRight size={20} />
                  </button>
 
-                 <div className="max-w-2xl mx-auto">
+                 <motion.div 
+                    key={activeReview}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="max-w-2xl mx-auto w-full"
+                 >
                     <div className="flex justify-center gap-1 mb-6">
                        {[...Array(5)].map((_, i) => (
                           <Sparkles key={i} size={18} className="text-brand-accent fill-brand-accent" />
                        ))}
                     </div>
                     <p className="text-lg md:text-2xl font-medium text-slate-700 leading-relaxed italic mb-8 md:mb-12">
-                       "Credifide transformed our credentialing process. We went from months of administrative delays to almost immediate approvals. Their elite specialists truly understand payer nuances."
+                       "{REVIEWS[activeReview].content}"
                     </p>
                     <div className="flex flex-col items-center">
                        <div className="w-16 h-16 rounded-full bg-brand-deep/10 flex items-center justify-center text-brand-deep mb-4 font-black text-xl border-2 border-brand-deep/20">
-                          MC
+                          {REVIEWS[activeReview].initials}
                        </div>
-                       <h4 className="text-lg font-black text-slate-950">Dr. Michael Chen</h4>
-                       <p className="text-brand-accent text-xs font-black uppercase tracking-widest">Orthopedic Surgeon</p>
+                       <h4 className="text-lg font-black text-slate-950">{REVIEWS[activeReview].name}</h4>
+                       <p className="text-brand-accent text-xs font-black uppercase tracking-widest">{REVIEWS[activeReview].role}</p>
                     </div>
-                 </div>
+                 </motion.div>
               </div>
            </div>
         </section>
