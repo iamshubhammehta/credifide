@@ -307,7 +307,7 @@ const ProviderCredentialingLP: React.FC = () => {
                      <Zap size={14} />
                      AI-Powered Credentialing Platform
                   </div>
-                  <h1 className="text-[clamp(2rem,4.5vw,3.25rem)] font-display font-black text-slate-950 leading-[1.05] mb-4 md:mb-8">
+                  <h1 className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-display font-black text-slate-950 leading-[1.05] mb-4 md:mb-8">
                      <span className="block md:whitespace-nowrap">Your Partner for</span>
                      <span className="block md:whitespace-nowrap">Fast and Reliable</span>
                      <span className="block md:whitespace-nowrap">Insurance Credentialing</span>
