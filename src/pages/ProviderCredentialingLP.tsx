@@ -49,7 +49,7 @@ const ResponsiveZohoForm = () => {
     const [containerWidth, setContainerWidth] = React.useState(680);
     const [isMobileViewport, setIsMobileViewport] = React.useState(window.innerWidth < 768);
     const BASE_WIDTH = 680;
-    const BASE_HEIGHT = 790; // Tightened height to remove bottom white gap
+    const BASE_HEIGHT = 610; // Tightened height to remove bottom white gap
 
     React.useEffect(() => {
         const el = containerRef.current;
@@ -82,7 +82,7 @@ const ResponsiveZohoForm = () => {
                     title="Zoho Contact Form"
                     style={{
                         width: '100%',
-                        height: '950px', 
+                        height: '780px', 
                         border: 'none',
                         backgroundColor: 'transparent'
                     }}
@@ -259,11 +259,7 @@ const ProviderCredentialingLP: React.FC = () => {
           onClick={() => setIsCalendarOpen(false)}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          <div
             className="relative z-10 w-full max-w-3xl bg-white rounded-[2rem] shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -288,13 +284,13 @@ const ProviderCredentialingLP: React.FC = () => {
               style={{ width: '100%', height: '600px', border: 'none', display: 'block' }}
               allow="camera; microphone; fullscreen"
             />
-          </motion.div>
+          </div>
         </div>
       )}
 
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
-        <section className="relative pt-8 lg:pt-12 pb-0 overflow-x-hidden">
+        <section className="relative pt-8 lg:pt-12 pb-16 md:pb-24 overflow-x-hidden bg-slate-50/80 shadow-sm">
           {/* Dynamic Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-light/5 rounded-full blur-[160px]" />
@@ -303,28 +299,22 @@ const ProviderCredentialingLP: React.FC = () => {
           </div>
 
           <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mb-6 md:mb-12">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center min-h-[auto] lg:min-h-[calc(100vh-120px)]">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start min-h-[auto] lg:min-h-[calc(100vh-120px)] pt-4 lg:pt-12">
               {/* Text Side - Vertically Centered */}
-              <div className="flex flex-col justify-center lg:sticky lg:top-24 sm:py-12 lg:py-0 order-2 lg:order-1">
-                <motion.div
-                  initial={{ opacity: 0, x: -60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                >
+              <div className="flex flex-col justify-start lg:sticky lg:top-24 sm:py-12 lg:py-0 order-1 lg:order-1">
+                <div>
                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-light/50 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-[0.2em] mb-8">
                      <Zap size={14} />
                      AI-Powered Credentialing Platform
                   </div>
-                  <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-display font-black text-slate-950 leading-[1.05] mb-4 md:mb-8">
-                     Payer & Provider <br />
+                  <h1 className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-display font-black text-slate-950 leading-[1.05] mb-4 md:mb-8">
+                     <span className="block md:whitespace-nowrap">Your Partner for</span>
+                     <span className="block md:whitespace-nowrap">Fast and Reliable</span>
+                     <span className="block md:whitespace-nowrap">Insurance Credentialing</span>
                      <span className="relative inline-block pl-0 py-2 mt-2">
-                        <span className="relative z-10">Credentialing.</span>
-                        <motion.div 
-                           initial={{ scaleX: 0 }}
-                           whileInView={{ scaleX: 1 }}
-                           transition={{ delay: 0.8, duration: 0.8, ease: "circOut" }}
-                           className="absolute -bottom-1 left-0 right-10 h-3 bg-brand-accent/40 -z-0 origin-left rounded-full"
+                        <span className="relative z-10 md:whitespace-nowrap">& Enrollment.</span>
+                        <div 
+                           className="absolute -bottom-1 left-0 right-4 h-3 bg-brand-accent/40 -z-0 origin-left rounded-full"
                         />
                      </span>
                   </h1>
@@ -338,32 +328,29 @@ const ProviderCredentialingLP: React.FC = () => {
                         { icon: Lock, text: 'HIPAA-Compliant & Secure' },
                      ].map((item, i) => (
                         <div key={i} className="flex items-center gap-2.5 py-2">
-                           <div className="w-5 h-5 rounded-full bg-brand-deep/10 flex items-center justify-center shrink-0">
-                              <item.icon size={12} className="text-brand-deep" />
+                           <div className="w-6 h-6 rounded-full bg-brand-deep/10 flex items-center justify-center shrink-0">
+                              <item.icon size={13} className="text-brand-deep" />
                            </div>
-                           <span className="text-sm font-bold text-slate-700 leading-tight">{item.text}</span>
+                            <span className="text-sm font-bold text-slate-700 leading-tight">{item.text}</span>
                         </div>
                      ))}
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               {/* HERO FORM: CLEAN FLOATING LOOK */}
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative z-20 w-full order-1 lg:order-2"
+              <div 
+                className="relative z-20 w-full order-2 lg:order-2"
                 id="form"
               >
                   <ResponsiveZohoForm />
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* SERVICES: THE INFRASTRUCTURE */}
-        <section className="pt-2 md:pt-10 pb-6 md:pb-20 bg-white flex flex-col items-center">
+        <section className="py-10 md:py-20 bg-white flex flex-col items-center">
            <div className="max-w-7xl mx-auto px-6 w-full">
               <div className="text-center mb-4 md:mb-10 text-slate-900">
                  <h2 className="text-3xl md:text-6xl font-display font-black leading-tight">
@@ -375,35 +362,26 @@ const ProviderCredentialingLP: React.FC = () => {
                 {/* FULL LONG-SCROLL GRID: SHOWS ALL 8 ON ALL DEVICES */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16 px-4 md:px-0">
                   {SERVICES_LIST.map((s, i) => (
-                    <motion.div 
+                    <div 
                       key={i} 
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
                       className="p-8 rounded-[2.5rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
                       <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
                         <s.icon size={26} />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors mb-4">{s.title}</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed font-bold">{s.desc}</p>
+                      <h4 className="text-xl font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors">{s.title}</h4>
                       <div className="mt-auto pt-6 flex items-center gap-2">
                         <div className="w-8 h-1 bg-brand-light/30 rounded-full md:group-hover:w-12 md:group-hover:bg-brand-accent transition-all duration-700" />
                         <div className="w-1 h-1 bg-brand-light/30 rounded-full md:group-hover:bg-brand-accent transition-all duration-700" />
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* SCHEDULE CONSULTATION: BUTTON → POPUP */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+              <div
                 className="mt-8 md:mt-14 w-full"
               >
                 <div className="bg-gradient-to-br from-[#0f3d3a] to-[#0B6B57] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
@@ -438,12 +416,12 @@ const ProviderCredentialingLP: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
               </div>
         </section>
 
         {/* METRICS SECTION */}
-        <section className="py-12 md:py-24 bg-slate-50/50 relative">
+        <section className="py-10 md:py-20 bg-slate-50/50 relative">
            <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               {[
                 { label: 'Submission Accuracy', value: '98%', icon: Shield, color: 'text-brand-deep' },
@@ -451,12 +429,8 @@ const ProviderCredentialingLP: React.FC = () => {
                 { label: 'Real-Time Visibility', value: '100%', icon: Search, color: 'text-brand-deep' },
                 { label: 'Expert Support', value: '24/7', icon: Users, color: 'text-brand-accent' },
               ].map((m, i) => (
-                <motion.div 
+                <div 
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
                   className="bg-white p-6 sm:p-10 rounded-3xl md:rounded-[3rem] border border-slate-100 shadow-sm md:hover:shadow-2xl transition-all duration-700 flex flex-col items-center group cursor-default h-full justify-center"
                 >
                    <div className={`${m.color} bg-slate-50 w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center mb-2 md:mb-6 md:group-hover:scale-110 transition-transform`}>
@@ -464,13 +438,13 @@ const ProviderCredentialingLP: React.FC = () => {
                    </div>
                    <div className="text-2xl md:text-4xl font-display font-black text-slate-900 mb-1 md:mb-2">{m.value}</div>
                    <div className="text-[8px] md:text-[10px] text-slate-400 font-bold uppercase tracking-widest md:tracking-[0.2em]">{m.label}</div>
-                </motion.div>
+               </div>
               ))}
            </div>
         </section>
 
         {/* SPECIALTIES: ANIMATED EXPERIENCE (COOLER) */}
-        <section id="specialties-lp" className="py-10 md:py-32 bg-white relative overflow-hidden">
+        <section id="specialties-lp" className="py-10 md:py-20 bg-white relative overflow-hidden">
            <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-brand-light/20 rounded-full blur-[100px] -z-10" />
            
            <div className="max-w-7xl mx-auto px-6">
@@ -501,26 +475,22 @@ const ProviderCredentialingLP: React.FC = () => {
                     { name: 'OBGYN', icon: User },
                     { name: 'Urgent Care', icon: Heart }
                   ].map((spec, idx) => (
-                     <motion.div 
+                     <div 
                        key={idx}
-                       initial={{ opacity: 0, scale: 0.95 }}
-                       whileInView={{ opacity: 1, scale: 1 }}
-                       viewport={{ once: true }}
-                       transition={{ delay: idx * 0.05 }}
                        className="p-4 md:p-5 rounded-2xl border border-slate-100 bg-white flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-3 md:gap-4 group transition-all duration-500 cursor-default shadow-sm md:hover:-translate-y-1 md:hover:border-[#0B6B57] md:hover:shadow-[0_20px_40px_-15px_rgba(11,107,87,0.1)]"
                      >
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-deep md:group-hover:bg-brand-deep md:group-hover:text-white transition-all duration-500 shrink-0">
                            <spec.icon className="w-5 h-5 md:w-[22px] md:h-[22px]" />
                         </div>
                         <span className="text-[12px] md:text-[13px] font-black text-slate-800 tracking-tight leading-tight">{spec.name}</span>
-                     </motion.div>
+                     </div>
                   ))}
                </div>
            </div>
         </section>
 
         {/* PROCESS: THE FLOW GRID */}
-        <section id="how-it-works" className="py-10 md:py-32 bg-[#0f3d3a] relative overflow-hidden">
+        <section id="how-it-works" className="py-10 md:py-20 bg-[#0f3d3a] relative overflow-hidden">
            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
            {/* Animated flow backdrop */}
            <div className="absolute inset-0 opacity-[0.1] -z-10 bg-[radial-gradient(circle_at_center,_#A3BD6A_1px,_transparent_1px)] bg-[length:32px_32px]" />
@@ -538,14 +508,12 @@ const ProviderCredentialingLP: React.FC = () => {
                     { title: 'Contracting', content: 'Assisting in optimal reimbursement rate negotiation.', icon: Gavel },
                     { title: 'Ongoing', content: 'Assistance with billing and ongoing credentialing.', icon: CheckCircle2 },
                  ].map((p, i) => (
-                    <motion.div 
+                    <div 
                        key={i} 
-                       initial={{ opacity: 0, y: 20 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
                        className="bg-white/5 md:hover:bg-white/10 p-8 sm:p-12 transition-all duration-500 group border-b sm:border-b-0 sm:border-r border-white/10 last:border-b-0 last:border-r-0 relative"
                     >
                        <h4 className="text-2xl font-black text-white mb-6 tracking-tight flex items-center gap-3">
+                          <span className="text-brand-accent/60 text-2xl font-black">{i + 1}.</span>
                           {p.title}
                           <ArrowRight size={20} className="text-[#A3BD6A] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
                        </h4>
@@ -553,31 +521,20 @@ const ProviderCredentialingLP: React.FC = () => {
                       
                       {/* Cool Bottom Accent */}
                       <div className="absolute bottom-0 left-0 h-1 bg-[#A3BD6A] w-0 group-hover:w-full transition-all duration-700" />
-                   </motion.div>
+                   </div>
                  ))}
               </div>
            </div>
         </section>
 
         {/* WHY CREDIFIDE: THE TECH-CENTRIC ADVANTAGE (THEME SYNCED) */}
-        <section className="py-10 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-10 md:py-20 bg-white relative overflow-hidden">
            {/* Floating Theme Accents */}
            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <motion.div 
-                 animate={{ 
-                    y: [0, -50, 0],
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, 0]
-                 }}
-                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              <div
                  className="absolute -top-[10%] -left-[5%] w-[600px] h-[600px] bg-brand-light/20 rounded-full blur-[140px]" 
               />
-              <motion.div 
-                 animate={{ 
-                    y: [0, 50, 0],
-                    scale: [1, 1.2, 1]
-                 }}
-                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              <div
                  className="absolute -bottom-[10%] -right-[5%] w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px]" 
               />
               <div className="absolute inset-0 opacity-[0.03] select-none pointer-events-none" style={{ backgroundImage: "linear-gradient(#0B6B57 1px, transparent 1px), linear-gradient(90deg, #0B6B57 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
@@ -627,7 +584,7 @@ const ProviderCredentialingLP: React.FC = () => {
                         tag: 'SCALABLE'
                      },
                      { 
-                        title: 'Zero-Trust Security', 
+                        title: 'End-to-End Encryption', 
                         desc: 'HIPAA-compliant, military-grade secure systems built specifically for clinical data governance.',
                         icon: Lock,
                         tag: 'SECURE'
@@ -639,13 +596,8 @@ const ProviderCredentialingLP: React.FC = () => {
                         tag: 'PERFORMANCE'
                      }
                   ].map((w, i) => (
-                     <motion.div 
+                     <div 
                         key={i}
-                        initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                        whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
                         className="group p-8 sm:p-10 rounded-[3rem] bg-white border border-slate-100/80 md:hover:-translate-y-3 md:hover:scale-[1.02] md:hover:border-brand-deep/30 shadow-sm md:hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] transition-all duration-700 relative overflow-hidden flex flex-col h-full cursor-default"
                      >
                         {/* Subtle Background Glow */}
@@ -657,42 +609,32 @@ const ProviderCredentialingLP: React.FC = () => {
                            <w.icon size={24} />
                         </div>
                         
-                        <h4 className="text-xl font-bold text-slate-900 mb-4 md:group-hover:text-brand-deep transition-colors">{w.title}</h4>
-                        <p className="text-slate-500 text-sm leading-relaxed font-bold md:group-hover:text-slate-600 transition-colors">{w.desc}</p>
+                        <h4 className="text-xl font-bold text-slate-900 md:group-hover:text-brand-deep transition-colors">{w.title}</h4>
                         
                         {/* Interactive Bottom Glow */}
                         <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-deep/5 md:group-hover:bg-brand-accent transition-colors duration-700" />
-                     </motion.div>
+                     </div>
                   ))}
                </div>
            </div>
         </section>
 
         {/* PAYER NETWORK: THE INTEGRATION HUB EXPERIENCE */}
-        <section className="py-10 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-10 md:py-20 bg-white relative overflow-hidden">
            {/* Modern Hub Lines Animation */}
            <div className="absolute inset-0 pointer-events-none z-0">
               <svg className="w-full h-full opacity-[0.03]" viewBox="0 0 1440 800" fill="none">
-                 <motion.path 
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
+                 <path 
                     d="M1440 200L720 400L0 200" stroke="#0B6B57" strokeWidth="2" 
                  />
-                 <motion.circle 
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
+                 <circle 
                     cx="720" cy="400" r="10" fill="#0B6B57" 
                  />
               </svg>
            </div>
  
            <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-              <motion.div
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
+              <div
                  className="mb-10 md:mb-24"
               >
                  <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-slate-100 bg-slate-50 text-brand-deep text-[10px] font-black uppercase tracking-[0.3em] mb-4 md:mb-8">
@@ -704,18 +646,13 @@ const ProviderCredentialingLP: React.FC = () => {
                    <span className="text-brand-deep">Payers Nationwide.</span>
                  </h2>
                  <p className="text-slate-500 font-bold max-w-2xl mx-auto uppercase tracking-[0.4em] text-[10px]">Strategic Credentialing Infrastructure</p>
-              </motion.div>
+              </div>
 
               {/* Premium Static Logo Grid - Optimized for clarity and elegance */}
                <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 max-w-6xl mx-auto py-8 md:py-12 px-2 md:px-0">
                   {PAYERS.map((payer, idx) => (
-                     <motion.div
+                     <div
                         key={idx}
-                        initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        whileInView={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        style={{ willChange: 'transform, opacity', transform: 'translate3d(0,0,0)' }}
                         className="group relative bg-white aspect-square md:aspect-auto md:h-full py-4 md:py-8 md:min-h-[160px] rounded-2xl md:rounded-[2rem] border border-slate-100 flex flex-col items-center justify-center p-3 md:p-6 gap-2 md:gap-4 hover:border-brand-deep/20 transition-all duration-700 shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(11,107,87,0.1)] overflow-hidden"
                      >
                         <div className="relative w-full h-12 md:h-20 flex items-center justify-center overflow-hidden">
@@ -729,14 +666,14 @@ const ProviderCredentialingLP: React.FC = () => {
                         <span className="text-[8px] md:text-[10px] font-black text-slate-500 uppercase tracking-[0.1em] md:tracking-[0.2em] group-hover:text-slate-900 transition-colors text-center px-1">
                            {payer.name}
                         </span>
-                     </motion.div>
+                     </div>
                   ))}
                </div>
            </div>
         </section>
 
         {/* FINAL CONVERSION: MODERN SERVICE CTA CENTER (Moved to Bottom) */}
-        <section className="py-12 md:py-24 bg-white flex flex-col items-center">
+        <section className="py-10 md:py-20 bg-white flex flex-col items-center">
            <div className="max-w-7xl mx-auto px-6 w-full">
                  <div className="bg-[#0f2e2a] rounded-[3.5rem] p-6 md:p-16 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(15,46,42,0.3)] group cursor-default">
                     {/* Animated Accents */}
