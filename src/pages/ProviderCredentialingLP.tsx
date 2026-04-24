@@ -614,6 +614,49 @@ const ProviderCredentialingLP: React.FC = () => {
            </div>
         </section>
 
+        {/* TESTIMONIALS: THE VOICE OF SUCCESS */}
+        <section className="py-6 md:py-12 bg-slate-50/50 relative overflow-hidden">
+           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-light to-transparent opacity-20" />
+           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-8">
+                 <Sparkles size={12} />
+                 Testimonials
+              </div>
+              <h2 className="text-3xl md:text-5xl font-display font-black text-slate-950 mb-8 md:mb-16 tracking-tighter">
+                 What They Say <br className="md:hidden" />
+                 <span className="text-brand-deep">About Us.</span>
+              </h2>
+
+              <div className="relative bg-white rounded-[3rem] p-8 md:p-16 shadow-xl border border-slate-100 group">
+                 {/* Navigation Arrows */}
+                 <button className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-deep hover:bg-brand-deep hover:text-white transition-all shadow-md z-20 group-hover:scale-110">
+                    <ArrowRight size={20} className="rotate-180" />
+                 </button>
+                 <button className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-deep hover:bg-brand-deep hover:text-white transition-all shadow-md z-20 group-hover:scale-110">
+                    <ArrowRight size={20} />
+                 </button>
+
+                 <div className="max-w-2xl mx-auto">
+                    <div className="flex justify-center gap-1 mb-6">
+                       {[...Array(5)].map((_, i) => (
+                          <Sparkles key={i} size={18} className="text-brand-accent fill-brand-accent" />
+                       ))}
+                    </div>
+                    <p className="text-lg md:text-2xl font-medium text-slate-700 leading-relaxed italic mb-8 md:mb-12">
+                       "Credifide transformed our credentialing process. We went from months of administrative delays to almost immediate approvals. Their elite specialists truly understand payer nuances."
+                    </p>
+                    <div className="flex flex-col items-center">
+                       <div className="w-16 h-16 rounded-full bg-brand-deep/10 flex items-center justify-center text-brand-deep mb-4 font-black text-xl border-2 border-brand-deep/20">
+                          MC
+                       </div>
+                       <h4 className="text-lg font-black text-slate-950">Dr. Michael Chen</h4>
+                       <p className="text-brand-accent text-xs font-black uppercase tracking-widest">Orthopedic Surgeon</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+
         {/* PAYER NETWORK: THE INTEGRATION HUB EXPERIENCE */}
         <section className="py-6 md:py-12 bg-white relative overflow-hidden">
            {/* Modern Hub Lines Animation */}
