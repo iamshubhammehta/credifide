@@ -364,16 +364,13 @@ const ProviderCredentialingLP: React.FC = () => {
                   {SERVICES_LIST.map((s, i) => (
                     <div 
                       key={i} 
-                      className="p-6 md:p-8 rounded-[2rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                      className="p-5 md:p-6 rounded-3xl bg-white border border-slate-100 md:hover:-translate-y-1.5 md:hover:border-brand-deep/20 md:hover:shadow-[0_30px_60px_-12px_rgba(11,107,87,0.1)] group transition-all duration-500 flex flex-col items-start relative overflow-hidden cursor-default"
                     >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-brand-light/5 rounded-full blur-2xl -mr-12 -mt-12 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
-                      <div className="w-12 h-12 rounded-xl bg-brand-light/15 flex items-center justify-center text-brand-deep mb-5 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
-                        <s.icon size={22} />
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-brand-light/5 rounded-full blur-2xl -mr-10 -mt-10 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
+                      <div className="w-11 h-11 rounded-xl bg-brand-light/15 flex items-center justify-center text-brand-deep mb-4 md:group-hover:scale-110 transition-transform duration-500 shadow-sm shrink-0">
+                        <s.icon size={20} />
                       </div>
-                      <h4 className="text-lg font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors">{s.title}</h4>
-                      <p className="mt-3 text-sm text-slate-500 font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block">
-                        {s.desc}
-                      </p>
+                      <h4 className="text-[17px] font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors">{s.title}</h4>
                     </div>
                   ))}
                 </div>
