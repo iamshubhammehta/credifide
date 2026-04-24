@@ -758,7 +758,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                           <Sparkles key={i} size={18} className="text-yellow-400 fill-yellow-400" />
                        ))}
                     </div>
-                    <p className="text-lg md:text-2xl font-medium text-slate-700 leading-relaxed mb-8 md:mb-12">
+                    <p className="text-base md:text-xl font-medium text-slate-700 leading-relaxed mb-8 md:mb-12">
                        "{REVIEWS[activeReview].content}"
                     </p>
                     <div className="flex flex-col items-center">
