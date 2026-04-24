@@ -285,7 +285,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                      <span className="block md:whitespace-nowrap">Fast and Reliable</span>
                      <span className="block md:whitespace-nowrap">Provider Enrollment.</span>
                   </h1>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-2">
                      {[
                         { icon: Shield, text: '98% First-Submission Accuracy' },
                         { icon: Search, text: '100% Real-Time Visibility' },
@@ -294,7 +294,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                         { icon: Users, text: 'Dedicated Enrollment Specialist' },
                         { icon: Lock, text: 'HIPAA-Compliant & Secure' },
                      ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-2.5 py-2">
+                        <div key={i} className="flex items-center gap-2.5 py-1">
                            <div className="w-6 h-6 rounded-full bg-brand-deep/10 flex items-center justify-center shrink-0">
                               <item.icon size={13} className="text-brand-deep" />
                            </div>
