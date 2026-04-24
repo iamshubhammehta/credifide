@@ -364,17 +364,16 @@ const ProviderCredentialingLP: React.FC = () => {
                   {SERVICES_LIST.map((s, i) => (
                     <div 
                       key={i} 
-                      className="p-8 rounded-[2.5rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
+                      className="p-6 md:p-8 rounded-[2rem] bg-white border border-slate-100 md:hover:-translate-y-2 md:hover:border-brand-deep/20 md:hover:shadow-[0_40px_70px_-15px_rgba(11,107,87,0.12)] group transition-all duration-700 flex flex-col items-start relative overflow-hidden cursor-default h-full"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light/5 rounded-full blur-3xl -mr-16 -mt-16 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
-                      <div className="w-14 h-14 rounded-2xl bg-brand-light/20 flex items-center justify-center text-brand-deep mb-8 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
-                        <s.icon size={26} />
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-brand-light/5 rounded-full blur-2xl -mr-12 -mt-12 md:group-hover:bg-brand-deep/5 transition-colors duration-1000" />
+                      <div className="w-12 h-12 rounded-xl bg-brand-light/15 flex items-center justify-center text-brand-deep mb-5 md:group-hover:scale-110 transition-transform duration-700 shadow-sm shrink-0">
+                        <s.icon size={22} />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors">{s.title}</h4>
-                      <div className="mt-auto pt-6 flex items-center gap-2">
-                        <div className="w-8 h-1 bg-brand-light/30 rounded-full md:group-hover:w-12 md:group-hover:bg-brand-accent transition-all duration-700" />
-                        <div className="w-1 h-1 bg-brand-light/30 rounded-full md:group-hover:bg-brand-accent transition-all duration-700" />
-                      </div>
+                      <h4 className="text-lg font-bold text-slate-900 leading-tight md:group-hover:text-brand-deep transition-colors">{s.title}</h4>
+                      <p className="mt-3 text-sm text-slate-500 font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block">
+                        {s.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
