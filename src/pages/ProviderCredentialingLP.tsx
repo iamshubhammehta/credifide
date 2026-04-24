@@ -311,7 +311,7 @@ const ProviderCredentialingLP: React.FC = () => {
                      <span className="block md:whitespace-nowrap">Your Partner for</span>
                      <span className="block md:whitespace-nowrap">Fast and Reliable</span>
                      <span className="block md:whitespace-nowrap">Insurance Credentialing</span>
-                     <span className="relative inline-block pl-0 py-2 mt-2">
+                     <span className="relative inline-block pl-0 pb-1">
                         <span className="relative z-10 md:whitespace-nowrap">& Enrollment.</span>
                         <div 
                            className="absolute -bottom-1 left-0 right-4 h-3 bg-brand-accent/40 -z-0 origin-left rounded-full"
