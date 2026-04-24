@@ -279,7 +279,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                      <Zap size={14} />
                      Unified Healthcare Provider Enrollment
                   </div>
-                  <h1 className="text-[clamp(2.25rem,5.5vw,4rem)] font-display font-black text-slate-950 leading-[1.1] mb-6 md:mb-10">
+                  <h1 className="text-[clamp(1.75rem,3.8vw,2.75rem)] font-display font-black text-slate-950 leading-[1.1] mb-6 md:mb-10">
                      <span className="block md:whitespace-nowrap">Your Partner for</span>
                      <span className="block md:whitespace-nowrap">Fast and Reliable</span>
                      <span className="block md:whitespace-nowrap">Provider Enrollment.</span>
