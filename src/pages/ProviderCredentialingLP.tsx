@@ -103,9 +103,8 @@ const ResponsiveZohoForm = () => {
                     height: BASE_HEIGHT * scale,
                     position: 'relative',
                     overflow: 'hidden',
-                    borderRadius: isDesktop ? '0' : '1.5rem',
-                    backgroundColor: isDesktop ? 'transparent' : 'white',
-                    boxShadow: isDesktop ? 'none' : '0 25px 50px -12px rgba(0, 0, 0, 0.1)',
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
                     transition: 'all 0.3s ease-out'
                 }}
             >
@@ -307,7 +306,7 @@ const ProviderCredentialingLP: React.FC = () => {
                      <Zap size={14} />
                      AI-Powered Credentialing Platform
                   </div>
-                  <h1 className="text-[clamp(1.5rem,3.4vw,2.5rem)] font-display font-black text-slate-950 leading-[1.05] mb-4 md:mb-8">
+                  <h1 className="text-[clamp(2.25rem,5.5vw,4rem)] font-display font-black text-slate-950 leading-[1.1] mb-6 md:mb-10">
                      <span className="block md:whitespace-nowrap">Your Partner for</span>
                      <span className="block md:whitespace-nowrap">Fast and Reliable</span>
                      <span className="block md:whitespace-nowrap">Insurance Credentialing</span>
