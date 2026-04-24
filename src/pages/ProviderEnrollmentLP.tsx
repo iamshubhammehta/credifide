@@ -71,7 +71,7 @@ const ResponsiveZohoForm = () => {
     // MOBILE VIEW: Straight vertical, 100% width, no scaling
     if (isMobileViewport) {
         return (
-            <div className="w-full">
+            <div className="w-full bg-white rounded-[2rem] shadow-xl overflow-hidden">
                 <iframe
                     aria-label="Book a Consultation With Our Experts"
                     frameBorder="0"
@@ -80,7 +80,7 @@ const ResponsiveZohoForm = () => {
                     title="Zoho Contact Form"
                     style={{
                         width: '100%',
-                        height: '780px', 
+                        height: '810px', 
                         border: 'none',
                         backgroundColor: 'transparent'
                     }}
