@@ -132,14 +132,14 @@ const ResponsiveZohoForm = () => {
 
 const REVIEWS = [
   {
-    name: 'David M',
-    role: 'Practice Administrator',
+    name: 'David Miller',
+    role: 'Streamline Healthcare Consulting',
     content: 'I have been very happy with Credifide so far. Initially I was clueless about the entire process and a bit hesitant but thanks to Tyler. The process has been smooth selling. They were able to get me 2 contracts within the first month of the engagement. I would highly recommend Credifide.',
     initials: 'DM'
   },
   {
-    name: 'Sarah J',
-    role: 'Mental Health Practice Owner',
+    name: 'Sarah Jenkins- LCSW',
+    role: 'Horizon Health',
     content: "As a small mental health practice owner, credentialing always ended up on the “I’ll deal with it later” list. It’s confusing and takes way more time than you think. I was emailing payers in between sessions, which wasn’t sustainable at all. Since working with Credifide, I’m not chasing updates anymore. They handle the back-and-forth and keep me informed, which has made a big difference.",
     initials: 'SJ'
   }
