@@ -290,7 +290,7 @@ const ProviderCredentialingLP: React.FC = () => {
 
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
-        <section className="relative pt-8 lg:pt-12 pb-16 md:pb-24 overflow-x-hidden bg-slate-50/80 shadow-sm">
+        <section className="relative pt-8 lg:pt-12 pb-8 md:pb-10 overflow-x-hidden bg-slate-50/80 shadow-sm">
           {/* Dynamic Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-light/5 rounded-full blur-[160px]" />
@@ -350,7 +350,7 @@ const ProviderCredentialingLP: React.FC = () => {
         </section>
 
         {/* SERVICES: THE INFRASTRUCTURE */}
-        <section className="py-10 md:py-20 bg-white flex flex-col items-center">
+        <section className="pt-10 md:pt-12 pb-10 md:pb-20 bg-white flex flex-col items-center">
            <div className="max-w-7xl mx-auto px-6 w-full">
               <div className="text-center mb-4 md:mb-10 text-slate-900">
                  <h2 className="text-3xl md:text-6xl font-display font-black leading-tight">
