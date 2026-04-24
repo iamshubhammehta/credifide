@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Layers,
   Sparkles,
-  Star,
   Users,
   Search,
   FileText,
@@ -756,7 +755,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                  >
                     <div className="flex justify-center gap-1 mb-6">
                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
+                          <Sparkles key={i} size={18} className="text-yellow-400 fill-yellow-400" />
                        ))}
                     </div>
                     <p className="text-lg md:text-2xl font-medium text-slate-700 leading-relaxed mb-8 md:mb-12">
