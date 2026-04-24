@@ -82,7 +82,7 @@ const ResponsiveZohoForm = () => {
                     title="Zoho Contact Form"
                     style={{
                         width: '100%',
-                        height: '700px', 
+                        height: '680px', 
                         border: 'none',
                         backgroundColor: 'transparent'
                     }}
