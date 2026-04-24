@@ -48,8 +48,8 @@ const ResponsiveZohoForm = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const [containerWidth, setContainerWidth] = React.useState(680);
     const [isMobileViewport, setIsMobileViewport] = React.useState(window.innerWidth < 768);
-    const BASE_WIDTH = 680;
-    const BASE_HEIGHT = 610; // Tightened height to remove bottom white gap
+    const BASE_WIDTH = 540;
+    const BASE_HEIGHT = 600; // Tightened height to remove bottom white gap
 
     React.useEffect(() => {
         const el = containerRef.current;
@@ -102,9 +102,10 @@ const ResponsiveZohoForm = () => {
                     width: BASE_WIDTH * scale,
                     height: BASE_HEIGHT * scale,
                     position: 'relative',
-                    overflow: 'hidden',
+                    overflow: 'visible',
                     backgroundColor: 'transparent',
                     boxShadow: 'none',
+                    border: 'none',
                     transition: 'all 0.3s ease-out'
                 }}
             >
