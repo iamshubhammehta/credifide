@@ -263,7 +263,7 @@ const ProviderEnrollmentLP: React.FC = () => {
       `}</style>
       <main>
         {/* HERO: COMMAND CENTER EXPERIENCE */}
-        <section className="relative pt-8 lg:pt-12 pb-8 md:pb-10 overflow-x-hidden bg-slate-50/80 shadow-sm">
+        <section className="relative pt-4 lg:pt-6 pb-4 md:pb-6 overflow-x-hidden bg-slate-50/80 shadow-sm">
           {/* Dynamic Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
              <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-light/5 rounded-full blur-[160px]" />
@@ -271,12 +271,12 @@ const ProviderEnrollmentLP: React.FC = () => {
              <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(#11332E 1px, transparent 1px), linear-gradient(90deg, #11332E 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mb-6 md:mb-12">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start min-h-[auto] lg:min-h-[calc(100vh-120px)] pt-4 lg:pt-12">
+          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mb-4 md:mb-6">
+            <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 items-start min-h-[auto] lg:min-h-[calc(100vh-160px)] pt-2 lg:pt-4">
               {/* Text Side - Vertically Centered */}
               <div className="flex flex-col justify-start lg:sticky lg:top-24 sm:py-12 lg:py-0 order-1 lg:order-1">
                 <div>
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-light/50 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-light/50 bg-brand-light/20 text-brand-deep text-[10px] font-black uppercase tracking-[0.2em] mb-4">
                      <Zap size={14} />
                      Unified Healthcare Provider Enrollment
                   </div>
@@ -317,9 +317,9 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* SERVICES: THE INFRASTRUCTURE */}
-        <section className="pt-10 md:pt-12 pb-10 md:pb-20 bg-white flex flex-col items-center">
+        <section className="pt-6 md:pt-8 pb-6 md:pb-10 bg-white flex flex-col items-center">
            <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="text-center mb-6 md:mb-20 text-slate-900">
+              <div className="text-center mb-4 md:mb-10 text-slate-900">
                  <h2 className="text-3xl md:text-6xl font-display font-black leading-tight">
                     Our Services
                  </h2>
@@ -380,7 +380,7 @@ const ProviderEnrollmentLP: React.FC = () => {
 
                {/* DESKTOP: Static Grid */}
                <div 
-                className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16 items-stretch"
+                className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-10 items-stretch"
               >
                  {[
                     { title: 'Primary Source Verification', icon: FileCheck },
@@ -406,7 +406,7 @@ const ProviderEnrollmentLP: React.FC = () => {
               </div>
 
               {/* MODERN SERVICE CTA CENTER */}
-              <div className="mt-16">
+              <div className="mt-8">
                  <div className="bg-[#0f2e2a] rounded-[3.5rem] p-6 md:p-16 overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(15,46,42,0.3)] group cursor-default">
                     {/* Animated Accents */}
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px] -mr-100 -mt-100 group-hover:opacity-40 transition-opacity duration-1000" />
@@ -416,7 +416,7 @@ const ProviderEnrollmentLP: React.FC = () => {
                        
                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 text-center lg:text-left">
                           <div className="max-w-xl">
-                             <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-1.5 md:py-2 rounded-full bg-brand-accent/20 text-brand-accent text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] mb-4 md:mb-8 border border-brand-accent/30 animate-pulse">
+                             <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-1.5 md:py-2 rounded-full bg-brand-accent/20 text-brand-accent text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] mb-3 md:mb-6 border border-brand-accent/30 animate-pulse">
                                 <Sparkles size={12} className="md:w-[14px] md:h-[14px]" />
                                 Instant Enrollment Support
                              </div>
@@ -446,7 +446,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* METRICS SECTION */}
-        <section className="py-10 md:py-20 bg-slate-50/50 relative">
+        <section className="py-6 md:py-12 bg-slate-50/50 relative">
            <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               {[
                 { label: 'Submission Accuracy', value: '98%', icon: Shield, color: 'text-brand-deep' },
@@ -470,11 +470,11 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* SPECIALTIES: ANIMATED EXPERIENCE (COOLER) */}
-        <section id="specialties-lp" className="py-10 md:py-20 bg-white relative overflow-hidden">
+        <section id="specialties-lp" className="py-6 md:py-12 bg-white relative overflow-hidden">
            <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-brand-light/20 rounded-full blur-[100px] -z-10" />
            
            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-8 md:mb-24">
+              <div className="text-center mb-4 md:mb-12">
                  <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-4 md:mb-8 tracking-tighter">
                     Expertise Across <br />
                     <span className="text-brand-deep font-black">Every Specialty.</span>
@@ -566,13 +566,13 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* PROCESS: THE FLOW GRID */}
-        <section id="how-it-works" className="py-10 md:py-20 bg-[#0f3d3a] relative overflow-hidden">
+        <section id="how-it-works" className="py-6 md:py-12 bg-[#0f3d3a] relative overflow-hidden">
            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
            {/* Animated flow backdrop */}
            <div className="absolute inset-0 opacity-[0.1] -z-10 bg-[radial-gradient(circle_at_center,_#A3BD6A_1px,_transparent_1px)] bg-[length:32px_32px]" />
 
            <div className="max-w-7xl mx-auto px-6 relative z-10 text-slate-50">
-              <div className="text-center mb-10 md:mb-24">
+              <div className="text-center mb-6 md:mb-12">
                  <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-3 md:mb-6">Structured To <span className="text-brand-accent font-black">Win.</span></h2>
                  <p className="text-[#A3BD6A] text-lg max-w-xl mx-auto uppercase tracking-[0.5em] font-black text-[10px]">The Credifide Lifecycle</p>
               </div>
@@ -603,7 +603,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* WHY CREDIFIDE: THE TECH-CENTRIC ADVANTAGE (THEME SYNCED) */}
-        <section className="py-10 md:py-20 bg-white relative overflow-hidden">
+        <section className="py-6 md:py-12 bg-white relative overflow-hidden">
            {/* Floating Theme Accents */}
            <div className="absolute inset-0 pointer-events-none overflow-hidden">
               <div
@@ -616,7 +616,7 @@ const ProviderEnrollmentLP: React.FC = () => {
            </div>
  
            <div className="max-w-7xl mx-auto px-6 relative z-10">
-              <div className="flex flex-col lg:flex-row items-end justify-between mb-10 md:mb-24 gap-8">
+              <div className="flex flex-col lg:flex-row items-end justify-between mb-6 md:mb-12 gap-8">
                  <div className="max-w-2xl text-left">
                     <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-brand-light/30 border border-brand-light text-brand-deep text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-8">
                        <Zap size={14} className="text-brand-accent" />
@@ -704,7 +704,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* PAYER NETWORK: THE INTEGRATION HUB EXPERIENCE */}
-        <section className="py-10 md:py-20 bg-white relative overflow-hidden">
+        <section className="py-6 md:py-12 bg-white relative overflow-hidden">
            {/* Modern Hub Lines Animation */}
            <div className="absolute inset-0 pointer-events-none z-0">
               <svg className="w-full h-full opacity-[0.03]" viewBox="0 0 1440 800" fill="none">
@@ -719,7 +719,7 @@ const ProviderEnrollmentLP: React.FC = () => {
  
            <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
               <div
-                 className="mb-10 md:mb-24"
+                 className="mb-6 md:mb-12"
               >
                  <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-slate-100 bg-slate-50 text-brand-deep text-[10px] font-black uppercase tracking-[0.3em] mb-4 md:mb-8">
                     <Layers size={14} />
@@ -758,7 +758,7 @@ const ProviderEnrollmentLP: React.FC = () => {
         </section>
 
         {/* FINAL CONVERSION: GOOGLE CALENDAR BOOKING */}
-        <section id="footer-form" className="py-10 md:py-20 bg-[#0f2e2a] relative overflow-hidden">
+        <section id="footer-form" className="py-6 md:py-12 bg-[#0f2e2a] relative overflow-hidden">
           {/* Background accents */}
           <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-light/5 rounded-full blur-[120px] pointer-events-none" />
